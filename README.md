@@ -83,3 +83,4 @@ The goal is to build a system that helps leaders ask better questions, identify 
 **Kenneth Corioso**
 
 Marketing and healthcare operations professional focused on building practical AI systems at the intersection of healthcare growth, analytics, technology, and executive decision-making.
+
