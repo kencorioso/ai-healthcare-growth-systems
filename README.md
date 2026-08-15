@@ -18,17 +18,11 @@ This project explores how AI can help healthcare marketing leaders interpret per
 
 The first system will be a:
 
-**Marketing Attribution & Executive Insight Engine**
+**Patient Acquisition & Executive Insight Engine**
 
-It will use synthetic healthcare marketing data to:
+The system will first be built and validated within a synthetic behavioral healthcare organization, a domain in which the project owner has direct operating and marketing experience.
 
-- Ingest channel-level marketing performance data
-- Calculate core metrics such as spend, leads, conversions/admissions, CPL, CPA, and conversion rate
-- Identify changes and anomalies in performance
-- Use an AI model to generate an executive summary
-- Separate observed facts from hypotheses
-- Recommend areas for human investigation
-- Present the results in a simple executive dashboard
+Version 1 is the current development priority. Later healthcare scenarios will not be developed until the Version 1 framework has been built, tested, documented, and validated.
 
 ## Why This Project
 
@@ -37,6 +31,49 @@ The project is modeled on real healthcare marketing problems I have encountered 
 The goal is not to automate executive judgment.
 
 The goal is to build a system that helps leaders ask better questions, identify problems faster, and make more informed decisions.
+
+## Validation Roadmap
+
+The project will use a staged validation strategy. Each version will test a different aspect of the Patient Acquisition & Executive Insight Engine.
+
+### Version 1 — Behavioral Health: Domain Validation
+
+**Current focus**
+
+Build and validate the system within a behavioral healthcare environment where the project owner has direct operating and marketing experience.
+
+Version 1 will establish the core analytical architecture, patient-acquisition funnel, measurement model, AI reasoning framework, and executive reporting approach.
+
+The primary objective is to determine whether the system can accurately identify where patient-acquisition performance is changing while clearly separating:
+
+- Observed facts
+- Hypotheses
+- Recommended investigations
+- Findings not established by available data
+
+Version 1 will be completed and validated before development begins on subsequent specialty scenarios.
+
+### Version 2 — Orthopedics: Cross-Specialty Generalization
+
+**Planned after Version 1**
+
+Apply the validated framework to a multi-location outpatient orthopedic organization with a different patient-acquisition environment and a different underlying performance constraint.
+
+The objective will be to determine whether the system can generalize beyond the domain used to build it rather than repeatedly producing the explanation identified in Version 1.
+
+### Version 3 — Women's Health: Multi-Constraint Stress Test
+
+**Future**
+
+Apply the framework to a women's health environment containing multiple interacting patient-acquisition and operational constraints.
+
+The objective will be to test whether the system can distinguish among simultaneous performance issues, communicate uncertainty appropriately, and prioritize areas for executive investigation.
+
+### Development Rule
+
+**Build deeply before expanding broadly.**
+
+Versions 2 and 3 define the future validation path, but all current development work remains focused on completing Version 1.
 
 ## Project Principles
 
@@ -70,12 +107,20 @@ The goal is to build a system that helps leaders ask better questions, identify 
 
 ## Current Status
 
-**Week 1 — Foundation**
+**Version 1 — Behavioral Health: Domain Validation**
+
+**Foundation**
 
 - [x] GitHub repository created
 - [x] Initial README created
 - [x] Project folder structure
+- [x] Cross-specialty validation roadmap defined
+- [ ] Harbor Ridge business scenario
+- [ ] Patient-acquisition process map
+- [ ] Data dictionary and measurement specification
 - [ ] Synthetic dataset design
+- [ ] Synthetic dataset validation
+- [ ] Baseline analytical model
 - [ ] First executive-analysis prompt
 
 ## Project Owner
