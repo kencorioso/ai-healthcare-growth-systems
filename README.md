@@ -24,27 +24,29 @@ The system will first be built and validated within a synthetic behavioral healt
 
 Version 1 is the current development priority. Later healthcare scenarios will not be developed until the Version 1 framework has been built, tested, documented, and validated.
 
-## Why This Project
+It will use synthetic healthcare marketing data to:
 
-The project is modeled on real healthcare marketing problems I have encountered during my career, including situations where leadership believed one part of the business was underperforming when the real constraint existed elsewhere in the acquisition system.
-
-The goal is not to automate executive judgment.
-
-The goal is to build a system that helps leaders ask better questions, identify problems faster, and make more informed decisions.
+- Ingest channel-level marketing performance data
+- Calculate core metrics such as spend, leads, conversions/admissions, CPL, CPA, and conversion rate
+- Identify changes and anomalies in performance
+- Use an AI model to generate an executive summary
+- Separate observed facts from hypotheses
+- Recommend areas for human investigation
+- Present the results in a simple executive dashboard
 
 ## Validation Roadmap
 
-The project will use a staged validation strategy. Each version will test a different aspect of the Patient Acquisition & Executive Insight Engine.
+The Patient Acquisition & Executive Insight Engine will be developed through a staged healthcare validation strategy. Each version will test a different capability of the underlying framework.
 
 ### Version 1 — Behavioral Health: Domain Validation
 
-**Current focus**
+**Current Focus**
 
 Build and validate the system within a behavioral healthcare environment where the project owner has direct operating and marketing experience.
 
-Version 1 will establish the core analytical architecture, patient-acquisition funnel, measurement model, AI reasoning framework, and executive reporting approach.
+Version 1 will establish the core patient-acquisition model, analytical architecture, measurement framework, AI reasoning approach, and executive reporting methodology.
 
-The primary objective is to determine whether the system can accurately identify where patient-acquisition performance is changing while clearly separating:
+The system will be evaluated on its ability to distinguish among:
 
 - Observed facts
 - Hypotheses
@@ -55,9 +57,9 @@ Version 1 will be completed and validated before development begins on subsequen
 
 ### Version 2 — Orthopedics: Cross-Specialty Generalization
 
-**Planned after Version 1**
+**Planned After Version 1**
 
-Apply the validated framework to a multi-location outpatient orthopedic organization with a different patient-acquisition environment and a different underlying performance constraint.
+Apply the validated framework to a multi-location outpatient orthopedic organization with a different patient-acquisition environment and underlying performance constraint.
 
 The objective will be to determine whether the system can generalize beyond the domain used to build it rather than repeatedly producing the explanation identified in Version 1.
 
@@ -73,7 +75,15 @@ The objective will be to test whether the system can distinguish among simultane
 
 **Build deeply before expanding broadly.**
 
-Versions 2 and 3 define the future validation path, but all current development work remains focused on completing Version 1.
+Versions 2 and 3 define the future validation path, but all current development work remains focused on completing and validating Version 1.
+
+## Why This Project
+
+The project is modeled on real healthcare marketing problems I have encountered during my career, including situations where leadership believed one part of the business was underperforming when the real constraint existed elsewhere in the acquisition system.
+
+The goal is not to automate executive judgment.
+
+The goal is to build a system that helps leaders ask better questions, identify problems faster, and make more informed decisions.
 
 ## Project Principles
 
@@ -115,11 +125,13 @@ Versions 2 and 3 define the future validation path, but all current development 
 - [x] Initial README created
 - [x] Project folder structure
 - [x] Cross-specialty validation roadmap defined
-- [ ] Harbor Ridge business scenario
-- [ ] Patient-acquisition process map
+- [x] Harbor Ridge Version 1 scenario established
+- [ ] Domain-expert interview completed
+- [ ] Patient-acquisition process mapped
+- [ ] Executive business problem finalized
 - [ ] Data dictionary and measurement specification
-- [ ] Synthetic dataset design
-- [ ] Synthetic dataset validation
+- [ ] Synthetic dataset designed
+- [ ] Synthetic dataset validated
 - [ ] Baseline analytical model
 - [ ] First executive-analysis prompt
 
