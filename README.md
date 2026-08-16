@@ -126,9 +126,9 @@ The goal is to build a system that helps leaders ask better questions, identify 
 - [x] Project folder structure
 - [x] Cross-specialty validation roadmap defined
 - [x] Harbor Ridge Version 1 scenario established
-- [ ] Domain-expert interview completed
-- [ ] Patient-acquisition process mapped
-- [ ] Executive business problem finalized
+- [x] Domain-expert interview completed
+- [x] Patient-acquisition process mapped
+- [x] Executive business problem finalized
 - [ ] Data dictionary and measurement specification
 - [ ] Synthetic dataset designed
 - [ ] Synthetic dataset validated
