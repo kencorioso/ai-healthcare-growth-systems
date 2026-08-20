@@ -1,0 +1,479 @@
+# Harbor Ridge V1 — Source-System Architecture Notes
+
+## Purpose
+
+This document records architectural decisions established during the Harbor Ridge V1 domain-expert interview.
+
+The goal is to define how acquisition, admissions, telephony, CRM, EHR, and other source-system evidence should eventually connect within the Patient Acquisition & Executive Insight Engine.
+
+These notes represent the current architecture and will inform the Source-System Map, Canonical Data Model, Data Dictionary, Measurement Specification, and synthetic dataset.
+
+---
+
+## Core Journey Model
+
+The emerging Harbor Ridge journey is:
+
+Acquisition Touch  
+→ Contact Method  
+→ Inquiry Record  
+→ Patient Opportunity  
+→ Clinical Qualification  
+→ Verification of Benefits (VOB)  
+→ Financial Fit  
+→ Readiness  
+→ Admission Candidate  
+→ Logistics  
+→ Arrival  
+→ Completed Admission  
+→ EHR / Treatment Outcome
+
+A single Patient Opportunity may contain multiple acquisition touches, inquiry records, callers, and source-system identifiers.
+
+---
+
+## Acquisition Architecture
+
+Acquisition should not be represented as a single flat source field.
+
+The architecture distinguishes:
+
+**Acquisition Channel**  
+→ **Acquisition Source**  
+→ **Source Detail**  
+→ **Contact Method**  
+→ **Inquiry Record**  
+→ **Patient Opportunity**
+
+Examples include:
+
+- Paid Search → Google Ads → Campaign / Ad Group / Keyword → Phone Call
+- Paid Search → Google Ads → Campaign / Ad Group / Keyword → Web Form
+- Paid Search → Microsoft Ads → Campaign / Ad Group / Keyword → Phone Call or Web Form
+- Paid Social → Meta Ads → Campaign / Ad Set / Ad → Phone Call or Web Form
+- Organic Search → Google Organic → Landing Page / Content → Phone Call or Web Form
+- Healthcare Directory → Psychology Today → Listing / Profile → Phone Call or Web Form
+- Professional Referral → Therapist / Psychiatrist → Individual or Practice → Phone Call
+- Hospital / Clinical Referral → Hospital / Crisis Center → Facility / Department → Phone Call
+- Alumni / Patient Referral → Alumni → Referral Relationship → Phone Call or Web Form
+- Direct / Brand → Direct → Phone or Web
+- Other → Other Identifiable Source
+
+### Healthcare Directories
+
+Healthcare Directory should exist as a distinct acquisition category rather than treating individual directory sites as equivalent to paid-media platforms.
+
+A directory may generate inquiries through a free listing, paid listing, paid placement, or other relationship.
+
+---
+
+## Calls and Web Forms
+
+Calls and web forms must remain analytically distinct contact methods.
+
+They should not be collapsed into a generic conversion event.
+
+This distinction allows executives to ask questions such as:
+
+> How are web-form leads performing versus calls this month?
+
+or:
+
+> Are calls converting to viable VOBs at a higher rate than web forms?
+
+The two contact methods may originate from the same acquisition source while producing substantially different downstream behavior.
+
+---
+
+## Patient Opportunity vs. Inquiry
+
+An Inquiry Record is not necessarily equivalent to a Patient Opportunity.
+
+One prospective patient may generate:
+
+- multiple calls
+- multiple web forms
+- calls from different family members
+- a professional referral
+- repeat contacts over several days
+- duplicate CRM records
+
+These interactions should ultimately resolve to a canonical Patient Opportunity whenever sufficient evidence exists.
+
+Example canonical identifier:
+
+`opportunity_id = HRO-000184`
+
+Source-system identifiers remain separate, including:
+
+- `call_id`
+- `form_submission_id`
+- `crm_lead_id`
+- `admission_id`
+- `encounter_id`
+- platform click identifiers
+
+The Harbor Ridge opportunity ID is a canonical analytical identifier. It should not be assumed to originate in the telephony system, CRM, or EHR.
+
+---
+
+## Identity Resolution
+
+Telephony systems recognize callers, phone numbers, browser sessions, and returning callers.
+
+They do not inherently understand households, loved ones, or prospective-patient opportunities.
+
+For example:
+
+- Mother calls from one phone number.
+- Father calls the next day from another number.
+- Patient calls later from a third number.
+
+The telephony system may initially see three unrelated callers even though all three interactions belong to one Patient Opportunity.
+
+Potential contact roles include:
+
+- Patient
+- Loved One
+- Professional Referral Source
+- Other
+- Unknown
+
+Identity resolution must therefore occur downstream through CRM workflows, human reconciliation, stronger patient identifiers, or the canonical Harbor Ridge model.
+
+---
+
+## Duplicate Records
+
+Duplicate leads should be treated as a structural characteristic of the behavioral-health acquisition environment rather than an exceptional error.
+
+Duplicates may result from:
+
+- separate calls from family members
+- different phone numbers or email addresses
+- directory leads followed by direct website submissions
+- disconnected CRM and EHR systems
+- shift changes
+- manual entry errors
+- weak CRM deduplication rules
+- separate telephony and CRM records
+
+Potential identity evidence includes:
+
+### Strong Evidence
+
+- Insurance Member ID
+- Patient Date of Birth
+
+### Moderate Evidence
+
+- Patient Phone
+- Patient Email
+
+### Contextual Evidence
+
+- Loved-One Phone
+- Loved-One Email
+- Patient Name
+- Address
+- Timing
+
+Potential future match states may include:
+
+- Confirmed
+- Probable
+- Possible
+- Unmatched
+
+These states are architectural concepts and are not yet finalized data-dictionary fields.
+
+---
+
+## Paid-Search Attribution
+
+The trusted baseline paid-search chain is:
+
+Google Ads  
+→ Campaign  
+→ Ad Group  
+→ Keyword  
+→ Landing Page  
+→ Tracking Number / DNI  
+→ Call
+
+**Keyword and Search Term are not equivalent.**
+
+Keyword represents the purchased/bidded targeting construct.
+
+Search Term represents the user's actual query and may be incompletely observable because search-query visibility can be restricted.
+
+Search Term should therefore remain outside the baseline trusted attribution chain and should carry its own availability and reliability considerations.
+
+---
+
+## Telephony Source-System Ownership
+
+Telephony owns the call evidence.
+
+A properly configured telephony/call-tracking platform may retain:
+
+- `call_id`
+- `caller_phone`
+- `tracking_number`
+- `tracking_source`
+- `source`
+- `medium`
+- `campaign`
+- `ad_group`
+- `keyword`
+- platform click identifier where available
+- `landing_page`
+- `referring_url`
+- `call_timestamp`
+- `call_duration`
+- `answered_status`
+- `agent_id`
+- `returning_caller_flag`
+- `previous_call_count`
+- `recording_reference`
+
+Not every call will contain every field.
+
+The CRM may receive copies of some or all of this evidence through an integration. That does not make the CRM the authoritative origin of the data.
+
+---
+
+## Source-System Ownership Principle
+
+A field should retain its authoritative source-system provenance.
+
+Conceptually:
+
+**Marketing Platform**
+- Campaign
+- Ad Group
+- Keyword
+- Spend
+- Clicks
+- Impressions
+
+**Telephony**
+- Call ID
+- Tracking Number
+- Caller
+- Call Duration
+- Answered / Missed Status
+- Recording Reference
+- Call-Level Attribution Evidence
+
+**CRM / Admissions**
+- Lead / Opportunity Workflow
+- Status
+- Disposition
+- Admissions Notes
+- VOB Progression
+- Readiness / Admission Workflow
+
+**EHR**
+- Completed Admission
+- Encounter
+- Treatment Progression
+- Discharge / Outcome Evidence
+
+**Canonical Harbor Ridge Model**
+- Cross-system Patient Opportunity
+- Cross-system identifier resolution
+- Analytical lineage
+
+A downstream copy of an upstream field does not become its authoritative origin.
+
+---
+
+## Telephony-to-CRM Integration States
+
+### State A — Strong Integration
+
+Telephony evidence passes downstream through API, webhook, or native integration while preserving source provenance.
+
+### State B — Partial / Fragmented Integration
+
+Telephony, CRM, and EHR may each contain accurate information internally but fail to share enough identifiers to reconstruct the complete patient-acquisition journey.
+
+This represents a data-lineage failure rather than necessarily a data-collection failure.
+
+### State C — Manual Reconciliation
+
+Organizations may reconcile completed admissions retrospectively through spreadsheets or exports.
+
+A typical process may resemble:
+
+EHR Admission Export  
+→ Spreadsheet / CSV  
+→ Marketing + IT Reconciliation  
+→ CRM Match  
+→ Telephony Lookup  
+→ Retrospective Attribution
+
+Marketing and IT commonly need to work together to produce the most accurate reconciliation.
+
+---
+
+## Attribution History
+
+New attribution evidence should append to the patient journey rather than overwrite the original acquisition evidence.
+
+The architecture should eventually support views such as:
+
+- First-Touch Attribution
+- Last-Touch Attribution
+- Multi-Touch Journey
+- Original Acquisition Source
+- Most Recent Known Source
+
+The architecture should preserve the evidence required to calculate these perspectives rather than prematurely declare one attribution model to be objective truth.
+
+---
+
+## Evidence Provenance
+
+Data availability does not equal data reliability.
+
+The system must distinguish among:
+
+### System-Observed Evidence
+
+Examples:
+
+- Call Duration
+- Timestamp
+- Tracking Number
+- Campaign
+- Landing Page
+
+### Human-Entered Evidence
+
+Examples:
+
+- Disposition
+- "How did you hear about us?"
+- Admissions Notes
+- Loss Reason
+
+### AI-Derived Evidence
+
+Examples:
+
+- Automated Call Summary
+- Topic Detection
+- Sentiment
+- AI-Inferred Insurance Concern
+
+These evidence types should not automatically receive equal analytical weight.
+
+---
+
+## Admissions Dispositions
+
+Hard operational gates tend to produce more reliable structured dispositions, such as:
+
+- No Accepted Insurance
+- No OON Benefits
+- Financially Infeasible
+- Clinically Inappropriate
+- Medical Clearance Required / Higher Level of Care
+
+Behavioral or progression dispositions may be less reliable:
+
+- Patient Unwilling
+- Unable to Contact
+- Went Elsewhere
+- Loved-One Inquiry / Patient Not Engaged
+- No-Show
+- Changed Mind
+
+Catch-all dispositions such as `Referred Out`, `Closed/Lost`, `Inquiry Nurturing`, or `Other` may obscure the actual reason contained in narrative notes.
+
+The architecture should preserve both structured disposition data and free-text notes where available.
+
+---
+
+## Measurement Degradation Framework
+
+Four distinct forms of measurement degradation have been identified.
+
+### 1. Observability Loss
+
+The evidence exists conceptually but cannot be fully observed.
+
+Example:
+
+Search Term is unavailable or suppressed.
+
+### 2. Identity Loss
+
+The organization cannot determine that multiple interactions belong to the same Patient Opportunity.
+
+Example:
+
+Mother, father, and patient appear as three unrelated leads.
+
+### 3. Attribution Loss
+
+Acquisition evidence exists upstream but does not survive a downstream system handoff.
+
+Example:
+
+CTM knows the Google Ads campaign and keyword, but the CRM only records `Google`.
+
+### 4. Outcome-Linkage Loss
+
+The organization cannot reliably connect the acquisition/admissions record to the final business outcome.
+
+Example:
+
+A CRM opportunity cannot be confidently connected to the completed EHR admission.
+
+These four failure types should remain analytically distinct.
+
+---
+
+## Current Source-System Interview Status
+
+Completed:
+
+- [x] Admissions Funnel
+- [x] CRM / Admissions Data
+- [x] Telephony / Call Tracking
+
+Remaining:
+
+- [ ] Web / Digital Analytics + Web Forms
+- [ ] Marketing Platforms
+- [ ] SEO / Organic Search
+- [ ] Professional Referral / Business Development
+- [ ] EHR / Billing / Revenue Outcomes
+
+---
+
+## Next Interview Category
+
+**Web / Digital Analytics + Web Forms**
+
+The next interview begins with:
+
+> When someone arrives on Harbor Ridge's website and submits a treatment inquiry form, what information do you believe a well-configured organization should capture about that visitor and submission, and what have you actually seen survive into the CRM in practice?
+
+The same analytical discipline used for Telephony will be applied:
+
+1. What exists?
+2. What is reliable?
+3. What survives the handoff?
+4. What can an executive legitimately conclude from it?
+
+---
+
+## Development Rule
+
+**Build deeply before expanding broadly.**
+
+Harbor Ridge Behavioral Health Version 1 remains the sole development priority until the framework has been built, tested, documented, and validated.
