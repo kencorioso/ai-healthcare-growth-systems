@@ -471,7 +471,155 @@ The same analytical discipline used for Telephony will be applied:
 4. What can an executive legitimately conclude from it?
 
 ---
+---
 
+## Source-System Interview Progress — August 21, 2026
+
+### Web / Digital Analytics + Forms — COMPLETE
+
+The Harbor Ridge V1 source-system interview established the web-form pathway as a distinct acquisition and inquiry mechanism rather than treating all digital conversions as equivalent.
+
+Key architectural findings:
+
+- Patient/referrer-facing web forms should remain intentionally minimal to reduce conversion friction.
+- A representative behavioral-health inquiry form may contain:
+  - First Name
+  - Last Name
+  - Email
+  - Phone
+  - How Can We Help?
+- Marketing attribution should be captured passively where technically and legally appropriate rather than requiring the prospective patient or loved one to supply it manually.
+- Web-form inquiries generally enter the CRM before clinical information is transferred to the EHR.
+- Form routing may involve:
+  - Admissions Director assignment
+  - Direct assignment to an Admissions Representative
+  - Round-robin distribution
+  - Dedicated intake teams
+- Website conversion events and CRM inquiries must remain separate business facts because analytics systems count actions while CRMs generally attempt to represent people/opportunities.
+- Duplicate submissions, spam filtering, validation failures, privacy controls, script failures, and integration/API failures can create discrepancies between analytics conversions and CRM inquiries.
+- First-touch and subsequent-touch evidence should be preserved rather than forcing the system to choose a single attribution narrative prematurely.
+- High-intent landing-page behavior, form starts, form completions, geographic alignment, VOB progression, and speed-to-lead are substantially more useful operational signals than aggregate traffic alone.
+- The web-form pathway should ultimately support reconciliation through:
+
+  Web Visit → Form Interaction → Form Submission → CRM Inquiry → VOB → Admission
+
+### Marketing Platforms — COMPLETE
+
+The Harbor Ridge V1 interview established that advertising-platform data is valuable evidence but is not itself the source of truth for business outcomes.
+
+Key architectural findings:
+
+- Preserve the paid-search hierarchy:
+
+  Platform → Account → Campaign → Ad Group → Keyword → Search Term
+
+- Preserve the Meta hierarchy separately:
+
+  Platform → Account → Campaign → Ad Set → Ad / Creative
+
+- Platform metrics such as spend, impressions, clicks, CPC, CTR, impression share, frequency, CPM, campaign settings, match type, bidding strategy, geography, and creative context are valuable for reconstructing acquisition conditions.
+- Platform-reported conversions must not automatically be treated as inquiries, VOBs, admissions, or revenue.
+- Platform conversion counts and CRM inquiry counts should coexist so discrepancies can be diagnosed rather than silently reconciled away.
+- Search-term evidence should remain distinct from purchased/bidded keyword evidence.
+- Historical change data is critical for forensic reconstruction.
+- Preserve material account changes including:
+  - Bidding strategy changes
+  - Network changes
+  - Conversion-action changes
+  - Keyword and match-type changes
+  - Negative-keyword changes
+  - Automated recommendation changes
+  - Budget changes
+  - Geographic targeting changes
+  - Ad/creative changes
+- Marketing effectiveness should ultimately be evaluated against downstream business outcomes rather than platform CPA alone.
+- Clinical decision-making must remain operationally separate from marketing optimization.
+
+### SEO / Organic Search — COMPLETE
+
+The Harbor Ridge V1 interview established that aggregate organic traffic is insufficient for evaluating behavioral-health acquisition performance.
+
+Key architectural findings:
+
+- Organic traffic must be separated by intent and landing-page function.
+- Commercial/high-intent organic traffic and informational organic traffic should remain analytically distinguishable.
+- Preserve Google Search Console query-to-page evidence rather than relying exclusively on aggregated keyword-ranking reports.
+- Preserve historical website architecture, redirects, page changes, and content publication history so organic failures can be reconstructed retrospectively.
+- Content should be evaluated against downstream business contribution, including inquiry, VOB, and admission evidence where linkage is available.
+- Local organic discovery should remain distinguishable from conventional website organic search.
+
+Harbor Ridge should preserve at least three organic interaction pathways:
+
+1. Google Business Profile / Maps
+   → Dedicated static/source-specific tracking number
+   → Call
+   → Inquiry
+   → VOB
+   → Admission
+
+2. Google Organic Search
+   → Organic Landing Page
+   → Website DNI
+   → Call
+   → Inquiry
+   → VOB
+   → Admission
+
+3. Google Business Profile / Maps
+   → UTM-tagged Website Link
+   → Website
+   → DNI or Form
+   → Inquiry
+   → VOB
+   → Admission
+
+Local/Maps attribution should therefore be modeled using separate concepts for:
+
+- Acquisition Channel
+- Acquisition Subchannel
+- Source Platform
+- Interaction Type
+- Tracking Method
+
+SEO failure analysis should compare:
+
+- Commercial vs. informational traffic
+- Query-to-page performance
+- Historical rankings and impressions
+- Website/page/redirect changes
+- Local/Maps performance
+- Analytics-to-CRM linkage
+- VOB quality
+- Admission outcomes
+
+The architecture should identify evidence of contribution without automatically asserting causality.
+
+### Current Source-System Interview Status
+
+- Admissions Funnel — COMPLETE
+- CRM / Admissions — COMPLETE
+- Telephony / Call Tracking — COMPLETE
+- Web / Digital Analytics + Forms — COMPLETE
+- Marketing Platforms — COMPLETE
+- SEO / Organic Search — COMPLETE
+- Professional Referral / Business Development — REMAINING
+- EHR / Billing / Outcomes — REMAINING
+
+Six of the eight planned source-system interview categories are now complete.
+
+### Architecture Principle Reinforced
+
+Harbor Ridge V1 should not force disparate systems into one flattened attribution table.
+
+The architecture should preserve:
+
+1. Source-system evidence
+2. Business facts
+3. Identity-resolution evidence
+4. Attribution evidence
+5. Derived analytical conclusions
+
+The system should preserve what each source actually knows, explicitly represent uncertainty and broken handoffs, and reconstruct the patient opportunity across systems without manufacturing precision that the underlying evidence cannot support.
 ## Development Rule
 
 **Build deeply before expanding broadly.**
