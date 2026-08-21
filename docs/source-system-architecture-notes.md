@@ -625,3 +625,327 @@ The system should preserve what each source actually knows, explicitly represent
 **Build deeply before expanding broadly.**
 
 Harbor Ridge Behavioral Health Version 1 remains the sole development priority until the framework has been built, tested, documented, and validated.
+---
+
+## Professional Referral / Business Development
+
+### Source-System Role
+
+Professional Referral / Business Development represents a distinct acquisition pathway that cannot be treated as a simple marketing-source field.
+
+Unlike digital acquisition, professional referral attribution depends heavily on human recognition, relationship management, intake documentation, and persistent linkage between the referring professional and the patient opportunity.
+
+The canonical model should distinguish:
+
+- Professional Account
+- Outreach Representative / Account Owner
+- Referral Event
+- Patient Opportunity
+- VOB Outcome
+- Admission Outcome
+
+A completed admission alone is not sufficient to evaluate professional referral performance.
+
+### Professional Referral Intake
+
+Ideally capture:
+
+- Referring professional name
+- Practice / organization
+- Professional type / license
+- Contact information
+- NPI when applicable
+- Patient identity and contact information
+- Insurance / VOB information
+- Referral context
+- Clinical urgency
+- Communication expectations
+- Release-of-information status when relevant
+- Primary Professional Account
+- Assigned outreach representative / account owner
+
+### Attribution Risk
+
+Professional referral attribution is highly vulnerable to human-entry failure.
+
+Common failure points include:
+
+- Intake staff focusing on the patient crisis and failing to capture the referrer
+- Referrer information being stored only in free-text notes
+- Patients or family members failing to mention the referring professional
+- Outreach representatives receiving no credit for relationships they developed
+- Digital attribution claiming a lead that was actually initiated by a professional relationship
+- Referral-source information disappearing during CRM-to-EHR handoff
+
+Digital systems claim attribution automatically. Professional relationships often require explicit human recognition.
+
+Therefore:
+
+**Arrival channel and referral influence must be modeled separately.**
+
+A patient may arrive through Google Organic, Paid Search, phone, or a web form while the true initiating influence was a professional referral.
+
+### Professional Account Ownership
+
+Professional relationships should be governed by explicit Rules of Engagement.
+
+The system should distinguish:
+
+- Primary Account Owner
+- Assisting Representative
+- Clinical / Executive Influence
+- Verified Relationship Activity
+- Referral Events
+- Resulting Patient Opportunities
+
+Account ownership should not be inferred solely from territory or the person who happened to receive the most recent call.
+
+### Relationship Health
+
+Professional-account performance should be evaluated through the full funnel:
+
+Professional Account
+→ Referral
+→ Patient Opportunity
+→ VOB
+→ Admission
+
+Referral representatives should not be evaluated solely on completed admissions because downstream outcomes may be affected by:
+
+- Insurance incompatibility
+- Patient choice
+- Clinical appropriateness
+- Admissions execution
+- Payer restrictions
+
+Relationship-decay detection should combine:
+
+- Historical referral baseline
+- Time since last referral
+- Recent outreach activity
+- Reciprocity of communication
+- Prior-patient follow-up history
+
+Silence alone is not proof of relationship decay.
+
+### Executive BD Portfolio Signals
+
+The proposed 15-minute Professional Referral / BD screen includes:
+
+1. Portfolio Concentration Risk
+2. Relationship Velocity
+3. New Account Activation Yield
+4. Account-Level Payer Viability
+5. Rep Activity-to-Yield Efficiency
+6. VOB-to-Admission Conversion
+7. Unreciprocated Outreach / Relationship-Decay Flags
+
+These metrics should distinguish between:
+
+- Signals strong enough to support action
+- Signals requiring additional investigation
+
+---
+
+## EHR / Billing / Revenue Outcomes
+
+### Source-System Role
+
+The EHR owns admission and treatment evidence.
+
+Billing / RCM systems own claim, remittance, adjustment, and collection evidence.
+
+The canonical Harbor Ridge layer must preserve these source boundaries rather than treating downstream clinical and financial information as a single dataset.
+
+### Identity Architecture
+
+A person, opportunity, episode of care, level-of-care segment, claim, and payment are separate entities.
+
+The preferred deterministic identity chain is:
+
+CRM Opportunity ID
+→ EHR Episode / Patient ID
+→ RCM Patient / Claim Identifier
+→ Remittance / Payment Record
+
+Deterministic identifiers should survive system boundaries wherever technically possible.
+
+When deterministic linkage is unavailable, reconciliation may require:
+
+Name + DOB + Date of Service + Payer
+
+These matches should be treated as probabilistic and may require human review.
+
+### Episode-of-Care Modeling
+
+A behavioral-health treatment journey may appear as:
+
+- One admission with Level-of-Care transfers
+
+or
+
+- Multiple discharge / readmission records across Detox and Residential
+
+Therefore:
+
+**PERSON ≠ OPPORTUNITY ≠ EPISODE ≠ LEVEL-OF-CARE SEGMENT**
+
+Raw admission counts cannot automatically be interpreted as unique patients or unique acquisition events.
+
+V1 downstream clinical scope remains limited to:
+
+- Early AMA
+- Detox completion
+- Detox-to-Residential transition
+- Residential completion
+- Financial / reimbursement outcome
+
+More expansive clinical, revenue-cycle, and longitudinal outcome measures remain outside the current V1 scope.
+
+### Financial Architecture
+
+Bed utilization does not equal realized financial value.
+
+The financial progression is:
+
+Billed Charges
+→ Allowed Amount
+→ Insurance / Patient Responsibility
+→ Adjustments / Write-offs
+→ Appeals
+→ Actual Collections
+
+These values must not be collapsed into a single `Revenue` field.
+
+Financial information also matures over time.
+
+The canonical layer should therefore preserve cohort maturity and distinguish between:
+
+**Operational / Leading View**
+
+Spend
+→ Inquiry
+→ VOB
+→ Admission
+→ LOC
+→ LOS
+→ Payer
+
+and:
+
+**Financial / Lagging View**
+
+Spend
+→ Mature Episode Cohort
+→ Claims
+→ Adjustments
+→ Appeals
+→ Actual Collections
+
+Recent cohorts should not be compared directly with mature cohorts as though their financial data were equally complete.
+
+### Last-Mile Financial Attribution
+
+One treatment episode may generate:
+
+- Multiple claims
+- Multiple remittances
+- Multiple insurance payments
+- Patient-responsibility payments
+- Adjustments
+- Appeals
+- Delayed recoveries
+
+Therefore, a Claim ID cannot serve as the ultimate business key.
+
+Preferred hierarchy:
+
+Episode of Care
+→ Claims
+→ Remittances
+→ Patient Payments
+→ Adjustments / Appeals
+→ Collected Cash
+
+Readmissions must remain associated with the correct opportunity and episode so historical acquisition events do not incorrectly absorb later financial outcomes.
+
+### Financial Attribution Evidence Standard
+
+Before the system reports that collected revenue originated from a specific CRM opportunity or acquisition source, the preferred evidence includes:
+
+1. CRM Opportunity ↔ EHR identity linkage
+2. Episode / Date-of-Service ↔ RCM claim linkage
+3. Remittance / payment evidence
+4. Appeal / adjustment audit trail when applicable
+
+When this deterministic evidence is incomplete, the system should expose the uncertainty rather than manufacture a definitive attribution.
+
+### Executive Downstream Signals
+
+The proposed 15-minute downstream executive screen includes:
+
+1. Early AMA Velocity
+2. Detox-to-Residential Step-Down Continuity
+3. Days Sales Outstanding by Payer
+4. Utilization Review Authorization Deficit
+5. First-Pass Denial Rate
+6. Cash Collected per Completed Admission for mature cohorts
+7. CRM → EHR → RCM Identity Integrity Rate
+
+Example thresholds discussed during discovery should be treated as configurable Harbor Ridge targets or historical baselines, not universal healthcare standards.
+
+### Evidence State
+
+Executive metrics should carry sufficient context to determine whether the number deserves action.
+
+Where available, the canonical layer should preserve:
+
+- Current Value
+- Historical Baseline
+- Configured Target / Threshold
+- Source System
+- Data Freshness
+- Identity-Match Confidence
+- Cohort Maturity
+- Decision State
+
+Decision states:
+
+- `ACT`
+- `INVESTIGATE`
+- `INSUFFICIENT_EVIDENCE`
+
+The system should be capable of saying that the evidence is insufficient rather than presenting false precision.
+
+---
+
+## Source-System Interview Status
+
+| Source-System Category | Status |
+|---|---|
+| Web / Digital + Forms | COMPLETE |
+| Marketing Platforms | COMPLETE |
+| SEO / Organic | COMPLETE |
+| Professional Referral / Business Development | COMPLETE |
+| EHR / Billing / Revenue Outcomes | COMPLETE |
+
+**SOURCE-SYSTEM INTERVIEW PHASE: COMPLETE**
+
+### Architectural Findings to Carry Forward
+
+The completed interviews establish the following principles for the Harbor Ridge canonical layer:
+
+1. Preserve source-system ownership and provenance.
+2. Separate people, opportunities, episodes, LOC segments, claims, and payments.
+3. Prefer deterministic identifiers across system boundaries.
+4. Assign confidence and human-review requirements to probabilistic matches.
+5. Preserve referral influence separately from arrival channel.
+6. Preserve financial cohort maturity.
+7. Model revenue as financial events associated with episodes rather than one static field.
+8. Reconcile marketing performance against CRM, VOB, admission, treatment, and realized financial outcomes.
+9. Preserve metric provenance, freshness, identity confidence, and evidence state.
+10. Expose uncertainty rather than manufacture certainty.
+
+**Discovery milestone:** The planned source-system interview phase is complete.
+
+**Next phase:** Source-System Map → Canonical Data Model → Measurement Specification → Harbor Ridge V1 build.
