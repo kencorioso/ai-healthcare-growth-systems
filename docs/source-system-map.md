@@ -965,5 +965,3 @@ Further architecture should be added only when implementation demonstrates that 
 ---
 
 **End of Harbor Ridge V1 Source-System Map — Version 1.0**
-
-Fix: reclassify failure-table rows to match four-class degradation framework
