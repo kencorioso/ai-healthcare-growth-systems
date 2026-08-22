@@ -765,6 +765,8 @@ Insurance authorization ended and family could not self-pay
 
 The structured field is technically valid but may not accurately explain the underlying operational cause.
 
+This is an evidence-reliability concern, not a break in the identity/attribution/outcome-linkage chain, and should be evaluated using this trust framework rather than the four degradation classes above.
+
 The detailed evidence-provenance and trust-tier framework remains documented in:
 
 ```text
@@ -808,8 +810,7 @@ No single source system contains the complete truth.
 | Opportunity → EHR | CRM Opportunity ID is not carried into the EHR | Outcome-Linkage Loss |
 | EHR → Claim | Episode identifiers are stripped or transformed by billing vendor | Outcome-Linkage Loss |
 | Claim → Payment | Payment cannot be tied to correct DOS episode | Outcome-Linkage Loss |
-| Admission → Attribution | Patient returns months later and prior marketing touch receives incorrect credit | Attribution / Identity Error |
-| Clinical Field → Executive Interpretation | Structured AMA code obscures financial or operational cause | Evidence / Semantic Degradation |
+| Admission → Attribution | Patient returns months later and prior marketing touch receives incorrect credit | Attribution Loss |
 
 These are not merely technical defects.
 
@@ -964,3 +965,5 @@ Further architecture should be added only when implementation demonstrates that 
 ---
 
 **End of Harbor Ridge V1 Source-System Map — Version 1.0**
+
+Fix: reclassify failure-table rows to match four-class degradation framework
