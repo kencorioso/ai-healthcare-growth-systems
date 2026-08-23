@@ -1,0 +1,45 @@
+TEST                                                                   EXPECTED   OUTCOME                                       RESULT
+-------------------------------------------------------------------------------------------------------------------------------------------------
+ehr_episodes VALID #1 (Initial / prior_episode_id=NULL)                ACCEPT     ACCEPTED                                      PASS
+ehr_episodes VALID #2 (LOC Transition / prior_episode_id=KIPU-000101)  ACCEPT     ACCEPTED                                      PASS
+ehr_episodes INVALID #1 (LOC Transition / prior_episode_id=NULL)       REJECT     REJECTED (CHECK constraint failed: (episode_relationship = 'Initial' AND prior_episode_id IS NULL)
+        OR
+        (episode_relationship IN ('LOC Transition', 'Administrative Re-Admit') AND prior_episode_id IS NOT NULL)) PASS
+ehr_episodes INVALID #2 (Initial / prior_episode_id=KIPU-000099)       REJECT     REJECTED (CHECK constraint failed: (episode_relationship = 'Initial' AND prior_episode_id IS NULL)
+        OR
+        (episode_relationship IN ('LOC Transition', 'Administrative Re-Admit') AND prior_episode_id IS NOT NULL)) PASS
+patient_opportunities VALID (vob_submitted_flag=0, vob_outcome=NULL)   ACCEPT     ACCEPTED                                      PASS
+patient_opportunities VALID (vob_submitted_flag=1, vob_outcome=Viable) ACCEPT     ACCEPTED                                      PASS
+patient_opportunities INVALID (vob_submitted_flag=0, vob_outcome=Pending) REJECT     REJECTED (CHECK constraint failed: (vob_submitted_flag = 0 AND vob_outcome IS NULL)
+        OR
+        (vob_submitted_flag = 1 AND vob_outcome IS NOT NULL
+            AND vob_outcome IN ('Pending', 'Viable', 'Non-Viable', 'Unable to Verify'))) PASS
+patient_opportunities INVALID (vob_submitted_flag=1, vob_outcome=NULL) REJECT     REJECTED (CHECK constraint failed: (vob_submitted_flag = 0 AND vob_outcome IS NULL)
+        OR
+        (vob_submitted_flag = 1 AND vob_outcome IS NOT NULL
+            AND vob_outcome IN ('Pending', 'Viable', 'Non-Viable', 'Unable to Verify'))) PASS
+patient_opportunities INVALID (vob_submitted_flag=1, vob_outcome=Approved [not allowed]) REJECT     REJECTED (CHECK constraint failed: (vob_submitted_flag = 0 AND vob_outcome IS NULL)
+        OR
+        (vob_submitted_flag = 1 AND vob_outcome IS NOT NULL
+            AND vob_outcome IN ('Pending', 'Viable', 'Non-Viable', 'Unable to Verify'))) PASS
+FK REJECT: inquiries.contact_id references nonexistent contact         REJECT     REJECTED (FOREIGN KEY constraint failed)      PASS
+FK REJECT: claims.episode_id (non-null) references nonexistent episode REJECT     REJECTED (FOREIGN KEY constraint failed)      PASS
+FK REJECT: professional_referrals.professional_account_id references nonexistent account REJECT     REJECTED (FOREIGN KEY constraint failed)      PASS
+ENUM REJECT: patient_opportunities.payer_relationship invalid value    REJECT     REJECTED (CHECK constraint failed: payer_relationship IN ('INN', 'OON', 'Private Pay')) PASS
+ENUM REJECT: patient_opportunities.admission_financial_status invalid value REJECT     REJECTED (CHECK constraint failed: admission_financial_status IN ('Financially Cleared', 'At-Risk Admission', 'Not Financially Cleared')) PASS
+ENUM REJECT: inquiries.match_confidence invalid value                  REJECT     REJECTED (CHECK constraint failed: match_confidence IN ('Confirmed', 'Probable', 'Possible', 'Unmatched')) PASS
+ENUM REJECT: ehr_episodes.episode_relationship invalid value           REJECT     REJECTED (CHECK constraint failed: episode_relationship IN ('Initial', 'LOC Transition', 'Administrative Re-Admit')) PASS
+ENUM REJECT: claims.claim_status invalid value                         REJECT     REJECTED (CHECK constraint failed: claim_status IN ('Submitted', 'Pending', 'Paid', 'Denied', 'Appealed', 'Closed')) PASS
+BOOL REJECT: patient_opportunities.vob_submitted_flag = 2              REJECT     REJECTED (CHECK constraint failed: vob_submitted_flag IN (0, 1)) PASS
+BOOL REJECT: acquisition_touches.platform_conversion = 2               REJECT     REJECTED (CHECK constraint failed: platform_conversion IN (0, 1)) PASS
+BOOL REJECT: outreach_reps.active_flag = -1                            REJECT     REJECTED (CHECK constraint failed: active_flag IN (0, 1)) PASS
+GOLDEN THREAD 1/8: insert contact                                      ACCEPT     ACCEPTED                                      PASS
+GOLDEN THREAD 2/8: insert patient_opportunity (originating IDs NULL)   ACCEPT     ACCEPTED                                      PASS
+GOLDEN THREAD 3/8: insert inquiry linked to opportunity and contact    ACCEPT     ACCEPTED                                      PASS
+GOLDEN THREAD 4/8: insert acquisition_touch linked to inquiry          ACCEPT     ACCEPTED                                      PASS
+GOLDEN THREAD 5/8: update opportunity.originating_touch_id to close the loop ACCEPT     ACCEPTED                                      PASS
+GOLDEN THREAD 6/8: insert ehr_episode linked to opportunity            ACCEPT     ACCEPTED                                      PASS
+GOLDEN THREAD 7/8: insert claim linked to episode                      ACCEPT     ACCEPTED                                      PASS
+GOLDEN THREAD 8/8: insert claim_event linked to claim                  ACCEPT     ACCEPTED                                      PASS
+
+ALL TESTS PASSED
