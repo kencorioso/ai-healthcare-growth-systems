@@ -776,7 +776,26 @@ DETOX_PER_DIEM_RANGE = (1200, 1600)
 RESIDENTIAL_PER_DIEM_RANGE = (650, 950)
 
 
-OPERATING_WINDOW_CLOSE = datetime(2026, 7, 31, 23, 59, 59)
+def sample_transition_gap(rng):
+    """Natural bed-transfer timing variation for a Detox -> Residential LOC
+    Transition (Sections 11-12): most transfers happen same-day, a few
+    hours after Detox discharge; some occur later the same day or into the
+    next morning; a small share wait overnight or, occasionally, a couple
+    of days for a Residential bed to open up. Never zero -- an LOC
+    Transition's admission_datetime should never be identical to the prior
+    episode's discharge_datetime by default."""
+    bucket = wchoice(
+        rng,
+        ["same_day_soon", "same_day_later", "overnight", "bed_wait"],
+        [0.55, 0.25, 0.13, 0.07],
+    )
+    if bucket == "same_day_soon":
+        return timedelta(hours=rng.uniform(0.5, 6))
+    if bucket == "same_day_later":
+        return timedelta(hours=rng.uniform(6, 14))
+    if bucket == "overnight":
+        return timedelta(hours=rng.uniform(14, 30))
+    return timedelta(hours=rng.uniform(30, 96))  # occasional multi-day bed wait
 
 
 def gen_episodes_for_admitted_opportunity(rng, opportunity):
@@ -784,14 +803,27 @@ def gen_episodes_for_admitted_opportunity(rng, opportunity):
     admission_dt = opportunity["_created_dt"] + timedelta(days=rng.randint(3, 15), hours=rng.randint(0, 10))
     # Safety net: build_opportunity() already bounds created_at for
     # opportunities the funnel simulation originally determines will admit,
-    # so this delay stays in-window for the large majority of cases. This
-    # clamp only catches the rarer case where an opportunity was promoted
-    # to Admitted post-hoc (the monthly admit-count / payer-mix
-    # rebalancing in generate_dataset()) after having been built with the
-    # wider, non-admitted date buffer -- guaranteeing every Initial episode
-    # still admits within the May-July operating window (Section 1).
-    if admission_dt > OPERATING_WINDOW_CLOSE:
-        admission_dt = OPERATING_WINDOW_CLOSE
+    # so this delay stays within the opportunity's own creation month for
+    # the large majority of cases. This clamp only catches the rarer case
+    # where an opportunity was promoted to Admitted post-hoc (the monthly
+    # admit-count / payer-mix rebalancing in generate_dataset()) after
+    # having been built with the wider, non-admitted date buffer.
+    #
+    # Clamping to the END OF THE OPPORTUNITY'S OWN CREATION MONTH (not a
+    # fixed July 31 constant) does double duty: it guarantees every Initial
+    # episode still admits within the May-July operating window (Section
+    # 1), AND it keeps each admitted opportunity's admission_datetime in
+    # the same calendar month it was created in -- which the monthly
+    # admit-count / payer-mix rebalancing above assumes when it targets
+    # 38-42 admits per created_at-month cohort (Section 3). Without this,
+    # a promoted opportunity created near month-end could admit into the
+    # following month, silently pulling ehr_episodes.admission_datetime
+    # counts out of the band the rebalancing thinks it already hit.
+    year, month = opportunity["_month"]
+    days_in_month = calendar.monthrange(year, month)[1]
+    month_close = datetime(year, month, days_in_month, 23, 59, 59)
+    if admission_dt > month_close:
+        admission_dt = month_close
     payer_text = opportunity["payer"] if opportunity["payer"] else "Private Pay"
 
     starts_detox = rng.random() < 0.50
@@ -821,7 +853,8 @@ def gen_episodes_for_admitted_opportunity(rng, opportunity):
         })
         transitions = rng.random() < 0.60
         if transitions:
-            ep2_admission = discharge_dt if discharge_dt else (admission_dt + timedelta(days=los))
+            ep1_end = discharge_dt if discharge_dt else (admission_dt + timedelta(days=los))
+            ep2_admission = ep1_end + sample_transition_gap(rng)
             los2 = rng.randint(14, 30)
             discharge_dt2 = close_episode(ep2_admission, los2)
             ep2_id = ids.next("KIPU")
@@ -1002,6 +1035,29 @@ def gen_claims_and_events_for_episode(rng, episode):
 # ===========================================================================
 
 
+def select_demotion_candidates(rng, pool, k):
+    """Pick k opportunities to demote from Admitted back to Not Admitted,
+    preferring non-At-Risk ones first.
+
+    Promotion (the mirror operation elsewhere in this rebalancing) can
+    never create a new At-Risk Admission -- its candidate pool is always
+    "Financially Cleared, Not Admitted" opportunities, since At-Risk only
+    ever arises inside derive_financial_fields() for opportunities the
+    funnel simulation itself admitted. That makes demotion a one-way
+    valve on the At-Risk population: every demotion that happens to pick
+    an At-Risk opportunity permanently drains it (converting it to
+    Financially Cleared), with no corresponding mechanism to replenish it.
+    Demoting non-At-Risk opportunities first whenever there are enough of
+    them keeps the At-Risk share from being systematically thinned out by
+    rebalancing churn beyond what AT_RISK_PROBABILITY itself produced.
+    """
+    non_at_risk = [o for o in pool if o["admission_financial_status"] != "At-Risk Admission"]
+    at_risk = [o for o in pool if o["admission_financial_status"] == "At-Risk Admission"]
+    if len(non_at_risk) >= k:
+        return rng.sample(non_at_risk, k)
+    return non_at_risk + rng.sample(at_risk, k - len(non_at_risk))
+
+
 def generate_dataset():
     # ids is module-level global state (shared by every ID-emitting helper
     # via `ids.next(prefix)`). Reset it here so generate_dataset() is safely
@@ -1056,7 +1112,7 @@ def generate_dataset():
         currently_admitted = [o for o in month_opportunities if o["admission_status"] == "Admitted"]
         current_count = len(currently_admitted)
         if current_count > target_admits:
-            to_demote = rng.sample(currently_admitted, current_count - target_admits)
+            to_demote = select_demotion_candidates(rng, currently_admitted, current_count - target_admits)
             for o in to_demote:
                 o["admission_status"] = "Not Admitted"
                 o["_admitted"] = False
@@ -1094,7 +1150,7 @@ def generate_dataset():
             cur_n = len(current_by_payer[p])
             want_n = desired[p]
             if cur_n > want_n:
-                for o in rng.sample(current_by_payer[p], cur_n - want_n):
+                for o in select_demotion_candidates(rng, current_by_payer[p], cur_n - want_n):
                     o["admission_status"] = "Not Admitted"
                     o["_admitted"] = False
                     if o["admission_financial_status"] == "At-Risk Admission":

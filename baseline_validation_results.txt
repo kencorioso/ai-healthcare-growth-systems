@@ -1,5 +1,5 @@
 Harbor Ridge V0.1 Baseline Validation Results
-Generated: 2026-08-25T15:45:27.831702
+Generated: 2026-08-25T16:05:03.400747
 Database: harbor_ridge.db
 
 ==============================================================================
@@ -18,8 +18,8 @@ DIMENSION 1: STRUCTURAL INTEGRITY
   [PASS] professional_referrals populated -- 106 rows
   [PASS] outreach_activities populated -- 225 rows
   [PASS] ehr_episodes populated -- 156 rows
-  [PASS] claims populated -- 173 rows
-  [PASS] claim_events populated -- 257 rows
+  [PASS] claims populated -- 178 rows
+  [PASS] claim_events populated -- 263 rows
 
   Conditional integrity rules (Dictionary Sections 15.1, 15.2), verified against actual rows:
   [PASS] VOB conditional rule holds for every patient_opportunities row -- 0 violating rows
@@ -40,8 +40,8 @@ DIMENSION 2: REPRODUCIBILITY
   [PASS] referrals identical across two independent generations -- 106 rows
   [PASS] activities identical across two independent generations -- 225 rows
   [PASS] episodes identical across two independent generations -- 156 rows
-  [PASS] claims identical across two independent generations -- 173 rows
-  [PASS] claim_events identical across two independent generations -- 257 rows
+  [PASS] claims identical across two independent generations -- 178 rows
+  [PASS] claim_events identical across two independent generations -- 263 rows
 
   [PASS] [DB] contacts identical between two built databases -- 819 rows
   [PASS] [DB] outreach_reps identical between two built databases -- 4 rows
@@ -52,17 +52,17 @@ DIMENSION 2: REPRODUCIBILITY
   [PASS] [DB] professional_referrals identical between two built databases -- 106 rows
   [PASS] [DB] outreach_activities identical between two built databases -- 225 rows
   [PASS] [DB] ehr_episodes identical between two built databases -- 156 rows
-  [PASS] [DB] claims identical between two built databases -- 173 rows
-  [PASS] [DB] claim_events identical between two built databases -- 257 rows
+  [PASS] [DB] claims identical between two built databases -- 178 rows
+  [PASS] [DB] claim_events identical between two built databases -- 263 rows
 
 ==============================================================================
 DIMENSION 3: DOMAIN REALISM
 ==============================================================================
 
   Admissions per month (by ehr_episodes.admission_datetime, episode_relationship = 'Initial'; Section 3 target: 38-42, centered 40):
-  [PASS] 2026-05 admissions in [38,42] -- 41 admissions
+  [PASS] 2026-05 admissions in [38,42] -- 42 admissions
   [PASS] 2026-06 admissions in [38,42] -- 38 admissions
-  [PASS] 2026-07 admissions in [38,42] -- 42 admissions
+  [PASS] 2026-07 admissions in [38,42] -- 41 admissions
   Total admissions (May-Jul): 121 over 3 months, average 40.3/month (3-month target ~120)
   [PASS] Zero Initial episodes fall outside the May-July operating window (Section 1) -- 0 found
 
@@ -98,23 +98,23 @@ DIMENSION 3: DOMAIN REALISM
 
   [PASS] Multiple-inquiry opportunities exist -- 95 opportunities with >1 inquiry
 
-  [PASS] Both Detox and Residential episodes exist -- Detox=62, Residential=94
+  [PASS] Both Detox and Residential episodes exist -- Detox=60, Residential=96
   [PASS] LOC Transition episodes exist and link correctly to a prior episode -- 35 transitions, 0 broken links
 
-  [PASS] Multi-claim episodes exist, roughly near 15% target (tolerance +-8pp) -- 10.9% (17/156)
+  [PASS] Multi-claim episodes exist, roughly near 15% target (tolerance +-8pp) -- 14.1% (22/156)
 
-  [PASS] Payment and adjustment/denial/appeal histories exist -- event_type counts: {'Adjustment': 18, 'Appeal': 14, 'Denial': 18, 'Insurance Payment': 123, 'Patient Payment': 80, 'Write-Off': 4}
+  [PASS] Payment and adjustment/denial/appeal histories exist -- event_type counts: {'Adjustment': 18, 'Appeal': 15, 'Denial': 19, 'Insurance Payment': 125, 'Patient Payment': 84, 'Write-Off': 2}
 
   Financial maturity by admission cohort month (claim_status distribution via episode admission month):
-    2026-05: total=57, resolved(Paid/Closed)=50 (87.7%), detail={'Appealed': 7, 'Closed': 33, 'Paid': 17}
-    2026-06: total=54, resolved(Paid/Closed)=50 (92.6%), detail={'Appealed': 2, 'Closed': 30, 'Denied': 2, 'Paid': 20}
-    2026-07: total=61, resolved(Paid/Closed)=39 (63.9%), detail={'Closed': 13, 'Denied': 2, 'Paid': 26, 'Pending': 19, 'Submitted': 1}
-    2026-08: total=1, resolved(Paid/Closed)=0 (0.0%), detail={'Submitted': 1}
-  [PASS] Earliest cohort (2026-05) more resolved than latest cohort (2026-08) -- 2026-05=87.7% resolved vs 2026-08=0.0% resolved
+    2026-05: total=59, resolved(Paid/Closed)=57 (96.6%), detail={'Appealed': 2, 'Closed': 37, 'Paid': 20}
+    2026-06: total=55, resolved(Paid/Closed)=49 (89.1%), detail={'Appealed': 5, 'Closed': 32, 'Denied': 1, 'Paid': 17}
+    2026-07: total=62, resolved(Paid/Closed)=36 (58.1%), detail={'Closed': 11, 'Denied': 3, 'Paid': 25, 'Pending': 21, 'Submitted': 2}
+    2026-08: total=2, resolved(Paid/Closed)=0 (0.0%), detail={'Submitted': 2}
+  [PASS] Earliest cohort (2026-05) more resolved than latest cohort (2026-08) -- 2026-05=96.6% resolved vs 2026-08=0.0% resolved
 
   Month-over-month stability (Section 17: random noise yes, intentional trend no):
     Inquiries by month: [221, 202, 217]
-    Admissions by month: [41, 38, 42]
+    Admissions by month: [42, 38, 41]
     (See per-month tolerance-band PASS/FAIL results above -- each month is drawn from the same fixed target with no month-dependent trend term in the generator; 3-point monotonicity is not tested separately here as it is not statistically meaningful at n=3.)
 
   [PASS] All contact emails use @example.test -- 0 non-conforming
