@@ -1,0 +1,134 @@
+Harbor Ridge V0.1 Baseline Validation Results
+Generated: 2026-08-25T15:19:27.556521
+Database: harbor_ridge.db
+
+==============================================================================
+DIMENSION 1: STRUCTURAL INTEGRITY
+==============================================================================
+  [PASS] PRAGMA foreign_key_check returns zero violations -- 0 violations
+  [PASS] PRAGMA integrity_check passes -- ok
+
+  Table population (all 11 tables from the frozen schema):
+  [PASS] contacts populated -- 819 rows
+  [PASS] outreach_reps populated -- 4 rows
+  [PASS] professional_accounts populated -- 40 rows
+  [PASS] patient_opportunities populated -- 517 rows
+  [PASS] inquiries populated -- 640 rows
+  [PASS] acquisition_touches populated -- 1539 rows
+  [PASS] professional_referrals populated -- 106 rows
+  [PASS] outreach_activities populated -- 225 rows
+  [PASS] ehr_episodes populated -- 156 rows
+  [PASS] claims populated -- 173 rows
+  [PASS] claim_events populated -- 257 rows
+
+  Conditional integrity rules (Dictionary Sections 15.1, 15.2), verified against actual rows:
+  [PASS] VOB conditional rule holds for every patient_opportunities row -- 0 violating rows
+  [PASS] Episode conditional rule holds for every ehr_episodes row -- 0 violating rows
+  [PASS] No dangling ehr_episodes.prior_episode_id references -- 0 dangling
+
+==============================================================================
+DIMENSION 2: REPRODUCIBILITY
+==============================================================================
+  Generating the full dataset twice, independently, with SEED = 20260825, and diffing every table row-by-row (not just assuming reproducibility from the seed being fixed).
+
+  [PASS] contacts identical across two independent generations -- 819 rows
+  [PASS] reps identical across two independent generations -- 4 rows
+  [PASS] accounts identical across two independent generations -- 40 rows
+  [PASS] opportunities identical across two independent generations -- 517 rows
+  [PASS] inquiries identical across two independent generations -- 640 rows
+  [PASS] touches identical across two independent generations -- 1539 rows
+  [PASS] referrals identical across two independent generations -- 106 rows
+  [PASS] activities identical across two independent generations -- 225 rows
+  [PASS] episodes identical across two independent generations -- 156 rows
+  [PASS] claims identical across two independent generations -- 173 rows
+  [PASS] claim_events identical across two independent generations -- 257 rows
+
+  [PASS] [DB] contacts identical between two built databases -- 819 rows
+  [PASS] [DB] outreach_reps identical between two built databases -- 4 rows
+  [PASS] [DB] professional_accounts identical between two built databases -- 40 rows
+  [PASS] [DB] patient_opportunities identical between two built databases -- 517 rows
+  [PASS] [DB] inquiries identical between two built databases -- 640 rows
+  [PASS] [DB] acquisition_touches identical between two built databases -- 1539 rows
+  [PASS] [DB] professional_referrals identical between two built databases -- 106 rows
+  [PASS] [DB] outreach_activities identical between two built databases -- 225 rows
+  [PASS] [DB] ehr_episodes identical between two built databases -- 156 rows
+  [PASS] [DB] claims identical between two built databases -- 173 rows
+  [PASS] [DB] claim_events identical between two built databases -- 257 rows
+
+==============================================================================
+DIMENSION 3: DOMAIN REALISM
+==============================================================================
+
+  Admissions per month (by ehr_episodes.admission_datetime, episode_relationship = 'Initial'; Section 3 target: 38-42, centered 40):
+  [PASS] 2026-05 admissions in [38,42] -- 41 admissions
+  [PASS] 2026-06 admissions in [38,42] -- 38 admissions
+  [PASS] 2026-07 admissions in [38,42] -- 42 admissions
+  Total admissions (May-Jul): 121 over 3 months, average 40.3/month (3-month target ~120)
+  [PASS] Zero Initial episodes fall outside the May-July operating window (Section 1) -- 0 found
+
+  Supplementary -- admitted opportunities by patient_opportunities.created_at month:
+    2026-05: 42 admitted opportunities created
+    2026-06: 38 admitted opportunities created
+    2026-07: 41 admitted opportunities created
+
+  [PASS] Opportunity -> Completed Admission ~23% (tolerance +-3pp) -- 23.4% (121/517)
+  [PASS] Inquiry -> Completed Admission ~19% (tolerance +-3pp) -- 18.9% (121/640)
+  [PASS] Inquiry -> Patient Opportunity volume ratio ~83% (opportunities/inquiries, tolerance +-5pp) -- 80.8% (517/640)
+  (Informational: 625/640 = 97.7% of individual inquiries carry a non-null opportunity_id; the remainder are orphan/unmatched inquiries.)
+
+  Monthly volumes vs Section 3 targets (Inquiries ~210 +-10%, Opportunities ~175 +-10%):
+  [PASS] 2026-05 inquiries ~210 (+-10%) -- 221
+  [PASS] 2026-05 opportunities ~175 (+-10%) -- 181
+  [PASS] 2026-06 inquiries ~210 (+-10%) -- 202
+  [PASS] 2026-06 opportunities ~175 (+-10%) -- 167
+  [PASS] 2026-07 inquiries ~210 (+-10%) -- 217
+  [PASS] 2026-07 opportunities ~175 (+-10%) -- 169
+
+  Admitted-cohort payer mix (3-month, target 55% INN / 35% OON / 10% Private Pay, tolerance +-3pp):
+  [PASS] INN admitted share ~55% (+-3pp) -- 55.4% (67/121)
+  [PASS] OON admitted share ~35% (+-3pp) -- 34.7% (42/121)
+  [PASS] Private Pay admitted share ~10% (+-3pp) -- 9.9% (12/121)
+
+  Opportunity-level payer mix (informational, Section 4: may fluctuate modestly around baseline):
+    INN: 278 (53.8%)
+    OON: 183 (35.4%)
+    Private Pay: 56 (10.8%)
+
+  [PASS] Calls and Web Forms both materially represented (each >=20% of inquiries) -- Call 413 (64.5%), Web Form 227 (35.5%)
+
+  [PASS] Multiple-inquiry opportunities exist -- 95 opportunities with >1 inquiry
+
+  [PASS] Both Detox and Residential episodes exist -- Detox=62, Residential=94
+  [PASS] LOC Transition episodes exist and link correctly to a prior episode -- 35 transitions, 0 broken links
+
+  [PASS] Multi-claim episodes exist, roughly near 15% target (tolerance +-8pp) -- 10.9% (17/156)
+
+  [PASS] Payment and adjustment/denial/appeal histories exist -- event_type counts: {'Adjustment': 18, 'Appeal': 14, 'Denial': 18, 'Insurance Payment': 123, 'Patient Payment': 80, 'Write-Off': 4}
+
+  Financial maturity by admission cohort month (claim_status distribution via episode admission month):
+    2026-05: total=57, resolved(Paid/Closed)=50 (87.7%), detail={'Appealed': 7, 'Closed': 33, 'Paid': 17}
+    2026-06: total=54, resolved(Paid/Closed)=50 (92.6%), detail={'Appealed': 2, 'Closed': 30, 'Denied': 2, 'Paid': 20}
+    2026-07: total=61, resolved(Paid/Closed)=39 (63.9%), detail={'Closed': 13, 'Denied': 2, 'Paid': 26, 'Pending': 19, 'Submitted': 1}
+    2026-08: total=1, resolved(Paid/Closed)=0 (0.0%), detail={'Submitted': 1}
+  [PASS] Earliest cohort (2026-05) more resolved than latest cohort (2026-08) -- 2026-05=87.7% resolved vs 2026-08=0.0% resolved
+
+  Month-over-month stability (Section 17: random noise yes, intentional trend no):
+    Inquiries by month: [221, 202, 217]
+    Admissions by month: [41, 38, 42]
+    (See per-month tolerance-band PASS/FAIL results above -- each month is drawn from the same fixed target with no month-dependent trend term in the generator; 3-point monotonicity is not tested separately here as it is not statistically meaningful at n=3.)
+
+  [PASS] All contact emails use @example.test -- 0 non-conforming
+  [PASS] All contact phone numbers use 555- prefix -- 0 non-conforming
+
+  Identity resolution distribution (Section 8 target: Confirmed 85-90%, Probable 7-10%, Possible small, Unmatched rare):
+    Confirmed: 557 (87.0%)
+    Probable: 39 (6.1%)
+    Possible: 29 (4.5%)
+    Unmatched: 15 (2.3%)
+
+  [PASS] Admitted opportunities essentially never carry 'Not Financially Cleared' -- 0 such rows
+
+==============================================================================
+OVERALL RESULT
+==============================================================================
+  ALL CHECKS PASSED
