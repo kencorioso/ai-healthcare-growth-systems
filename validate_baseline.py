@@ -139,18 +139,17 @@ def main():
     # DIMENSION 2: REPRODUCIBILITY (Section 2)
     # =======================================================================
     section("DIMENSION 2: REPRODUCIBILITY")
-    w("  Generating the full dataset twice, independently, with SEED = "
-      f"{gsd.SEED}, and diffing every table row-by-row (not just assuming "
-      "reproducibility from the seed being fixed).")
+    w("  Calling generate_dataset() twice, back-to-back, within this single script run "
+      f"(SEED = {gsd.SEED}), with no manual reset between calls -- generate_dataset() "
+      "resets its own module-level ID counters internally, so this exercises the actual "
+      "production code path, not a test-side workaround -- and diffs every table row-by-row.")
 
     TABLE_KEYS = [
         "contacts", "reps", "accounts", "opportunities", "inquiries",
         "touches", "referrals", "activities", "episodes", "claims", "claim_events",
     ]
 
-    gsd.ids.counters.clear()
     run_a = gsd.generate_dataset()
-    gsd.ids.counters.clear()
     run_b = gsd.generate_dataset()
 
     w()

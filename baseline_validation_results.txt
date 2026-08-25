@@ -1,5 +1,5 @@
 Harbor Ridge V0.1 Baseline Validation Results
-Generated: 2026-08-25T15:19:27.556521
+Generated: 2026-08-25T15:45:27.831702
 Database: harbor_ridge.db
 
 ==============================================================================
@@ -29,7 +29,7 @@ DIMENSION 1: STRUCTURAL INTEGRITY
 ==============================================================================
 DIMENSION 2: REPRODUCIBILITY
 ==============================================================================
-  Generating the full dataset twice, independently, with SEED = 20260825, and diffing every table row-by-row (not just assuming reproducibility from the seed being fixed).
+  Calling generate_dataset() twice, back-to-back, within this single script run (SEED = 20260825), with no manual reset between calls -- generate_dataset() resets its own module-level ID counters internally, so this exercises the actual production code path, not a test-side workaround -- and diffs every table row-by-row.
 
   [PASS] contacts identical across two independent generations -- 819 rows
   [PASS] reps identical across two independent generations -- 4 rows

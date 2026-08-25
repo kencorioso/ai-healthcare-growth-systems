@@ -1003,6 +1003,15 @@ def gen_claims_and_events_for_episode(rng, episode):
 
 
 def generate_dataset():
+    # ids is module-level global state (shared by every ID-emitting helper
+    # via `ids.next(prefix)`). Reset it here so generate_dataset() is safely
+    # re-callable within a single Python process -- e.g. back-to-back in a
+    # reproducibility test -- and not just safely re-runnable as a fresh
+    # `python generate_synthetic_data.py` subprocess. Without this reset, a
+    # second in-process call would resume ID numbering where the first call
+    # left off instead of restarting at 1, producing a different (though
+    # equally valid) dataset from the same seed.
+    ids.counters.clear()
     rng = random.Random(SEED)
 
     reps = gen_outreach_reps()
