@@ -173,8 +173,8 @@ def main():
     with tempfile.TemporaryDirectory() as tmpdir:
         db_a_path = f"{tmpdir}/repro_a.db"
         db_b_path = f"{tmpdir}/repro_b.db"
-        gsd.build_database(run_a, db_path=db_a_path)
-        gsd.build_database(run_b, db_path=db_b_path)
+        gsd.build_database(run_a, db_path=db_a_path).close()
+        gsd.build_database(run_b, db_path=db_b_path).close()
         conn_a = sqlite3.connect(db_a_path)
         conn_b = sqlite3.connect(db_b_path)
         db_repro_all_match = True

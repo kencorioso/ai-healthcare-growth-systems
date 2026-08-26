@@ -28,6 +28,7 @@ canonical Harbor Ridge fact, consistent with the design principle
 stated at the top of the generation-rules document.
 """
 
+import argparse
 import calendar
 import csv
 import os
@@ -41,9 +42,19 @@ from datetime import date, datetime, timedelta
 
 SEED = 20260825
 
+# Scenario 1 (docs/harbor-ridge-scenario-1-specification.md) uses a
+# separate, fixed seed. SCENARIO_1_SEED must never be used to generate or
+# alter harbor_ridge.db -- that file, SEED, and generate_dataset() /
+# build_database() called with the default db_path are the frozen
+# baseline generation path and stay completely untouched by Scenario 1.
+SCENARIO_1_SEED = 20260826
+
 DB_PATH = "harbor_ridge.db"
 SCHEMA_PATH = "schema.sql"
 CSV_EXPORT_DIR = os.path.join("data", "csv_export")
+
+SCENARIO1_DB_PATH = "harbor_ridge_scenario1.db"
+SCENARIO1_CSV_EXPORT_DIR = os.path.join("data", "csv_export_scenario1")
 
 OBSERVATION_DATE = date(2026, 8, 31)
 
@@ -287,10 +298,20 @@ PAYER_TARGET_SHARE = {
 }
 
 
-def simulate_funnel(rng, payer_relationship):
-    """Sequential attrition per Section 3.2. Returns (stage_failed, admitted)."""
+def simulate_funnel(rng, payer_relationship, financial_verification_rates=None):
+    """Sequential attrition per Section 3.2. Returns (stage_failed, admitted).
+
+    financial_verification_rates optionally overrides the healthy-baseline
+    FINANCIAL_VERIFICATION_PASS_RATE dict for the financial_verification
+    stage only -- every other stage's pass rate is untouched. Used by
+    Scenario 1 (docs/harbor-ridge-scenario-1-specification.md Section 6)
+    to substitute the month's scenario-specific rates for affected
+    attributable opportunities. Baseline call sites never pass this
+    argument, so baseline behavior is byte-for-byte unchanged.
+    """
+    rates = financial_verification_rates if financial_verification_rates is not None else FINANCIAL_VERIFICATION_PASS_RATE
     for stage_name, base_rate in FUNNEL_STAGES:
-        rate = base_rate if base_rate is not None else FINANCIAL_VERIFICATION_PASS_RATE[payer_relationship]
+        rate = base_rate if base_rate is not None else rates[payer_relationship]
         if rng.random() > rate:
             return stage_name, False
     return None, True
@@ -416,8 +437,18 @@ def pick_source_platform(rng, channel):
     return None  # Direct, Professional Referral
 
 
-def make_touch_for_first_inquiry(rng, channel, platform, inquiry_id, touch_dt):
-    """One acquisition_touch tied to an opportunity's first (originating) inquiry."""
+def make_touch_for_first_inquiry(rng, channel, platform, inquiry_id, touch_dt, forced_campaign=None):
+    """One acquisition_touch tied to an opportunity's first (originating) inquiry.
+
+    forced_campaign optionally supplies a pre-chosen (campaign_id, campaign_name)
+    tuple instead of letting this function pick one at random -- used by
+    Scenario 1's build_opportunity_scenario1(), which must know the campaign
+    BEFORE the funnel decision (Section 14 of the Scenario 1 spec), so the
+    campaign used here must match the one eligibility was already checked
+    against, not be re-rolled. Baseline call sites never pass this
+    argument, so baseline behavior (including its rng.choice() call and
+    consumption) is unchanged.
+    """
     if channel not in ("Paid Search", "Organic", "Local", "Direct", "Other"):
         return None
 
@@ -443,7 +474,7 @@ def make_touch_for_first_inquiry(rng, channel, platform, inquiry_id, touch_dt):
     }
 
     if platform == "Google Ads":
-        cmp_id, cmp_name = rng.choice(GOOGLE_CAMPAIGNS)
+        cmp_id, cmp_name = forced_campaign if forced_campaign is not None else rng.choice(GOOGLE_CAMPAIGNS)
         kw = rng.choice(KEYWORDS)
         row.update({
             "campaign_id": cmp_id, "campaign_name": cmp_name,
@@ -454,7 +485,7 @@ def make_touch_for_first_inquiry(rng, channel, platform, inquiry_id, touch_dt):
             "source_system": "Google Ads",
         })
     elif platform == "Microsoft Ads":
-        cmp_id, cmp_name = rng.choice(MSFT_CAMPAIGNS)
+        cmp_id, cmp_name = forced_campaign if forced_campaign is not None else rng.choice(MSFT_CAMPAIGNS)
         kw = rng.choice(KEYWORDS)
         row.update({
             "campaign_id": cmp_id, "campaign_name": cmp_name,
@@ -465,7 +496,7 @@ def make_touch_for_first_inquiry(rng, channel, platform, inquiry_id, touch_dt):
             "source_system": "Microsoft Ads",
         })
     elif platform == "Meta":
-        cmp_id, cmp_name = rng.choice(META_CAMPAIGNS)
+        cmp_id, cmp_name = forced_campaign if forced_campaign is not None else rng.choice(META_CAMPAIGNS)
         row.update({
             "campaign_id": cmp_id, "campaign_name": cmp_name,
             "ad_group": rng.choice(["Family Support", "Community Awareness"]),
@@ -712,6 +743,230 @@ def maybe_reopen_late_july(rng, opportunity):
         opportunity["admission_status"] = "Open"
         if opportunity["vob_submitted_flag"] == 1 and opportunity["vob_outcome"] not in (None, "Pending"):
             opportunity["vob_outcome"] = "Pending"
+
+
+# ===========================================================================
+# Scenario 1: Paid-Search Inquiry-Quality Deterioration
+# docs/harbor-ridge-scenario-1-specification.md
+#
+# Everything in this section is additive: build_opportunity() above and
+# generate_dataset()/build_database() called with their default arguments
+# are never called by Scenario 1 code, and are not modified by it.
+# ===========================================================================
+
+# Section 2/3: the three Google Ads campaigns Scenario 1 degrades.
+# CMP-1001 (Brand) and CMP-1004 (Residential Geo) are the unaffected
+# internal comparison campaigns and must keep using healthy-baseline rates.
+SCENARIO1_AFFECTED_CAMPAIGNS = {"CMP-1002", "CMP-1003", "CMP-1005"}
+
+# Section 5: revised payer-mix parameters, for affected attributable
+# opportunities only (Section 3's exact definition). Keyed by calendar
+# month number to match the (year, month, label) tuples in MONTHS.
+SCENARIO1_PAYER_MIX = {
+    5: {"INN": 0.55, "OON": 0.35, "Private Pay": 0.10},   # May -- healthy control
+    6: {"INN": 0.47, "OON": 0.43, "Private Pay": 0.10},   # June -- emerging deterioration
+    7: {"INN": 0.35, "OON": 0.55, "Private Pay": 0.10},   # July -- established deterioration
+}
+
+# Section 6: revised financial-verification pass rates, for affected
+# attributable opportunities only. Every other funnel stage (Section 7)
+# keeps its healthy-baseline pass rate untouched.
+SCENARIO1_FINANCIAL_VERIFICATION = {
+    5: {"INN": 0.70, "OON": 0.64, "Private Pay": 0.68},
+    6: {"INN": 0.60, "OON": 0.48, "Private Pay": 0.62},
+    7: {"INN": 0.45, "OON": 0.22, "Private Pay": 0.50},
+}
+
+# Section 10: modest cost inflation applied to affected-campaign
+# acquisition_touches.cost only.
+SCENARIO1_COST_MULTIPLIER = {5: 1.00, 6: 1.05, 7: 1.10}
+
+# Section 13: opportunities that are NOT Scenario-1-affected must keep
+# using healthy-baseline rates exactly. This is the same {INN: 0.55,
+# OON: 0.35, Private Pay: 0.10} weighting already inline as a literal in
+# build_opportunity() above -- named here only so
+# build_opportunity_scenario1() can choose between two tables; the
+# original build_opportunity() literal is untouched.
+SCENARIO1_BASELINE_PAYER_MIX = {"INN": 0.55, "OON": 0.35, "Private Pay": 0.10}
+
+
+def build_opportunity_scenario1(rng, year, month, accounts_by_id, account_weights):
+    """
+    Scenario-1-aware opportunity construction. Mirrors build_opportunity()
+    but reorders its steps per Section 14 of the Scenario 1 spec:
+
+        Channel -> Platform -> Campaign -> Month -> Scenario eligibility
+        -> Scenario-specific payer mix -> Scenario-specific financial-
+        verification pass rate -> Funnel decision -> Admission status
+
+    Scenario eligibility (Section 3's exact definition: originating touch
+    platform = 'Google Ads' AND campaign_id in the Scenario 1 affected set)
+    is therefore known BEFORE payer_relationship and the funnel outcome are
+    decided, so no opportunity is ever admitted and then "un-admitted" --
+    the funnel decision made here is final.
+
+    Every other mechanic -- the other seven funnel stages, AT_RISK_
+    PROBABILITY, VOB-outcome flavor, contact/inquiry generation, identity-
+    resolution weights, call-vs-form mix -- reuses the exact same shared
+    functions and constants the healthy baseline uses, unchanged.
+    """
+    # Channel -> Platform -> Campaign
+    channel = wchoice(rng, ARRIVAL_CHANNELS, ARRIVAL_CHANNEL_WEIGHTS)
+    platform = pick_source_platform(rng, channel)
+    campaign = None
+    if platform == "Google Ads":
+        campaign = rng.choice(GOOGLE_CAMPAIGNS)
+    elif platform == "Microsoft Ads":
+        campaign = rng.choice(MSFT_CAMPAIGNS)
+    elif platform == "Meta":
+        campaign = rng.choice(META_CAMPAIGNS)
+
+    # Month is the `month` parameter already. Scenario eligibility:
+    is_affected = platform == "Google Ads" and campaign is not None and campaign[0] in SCENARIO1_AFFECTED_CAMPAIGNS
+
+    # Scenario-specific (or healthy-baseline) payer mix and financial-
+    # verification pass rate.
+    if is_affected:
+        payer_mix = SCENARIO1_PAYER_MIX[month]
+        fin_verification_rates = SCENARIO1_FINANCIAL_VERIFICATION[month]
+    else:
+        payer_mix = SCENARIO1_BASELINE_PAYER_MIX
+        fin_verification_rates = FINANCIAL_VERIFICATION_PASS_RATE
+
+    payer_relationship = wchoice(rng, list(payer_mix.keys()), list(payer_mix.values()))
+    payer = None
+    if payer_relationship == "INN":
+        payer = rng.choice(INN_PAYERS)
+    elif payer_relationship == "OON":
+        payer = rng.choice(OON_PAYERS)
+
+    # Funnel decision -> admission status. simulate_funnel()/derive_
+    # financial_fields() are the exact same functions the healthy baseline
+    # calls; only the financial-verification rate table differs here.
+    stage_failed, admitted = simulate_funnel(rng, payer_relationship, financial_verification_rates=fin_verification_rates)
+    fin_fields = derive_financial_fields(rng, payer_relationship, stage_failed, admitted)
+
+    n_inquiries = wchoice(rng, N_INQUIRIES_PER_OPP, N_INQUIRIES_WEIGHTS)
+    opp_id = ids.next("HRO")
+
+    contacts = []
+    inquiries = []
+    first_inquiry_dt = None
+    patient_contact_id = None
+
+    days_in_month = calendar.monthrange(year, month)[1]
+    if admitted:
+        day_high = max(days_in_month - 15, 1)
+    else:
+        day_high = days_in_month - 3
+    base_dt = random_datetime_in_month(rng, year, month, day_high=day_high)
+
+    for i in range(n_inquiries):
+        role = wchoice(rng, CONTACT_ROLES, CONTACT_ROLE_WEIGHTS)
+        if i == 0:
+            inq_dt = base_dt
+        else:
+            inq_dt = base_dt + timedelta(days=rng.randint(0, 3), hours=rng.randint(0, 6))
+        contact = fake_contact(rng, role, inq_dt, is_patient_of_record=(role == "Patient"))
+        contacts.append(contact)
+
+        if role == "Patient" and patient_contact_id is None:
+            patient_contact_id = contact["contact_id"]
+
+        is_call = rng.random() < CHANNEL_CALL_PROB[channel]
+        inquiry_method = "Call" if is_call else "Web Form"
+
+        match_confidence = wchoice(rng, ["Confirmed", "Probable", "Possible"], [0.90, 0.07, 0.03])
+
+        if channel == "Professional Referral":
+            source_system = "CRM"
+            evidence_class = "Human-Entered"
+        elif is_call:
+            source_system = "Call Tracking"
+            evidence_class = "System-Observed"
+        else:
+            source_system = "Web Form"
+            evidence_class = "System-Observed"
+
+        inquiry_id = ids.next("INQ")
+        inquiries.append({
+            "inquiry_id": inquiry_id,
+            "opportunity_id": opp_id,
+            "contact_id": contact["contact_id"],
+            "inquiry_timestamp": iso_ts(inq_dt),
+            "contact_role": role,
+            "inquiry_method": inquiry_method,
+            "arrival_channel": channel,
+            "source_platform": platform if channel != "Professional Referral" else None,
+            "tracking_number": (f"555-{rng.randint(0,999):03d}-{rng.randint(0,9999):04d}" if is_call else None),
+            "call_duration_seconds": (rng.randint(90, 900) if is_call else None),
+            "landing_page": (None if is_call else "https://harborridge.example.test/contact"),
+            "match_confidence": match_confidence,
+            "source_system": source_system,
+            "evidence_class": evidence_class,
+        })
+        if i == 0:
+            first_inquiry_dt = inq_dt
+            first_inquiry_id = inquiry_id
+            first_match_confidence = match_confidence
+
+    if patient_contact_id is None:
+        patient_contact = fake_contact(rng, "Patient", first_inquiry_dt, is_patient_of_record=True)
+        contacts.append(patient_contact)
+        patient_contact_id = patient_contact["contact_id"]
+
+    touch = None
+    referral = None
+    originating_touch_id = None
+    originating_referral_id = None
+    attribution_confidence = first_match_confidence
+
+    if channel == "Professional Referral":
+        account_id = wchoice(rng, list(accounts_by_id.keys()),
+                              [account_weights[a] for a in accounts_by_id.keys()])
+        ref_confidence = wchoice(rng, ["Confirmed", "Probable", "Possible"], [0.75, 0.20, 0.05])
+        referral = {
+            "referral_id": ids.next("REF"),
+            "professional_account_id": account_id,
+            "opportunity_id": opp_id,
+            "referral_timestamp": iso_ts(first_inquiry_dt - timedelta(hours=rng.randint(1, 48))),
+            "referral_channel": rng.choice(["Call", "Email/Text Coordination", "Patient Told to Call", "Other"]),
+            "source_system": "CRM",
+            "evidence_class": wchoice(rng, ["System-Observed", "Human-Entered"], [0.3, 0.7]),
+            "attribution_confidence": ref_confidence,
+        }
+        originating_referral_id = referral["referral_id"]
+        attribution_confidence = ref_confidence
+    else:
+        touch = make_touch_for_first_inquiry(rng, channel, platform, first_inquiry_id, first_inquiry_dt,
+                                              forced_campaign=campaign)
+        if touch is not None:
+            originating_touch_id = touch["touch_id"]
+            # Section 10: cost multiplier on affected-campaign touch cost.
+            if is_affected and touch["cost"] is not None:
+                touch["cost"] = round(touch["cost"] * SCENARIO1_COST_MULTIPLIER[month], 2)
+
+    opportunity = {
+        "opportunity_id": opp_id,
+        "patient_contact_id": patient_contact_id,
+        "created_at": iso_ts(first_inquiry_dt),
+        "vob_submitted_flag": fin_fields["vob_submitted_flag"],
+        "vob_outcome": fin_fields["vob_outcome"],
+        "payer": payer,
+        "payer_relationship": payer_relationship,
+        "admission_financial_status": fin_fields["admission_financial_status"],
+        "admission_status": fin_fields["admission_status"],
+        "originating_influence_type": CHANNEL_TO_INFLUENCE[channel],
+        "originating_touch_id": originating_touch_id,      # applied via UPDATE, not INSERT
+        "originating_referral_id": originating_referral_id,  # applied via UPDATE, not INSERT
+        "attribution_confidence": attribution_confidence,
+        # internal bookkeeping, not schema columns:
+        "_admitted": admitted,
+        "_created_dt": first_inquiry_dt,
+        "_month": (year, month),
+        "_scenario1_affected": is_affected,
+    }
+    return opportunity, contacts, inquiries, touch, referral
 
 
 # ===========================================================================
@@ -1229,6 +1484,138 @@ def generate_dataset():
     }
 
 
+def generate_dataset_scenario1():
+    """
+    Scenario 1 orchestration (docs/harbor-ridge-scenario-1-specification.md).
+    Parallels generate_dataset() -- same per-month structure (opportunity
+    volume, orphan inquiries, non-converting touches, unlinked referrals,
+    outreach activities, EHR/claims/claim-events generation, all via the
+    exact same shared functions) -- but differs in two deliberate ways:
+
+    1. Uses SCENARIO_1_SEED, never SEED, and builds opportunities via
+       build_opportunity_scenario1() instead of build_opportunity(), so
+       scenario eligibility and the scenario-specific payer-mix /
+       financial-verification tables are applied BEFORE the funnel
+       decision (Section 14).
+
+    2. Deliberately SKIPS the healthy baseline's post-hoc admit-count
+       (38-42/month) and payer-mix (55/35/10) rebalancing block. Section
+       14 requires that "no patient ever needs to be 'un-admitted'" once
+       the scenario-aware funnel decision is made, and the Scenario 1
+       acceptance criteria (Section 16) are calibrated directly against
+       the raw funnel-simulation math (Section 8's 22.8% / 18.5% / 11.0%
+       figures) -- rebalancing the facility-wide total on top would both
+       violate that "no un-admitting" requirement and distort the
+       calibrated affected-campaign conversion rates the spec's math
+       assumes are untouched after the funnel decision.
+
+    generate_dataset() itself is never called here and is not modified by
+    this function's existence.
+    """
+    ids.counters.clear()
+    rng = random.Random(SCENARIO_1_SEED)
+
+    reps = gen_outreach_reps()
+    accounts, account_weights = gen_professional_accounts(rng, reps)
+    accounts_by_id = {a["professional_account_id"]: a for a in accounts}
+
+    all_contacts, all_opportunities, all_inquiries = [], [], []
+    all_touches, all_referrals = [], []
+
+    monthly_opp_counts = {}
+
+    for year, month, label in MONTHS:
+        n_opportunities = 175 + rng.randint(-15, 15)  # Section 3 baseline volume target, unaffected by Scenario 1
+        monthly_opp_counts[label] = n_opportunities
+        linked_referrals_this_month = 0
+
+        month_opportunities = []
+        for _ in range(n_opportunities):
+            opp, contacts, inquiries, touch, referral = build_opportunity_scenario1(
+                rng, year, month, accounts_by_id, account_weights
+            )
+            maybe_reopen_late_july(rng, opp)
+            month_opportunities.append(opp)
+            all_contacts.extend(contacts)
+            all_inquiries.extend(inquiries)
+            if touch is not None:
+                all_touches.append(touch)
+            if referral is not None:
+                all_referrals.append(referral)
+                linked_referrals_this_month += 1
+
+        # No admit-count / payer-mix rebalancing here -- see docstring above.
+        all_opportunities.extend(month_opportunities)
+
+        # Non-patient / duplicate contacts that never resolve to a legitimate
+        # Patient Opportunity (Section 3.1, 5.1 of the data dictionary) --
+        # identical to the healthy baseline, unaffected by Scenario 1.
+        n_orphans = max(round(n_opportunities * 0.03), 2)
+        for _ in range(n_orphans):
+            orphan_dt = random_datetime_in_month(rng, year, month)
+            role = wchoice(rng, CONTACT_ROLES, CONTACT_ROLE_WEIGHTS)
+            contact = fake_contact(rng, role, orphan_dt)
+            all_contacts.append(contact)
+            channel = wchoice(rng, ARRIVAL_CHANNELS, ARRIVAL_CHANNEL_WEIGHTS)
+            platform = pick_source_platform(rng, channel)
+            is_call = rng.random() < CHANNEL_CALL_PROB[channel]
+            all_inquiries.append({
+                "inquiry_id": ids.next("INQ"), "opportunity_id": None, "contact_id": contact["contact_id"],
+                "inquiry_timestamp": iso_ts(orphan_dt), "contact_role": role,
+                "inquiry_method": "Call" if is_call else "Web Form", "arrival_channel": channel,
+                "source_platform": platform if channel != "Professional Referral" else None,
+                "tracking_number": (f"555-{rng.randint(0,999):03d}-{rng.randint(0,9999):04d}" if is_call else None),
+                "call_duration_seconds": (rng.randint(30, 300) if is_call else None),
+                "landing_page": (None if is_call else "https://harborridge.example.test/contact"),
+                "match_confidence": "Unmatched",
+                "source_system": "Call Tracking" if is_call else "Web Form",
+                "evidence_class": "System-Observed",
+            })
+
+        # Non-converting digital touches, for spend-benchmark realism (Section 6
+        # of the V0.1 generation rules) -- identical mechanism to baseline.
+        # Section 10 cost-multiplier is applied afterward, below, to every
+        # affected-campaign touch (converting and non-converting alike).
+        n_google_conv = sum(1 for t in all_touches if t["platform"] == "Google Ads"
+                             and t["touch_timestamp"][:7] == f"{year}-{month:02d}")
+        n_msft_conv = sum(1 for t in all_touches if t["platform"] == "Microsoft Ads"
+                           and t["touch_timestamp"][:7] == f"{year}-{month:02d}")
+        n_meta_conv = sum(1 for t in all_touches if t["platform"] == "Meta"
+                           and t["touch_timestamp"][:7] == f"{year}-{month:02d}")
+        n_organic_conv = sum(1 for t in all_touches if t["platform"] == "Google Organic"
+                              and t["touch_timestamp"][:7] == f"{year}-{month:02d}")
+        new_google_touches = make_non_converting_touches(rng, year, month, "Google Ads", n_google_conv * NON_CONVERTING_MULTIPLIER["Google Ads"])
+        for t in new_google_touches:
+            if t["campaign_id"] in SCENARIO1_AFFECTED_CAMPAIGNS:
+                t["cost"] = round(t["cost"] * SCENARIO1_COST_MULTIPLIER[month], 2)
+        all_touches.extend(new_google_touches)
+        all_touches.extend(make_non_converting_touches(rng, year, month, "Microsoft Ads", n_msft_conv * NON_CONVERTING_MULTIPLIER["Microsoft Ads"]))
+        all_touches.extend(make_non_converting_touches(rng, year, month, "Meta", n_meta_conv * NON_CONVERTING_MULTIPLIER["Meta"]))
+        all_touches.extend(make_non_converting_touches(rng, year, month, "Organic", n_organic_conv * NON_CONVERTING_MULTIPLIER["Organic"]))
+
+        all_referrals.extend(gen_unlinked_referrals(rng, accounts_by_id, account_weights, linked_referrals_this_month))
+
+    activities = gen_outreach_activities(rng, accounts, reps)
+
+    all_episodes, all_claims, all_claim_events = [], [], []
+    for opp in all_opportunities:
+        if opp["admission_status"] == "Admitted":
+            episodes = gen_episodes_for_admitted_opportunity(rng, opp)
+            all_episodes.extend(episodes)
+            for ep in episodes:
+                claims, events = gen_claims_and_events_for_episode(rng, ep)
+                all_claims.extend(claims)
+                all_claim_events.extend(events)
+
+    return {
+        "reps": reps, "accounts": accounts, "contacts": all_contacts,
+        "opportunities": all_opportunities, "inquiries": all_inquiries,
+        "touches": all_touches, "referrals": all_referrals, "activities": activities,
+        "episodes": all_episodes, "claims": all_claims, "claim_events": all_claim_events,
+        "monthly_opp_counts": monthly_opp_counts,
+    }
+
+
 # ===========================================================================
 # Database insertion (Section 20: exact insertion order)
 # ===========================================================================
@@ -1456,14 +1843,71 @@ def print_summary(data):
           "are not stored relationally per Section 6 -- reported here as config only.)")
 
 
+def print_summary_scenario1(data):
+    print("\n=== Harbor Ridge Scenario 1 Generation Summary ===\n")
+    print(f"SCENARIO_1_SEED = {SCENARIO_1_SEED}")
+    print(f"Observation date = {OBSERVATION_DATE.isoformat()}\n")
+
+    print("Row counts:")
+    for name, key in [
+        ("contacts", "contacts"), ("outreach_reps", "reps"), ("professional_accounts", "accounts"),
+        ("patient_opportunities", "opportunities"), ("inquiries", "inquiries"),
+        ("acquisition_touches", "touches"), ("professional_referrals", "referrals"),
+        ("outreach_activities", "activities"), ("ehr_episodes", "episodes"),
+        ("claims", "claims"), ("claim_events", "claim_events"),
+    ]:
+        print(f"  {name:26s} {len(data[key])}")
+
+    print("\nOpportunities generated by month:")
+    for label, n in data["monthly_opp_counts"].items():
+        print(f"  {label}: {n}")
+
+    opps = data["opportunities"]
+    print("\nAffected attributable opportunities (Section 3 definition) by month:")
+    for year, month, label in MONTHS:
+        month_opps = [o for o in opps if o["_month"] == (year, month)]
+        affected = [o for o in month_opps if o["_scenario1_affected"]]
+        affected_admitted = [o for o in affected if o["admission_status"] == "Admitted"]
+        affected_oon = [o for o in affected if o["payer_relationship"] == "OON"]
+        conv = len(affected_admitted) / len(affected) if affected else 0
+        oon_share = len(affected_oon) / len(affected) if affected else 0
+        print(f"  {label}: {len(affected)} affected opportunities, "
+              f"Opportunity->Admission {conv:.1%} ({len(affected_admitted)}/{len(affected)}), "
+              f"OON share {oon_share:.1%}")
+
+    total_admitted = sum(1 for o in opps if o["admission_status"] == "Admitted")
+    print(f"\nTotal opportunities: {len(opps)}, Admitted: {total_admitted} "
+          f"({total_admitted/len(opps):.1%} facility-wide Opportunity->Admission)")
+    print("(No facility-wide admit-count/payer-mix rebalancing is applied in Scenario 1 mode --")
+    print(" see generate_dataset_scenario1() docstring for why.)")
+
+
 def main():
-    data = generate_dataset()
-    conn = build_database(data)
-    print_summary(data)
-    print("\nExporting CSVs...")
-    export_csv(conn)
-    conn.close()
-    print("\nDone. Database written to", DB_PATH)
+    parser = argparse.ArgumentParser(description="Harbor Ridge synthetic data generator")
+    parser.add_argument(
+        "--mode", choices=["baseline", "scenario1"], default="baseline",
+        help="'baseline' (default): SEED, harbor_ridge.db, data/csv_export/. "
+             "'scenario1': SCENARIO_1_SEED, harbor_ridge_scenario1.db, data/csv_export_scenario1/. "
+             "Never both from the same run.",
+    )
+    args = parser.parse_args()
+
+    if args.mode == "scenario1":
+        data = generate_dataset_scenario1()
+        conn = build_database(data, db_path=SCENARIO1_DB_PATH)
+        print_summary_scenario1(data)
+        print("\nExporting CSVs...")
+        export_csv(conn, out_dir=SCENARIO1_CSV_EXPORT_DIR)
+        conn.close()
+        print("\nDone. Database written to", SCENARIO1_DB_PATH)
+    else:
+        data = generate_dataset()
+        conn = build_database(data)
+        print_summary(data)
+        print("\nExporting CSVs...")
+        export_csv(conn)
+        conn.close()
+        print("\nDone. Database written to", DB_PATH)
 
 
 if __name__ == "__main__":

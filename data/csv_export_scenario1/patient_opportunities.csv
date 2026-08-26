@@ -1,0 +1,531 @@
+opportunity_id,patient_contact_id,created_at,vob_submitted_flag,vob_outcome,payer,payer_relationship,admission_financial_status,admission_status,originating_influence_type,originating_touch_id,originating_referral_id,attribution_confidence
+HRO-000001,CNT-000001,2026-05-09T15:31:35,1,Pending,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000001,,Confirmed
+HRO-000002,CNT-000003,2026-05-12T14:10:17,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Professional Referral,,REF-000001,Probable
+HRO-000003,CNT-000004,2026-05-23T16:13:01,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000002,,Confirmed
+HRO-000004,CNT-000006,2026-05-15T07:25:06,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Organic,TOUCH-000003,,Confirmed
+HRO-000005,CNT-000008,2026-05-27T20:26:59,0,,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000004,,Confirmed
+HRO-000006,CNT-000009,2026-05-01T16:56:23,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000005,,Confirmed
+HRO-000007,CNT-000012,2026-05-22T09:49:33,1,Pending,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000006,,Confirmed
+HRO-000008,CNT-000013,2026-05-10T10:27:55,1,Unable to Verify,Liberty Crest Health,OON,At-Risk Admission,Admitted,Paid,TOUCH-000007,,Probable
+HRO-000009,CNT-000015,2026-05-06T08:06:32,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Professional Referral,,REF-000002,Confirmed
+HRO-000010,CNT-000016,2026-05-14T18:09:54,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000008,,Confirmed
+HRO-000011,CNT-000018,2026-05-07T14:21:20,1,Unable to Verify,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000003,Confirmed
+HRO-000012,CNT-000019,2026-05-12T13:50:31,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000009,,Possible
+HRO-000013,CNT-000020,2026-05-21T16:56:13,1,Unable to Verify,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000004,Confirmed
+HRO-000014,CNT-000021,2026-05-11T12:37:29,0,,,Private Pay,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000005,Confirmed
+HRO-000015,CNT-000023,2026-05-07T17:33:49,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000010,,Confirmed
+HRO-000016,CNT-000025,2026-05-24T14:42:32,1,Unable to Verify,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000011,,Confirmed
+HRO-000017,CNT-000026,2026-05-10T14:55:06,1,Pending,Keystone Wellness Plan,OON,At-Risk Admission,Admitted,Professional Referral,,REF-000006,Confirmed
+HRO-000018,CNT-000028,2026-05-03T14:44:43,1,Non-Viable,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000012,,Confirmed
+HRO-000019,CNT-000029,2026-05-15T09:24:08,1,Unable to Verify,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000007,Probable
+HRO-000020,CNT-000032,2026-05-01T16:46:34,1,Non-Viable,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000013,,Confirmed
+HRO-000021,CNT-000034,2026-05-25T19:09:33,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000014,,Confirmed
+HRO-000022,CNT-000036,2026-05-05T18:45:28,1,Non-Viable,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000015,,Confirmed
+HRO-000023,CNT-000037,2026-05-22T20:17:26,1,Pending,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000008,Confirmed
+HRO-000024,CNT-000038,2026-05-07T08:05:49,1,Non-Viable,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000016,,Confirmed
+HRO-000025,CNT-000041,2026-05-16T16:10:39,1,Pending,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000017,,Confirmed
+HRO-000026,CNT-000042,2026-05-08T07:27:35,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Paid,TOUCH-000018,,Confirmed
+HRO-000027,CNT-000043,2026-05-18T12:58:21,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-000019,,Confirmed
+HRO-000028,CNT-000044,2026-05-10T11:39:00,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Paid,TOUCH-000020,,Confirmed
+HRO-000029,CNT-000046,2026-05-22T09:08:37,1,Pending,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000021,,Confirmed
+HRO-000030,CNT-000047,2026-05-15T14:02:22,1,Non-Viable,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000022,,Confirmed
+HRO-000031,CNT-000048,2026-05-08T11:54:40,1,Pending,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000023,,Confirmed
+HRO-000032,CNT-000050,2026-05-17T13:33:30,1,Viable,National Trust Health Plan,OON,Financially Cleared,Not Admitted,Organic,TOUCH-000024,,Confirmed
+HRO-000033,CNT-000052,2026-05-17T16:21:34,1,Unable to Verify,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000025,,Confirmed
+HRO-000034,CNT-000054,2026-05-01T10:02:22,1,Viable,National Trust Health Plan,OON,Financially Cleared,Admitted,Organic,TOUCH-000026,,Confirmed
+HRO-000035,CNT-000055,2026-05-22T19:34:38,0,,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000027,,Confirmed
+HRO-000036,CNT-000058,2026-05-14T18:28:31,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000028,,Confirmed
+HRO-000037,CNT-000060,2026-05-22T19:43:57,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000009,Confirmed
+HRO-000038,CNT-000062,2026-05-02T20:41:37,1,Pending,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000010,Probable
+HRO-000039,CNT-000064,2026-05-19T13:58:36,1,Non-Viable,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000029,,Confirmed
+HRO-000040,CNT-000066,2026-05-19T12:42:41,1,Pending,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000030,,Confirmed
+HRO-000041,CNT-000067,2026-05-22T14:25:02,1,Non-Viable,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000031,,Confirmed
+HRO-000042,CNT-000069,2026-05-24T10:51:35,1,Non-Viable,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000032,,Confirmed
+HRO-000043,CNT-000070,2026-05-17T09:50:59,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000033,,Confirmed
+HRO-000044,CNT-000071,2026-05-15T10:57:05,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Organic,TOUCH-000034,,Probable
+HRO-000045,CNT-000072,2026-05-17T13:22:05,0,,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000035,,Confirmed
+HRO-000046,CNT-000074,2026-05-14T11:24:37,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Organic,TOUCH-000036,,Confirmed
+HRO-000047,CNT-000076,2026-05-03T17:44:29,1,Pending,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000037,,Probable
+HRO-000048,CNT-000077,2026-05-02T15:08:26,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Admitted,Paid,TOUCH-000038,,Confirmed
+HRO-000049,CNT-000079,2026-05-10T12:51:29,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000039,,Confirmed
+HRO-000050,CNT-000080,2026-05-26T08:23:32,1,Non-Viable,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000040,,Confirmed
+HRO-000051,CNT-000082,2026-05-23T14:45:32,1,Viable,Redwood Mutual,OON,Financially Cleared,Not Admitted,Professional Referral,,REF-000011,Probable
+HRO-000052,CNT-000083,2026-05-26T12:20:24,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000012,Confirmed
+HRO-000053,CNT-000085,2026-05-01T20:06:31,1,Pending,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000041,,Confirmed
+HRO-000054,CNT-000087,2026-05-12T12:23:59,1,Non-Viable,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000042,,Confirmed
+HRO-000055,CNT-000089,2026-05-13T10:22:00,1,Pending,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000043,,Confirmed
+HRO-000056,CNT-000091,2026-05-19T09:24:13,1,Non-Viable,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000044,,Probable
+HRO-000057,CNT-000092,2026-05-02T13:13:16,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000045,,Probable
+HRO-000058,CNT-000094,2026-05-12T16:08:47,1,Pending,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000046,,Confirmed
+HRO-000059,CNT-000096,2026-05-01T10:13:35,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Paid,TOUCH-000047,,Confirmed
+HRO-000060,CNT-000098,2026-05-06T15:45:19,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000048,,Confirmed
+HRO-000061,CNT-000099,2026-05-08T10:27:51,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000049,,Confirmed
+HRO-000062,CNT-000100,2026-05-10T08:14:12,1,Viable,Keystone Wellness Plan,OON,Financially Cleared,Admitted,Professional Referral,,REF-000013,Confirmed
+HRO-000063,CNT-000102,2026-05-02T09:29:31,0,,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000050,,Confirmed
+HRO-000064,CNT-000104,2026-05-16T19:34:27,1,Unable to Verify,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000051,,Probable
+HRO-000065,CNT-000105,2026-05-12T17:02:35,1,Viable,Redwood Mutual,OON,Financially Cleared,Not Admitted,Organic,TOUCH-000052,,Confirmed
+HRO-000066,CNT-000106,2026-05-17T20:20:41,1,Viable,Redwood Mutual,OON,Financially Cleared,Not Admitted,Organic,TOUCH-000053,,Confirmed
+HRO-000067,CNT-000108,2026-05-02T20:41:16,1,Viable,Liberty Crest Health,OON,Financially Cleared,Admitted,Organic,TOUCH-000054,,Confirmed
+HRO-000068,CNT-000110,2026-05-10T17:56:45,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000055,,Confirmed
+HRO-000069,CNT-000111,2026-05-04T15:11:43,1,Pending,Redwood Mutual,OON,At-Risk Admission,Admitted,Direct,TOUCH-000056,,Confirmed
+HRO-000070,CNT-000113,2026-05-24T20:42:46,0,,,Private Pay,Not Financially Cleared,Not Admitted,Organic,TOUCH-000057,,Confirmed
+HRO-000071,CNT-000114,2026-05-12T20:28:52,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000058,,Confirmed
+HRO-000072,CNT-000115,2026-05-03T16:43:27,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-000059,,Confirmed
+HRO-000073,CNT-000117,2026-05-03T20:45:04,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Organic,TOUCH-000060,,Confirmed
+HRO-000074,CNT-000119,2026-05-03T11:32:45,1,Non-Viable,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000014,Confirmed
+HRO-000075,CNT-000120,2026-05-20T13:23:43,0,,,Private Pay,Not Financially Cleared,Not Admitted,Organic,TOUCH-000061,,Confirmed
+HRO-000076,CNT-000121,2026-05-21T12:45:24,1,Pending,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000062,,Confirmed
+HRO-000077,CNT-000124,2026-05-21T13:12:20,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000063,,Confirmed
+HRO-000078,CNT-000125,2026-05-10T18:25:05,1,Non-Viable,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000064,,Confirmed
+HRO-000079,CNT-000127,2026-05-01T07:16:13,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000065,,Confirmed
+HRO-000080,CNT-000129,2026-05-06T09:36:29,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000066,,Confirmed
+HRO-000081,CNT-000132,2026-05-07T11:31:27,1,Pending,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000067,,Probable
+HRO-000082,CNT-000133,2026-05-25T08:47:52,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000015,Confirmed
+HRO-000083,CNT-000134,2026-05-06T14:23:46,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000016,Confirmed
+HRO-000084,CNT-000135,2026-05-25T16:14:25,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000017,Confirmed
+HRO-000085,CNT-000137,2026-05-27T10:02:01,0,,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000068,,Possible
+HRO-000086,CNT-000138,2026-05-02T07:12:35,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000018,Confirmed
+HRO-000087,CNT-000140,2026-05-28T17:30:37,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000069,,Confirmed
+HRO-000088,CNT-000141,2026-05-18T16:38:45,1,Non-Viable,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000070,,Confirmed
+HRO-000089,CNT-000142,2026-05-06T08:03:43,1,Non-Viable,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000071,,Confirmed
+HRO-000090,CNT-000143,2026-05-24T12:31:21,1,Viable,Keystone Wellness Plan,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000072,,Confirmed
+HRO-000091,CNT-000145,2026-05-23T09:23:58,0,,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000073,,Confirmed
+HRO-000092,CNT-000146,2026-05-07T16:35:36,1,Non-Viable,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000019,Confirmed
+HRO-000093,CNT-000147,2026-05-03T11:10:19,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000074,,Confirmed
+HRO-000094,CNT-000148,2026-05-16T18:17:03,1,Viable,Harborline Assurance,OON,Financially Cleared,Not Admitted,Organic,TOUCH-000075,,Confirmed
+HRO-000095,CNT-000149,2026-05-09T18:15:43,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Organic,TOUCH-000076,,Possible
+HRO-000096,CNT-000151,2026-05-12T07:11:06,1,Unable to Verify,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000077,,Confirmed
+HRO-000097,CNT-000152,2026-05-11T17:50:21,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Organic,TOUCH-000078,,Confirmed
+HRO-000098,CNT-000153,2026-05-12T16:37:56,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Paid,TOUCH-000079,,Confirmed
+HRO-000099,CNT-000155,2026-05-02T13:56:58,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000080,,Confirmed
+HRO-000100,CNT-000157,2026-05-23T13:56:44,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000081,,Confirmed
+HRO-000101,CNT-000158,2026-05-02T08:47:50,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000020,Confirmed
+HRO-000102,CNT-000159,2026-05-16T11:51:43,1,Unable to Verify,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000082,,Confirmed
+HRO-000103,CNT-000161,2026-05-06T11:33:25,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Organic,TOUCH-000083,,Confirmed
+HRO-000104,CNT-000162,2026-05-01T19:01:56,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Organic,TOUCH-000084,,Confirmed
+HRO-000105,CNT-000163,2026-05-07T09:24:36,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Organic,TOUCH-000085,,Probable
+HRO-000106,CNT-000165,2026-05-04T19:49:51,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Professional Referral,,REF-000021,Confirmed
+HRO-000107,CNT-000166,2026-05-13T12:12:54,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000086,,Confirmed
+HRO-000108,CNT-000167,2026-05-16T19:04:12,0,,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000087,,Confirmed
+HRO-000109,CNT-000169,2026-05-26T08:59:32,1,Pending,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000022,Possible
+HRO-000110,CNT-000171,2026-05-12T08:06:29,1,Unable to Verify,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000088,,Confirmed
+HRO-000111,CNT-000173,2026-05-18T18:24:42,0,,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000089,,Confirmed
+HRO-000112,CNT-000175,2026-05-05T12:01:24,0,,,Private Pay,Financially Cleared,Not Admitted,Professional Referral,,REF-000023,Confirmed
+HRO-000113,CNT-000176,2026-05-14T20:35:01,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000090,,Confirmed
+HRO-000114,CNT-000179,2026-05-16T17:29:28,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-000091,,Confirmed
+HRO-000115,CNT-000180,2026-05-20T07:01:46,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Organic,TOUCH-000092,,Confirmed
+HRO-000116,CNT-000183,2026-05-12T19:05:33,1,Non-Viable,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000093,,Confirmed
+HRO-000117,CNT-000185,2026-05-22T19:05:04,1,Unable to Verify,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000094,,Confirmed
+HRO-000118,CNT-000187,2026-05-13T11:06:06,1,Viable,Harborline Assurance,OON,Financially Cleared,Admitted,Paid,TOUCH-000095,,Confirmed
+HRO-000119,CNT-000188,2026-05-18T13:51:37,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-000096,,Confirmed
+HRO-000120,CNT-000189,2026-05-02T13:57:47,0,,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000097,,Confirmed
+HRO-000121,CNT-000193,2026-05-27T13:15:18,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000098,,Confirmed
+HRO-000122,CNT-000194,2026-05-23T17:54:17,1,Non-Viable,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000099,,Confirmed
+HRO-000123,CNT-000195,2026-05-14T11:05:07,1,Unable to Verify,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000024,Confirmed
+HRO-000124,CNT-000197,2026-05-27T20:11:11,0,,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000025,Confirmed
+HRO-000125,CNT-000198,2026-05-25T13:12:25,1,Non-Viable,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000100,,Confirmed
+HRO-000126,CNT-000199,2026-05-03T19:23:16,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000101,,Confirmed
+HRO-000127,CNT-000201,2026-05-08T09:33:10,1,Non-Viable,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000102,,Confirmed
+HRO-000128,CNT-000203,2026-05-15T17:06:58,0,,,Private Pay,Financially Cleared,Not Admitted,Organic,TOUCH-000103,,Confirmed
+HRO-000129,CNT-000205,2026-05-02T17:23:49,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Organic,TOUCH-000104,,Confirmed
+HRO-000130,CNT-000207,2026-05-01T09:27:56,1,Viable,Redwood Mutual,OON,Financially Cleared,Not Admitted,Direct,TOUCH-000105,,Confirmed
+HRO-000131,CNT-000209,2026-05-17T13:25:23,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000106,,Confirmed
+HRO-000132,CNT-000210,2026-05-12T14:55:29,1,Non-Viable,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000107,,Confirmed
+HRO-000133,CNT-000212,2026-05-26T18:04:18,0,,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000108,,Confirmed
+HRO-000134,CNT-000213,2026-05-03T09:10:47,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000109,,Confirmed
+HRO-000135,CNT-000214,2026-05-17T17:16:22,0,,,Private Pay,Financially Cleared,Not Admitted,Direct,TOUCH-000110,,Confirmed
+HRO-000136,CNT-000215,2026-05-10T10:30:29,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000111,,Probable
+HRO-000137,CNT-000216,2026-05-16T15:53:46,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Admitted,Organic,TOUCH-000112,,Confirmed
+HRO-000138,CNT-000218,2026-05-26T08:10:19,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-000113,,Confirmed
+HRO-000139,CNT-000219,2026-05-13T13:34:10,1,Pending,Liberty Crest Health,OON,Financially Cleared,Admitted,Direct,TOUCH-000114,,Confirmed
+HRO-000140,CNT-000220,2026-05-07T15:08:46,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Paid,TOUCH-000115,,Confirmed
+HRO-000141,CNT-000223,2026-05-16T07:03:19,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000116,,Confirmed
+HRO-000142,CNT-000225,2026-05-26T13:56:35,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000117,,Possible
+HRO-000143,CNT-000226,2026-05-13T18:11:47,1,Non-Viable,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000118,,Confirmed
+HRO-000144,CNT-000228,2026-05-19T15:17:10,1,Viable,Redwood Mutual,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000119,,Confirmed
+HRO-000145,CNT-000231,2026-05-22T19:32:34,0,,,Private Pay,Financially Cleared,Not Admitted,Organic,TOUCH-000120,,Confirmed
+HRO-000146,CNT-000232,2026-05-04T09:41:10,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000121,,Confirmed
+HRO-000147,CNT-000234,2026-05-06T11:06:19,1,Viable,Liberty Crest Health,OON,Financially Cleared,Admitted,Organic,TOUCH-000122,,Confirmed
+HRO-000148,CNT-000235,2026-05-22T16:13:41,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000123,,Confirmed
+HRO-000149,CNT-000236,2026-05-01T16:27:58,1,Non-Viable,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000026,Confirmed
+HRO-000150,CNT-000237,2026-05-07T14:13:31,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000124,,Probable
+HRO-000151,CNT-000238,2026-05-11T19:10:55,1,Unable to Verify,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000125,,Confirmed
+HRO-000152,CNT-000239,2026-05-15T15:12:34,1,Pending,Summit Behavioral Network,INN,Financially Cleared,Admitted,Paid,TOUCH-000126,,Confirmed
+HRO-000153,CNT-000240,2026-05-09T12:08:15,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Direct,TOUCH-000127,,Confirmed
+HRO-000154,CNT-000241,2026-05-19T16:41:29,0,,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000128,,Confirmed
+HRO-000155,CNT-000243,2026-05-25T10:32:12,1,Non-Viable,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000129,,Confirmed
+HRO-000156,CNT-000244,2026-05-21T16:03:22,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000130,,Confirmed
+HRO-000157,CNT-000246,2026-05-16T18:27:41,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000131,,Confirmed
+HRO-000158,CNT-000248,2026-05-06T16:38:19,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000132,,Confirmed
+HRO-000159,CNT-000249,2026-05-06T15:41:27,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Paid,TOUCH-000133,,Confirmed
+HRO-000160,CNT-000250,2026-05-14T16:11:20,1,Non-Viable,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000134,,Confirmed
+HRO-000161,CNT-000251,2026-05-13T19:07:42,1,Non-Viable,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000135,,Confirmed
+HRO-000162,CNT-000253,2026-05-03T09:54:37,1,Non-Viable,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000136,,Confirmed
+HRO-000163,CNT-000255,2026-05-14T13:59:28,1,Viable,Redwood Mutual,OON,Financially Cleared,Not Admitted,Professional Referral,,REF-000027,Confirmed
+HRO-000164,CNT-000256,2026-05-21T19:43:48,0,,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000028,Confirmed
+HRO-000165,CNT-000257,2026-05-13T19:49:09,0,,,Private Pay,Financially Cleared,Admitted,Paid,TOUCH-000137,,Confirmed
+HRO-000166,CNT-000260,2026-05-01T07:16:15,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Organic,TOUCH-000138,,Confirmed
+HRO-000167,CNT-000263,2026-05-04T17:33:04,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Professional Referral,,REF-000029,Confirmed
+HRO-000168,CNT-000264,2026-05-05T07:37:38,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Organic,TOUCH-000139,,Confirmed
+HRO-000169,CNT-000265,2026-05-02T14:13:40,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000140,,Confirmed
+HRO-000170,CNT-000268,2026-05-14T15:31:37,1,Viable,Redwood Mutual,OON,Financially Cleared,Admitted,Paid,TOUCH-000141,,Probable
+HRO-000171,CNT-000269,2026-05-10T19:04:08,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000142,,Confirmed
+HRO-000172,CNT-000271,2026-05-20T14:23:57,0,,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000143,,Confirmed
+HRO-000173,CNT-000273,2026-05-10T18:56:59,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000144,,Confirmed
+HRO-000174,CNT-000274,2026-05-08T14:45:12,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000030,Confirmed
+HRO-000175,CNT-000276,2026-05-05T11:55:24,1,Viable,National Trust Health Plan,OON,Financially Cleared,Admitted,Paid,TOUCH-000145,,Confirmed
+HRO-000176,CNT-000277,2026-05-17T08:25:37,1,Non-Viable,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000146,,Confirmed
+HRO-000177,CNT-000280,2026-05-18T09:46:03,0,,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000031,Confirmed
+HRO-000178,CNT-000282,2026-05-02T13:04:23,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Paid,TOUCH-000147,,Confirmed
+HRO-000179,CNT-000288,2026-06-01T13:00:05,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000036,Confirmed
+HRO-000180,CNT-000290,2026-06-11T08:16:04,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000037,Confirmed
+HRO-000181,CNT-000292,2026-06-06T11:43:26,1,Viable,Redwood Mutual,OON,Financially Cleared,Not Admitted,Professional Referral,,REF-000038,Probable
+HRO-000182,CNT-000294,2026-06-07T12:51:03,0,,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000502,,Confirmed
+HRO-000183,CNT-000296,2026-06-19T16:26:07,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000503,,Confirmed
+HRO-000184,CNT-000297,2026-06-14T17:23:31,1,Non-Viable,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000504,,Confirmed
+HRO-000185,CNT-000299,2026-06-24T16:43:01,0,,,Private Pay,Financially Cleared,Not Admitted,Professional Referral,,REF-000039,Confirmed
+HRO-000186,CNT-000300,2026-06-16T13:32:33,0,,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000505,,Confirmed
+HRO-000187,CNT-000301,2026-06-03T18:03:39,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Paid,TOUCH-000506,,Confirmed
+HRO-000188,CNT-000302,2026-06-09T11:47:33,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000507,,Possible
+HRO-000189,CNT-000304,2026-06-15T15:13:04,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000508,,Confirmed
+HRO-000190,CNT-000306,2026-06-11T10:46:32,1,Pending,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000040,Confirmed
+HRO-000191,CNT-000308,2026-06-03T20:36:01,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000509,,Confirmed
+HRO-000192,CNT-000310,2026-06-03T07:03:24,0,,,Private Pay,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000041,Confirmed
+HRO-000193,CNT-000311,2026-06-27T14:05:50,1,Non-Viable,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000510,,Confirmed
+HRO-000194,CNT-000312,2026-06-22T16:55:09,1,Viable,Harborline Assurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000511,,Confirmed
+HRO-000195,CNT-000314,2026-06-24T18:57:22,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000512,,Confirmed
+HRO-000196,CNT-000315,2026-06-07T13:35:21,1,Non-Viable,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000042,Confirmed
+HRO-000197,CNT-000316,2026-06-04T20:28:13,1,Non-Viable,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000513,,Possible
+HRO-000198,CNT-000319,2026-06-03T10:28:28,1,Viable,Harborline Assurance,OON,Financially Cleared,Admitted,Professional Referral,,REF-000043,Probable
+HRO-000199,CNT-000321,2026-06-19T16:56:24,1,Pending,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000514,,Confirmed
+HRO-000200,CNT-000322,2026-06-06T12:59:36,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Paid,TOUCH-000515,,Confirmed
+HRO-000201,CNT-000324,2026-06-27T14:20:34,1,Unable to Verify,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000516,,Confirmed
+HRO-000202,CNT-000325,2026-06-13T19:30:00,1,Pending,National Trust Health Plan,OON,At-Risk Admission,Admitted,Organic,TOUCH-000517,,Confirmed
+HRO-000203,CNT-000326,2026-06-03T14:59:07,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Direct,TOUCH-000518,,Confirmed
+HRO-000204,CNT-000328,2026-06-05T15:53:20,1,Pending,Cornerstone Assurance,INN,Financially Cleared,Admitted,Paid,TOUCH-000519,,Confirmed
+HRO-000205,CNT-000330,2026-06-08T11:00:16,0,,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000520,,Confirmed
+HRO-000206,CNT-000333,2026-06-09T08:59:34,1,Pending,Meridian Health Partners,INN,Financially Cleared,Admitted,Professional Referral,,REF-000044,Probable
+HRO-000207,CNT-000335,2026-06-08T08:16:11,1,Viable,Harborline Assurance,OON,Financially Cleared,Admitted,Paid,TOUCH-000521,,Confirmed
+HRO-000208,CNT-000337,2026-06-09T19:00:44,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000522,,Confirmed
+HRO-000209,CNT-000339,2026-06-01T10:42:36,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000523,,Confirmed
+HRO-000210,CNT-000340,2026-06-22T10:03:54,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000524,,Confirmed
+HRO-000211,CNT-000342,2026-06-02T14:29:59,1,Viable,Keystone Wellness Plan,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000525,,Confirmed
+HRO-000212,CNT-000343,2026-06-12T15:09:51,1,Non-Viable,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000526,,Confirmed
+HRO-000213,CNT-000344,2026-06-02T20:41:08,0,,,Private Pay,Financially Cleared,Not Admitted,Organic,TOUCH-000527,,Confirmed
+HRO-000214,CNT-000346,2026-06-10T12:47:31,1,Non-Viable,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000528,,Confirmed
+HRO-000215,CNT-000348,2026-06-03T12:43:26,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000045,Confirmed
+HRO-000216,CNT-000351,2026-06-15T12:46:38,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000529,,Confirmed
+HRO-000217,CNT-000353,2026-06-09T15:33:15,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000530,,Confirmed
+HRO-000218,CNT-000356,2026-06-19T11:09:24,1,Non-Viable,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000531,,Confirmed
+HRO-000219,CNT-000357,2026-06-18T19:33:16,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000532,,Confirmed
+HRO-000220,CNT-000359,2026-06-13T20:32:11,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000046,Confirmed
+HRO-000221,CNT-000361,2026-06-04T09:06:29,1,Pending,Continental Care Alliance,INN,Financially Cleared,Admitted,Organic,TOUCH-000533,,Confirmed
+HRO-000222,CNT-000362,2026-06-05T15:15:59,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000047,Confirmed
+HRO-000223,CNT-000365,2026-06-07T12:56:28,0,,,Private Pay,Financially Cleared,Admitted,Professional Referral,,REF-000048,Confirmed
+HRO-000224,CNT-000366,2026-06-05T16:49:36,1,Non-Viable,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000049,Confirmed
+HRO-000225,CNT-000368,2026-06-25T10:05:31,0,,,Private Pay,Financially Cleared,Not Admitted,Organic,TOUCH-000534,,Confirmed
+HRO-000226,CNT-000370,2026-06-15T15:01:58,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Admitted,Paid,TOUCH-000535,,Confirmed
+HRO-000227,CNT-000371,2026-06-19T18:30:05,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000536,,Confirmed
+HRO-000228,CNT-000373,2026-06-19T09:08:24,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000537,,Confirmed
+HRO-000229,CNT-000374,2026-06-04T11:43:45,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Admitted,Organic,TOUCH-000538,,Confirmed
+HRO-000230,CNT-000375,2026-06-07T17:31:05,1,Unable to Verify,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000539,,Probable
+HRO-000231,CNT-000376,2026-06-22T20:18:52,1,Non-Viable,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000050,Confirmed
+HRO-000232,CNT-000378,2026-06-26T09:24:24,1,Pending,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000540,,Confirmed
+HRO-000233,CNT-000380,2026-06-24T19:57:44,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-000541,,Confirmed
+HRO-000234,CNT-000382,2026-06-08T10:31:40,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Admitted,Professional Referral,,REF-000051,Probable
+HRO-000235,CNT-000384,2026-06-11T16:43:54,1,Unable to Verify,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000542,,Confirmed
+HRO-000236,CNT-000385,2026-06-26T20:45:07,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000543,,Confirmed
+HRO-000237,CNT-000387,2026-06-21T15:25:33,1,Unable to Verify,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000544,,Confirmed
+HRO-000238,CNT-000388,2026-06-10T15:56:12,0,,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000545,,Confirmed
+HRO-000239,CNT-000390,2026-06-08T13:46:50,1,Non-Viable,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000546,,Confirmed
+HRO-000240,CNT-000391,2026-06-09T11:56:44,1,Non-Viable,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000547,,Confirmed
+HRO-000241,CNT-000394,2026-06-07T10:00:44,0,,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000548,,Probable
+HRO-000242,CNT-000395,2026-06-24T18:37:54,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000549,,Confirmed
+HRO-000243,CNT-000396,2026-06-10T09:50:32,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000052,Probable
+HRO-000244,CNT-000398,2026-06-07T12:40:57,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000550,,Confirmed
+HRO-000245,CNT-000400,2026-06-18T11:44:23,1,Non-Viable,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000551,,Confirmed
+HRO-000246,CNT-000401,2026-06-21T13:33:35,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000552,,Confirmed
+HRO-000247,CNT-000402,2026-06-03T17:06:25,1,Non-Viable,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000553,,Confirmed
+HRO-000248,CNT-000403,2026-06-09T20:46:43,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Professional Referral,,REF-000053,Confirmed
+HRO-000249,CNT-000405,2026-06-02T17:23:06,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Direct,TOUCH-000554,,Confirmed
+HRO-000250,CNT-000406,2026-06-06T08:44:36,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000555,,Confirmed
+HRO-000251,CNT-000409,2026-06-12T17:49:58,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000054,Confirmed
+HRO-000252,CNT-000411,2026-06-24T14:10:57,1,Pending,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000055,Confirmed
+HRO-000253,CNT-000412,2026-06-02T20:32:07,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-000556,,Possible
+HRO-000254,CNT-000413,2026-06-07T12:01:26,1,Viable,Redwood Mutual,OON,Financially Cleared,Not Admitted,Organic,TOUCH-000557,,Confirmed
+HRO-000255,CNT-000415,2026-06-11T20:46:54,1,Viable,National Trust Health Plan,OON,Financially Cleared,Admitted,Professional Referral,,REF-000056,Confirmed
+HRO-000256,CNT-000416,2026-06-24T18:32:35,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-000558,,Confirmed
+HRO-000257,CNT-000417,2026-06-12T11:47:57,1,Unable to Verify,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000559,,Confirmed
+HRO-000258,CNT-000418,2026-06-22T10:36:14,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000560,,Confirmed
+HRO-000259,CNT-000419,2026-06-14T16:17:40,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000561,,Confirmed
+HRO-000260,CNT-000420,2026-06-03T19:28:26,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000562,,Confirmed
+HRO-000261,CNT-000422,2026-06-05T16:13:07,0,,,Private Pay,Financially Cleared,Not Admitted,Direct,TOUCH-000563,,Confirmed
+HRO-000262,CNT-000423,2026-06-06T14:50:38,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000564,,Confirmed
+HRO-000263,CNT-000424,2026-06-11T14:12:19,1,Unable to Verify,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000565,,Confirmed
+HRO-000264,CNT-000425,2026-06-11T07:11:11,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Direct,TOUCH-000566,,Confirmed
+HRO-000265,CNT-000426,2026-06-13T15:10:25,0,,,Private Pay,Financially Cleared,Admitted,Paid,TOUCH-000567,,Confirmed
+HRO-000266,CNT-000427,2026-06-06T13:17:36,1,Viable,Harborline Assurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000568,,Confirmed
+HRO-000267,CNT-000430,2026-06-12T15:38:15,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Professional Referral,,REF-000057,Possible
+HRO-000268,CNT-000431,2026-06-18T08:55:40,0,,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000569,,Confirmed
+HRO-000269,CNT-000432,2026-06-23T09:24:30,0,,,Private Pay,Financially Cleared,Not Admitted,Organic,TOUCH-000570,,Confirmed
+HRO-000270,CNT-000434,2026-06-01T20:23:33,1,Pending,Summit Behavioral Network,INN,Financially Cleared,Admitted,Paid,TOUCH-000571,,Confirmed
+HRO-000271,CNT-000435,2026-06-10T13:21:22,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000572,,Confirmed
+HRO-000272,CNT-000437,2026-06-08T13:32:13,0,,,Private Pay,Financially Cleared,Admitted,Paid,TOUCH-000573,,Confirmed
+HRO-000273,CNT-000438,2026-06-11T20:46:17,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000058,Confirmed
+HRO-000274,CNT-000440,2026-06-13T08:55:15,1,Pending,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000574,,Confirmed
+HRO-000275,CNT-000442,2026-06-01T07:49:51,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Admitted,Direct,TOUCH-000575,,Confirmed
+HRO-000276,CNT-000444,2026-06-04T18:07:26,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000576,,Confirmed
+HRO-000277,CNT-000445,2026-06-22T20:40:46,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000577,,Confirmed
+HRO-000278,CNT-000446,2026-06-08T10:57:47,0,,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000578,,Confirmed
+HRO-000279,CNT-000447,2026-06-18T20:12:00,0,,,Private Pay,Financially Cleared,Not Admitted,Professional Referral,,REF-000059,Confirmed
+HRO-000280,CNT-000449,2026-06-15T16:07:28,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000579,,Confirmed
+HRO-000281,CNT-000450,2026-06-04T11:32:55,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-000580,,Confirmed
+HRO-000282,CNT-000452,2026-06-10T10:00:51,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000581,,Confirmed
+HRO-000283,CNT-000455,2026-06-01T20:59:14,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Paid,TOUCH-000582,,Confirmed
+HRO-000284,CNT-000456,2026-06-06T08:24:29,1,Unable to Verify,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000583,,Confirmed
+HRO-000285,CNT-000457,2026-06-26T07:12:52,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000584,,Confirmed
+HRO-000286,CNT-000460,2026-06-04T17:20:32,0,,,Private Pay,Financially Cleared,Admitted,Organic,TOUCH-000585,,Confirmed
+HRO-000287,CNT-000461,2026-06-03T19:32:36,1,Pending,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000586,,Confirmed
+HRO-000288,CNT-000463,2026-06-16T16:32:26,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000587,,Confirmed
+HRO-000289,CNT-000464,2026-06-03T20:45:42,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000588,,Confirmed
+HRO-000290,CNT-000465,2026-06-07T08:54:04,0,,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000589,,Confirmed
+HRO-000291,CNT-000466,2026-06-15T15:41:57,0,,,Private Pay,Not Financially Cleared,Not Admitted,Organic,TOUCH-000590,,Confirmed
+HRO-000292,CNT-000468,2026-06-03T09:21:53,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000591,,Confirmed
+HRO-000293,CNT-000469,2026-06-24T18:32:19,1,Unable to Verify,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000592,,Confirmed
+HRO-000294,CNT-000470,2026-06-17T11:17:52,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000060,Confirmed
+HRO-000295,CNT-000471,2026-06-04T16:35:55,1,Viable,National Trust Health Plan,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000593,,Probable
+HRO-000296,CNT-000474,2026-06-12T15:57:30,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Admitted,Direct,TOUCH-000594,,Confirmed
+HRO-000297,CNT-000476,2026-06-19T08:55:22,0,,,Private Pay,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000061,Confirmed
+HRO-000298,CNT-000478,2026-06-14T15:20:51,1,Non-Viable,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000595,,Confirmed
+HRO-000299,CNT-000479,2026-06-21T12:29:48,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000596,,Confirmed
+HRO-000300,CNT-000483,2026-06-10T08:18:42,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000597,,Confirmed
+HRO-000301,CNT-000484,2026-06-05T18:56:49,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Paid,TOUCH-000598,,Confirmed
+HRO-000302,CNT-000486,2026-06-08T17:10:02,1,Pending,Summit Behavioral Network,INN,At-Risk Admission,Admitted,Direct,TOUCH-000599,,Confirmed
+HRO-000303,CNT-000489,2026-06-04T17:00:33,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Organic,TOUCH-000600,,Confirmed
+HRO-000304,CNT-000490,2026-06-21T13:58:36,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000601,,Confirmed
+HRO-000305,CNT-000492,2026-06-04T13:30:47,1,Viable,Keystone Wellness Plan,OON,Financially Cleared,Not Admitted,Professional Referral,,REF-000062,Confirmed
+HRO-000306,CNT-000494,2026-06-10T14:25:51,1,Pending,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000602,,Confirmed
+HRO-000307,CNT-000496,2026-06-10T07:05:14,1,Unable to Verify,BlueHarbor Insurance,INN,At-Risk Admission,Admitted,Organic,TOUCH-000603,,Probable
+HRO-000308,CNT-000499,2026-06-12T13:33:55,1,Non-Viable,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000604,,Confirmed
+HRO-000309,CNT-000500,2026-06-14T10:13:49,1,Viable,Liberty Crest Health,OON,Financially Cleared,Admitted,Organic,TOUCH-000605,,Confirmed
+HRO-000310,CNT-000502,2026-06-13T20:25:59,1,Pending,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000606,,Confirmed
+HRO-000311,CNT-000503,2026-06-16T17:43:55,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000063,Confirmed
+HRO-000312,CNT-000505,2026-06-20T14:45:07,0,,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000064,Confirmed
+HRO-000313,CNT-000506,2026-06-23T16:14:33,1,Pending,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000607,,Confirmed
+HRO-000314,CNT-000507,2026-06-13T17:39:52,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Organic,TOUCH-000608,,Confirmed
+HRO-000315,CNT-000508,2026-06-07T07:56:06,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Organic,TOUCH-000609,,Confirmed
+HRO-000316,CNT-000510,2026-06-05T20:53:49,1,Viable,National Trust Health Plan,OON,Financially Cleared,Admitted,Paid,TOUCH-000610,,Confirmed
+HRO-000317,CNT-000511,2026-06-05T14:05:51,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Admitted,Professional Referral,,REF-000065,Confirmed
+HRO-000318,CNT-000513,2026-06-07T18:54:45,1,Viable,Redwood Mutual,OON,Financially Cleared,Admitted,Paid,TOUCH-000611,,Confirmed
+HRO-000319,CNT-000514,2026-06-01T19:43:25,1,Pending,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000066,Confirmed
+HRO-000320,CNT-000516,2026-06-20T20:54:04,1,Non-Viable,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000067,Probable
+HRO-000321,CNT-000517,2026-06-18T18:13:57,1,Pending,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000612,,Confirmed
+HRO-000322,CNT-000519,2026-06-27T20:29:19,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Professional Referral,,REF-000068,Confirmed
+HRO-000323,CNT-000520,2026-06-25T14:23:41,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000613,,Probable
+HRO-000324,CNT-000522,2026-06-15T15:17:09,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Professional Referral,,REF-000069,Confirmed
+HRO-000325,CNT-000524,2026-06-02T13:51:13,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000614,,Confirmed
+HRO-000326,CNT-000526,2026-06-10T14:17:41,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Professional Referral,,REF-000070,Confirmed
+HRO-000327,CNT-000527,2026-06-06T08:23:48,1,Non-Viable,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000615,,Confirmed
+HRO-000328,CNT-000530,2026-06-10T11:44:38,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000071,Probable
+HRO-000329,CNT-000531,2026-06-03T19:37:01,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000616,,Confirmed
+HRO-000330,CNT-000532,2026-06-21T14:37:55,1,Non-Viable,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000617,,Confirmed
+HRO-000331,CNT-000534,2026-06-03T09:02:03,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Organic,TOUCH-000618,,Confirmed
+HRO-000332,CNT-000536,2026-06-26T16:44:41,1,Non-Viable,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000619,,Confirmed
+HRO-000333,CNT-000538,2026-06-18T13:28:47,0,,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000620,,Confirmed
+HRO-000334,CNT-000541,2026-06-10T16:47:21,1,Viable,Liberty Crest Health,OON,Financially Cleared,Admitted,Professional Referral,,REF-000072,Confirmed
+HRO-000335,CNT-000542,2026-06-18T15:44:35,1,Pending,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Organic,TOUCH-000621,,Confirmed
+HRO-000336,CNT-000545,2026-06-12T18:54:47,1,Viable,Redwood Mutual,OON,Financially Cleared,Admitted,Paid,TOUCH-000622,,Confirmed
+HRO-000337,CNT-000546,2026-06-09T09:07:55,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Paid,TOUCH-000623,,Confirmed
+HRO-000338,CNT-000548,2026-06-02T20:13:43,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Professional Referral,,REF-000073,Probable
+HRO-000339,CNT-000549,2026-06-13T08:09:24,1,Unable to Verify,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000624,,Confirmed
+HRO-000340,CNT-000550,2026-06-11T11:58:38,0,,,Private Pay,Financially Cleared,Admitted,Organic,TOUCH-000625,,Confirmed
+HRO-000341,CNT-000551,2026-06-24T07:40:57,0,,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000074,Confirmed
+HRO-000342,CNT-000553,2026-06-25T20:35:39,0,,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000626,,Possible
+HRO-000343,CNT-000555,2026-06-08T18:53:06,1,Unable to Verify,Harborline Assurance,OON,At-Risk Admission,Admitted,Professional Referral,,REF-000075,Confirmed
+HRO-000344,CNT-000556,2026-06-06T14:16:05,1,Viable,National Trust Health Plan,OON,Financially Cleared,Admitted,Organic,TOUCH-000627,,Confirmed
+HRO-000345,CNT-000557,2026-06-15T09:45:38,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Organic,TOUCH-000628,,Confirmed
+HRO-000346,CNT-000560,2026-06-10T19:37:53,0,,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000629,,Confirmed
+HRO-000347,CNT-000562,2026-06-21T18:34:54,1,Non-Viable,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000630,,Confirmed
+HRO-000348,CNT-000563,2026-06-23T17:55:41,1,Viable,National Trust Health Plan,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000631,,Possible
+HRO-000349,CNT-000566,2026-06-23T15:05:28,1,Non-Viable,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000632,,Confirmed
+HRO-000350,CNT-000568,2026-06-06T08:56:44,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000076,Confirmed
+HRO-000351,CNT-000569,2026-06-14T11:49:13,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Direct,TOUCH-000633,,Confirmed
+HRO-000352,CNT-000572,2026-06-26T17:05:41,1,Pending,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000077,Possible
+HRO-000353,CNT-000574,2026-06-15T18:49:05,1,Viable,Redwood Mutual,OON,Financially Cleared,Admitted,Paid,TOUCH-000634,,Confirmed
+HRO-000354,CNT-000576,2026-06-21T11:09:07,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000635,,Confirmed
+HRO-000355,CNT-000577,2026-06-24T16:15:20,1,Non-Viable,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000636,,Confirmed
+HRO-000356,CNT-000578,2026-06-03T14:19:30,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Organic,TOUCH-000637,,Confirmed
+HRO-000357,CNT-000580,2026-06-10T13:36:18,1,Unable to Verify,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000638,,Confirmed
+HRO-000358,CNT-000582,2026-06-25T13:05:26,0,,,Private Pay,Financially Cleared,Not Admitted,Organic,TOUCH-000639,,Confirmed
+HRO-000359,CNT-000583,2026-06-15T13:05:01,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000640,,Probable
+HRO-000360,CNT-000585,2026-06-22T10:53:54,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000078,Confirmed
+HRO-000361,CNT-000586,2026-06-20T17:36:17,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000079,Confirmed
+HRO-000362,CNT-000589,2026-06-05T07:04:17,1,Non-Viable,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000641,,Confirmed
+HRO-000363,CNT-000590,2026-06-10T15:18:02,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-000642,,Probable
+HRO-000364,CNT-000599,2026-07-02T15:22:15,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Admitted,Paid,TOUCH-000974,,Confirmed
+HRO-000365,CNT-000600,2026-07-03T17:32:24,1,Unable to Verify,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000975,,Confirmed
+HRO-000366,CNT-000601,2026-07-28T14:38:32,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000976,,Confirmed
+HRO-000367,CNT-000602,2026-07-18T18:43:51,1,Viable,Harborline Assurance,OON,Financially Cleared,Not Admitted,Professional Referral,,REF-000085,Confirmed
+HRO-000368,CNT-000604,2026-07-02T14:17:27,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000977,,Confirmed
+HRO-000369,CNT-000605,2026-07-13T20:36:48,0,,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000978,,Confirmed
+HRO-000370,CNT-000606,2026-07-04T15:41:20,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000979,,Confirmed
+HRO-000371,CNT-000608,2026-07-16T11:34:47,1,Unable to Verify,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000980,,Confirmed
+HRO-000372,CNT-000611,2026-07-25T09:24:57,1,Non-Viable,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000981,,Confirmed
+HRO-000373,CNT-000612,2026-07-21T08:19:21,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000982,,Confirmed
+HRO-000374,CNT-000613,2026-07-04T13:55:17,1,Viable,Liberty Crest Health,OON,Financially Cleared,Admitted,Organic,TOUCH-000983,,Confirmed
+HRO-000375,CNT-000614,2026-07-12T09:02:02,1,Unable to Verify,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000984,,Confirmed
+HRO-000376,CNT-000615,2026-07-18T08:25:36,1,Non-Viable,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-000985,,Confirmed
+HRO-000377,CNT-000618,2026-07-06T10:19:25,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Paid,TOUCH-000986,,Confirmed
+HRO-000378,CNT-000619,2026-07-03T17:55:29,1,Viable,Keystone Wellness Plan,OON,Financially Cleared,Admitted,Organic,TOUCH-000987,,Confirmed
+HRO-000379,CNT-000620,2026-07-14T12:33:38,1,Unable to Verify,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-000988,,Confirmed
+HRO-000380,CNT-000622,2026-07-18T18:53:20,1,Non-Viable,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-000989,,Confirmed
+HRO-000381,CNT-000624,2026-07-09T14:21:33,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000990,,Confirmed
+HRO-000382,CNT-000625,2026-07-16T09:55:28,0,,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-000991,,Confirmed
+HRO-000383,CNT-000628,2026-07-14T11:13:30,1,Non-Viable,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000086,Confirmed
+HRO-000384,CNT-000630,2026-07-24T19:26:23,1,Pending,Harborline Assurance,OON,Financially Cleared,Not Admitted,Professional Referral,,REF-000087,Probable
+HRO-000385,CNT-000631,2026-07-27T10:25:19,0,,Vantage Point Insurance,OON,Not Financially Cleared,Open,Organic,TOUCH-000992,,Confirmed
+HRO-000386,CNT-000635,2026-07-20T14:57:40,1,Non-Viable,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-000993,,Confirmed
+HRO-000387,CNT-000636,2026-07-10T13:16:37,0,,,Private Pay,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000088,Confirmed
+HRO-000388,CNT-000638,2026-07-12T20:56:27,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000994,,Confirmed
+HRO-000389,CNT-000640,2026-07-07T07:57:46,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Direct,TOUCH-000995,,Confirmed
+HRO-000390,CNT-000641,2026-07-06T09:24:32,0,,,Private Pay,Financially Cleared,Not Admitted,Professional Referral,,REF-000089,Probable
+HRO-000391,CNT-000643,2026-07-11T08:04:21,1,Pending,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000090,Confirmed
+HRO-000392,CNT-000645,2026-07-13T14:43:32,1,Non-Viable,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-000996,,Confirmed
+HRO-000393,CNT-000647,2026-07-10T09:27:38,1,Viable,Harborline Assurance,OON,Financially Cleared,Admitted,Direct,TOUCH-000997,,Probable
+HRO-000394,CNT-000648,2026-07-28T18:51:07,0,,Vantage Point Insurance,OON,Not Financially Cleared,Open,Professional Referral,,REF-000091,Confirmed
+HRO-000395,CNT-000650,2026-07-05T18:40:53,1,Pending,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-000998,,Confirmed
+HRO-000396,CNT-000652,2026-07-07T09:28:47,1,Pending,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Direct,TOUCH-000999,,Confirmed
+HRO-000397,CNT-000653,2026-07-03T08:39:57,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Paid,TOUCH-001000,,Confirmed
+HRO-000398,CNT-000654,2026-07-23T09:09:03,1,Unable to Verify,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001001,,Confirmed
+HRO-000399,CNT-000656,2026-07-16T12:35:27,0,,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-001002,,Confirmed
+HRO-000400,CNT-000658,2026-07-26T18:41:13,1,Non-Viable,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-001003,,Confirmed
+HRO-000401,CNT-000659,2026-07-27T19:09:12,1,Pending,Summit Behavioral Network,INN,Financially Cleared,Open,Organic,TOUCH-001004,,Confirmed
+HRO-000402,CNT-000661,2026-07-01T11:34:37,1,Pending,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001005,,Confirmed
+HRO-000403,CNT-000662,2026-07-27T11:10:52,1,Pending,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001006,,Confirmed
+HRO-000404,CNT-000664,2026-07-26T09:13:25,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001007,,Confirmed
+HRO-000405,CNT-000666,2026-07-05T16:35:28,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001008,,Confirmed
+HRO-000406,CNT-000668,2026-07-05T08:06:15,0,,,Private Pay,Financially Cleared,Admitted,Organic,TOUCH-001009,,Confirmed
+HRO-000407,CNT-000670,2026-07-05T19:19:12,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Admitted,Organic,TOUCH-001010,,Confirmed
+HRO-000408,CNT-000671,2026-07-04T12:40:36,1,Viable,Liberty Crest Health,OON,Financially Cleared,Admitted,Paid,TOUCH-001011,,Confirmed
+HRO-000409,CNT-000672,2026-07-09T09:55:33,1,Viable,Keystone Wellness Plan,OON,Financially Cleared,Not Admitted,Organic,TOUCH-001012,,Confirmed
+HRO-000410,CNT-000674,2026-07-03T15:54:08,1,Viable,National Trust Health Plan,OON,Financially Cleared,Not Admitted,Paid,TOUCH-001013,,Confirmed
+HRO-000411,CNT-000676,2026-07-22T16:57:36,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001014,,Confirmed
+HRO-000412,CNT-000678,2026-07-01T07:23:32,1,Viable,National Trust Health Plan,OON,Financially Cleared,Not Admitted,Paid,TOUCH-001015,,Confirmed
+HRO-000413,CNT-000680,2026-07-10T12:18:17,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Paid,TOUCH-001016,,Confirmed
+HRO-000414,CNT-000682,2026-07-15T09:03:59,1,Viable,Harborline Assurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-001017,,Confirmed
+HRO-000415,CNT-000684,2026-07-08T08:40:04,1,Non-Viable,BlueHarbor Insurance,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-001018,,Confirmed
+HRO-000416,CNT-000686,2026-07-22T18:30:11,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001019,,Confirmed
+HRO-000417,CNT-000687,2026-07-27T11:18:34,1,Pending,Summit Behavioral Network,INN,Not Financially Cleared,Open,Paid,TOUCH-001020,,Confirmed
+HRO-000418,CNT-000689,2026-07-06T16:51:33,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Organic,TOUCH-001021,,Confirmed
+HRO-000419,CNT-000690,2026-07-20T18:40:46,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Direct,TOUCH-001022,,Confirmed
+HRO-000420,CNT-000692,2026-07-22T11:31:57,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001023,,Confirmed
+HRO-000421,CNT-000694,2026-07-19T13:20:18,1,Pending,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000092,Probable
+HRO-000422,CNT-000696,2026-07-26T11:24:07,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Open,Organic,TOUCH-001024,,Confirmed
+HRO-000423,CNT-000698,2026-07-14T19:33:11,1,Viable,National Trust Health Plan,OON,Financially Cleared,Not Admitted,Organic,TOUCH-001025,,Confirmed
+HRO-000424,CNT-000699,2026-07-25T19:24:44,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-001026,,Confirmed
+HRO-000425,CNT-000700,2026-07-17T10:19:33,0,,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-001027,,Confirmed
+HRO-000426,CNT-000703,2026-07-13T19:07:01,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Organic,TOUCH-001028,,Confirmed
+HRO-000427,CNT-000704,2026-07-06T16:26:51,0,,,Private Pay,Financially Cleared,Not Admitted,Direct,TOUCH-001029,,Probable
+HRO-000428,CNT-000705,2026-07-17T13:11:17,1,Pending,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-001030,,Confirmed
+HRO-000429,CNT-000708,2026-07-01T20:44:32,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Organic,TOUCH-001031,,Confirmed
+HRO-000430,CNT-000710,2026-07-13T18:32:55,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Organic,TOUCH-001032,,Confirmed
+HRO-000431,CNT-000712,2026-07-04T14:43:44,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000093,Confirmed
+HRO-000432,CNT-000716,2026-07-26T14:46:50,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001033,,Confirmed
+HRO-000433,CNT-000717,2026-07-05T13:53:34,1,Non-Viable,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001034,,Probable
+HRO-000434,CNT-000718,2026-07-16T19:35:25,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-001035,,Confirmed
+HRO-000435,CNT-000720,2026-07-12T19:17:49,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-001036,,Confirmed
+HRO-000436,CNT-000722,2026-07-15T08:40:36,1,Pending,Liberty Crest Health,OON,Financially Cleared,Admitted,Paid,TOUCH-001037,,Confirmed
+HRO-000437,CNT-000724,2026-07-06T08:38:55,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Paid,TOUCH-001038,,Confirmed
+HRO-000438,CNT-000725,2026-07-25T08:36:07,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001039,,Confirmed
+HRO-000439,CNT-000728,2026-07-16T20:04:39,1,Unable to Verify,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000094,Confirmed
+HRO-000440,CNT-000729,2026-07-07T20:45:53,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-001040,,Confirmed
+HRO-000441,CNT-000730,2026-07-15T12:13:23,1,Unable to Verify,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001041,,Confirmed
+HRO-000442,CNT-000732,2026-07-02T13:45:51,1,Unable to Verify,Liberty Crest Health,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001042,,Confirmed
+HRO-000443,CNT-000734,2026-07-12T10:22:33,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Organic,TOUCH-001043,,Confirmed
+HRO-000444,CNT-000735,2026-07-05T18:19:08,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001044,,Confirmed
+HRO-000445,CNT-000736,2026-07-13T13:53:36,0,,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-001045,,Confirmed
+HRO-000446,CNT-000737,2026-07-27T12:40:44,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-001046,,Confirmed
+HRO-000447,CNT-000740,2026-07-03T10:11:21,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Professional Referral,,REF-000095,Possible
+HRO-000448,CNT-000742,2026-07-20T17:45:37,1,Unable to Verify,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001047,,Confirmed
+HRO-000449,CNT-000744,2026-07-11T13:21:10,1,Viable,Keystone Wellness Plan,OON,Financially Cleared,Not Admitted,Paid,TOUCH-001048,,Confirmed
+HRO-000450,CNT-000746,2026-07-01T12:24:34,1,Viable,National Trust Health Plan,OON,Financially Cleared,Admitted,Professional Referral,,REF-000096,Confirmed
+HRO-000451,CNT-000747,2026-07-13T11:04:36,0,,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001049,,Confirmed
+HRO-000452,CNT-000749,2026-07-07T15:22:47,0,,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-001050,,Confirmed
+HRO-000453,CNT-000750,2026-07-08T12:47:38,1,Unable to Verify,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001051,,Confirmed
+HRO-000454,CNT-000752,2026-07-11T08:48:52,1,Unable to Verify,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-001052,,Confirmed
+HRO-000455,CNT-000753,2026-07-08T20:30:12,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Admitted,Direct,TOUCH-001053,,Confirmed
+HRO-000456,CNT-000755,2026-07-25T12:55:36,1,Non-Viable,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001054,,Confirmed
+HRO-000457,CNT-000756,2026-07-09T14:23:57,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001055,,Confirmed
+HRO-000458,CNT-000758,2026-07-21T18:42:38,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000097,Confirmed
+HRO-000459,CNT-000760,2026-07-19T12:07:21,0,,,Private Pay,Not Financially Cleared,Not Admitted,Organic,TOUCH-001056,,Confirmed
+HRO-000460,CNT-000762,2026-07-12T18:03:06,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Professional Referral,,REF-000098,Probable
+HRO-000461,CNT-000763,2026-07-16T14:52:52,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000099,Confirmed
+HRO-000462,CNT-000764,2026-07-25T14:38:00,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-001057,,Confirmed
+HRO-000463,CNT-000765,2026-07-15T12:56:00,1,Viable,Harborline Assurance,OON,Financially Cleared,Admitted,Direct,TOUCH-001058,,Confirmed
+HRO-000464,CNT-000766,2026-07-25T13:22:20,1,Pending,National Trust Health Plan,OON,Not Financially Cleared,Open,Organic,TOUCH-001059,,Confirmed
+HRO-000465,CNT-000768,2026-07-05T14:28:43,0,,,Private Pay,Not Financially Cleared,Not Admitted,Organic,TOUCH-001060,,Confirmed
+HRO-000466,CNT-000769,2026-07-01T18:41:51,0,,Vantage Point Insurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001061,,Confirmed
+HRO-000467,CNT-000771,2026-07-10T15:29:11,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000100,Confirmed
+HRO-000468,CNT-000772,2026-07-07T18:29:28,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Direct,TOUCH-001062,,Confirmed
+HRO-000469,CNT-000774,2026-07-13T19:24:36,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Direct,TOUCH-001063,,Confirmed
+HRO-000470,CNT-000775,2026-07-02T19:38:45,1,Viable,Harborline Assurance,OON,Financially Cleared,Admitted,Paid,TOUCH-001064,,Confirmed
+HRO-000471,CNT-000776,2026-07-17T10:17:35,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-001065,,Confirmed
+HRO-000472,CNT-000779,2026-07-05T11:55:45,1,Pending,National Trust Health Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-001066,,Probable
+HRO-000473,CNT-000781,2026-07-21T16:02:32,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001067,,Confirmed
+HRO-000474,CNT-000782,2026-07-13T07:26:02,1,Unable to Verify,Vantage Point Insurance,OON,At-Risk Admission,Admitted,Professional Referral,,REF-000101,Confirmed
+HRO-000475,CNT-000783,2026-07-28T17:26:27,0,,,Private Pay,Financially Cleared,Open,Organic,TOUCH-001068,,Confirmed
+HRO-000476,CNT-000784,2026-07-01T15:45:12,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000102,Confirmed
+HRO-000477,CNT-000786,2026-07-02T07:25:35,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Direct,TOUCH-001069,,Probable
+HRO-000478,CNT-000787,2026-07-19T07:51:09,1,Non-Viable,Pinecrest Health Plan,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-001070,,Possible
+HRO-000479,CNT-000788,2026-07-26T12:09:05,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001071,,Confirmed
+HRO-000480,CNT-000789,2026-07-12T18:12:29,1,Non-Viable,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001072,,Confirmed
+HRO-000481,CNT-000790,2026-07-27T13:47:10,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Organic,TOUCH-001073,,Confirmed
+HRO-000482,CNT-000793,2026-07-17T07:01:40,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001074,,Confirmed
+HRO-000483,CNT-000797,2026-07-09T17:36:30,0,,,Private Pay,Financially Cleared,Admitted,Direct,TOUCH-001075,,Confirmed
+HRO-000484,CNT-000799,2026-07-04T10:01:47,0,,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Professional Referral,,REF-000103,Probable
+HRO-000485,CNT-000800,2026-07-05T19:26:41,1,Unable to Verify,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Direct,TOUCH-001076,,Confirmed
+HRO-000486,CNT-000802,2026-07-16T20:19:38,1,Viable,Meridian Health Partners,INN,Financially Cleared,Admitted,Paid,TOUCH-001077,,Confirmed
+HRO-000487,CNT-000803,2026-07-26T10:01:08,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001078,,Confirmed
+HRO-000488,CNT-000805,2026-07-05T12:50:17,0,,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-001079,,Confirmed
+HRO-000489,CNT-000806,2026-07-19T20:20:06,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-001080,,Confirmed
+HRO-000490,CNT-000809,2026-07-07T16:50:44,1,Non-Viable,Redwood Mutual,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-001081,,Confirmed
+HRO-000491,CNT-000810,2026-07-06T09:01:34,1,Non-Viable,Cornerstone Assurance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-001082,,Confirmed
+HRO-000492,CNT-000812,2026-07-13T19:13:56,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-001083,,Confirmed
+HRO-000493,CNT-000814,2026-07-05T10:09:21,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001084,,Possible
+HRO-000494,CNT-000816,2026-07-19T09:40:03,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Organic,TOUCH-001085,,Confirmed
+HRO-000495,CNT-000817,2026-07-15T14:51:33,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Direct,TOUCH-001086,,Confirmed
+HRO-000496,CNT-000819,2026-07-06T17:45:09,1,Unable to Verify,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001087,,Probable
+HRO-000497,CNT-000820,2026-07-27T14:06:35,1,Non-Viable,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-001088,,Confirmed
+HRO-000498,CNT-000822,2026-07-15T12:50:44,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Admitted,Organic,TOUCH-001089,,Confirmed
+HRO-000499,CNT-000823,2026-07-19T08:05:33,1,Viable,Vantage Point Insurance,OON,Financially Cleared,Not Admitted,Paid,TOUCH-001090,,Confirmed
+HRO-000500,CNT-000825,2026-07-20T19:53:34,1,Viable,Liberty Crest Health,OON,Financially Cleared,Not Admitted,Professional Referral,,REF-000104,Confirmed
+HRO-000501,CNT-000826,2026-07-14T11:34:10,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001091,,Confirmed
+HRO-000502,CNT-000827,2026-07-04T19:17:54,1,Non-Viable,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Organic,TOUCH-001092,,Confirmed
+HRO-000503,CNT-000828,2026-07-06T12:24:37,0,,,Private Pay,Financially Cleared,Not Admitted,Paid,TOUCH-001093,,Confirmed
+HRO-000504,CNT-000829,2026-07-21T12:54:10,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000105,Confirmed
+HRO-000505,CNT-000830,2026-07-20T12:40:53,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001094,,Confirmed
+HRO-000506,CNT-000831,2026-07-28T10:31:43,1,Viable,National Trust Health Plan,OON,Financially Cleared,Not Admitted,Direct,TOUCH-001095,,Confirmed
+HRO-000507,CNT-000832,2026-07-16T08:26:29,0,,Summit Behavioral Network,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-001096,,Confirmed
+HRO-000508,CNT-000834,2026-07-08T10:34:00,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Organic,TOUCH-001097,,Confirmed
+HRO-000509,CNT-000835,2026-07-03T14:37:01,0,,Keystone Wellness Plan,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001098,,Confirmed
+HRO-000510,CNT-000837,2026-07-02T12:54:05,1,Viable,Harborline Assurance,OON,Financially Cleared,Admitted,Organic,TOUCH-001099,,Confirmed
+HRO-000511,CNT-000838,2026-07-21T07:17:22,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001100,,Confirmed
+HRO-000512,CNT-000839,2026-07-04T18:32:04,1,Viable,Harborline Assurance,OON,Financially Cleared,Not Admitted,Organic,TOUCH-001101,,Confirmed
+HRO-000513,CNT-000840,2026-07-05T13:58:21,0,,Continental Care Alliance,INN,Not Financially Cleared,Not Admitted,Organic,TOUCH-001102,,Confirmed
+HRO-000514,CNT-000842,2026-07-13T11:24:27,0,,Meridian Health Partners,INN,Not Financially Cleared,Not Admitted,Paid,TOUCH-001103,,Possible
+HRO-000515,CNT-000844,2026-07-05T13:54:55,1,Viable,National Trust Health Plan,OON,Financially Cleared,Admitted,Paid,TOUCH-001104,,Confirmed
+HRO-000516,CNT-000845,2026-07-04T10:57:18,0,,,Private Pay,Financially Cleared,Admitted,Organic,TOUCH-001105,,Confirmed
+HRO-000517,CNT-000846,2026-07-09T15:06:39,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Admitted,Professional Referral,,REF-000106,Confirmed
+HRO-000518,CNT-000848,2026-07-21T15:07:34,1,Viable,Continental Care Alliance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000107,Confirmed
+HRO-000519,CNT-000851,2026-07-11T13:45:05,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001106,,Confirmed
+HRO-000520,CNT-000852,2026-07-03T13:31:02,1,Viable,Continental Care Alliance,INN,Financially Cleared,Admitted,Paid,TOUCH-001107,,Confirmed
+HRO-000521,CNT-000853,2026-07-17T17:55:51,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000108,Confirmed
+HRO-000522,CNT-000855,2026-07-02T08:18:27,1,Viable,Summit Behavioral Network,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001108,,Confirmed
+HRO-000523,CNT-000857,2026-07-04T13:51:48,0,,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001109,,Confirmed
+HRO-000524,CNT-000858,2026-07-01T09:57:43,1,Viable,BlueHarbor Insurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001110,,Confirmed
+HRO-000525,CNT-000860,2026-07-08T19:54:01,1,Pending,Harborline Assurance,OON,Not Financially Cleared,Not Admitted,Paid,TOUCH-001111,,Confirmed
+HRO-000526,CNT-000862,2026-07-10T16:33:01,0,,,Private Pay,Not Financially Cleared,Not Admitted,Paid,TOUCH-001112,,Confirmed
+HRO-000527,CNT-000864,2026-07-06T07:26:51,1,Viable,Cornerstone Assurance,INN,Financially Cleared,Not Admitted,Organic,TOUCH-001113,,Confirmed
+HRO-000528,CNT-000866,2026-07-21T09:10:16,1,Viable,Pinecrest Health Plan,INN,Financially Cleared,Not Admitted,Professional Referral,,REF-000109,Confirmed
+HRO-000529,CNT-000868,2026-07-16T14:52:00,0,,,Private Pay,Financially Cleared,Not Admitted,Organic,TOUCH-001114,,Probable
+HRO-000530,CNT-000869,2026-07-19T08:24:13,1,Viable,Meridian Health Partners,INN,Financially Cleared,Not Admitted,Paid,TOUCH-001115,,Possible

@@ -1,0 +1,41 @@
+professional_account_id,professional_name,organization_name,professional_type,owner_rep_id,created_at
+PRO-000001,Joshua Williams,Evergreen Interventions,Social Worker,REP-000001,2026-03-05T16:13:00
+PRO-000002,Elizabeth Miller,Northgate Family Therapy,Primary Care Physician,REP-000001,2026-02-04T09:09:00
+PRO-000003,Joseph Davis,Northgate Health System,Social Worker,REP-000004,2026-04-22T09:39:00
+PRO-000004,Patricia Green,Crestline Interventions,Social Worker,REP-000002,2026-03-21T09:48:00
+PRO-000005,Linda Wright,Sunrise Valley Wellness Clinic,Social Worker,REP-000002,2026-03-12T16:31:00
+PRO-000006,Ronald Taylor,Golden Oak Behavioral Health Group,Psychiatrist,REP-000004,2026-02-25T11:28:00
+PRO-000007,Sandra Davis,Bright Path Health System,Psychologist,REP-000004,2026-01-21T10:23:00
+PRO-000008,George Rivera,Northgate Medical Center,Social Worker,REP-000004,2026-01-14T16:30:00
+PRO-000009,William Smith,Fair Meadow Psychiatry,Primary Care Physician,REP-000002,2026-04-16T10:41:00
+PRO-000010,Brian Clark,Willow Creek Psychiatry,Psychologist,REP-000003,2026-01-28T12:56:00
+PRO-000011,Kenneth Hernandez,Riverside Regional Psychiatry,Social Worker,REP-000003,2026-01-15T11:39:00
+PRO-000012,Cynthia Rodriguez,Silver Birch Wellness Clinic,Social Worker,REP-000004,2026-01-12T09:37:00
+PRO-000013,Deborah Taylor,Bright Path Psychiatry,Therapist,REP-000003,2026-04-14T16:21:00
+PRO-000014,Amanda Lopez,Silver Birch Family Therapy,Interventionist,REP-000002,2026-02-18T09:43:00
+PRO-000015,Brian Moore,Harborview Wellness Clinic,Psychiatrist,REP-000004,2026-03-04T15:23:00
+PRO-000016,Steven Lopez,Northgate Behavioral Health Group,Psychiatrist,REP-000002,2026-01-14T12:09:00
+PRO-000017,Richard Lee,Blue Ridge Health System,Interventionist,REP-000002,2026-01-24T08:02:00
+PRO-000018,Ryan Johnson,Willow Creek Family Therapy,Psychiatrist,REP-000001,2026-04-04T13:51:00
+PRO-000019,Ryan White,Evergreen Medical Center,Therapist,REP-000003,2026-03-08T10:49:00
+PRO-000020,William Miller,Cedar Grove Recovery Partners,Hospital,REP-000004,2026-02-14T15:58:00
+PRO-000021,Deborah Perez,Riverside Regional Family Therapy,Interventionist,REP-000002,2026-01-08T16:10:00
+PRO-000022,Mary Miller,Northgate Primary Care,Interventionist,REP-000001,2026-04-19T09:04:00
+PRO-000023,Jeffrey Jones,Golden Oak Psychiatry,Psychologist,REP-000003,2026-01-25T09:46:00
+PRO-000024,Carol Rodriguez,Riverside Regional Primary Care,Social Worker,REP-000002,2026-01-05T17:16:00
+PRO-000025,Donald Sanchez,New Horizons Interventions,Psychiatrist,REP-000001,2026-02-28T09:12:00
+PRO-000026,Stephanie Miller,Riverside Regional Psychiatry,Social Worker,REP-000003,2026-03-01T09:32:00
+PRO-000027,Stephanie Davis,Lakeside Health System,Interventionist,REP-000001,2026-03-15T12:55:00
+PRO-000028,Charles Nguyen,Riverside Regional Wellness Clinic,Hospital,REP-000002,2026-02-27T15:04:00
+PRO-000029,Lisa Allen,New Horizons Medical Center,Interventionist,REP-000004,2026-02-07T09:41:00
+PRO-000030,Edward Thompson,Fair Meadow Recovery Partners,Psychologist,REP-000004,2026-01-12T12:54:00
+PRO-000031,Ashley Sanchez,Blue Ridge Primary Care,Social Worker,REP-000002,2026-04-27T11:10:00
+PRO-000032,Sandra Lewis,Willow Creek Primary Care,Interventionist,REP-000003,2026-04-11T09:39:00
+PRO-000033,Anthony Moore,Evergreen Family Therapy,Primary Care Physician,REP-000001,2026-04-22T17:15:00
+PRO-000034,Donna King,Willow Creek Family Therapy,Psychiatrist,REP-000003,2026-01-07T08:25:00
+PRO-000035,Donna Sanchez,Fair Meadow Health System,Hospital,REP-000004,2026-04-06T14:35:00
+PRO-000036,Amanda Scott,Blue Ridge Health System,Interventionist,REP-000004,2026-04-21T12:12:00
+PRO-000037,Rebecca King,Fair Meadow Interventions,Primary Care Physician,REP-000002,2026-04-13T14:26:00
+PRO-000038,David Baker,Fair Meadow Interventions,Psychologist,REP-000003,2026-02-19T10:43:00
+PRO-000039,Sarah Allen,Crestline Primary Care,Psychologist,REP-000001,2026-01-04T13:35:00
+PRO-000040,Ashley Torres,Northgate Counseling Associates,Therapist,REP-000003,2026-04-14T15:57:00
