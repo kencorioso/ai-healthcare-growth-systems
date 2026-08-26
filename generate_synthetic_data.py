@@ -31,6 +31,7 @@ stated at the top of the generation-rules document.
 import argparse
 import calendar
 import csv
+import math
 import os
 import random
 import sqlite3
@@ -49,12 +50,21 @@ SEED = 20260825
 # baseline generation path and stay completely untouched by Scenario 1.
 SCENARIO_1_SEED = 20260826
 
+# Scenario 2 (docs/harbor-ridge-scenario-2-specification.md) likewise uses
+# its own separate, fixed seed. SCENARIO_2_SEED must never be used to
+# generate or alter harbor_ridge.db OR harbor_ridge_scenario1.db -- both
+# stay completely untouched by Scenario 2.
+SCENARIO_2_SEED = 20260827
+
 DB_PATH = "harbor_ridge.db"
 SCHEMA_PATH = "schema.sql"
 CSV_EXPORT_DIR = os.path.join("data", "csv_export")
 
 SCENARIO1_DB_PATH = "harbor_ridge_scenario1.db"
 SCENARIO1_CSV_EXPORT_DIR = os.path.join("data", "csv_export_scenario1")
+
+SCENARIO2_DB_PATH = "harbor_ridge_scenario2.db"
+SCENARIO2_CSV_EXPORT_DIR = os.path.join("data", "csv_export_scenario2")
 
 OBSERVATION_DATE = date(2026, 8, 31)
 
@@ -970,6 +980,171 @@ def build_opportunity_scenario1(rng, year, month, accounts_by_id, account_weight
 
 
 # ===========================================================================
+# Scenario 2: Professional-Outreach Quality Deterioration
+# docs/harbor-ridge-scenario-2-specification.md
+#
+# Everything in this section is additive: build_opportunity(),
+# generate_dataset(), build_opportunity_scenario1(), generate_dataset_
+# scenario1(), and build_database()/build_database() called with their
+# default or Scenario-1 arguments are never called by Scenario 2 code,
+# and are not modified by it.
+# ===========================================================================
+
+# Section 2.1: the affected rep. Identified by name, not by a hardcoded
+# account count -- her actual portfolio size under SCENARIO_2_SEED is
+# whatever gen_professional_accounts() (unchanged) happens to assign her.
+SCENARIO2_AFFECTED_REP_NAME = "Alicia Ferreira"
+
+# Section 5: outreach-activity rate (mean activities/account/month, used as
+# a Poisson lambda) and reciprocity probability, for Alicia-owned accounts.
+SCENARIO2_ACTIVITY_RATE = {5: 2.20, 6: 2.30, 7: 2.40}
+SCENARIO2_RECIPROCITY = {5: 0.70, 6: 0.55, 7: 0.40}
+
+# Section 6.1: referral-event intensity (mean events/account/month, Poisson
+# lambda) for Alicia-owned accounts.
+SCENARIO2_REFERRAL_INTENSITY = {5: 0.90, 6: 0.95, 7: 1.00}
+
+# Section 6.2: referral event -> Patient Opportunity link rate.
+SCENARIO2_LINK_RATE = {5: 0.89, 6: 0.80, 7: 0.68}
+
+# Section 7: payer mix for Alicia-attributable LINKED opportunities only.
+SCENARIO2_PAYER_MIX = {
+    5: {"INN": 0.55, "OON": 0.35, "Private Pay": 0.10},
+    6: {"INN": 0.62, "OON": 0.30, "Private Pay": 0.08},
+    7: {"INN": 0.70, "OON": 0.24, "Private Pay": 0.06},
+}
+
+# Section 8: financial-verification pass rates for Alicia-attributable
+# opportunities only. Every other funnel stage (Section 9) is untouched.
+SCENARIO2_FINANCIAL_VERIFICATION = {
+    5: {"INN": 0.70, "OON": 0.64, "Private Pay": 0.68},
+    6: {"INN": 0.60, "OON": 0.50, "Private Pay": 0.55},
+    7: {"INN": 0.45, "OON": 0.30, "Private Pay": 0.40},
+}
+
+
+def poisson_sample(rng, lam):
+    """Knuth's algorithm: sample from Poisson(lam) using only `random`.
+    Used for Scenario 2's per-account-month activity and referral-event
+    counts, which the spec expresses as rates (e.g. "2.20 activities/
+    account") rather than fixed counts."""
+    if lam <= 0:
+        return 0
+    limit = math.exp(-lam)
+    k = 0
+    p = 1.0
+    while True:
+        k += 1
+        p *= rng.random()
+        if p <= limit:
+            return k - 1
+
+
+def build_linked_opportunity_for_referral(rng, year, month, referral_id, attribution_confidence, payer_mix, fin_verification_rates):
+    """
+    Build one Patient Opportunity for a professional-referral event that
+    Section 6.2's link-rate roll already determined WILL resolve to an
+    opportunity (Section 15: the link decision happens before payer mix,
+    financial verification, or the funnel -- so the funnel decision made
+    here is final; nothing downstream ever needs to be "un-admitted").
+
+    Mirrors the Professional-Referral branch of build_opportunity() (same
+    contact-role weights, inquiry-count distribution, call-vs-form
+    probability, match-confidence weights, identity-resolution behavior --
+    Section 14.4 requires these stay healthy-baseline) but is keyed to a
+    referral event and professional account already chosen by the caller,
+    not to a randomly picked one, and uses the Scenario 2 payer-mix /
+    financial-verification tables instead of the healthy-baseline ones.
+    """
+    payer_relationship = wchoice(rng, list(payer_mix.keys()), list(payer_mix.values()))
+    payer = None
+    if payer_relationship == "INN":
+        payer = rng.choice(INN_PAYERS)
+    elif payer_relationship == "OON":
+        payer = rng.choice(OON_PAYERS)
+
+    stage_failed, admitted = simulate_funnel(rng, payer_relationship, financial_verification_rates=fin_verification_rates)
+    fin_fields = derive_financial_fields(rng, payer_relationship, stage_failed, admitted)
+
+    n_inquiries = wchoice(rng, N_INQUIRIES_PER_OPP, N_INQUIRIES_WEIGHTS)
+    opp_id = ids.next("HRO")
+
+    contacts = []
+    inquiries = []
+    first_inquiry_dt = None
+    patient_contact_id = None
+
+    days_in_month = calendar.monthrange(year, month)[1]
+    if admitted:
+        day_high = max(days_in_month - 15, 1)
+    else:
+        day_high = days_in_month - 3
+    base_dt = random_datetime_in_month(rng, year, month, day_high=day_high)
+
+    for i in range(n_inquiries):
+        role = wchoice(rng, CONTACT_ROLES, CONTACT_ROLE_WEIGHTS)
+        if i == 0:
+            inq_dt = base_dt
+        else:
+            inq_dt = base_dt + timedelta(days=rng.randint(0, 3), hours=rng.randint(0, 6))
+        contact = fake_contact(rng, role, inq_dt, is_patient_of_record=(role == "Patient"))
+        contacts.append(contact)
+        if role == "Patient" and patient_contact_id is None:
+            patient_contact_id = contact["contact_id"]
+
+        is_call = rng.random() < CHANNEL_CALL_PROB["Professional Referral"]
+        inquiry_method = "Call" if is_call else "Web Form"
+        match_confidence = wchoice(rng, ["Confirmed", "Probable", "Possible"], [0.90, 0.07, 0.03])
+
+        inquiry_id = ids.next("INQ")
+        inquiries.append({
+            "inquiry_id": inquiry_id,
+            "opportunity_id": opp_id,
+            "contact_id": contact["contact_id"],
+            "inquiry_timestamp": iso_ts(inq_dt),
+            "contact_role": role,
+            "inquiry_method": inquiry_method,
+            "arrival_channel": "Professional Referral",
+            "source_platform": None,
+            "tracking_number": (f"555-{rng.randint(0,999):03d}-{rng.randint(0,9999):04d}" if is_call else None),
+            "call_duration_seconds": (rng.randint(90, 900) if is_call else None),
+            "landing_page": (None if is_call else "https://harborridge.example.test/contact"),
+            "match_confidence": match_confidence,
+            "source_system": "CRM",
+            "evidence_class": "Human-Entered",
+        })
+        if i == 0:
+            first_inquiry_dt = inq_dt
+
+    if patient_contact_id is None:
+        patient_contact = fake_contact(rng, "Patient", first_inquiry_dt, is_patient_of_record=True)
+        contacts.append(patient_contact)
+        patient_contact_id = patient_contact["contact_id"]
+
+    opportunity = {
+        "opportunity_id": opp_id,
+        "patient_contact_id": patient_contact_id,
+        "created_at": iso_ts(first_inquiry_dt),
+        "vob_submitted_flag": fin_fields["vob_submitted_flag"],
+        "vob_outcome": fin_fields["vob_outcome"],
+        "payer": payer,
+        "payer_relationship": payer_relationship,
+        "admission_financial_status": fin_fields["admission_financial_status"],
+        "admission_status": fin_fields["admission_status"],
+        "originating_influence_type": "Professional Referral",
+        "originating_touch_id": None,           # applied via UPDATE, not INSERT
+        "originating_referral_id": referral_id,  # applied via UPDATE, not INSERT
+        "attribution_confidence": attribution_confidence,
+        # internal bookkeeping, not schema columns:
+        "_admitted": admitted,
+        "_created_dt": first_inquiry_dt,
+        "_month": (year, month),
+        "_scenario2_affected": True,
+    }
+    return opportunity, contacts, inquiries
+
+
+# ===========================================================================
 # Section 16: outreach activities + unlinked referrals
 # ===========================================================================
 
@@ -1616,6 +1791,205 @@ def generate_dataset_scenario1():
     }
 
 
+def generate_dataset_scenario2():
+    """
+    Scenario 2 orchestration (docs/harbor-ridge-scenario-2-specification.md
+    Section 15). Two passes per month:
+
+    1. Bulk/facility-wide opportunities via the unchanged build_opportunity(),
+       exactly as generate_dataset() does, EXCEPT the professional-account
+       pool passed to it excludes every Alicia-owned account -- so every
+       Alicia-attributable opportunity is guaranteed to come from pass 2
+       below, never from this generic pool using healthy-baseline rates.
+       This is what "non-professional opportunities [and non-Alicia
+       professional accounts] must be generated independently using
+       healthy-baseline logic" (Section 15) means in practice: Marcus/
+       Priya/Devon's accounts stay entirely governed by build_opportunity()'s
+       existing logic (Section 14.1), including its own unlinked-referral
+       noise via the unchanged gen_unlinked_referrals().
+
+    2. Alicia's affected portfolio: for each of her owned accounts, each
+       month, generate outreach activity (Poisson-distributed count around
+       that month's activity rate, with that month's reciprocity
+       probability) and referral events (Poisson-distributed count around
+       that month's referral-event intensity). Section 6.2's link-rate
+       roll decides -- BEFORE any payer mix, financial verification, or
+       funnel outcome -- whether each referral event resolves to a Patient
+       Opportunity. Linked events use build_linked_opportunity_for_
+       referral() with the Scenario 2 payer-mix/financial-verification
+       tables; unlinked ones are just a professional_referrals row with
+       opportunity_id = NULL. No rebalancing pass runs afterward -- nothing
+       is ever admitted and then "un-admitted," exactly as in Scenario 1.
+
+    generate_dataset() and generate_dataset_scenario1() are never called
+    here and are not modified by this function's existence.
+    """
+    ids.counters.clear()
+    rng = random.Random(SCENARIO_2_SEED)
+
+    reps = gen_outreach_reps()
+    accounts, account_weights = gen_professional_accounts(rng, reps)
+    alicia_rep_id = next(r["outreach_rep_id"] for r in reps if r["rep_name"] == SCENARIO2_AFFECTED_REP_NAME)
+    alicia_accounts = [a for a in accounts if a["owner_rep_id"] == alicia_rep_id]
+    non_alicia_accounts = [a for a in accounts if a["owner_rep_id"] != alicia_rep_id]
+    non_alicia_accounts_by_id = {a["professional_account_id"]: a for a in non_alicia_accounts}
+    non_alicia_account_weights = {aid: w for aid, w in account_weights.items() if aid in non_alicia_accounts_by_id}
+
+    all_contacts, all_opportunities, all_inquiries = [], [], []
+    all_touches, all_referrals, all_activities = [], [], []
+    monthly_opp_counts = {}
+
+    # --- Pass 1: bulk / facility-wide opportunities, healthy-baseline logic,
+    #     Alicia's accounts excluded from the professional-referral pool. ---
+    for year, month, label in MONTHS:
+        n_opportunities = 175 + rng.randint(-15, 15)  # Section 3 (V0.1 rules) baseline volume target
+        monthly_opp_counts[label] = n_opportunities
+        linked_referrals_this_month = 0
+
+        month_opportunities = []
+        for _ in range(n_opportunities):
+            opp, contacts, inquiries, touch, referral = build_opportunity(
+                rng, year, month, non_alicia_accounts_by_id, non_alicia_account_weights
+            )
+            maybe_reopen_late_july(rng, opp)
+            month_opportunities.append(opp)
+            all_contacts.extend(contacts)
+            all_inquiries.extend(inquiries)
+            if touch is not None:
+                all_touches.append(touch)
+            if referral is not None:
+                all_referrals.append(referral)
+                linked_referrals_this_month += 1
+
+        all_opportunities.extend(month_opportunities)
+
+        # Non-patient / duplicate contacts that never resolve to a
+        # legitimate Patient Opportunity -- identical to baseline.
+        n_orphans = max(round(n_opportunities * 0.03), 2)
+        for _ in range(n_orphans):
+            orphan_dt = random_datetime_in_month(rng, year, month)
+            role = wchoice(rng, CONTACT_ROLES, CONTACT_ROLE_WEIGHTS)
+            contact = fake_contact(rng, role, orphan_dt)
+            all_contacts.append(contact)
+            channel = wchoice(rng, ARRIVAL_CHANNELS, ARRIVAL_CHANNEL_WEIGHTS)
+            platform = pick_source_platform(rng, channel)
+            is_call = rng.random() < CHANNEL_CALL_PROB[channel]
+            all_inquiries.append({
+                "inquiry_id": ids.next("INQ"), "opportunity_id": None, "contact_id": contact["contact_id"],
+                "inquiry_timestamp": iso_ts(orphan_dt), "contact_role": role,
+                "inquiry_method": "Call" if is_call else "Web Form", "arrival_channel": channel,
+                "source_platform": platform if channel != "Professional Referral" else None,
+                "tracking_number": (f"555-{rng.randint(0,999):03d}-{rng.randint(0,9999):04d}" if is_call else None),
+                "call_duration_seconds": (rng.randint(30, 300) if is_call else None),
+                "landing_page": (None if is_call else "https://harborridge.example.test/contact"),
+                "match_confidence": "Unmatched",
+                "source_system": "Call Tracking" if is_call else "Web Form",
+                "evidence_class": "System-Observed",
+            })
+
+        # Non-converting digital touches -- identical to baseline.
+        n_google_conv = sum(1 for t in all_touches if t["platform"] == "Google Ads"
+                             and t["touch_timestamp"][:7] == f"{year}-{month:02d}")
+        n_msft_conv = sum(1 for t in all_touches if t["platform"] == "Microsoft Ads"
+                           and t["touch_timestamp"][:7] == f"{year}-{month:02d}")
+        n_meta_conv = sum(1 for t in all_touches if t["platform"] == "Meta"
+                           and t["touch_timestamp"][:7] == f"{year}-{month:02d}")
+        n_organic_conv = sum(1 for t in all_touches if t["platform"] == "Google Organic"
+                              and t["touch_timestamp"][:7] == f"{year}-{month:02d}")
+        all_touches.extend(make_non_converting_touches(rng, year, month, "Google Ads", n_google_conv * NON_CONVERTING_MULTIPLIER["Google Ads"]))
+        all_touches.extend(make_non_converting_touches(rng, year, month, "Microsoft Ads", n_msft_conv * NON_CONVERTING_MULTIPLIER["Microsoft Ads"]))
+        all_touches.extend(make_non_converting_touches(rng, year, month, "Meta", n_meta_conv * NON_CONVERTING_MULTIPLIER["Meta"]))
+        all_touches.extend(make_non_converting_touches(rng, year, month, "Organic", n_organic_conv * NON_CONVERTING_MULTIPLIER["Organic"]))
+
+        # Unlinked-referral noise for the NON-Alicia population only --
+        # Alicia's unlinked referrals are generated explicitly in pass 2.
+        all_referrals.extend(gen_unlinked_referrals(rng, non_alicia_accounts_by_id, non_alicia_account_weights, linked_referrals_this_month))
+
+    # Non-Alicia outreach activity -- unchanged healthy-baseline function (Section 14.1).
+    all_activities.extend(gen_outreach_activities(rng, non_alicia_accounts, reps))
+
+    # --- Pass 2: Alicia's affected portfolio (Section 15's causal chain). ---
+    for year, month, label in MONTHS:
+        activity_rate = SCENARIO2_ACTIVITY_RATE[month]
+        reciprocity = SCENARIO2_RECIPROCITY[month]
+        referral_intensity = SCENARIO2_REFERRAL_INTENSITY[month]
+        link_rate = SCENARIO2_LINK_RATE[month]
+        payer_mix = SCENARIO2_PAYER_MIX[month]
+        fin_verification_rates = SCENARIO2_FINANCIAL_VERIFICATION[month]
+
+        for acct in alicia_accounts:
+            n_activities = poisson_sample(rng, activity_rate)
+            for _ in range(n_activities):
+                act_dt = random_datetime_in_month(rng, year, month)
+                activity_type = rng.choice(["Call", "Email", "Meeting", "Lunch", "Presentation", "Tour"])
+                direction = wchoice(rng, ["Outbound", "Inbound"], [0.70, 0.30])
+                reciprocated = 1 if rng.random() < reciprocity else 0
+                evidence_class = "System-Observed" if activity_type == "Email" else "Human-Entered"
+                all_activities.append({
+                    "activity_id": ids.next("ACT"),
+                    "professional_account_id": acct["professional_account_id"],
+                    "outreach_rep_id": alicia_rep_id,
+                    "activity_timestamp": iso_ts(act_dt),
+                    "activity_type": activity_type,
+                    "direction": direction,
+                    "reciprocated_flag": reciprocated,
+                    "evidence_class": evidence_class,
+                })
+
+            n_referrals = poisson_sample(rng, referral_intensity)
+            for _ in range(n_referrals):
+                ref_dt = random_datetime_in_month(rng, year, month)
+                referral_id = ids.next("REF")
+                ref_confidence = wchoice(rng, ["Confirmed", "Probable", "Possible"], [0.75, 0.20, 0.05])
+                referral_channel = rng.choice(["Call", "Email/Text Coordination", "Patient Told to Call", "Other"])
+                evidence_class = wchoice(rng, ["System-Observed", "Human-Entered"], [0.3, 0.7])
+
+                linked = rng.random() < link_rate
+                opp_id = None
+                if linked:
+                    opp, contacts, inquiries = build_linked_opportunity_for_referral(
+                        rng, year, month, referral_id, ref_confidence, payer_mix, fin_verification_rates
+                    )
+                    maybe_reopen_late_july(rng, opp)
+                    all_opportunities.append(opp)
+                    all_contacts.extend(contacts)
+                    all_inquiries.extend(inquiries)
+                    opp_id = opp["opportunity_id"]
+
+                all_referrals.append({
+                    "referral_id": referral_id,
+                    "professional_account_id": acct["professional_account_id"],
+                    "opportunity_id": opp_id,
+                    "referral_timestamp": iso_ts(ref_dt),
+                    "referral_channel": referral_channel,
+                    "source_system": "CRM",
+                    "evidence_class": evidence_class,
+                    "attribution_confidence": ref_confidence,
+                })
+
+    # EHR episodes, claims, claim events -- unchanged, applied uniformly to
+    # every admitted opportunity regardless of origin.
+    all_episodes, all_claims, all_claim_events = [], [], []
+    for opp in all_opportunities:
+        if opp["admission_status"] == "Admitted":
+            episodes = gen_episodes_for_admitted_opportunity(rng, opp)
+            all_episodes.extend(episodes)
+            for ep in episodes:
+                claims, events = gen_claims_and_events_for_episode(rng, ep)
+                all_claims.extend(claims)
+                all_claim_events.extend(events)
+
+    return {
+        "reps": reps, "accounts": accounts, "contacts": all_contacts,
+        "opportunities": all_opportunities, "inquiries": all_inquiries,
+        "touches": all_touches, "referrals": all_referrals, "activities": all_activities,
+        "episodes": all_episodes, "claims": all_claims, "claim_events": all_claim_events,
+        "monthly_opp_counts": monthly_opp_counts,
+        "alicia_rep_id": alicia_rep_id,
+        "alicia_account_ids": [a["professional_account_id"] for a in alicia_accounts],
+    }
+
+
 # ===========================================================================
 # Database insertion (Section 20: exact insertion order)
 # ===========================================================================
@@ -1882,13 +2256,57 @@ def print_summary_scenario1(data):
     print(" see generate_dataset_scenario1() docstring for why.)")
 
 
+def print_summary_scenario2(data):
+    print("\n=== Harbor Ridge Scenario 2 Generation Summary ===\n")
+    print(f"SCENARIO_2_SEED = {SCENARIO_2_SEED}")
+    print(f"Observation date = {OBSERVATION_DATE.isoformat()}\n")
+
+    print("Row counts:")
+    for name, key in [
+        ("contacts", "contacts"), ("outreach_reps", "reps"), ("professional_accounts", "accounts"),
+        ("patient_opportunities", "opportunities"), ("inquiries", "inquiries"),
+        ("acquisition_touches", "touches"), ("professional_referrals", "referrals"),
+        ("outreach_activities", "activities"), ("ehr_episodes", "episodes"),
+        ("claims", "claims"), ("claim_events", "claim_events"),
+    ]:
+        print(f"  {name:26s} {len(data[key])}")
+
+    print("\nOpportunities generated by month:")
+    for label, n in data["monthly_opp_counts"].items():
+        print(f"  {label}: {n}")
+
+    alicia_account_ids = set(data["alicia_account_ids"])
+    print(f"\nAlicia Ferreira portfolio size (this seed): {len(alicia_account_ids)} accounts")
+
+    referrals = data["referrals"]
+    opps_by_id = {o["opportunity_id"]: o for o in data["opportunities"]}
+    print("\nAlicia-attributable referral events and linked opportunities by month:")
+    for year, month, label in MONTHS:
+        month_refs = [r for r in referrals if r["professional_account_id"] in alicia_account_ids
+                      and r["referral_timestamp"][:7] == f"{year}-{month:02d}"]
+        linked = [r for r in month_refs if r["opportunity_id"] is not None]
+        linked_opps = [opps_by_id[r["opportunity_id"]] for r in linked]
+        admitted = [o for o in linked_opps if o["admission_status"] == "Admitted"]
+        link_rate = len(linked) / len(month_refs) if month_refs else 0
+        conv = len(admitted) / len(linked_opps) if linked_opps else 0
+        print(f"  {label}: {len(month_refs)} referral events, {len(linked)} linked ({link_rate:.1%}), "
+              f"Linked Opportunity->Admission {conv:.1%} ({len(admitted)}/{len(linked_opps)})")
+
+    total_admitted = sum(1 for o in data["opportunities"] if o["admission_status"] == "Admitted")
+    print(f"\nTotal opportunities: {len(data['opportunities'])}, Admitted: {total_admitted} "
+          f"({total_admitted/len(data['opportunities']):.1%} facility-wide Opportunity->Admission)")
+    print("(No facility-wide admit-count/payer-mix rebalancing is applied in Scenario 2 mode --")
+    print(" see generate_dataset_scenario2() docstring for why.)")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Harbor Ridge synthetic data generator")
     parser.add_argument(
-        "--mode", choices=["baseline", "scenario1"], default="baseline",
+        "--mode", choices=["baseline", "scenario1", "scenario2"], default="baseline",
         help="'baseline' (default): SEED, harbor_ridge.db, data/csv_export/. "
              "'scenario1': SCENARIO_1_SEED, harbor_ridge_scenario1.db, data/csv_export_scenario1/. "
-             "Never both from the same run.",
+             "'scenario2': SCENARIO_2_SEED, harbor_ridge_scenario2.db, data/csv_export_scenario2/. "
+             "Never more than one from the same run.",
     )
     args = parser.parse_args()
 
@@ -1900,6 +2318,14 @@ def main():
         export_csv(conn, out_dir=SCENARIO1_CSV_EXPORT_DIR)
         conn.close()
         print("\nDone. Database written to", SCENARIO1_DB_PATH)
+    elif args.mode == "scenario2":
+        data = generate_dataset_scenario2()
+        conn = build_database(data, db_path=SCENARIO2_DB_PATH)
+        print_summary_scenario2(data)
+        print("\nExporting CSVs...")
+        export_csv(conn, out_dir=SCENARIO2_CSV_EXPORT_DIR)
+        conn.close()
+        print("\nDone. Database written to", SCENARIO2_DB_PATH)
     else:
         data = generate_dataset()
         conn = build_database(data)

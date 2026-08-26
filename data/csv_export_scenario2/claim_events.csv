@@ -1,0 +1,269 @@
+claim_event_id,claim_id,event_date,event_type,amount,source_system,evidence_class
+CEV-000001,CLM-000001,2026-06-25,Insurance Payment,2393.59,RCM / Financial Ledger,System-Observed
+CEV-000002,CLM-000001,2026-07-13,Patient Payment,800.9,RCM / Financial Ledger,System-Observed
+CEV-000003,CLM-000002,2026-07-21,Insurance Payment,7082.07,RCM / Financial Ledger,System-Observed
+CEV-000004,CLM-000002,2026-08-13,Patient Payment,1330.61,RCM / Financial Ledger,System-Observed
+CEV-000005,CLM-000003,2026-06-07,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000006,CLM-000003,2026-07-07,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000007,CLM-000003,2026-07-24,Write-Off,2105.19,RCM / Financial Ledger,System-Observed
+CEV-000008,CLM-000004,2026-06-26,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000009,CLM-000004,2026-07-18,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000010,CLM-000004,2026-08-01,Insurance Payment,7226.12,RCM / Financial Ledger,System-Observed
+CEV-000011,CLM-000005,2026-07-08,Insurance Payment,9393.51,RCM / Financial Ledger,System-Observed
+CEV-000012,CLM-000006,2026-05-29,Insurance Payment,7275.18,RCM / Financial Ledger,System-Observed
+CEV-000013,CLM-000006,2026-06-22,Patient Payment,237.22,RCM / Financial Ledger,System-Observed
+CEV-000014,CLM-000007,2026-06-11,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000015,CLM-000007,2026-07-10,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000016,CLM-000007,2026-08-04,Insurance Payment,8110.18,RCM / Financial Ledger,System-Observed
+CEV-000017,CLM-000008,2026-07-07,Insurance Payment,14381.0,RCM / Financial Ledger,System-Observed
+CEV-000018,CLM-000009,2026-06-20,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000019,CLM-000009,2026-07-02,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000020,CLM-000009,2026-07-13,Write-Off,2448.47,RCM / Financial Ledger,System-Observed
+CEV-000021,CLM-000010,2026-07-08,Insurance Payment,12179.81,RCM / Financial Ledger,System-Observed
+CEV-000022,CLM-000010,2026-07-30,Patient Payment,570.29,RCM / Financial Ledger,System-Observed
+CEV-000023,CLM-000011,2026-06-28,Insurance Payment,11175.74,RCM / Financial Ledger,System-Observed
+CEV-000024,CLM-000011,2026-07-08,Patient Payment,464.5,RCM / Financial Ledger,System-Observed
+CEV-000025,CLM-000012,2026-07-05,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000026,CLM-000012,2026-07-16,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000027,CLM-000012,2026-07-29,Insurance Payment,5524.15,RCM / Financial Ledger,System-Observed
+CEV-000028,CLM-000013,2026-07-16,Insurance Payment,6137.87,RCM / Financial Ledger,System-Observed
+CEV-000029,CLM-000014,2026-07-04,Insurance Payment,5459.7,RCM / Financial Ledger,System-Observed
+CEV-000030,CLM-000014,2026-07-16,Patient Payment,423.5,RCM / Financial Ledger,System-Observed
+CEV-000031,CLM-000015,2026-07-17,Insurance Payment,17893.58,RCM / Financial Ledger,System-Observed
+CEV-000032,CLM-000016,2026-06-10,Patient Payment,8541.02,RCM / Financial Ledger,System-Observed
+CEV-000033,CLM-000017,2026-07-12,Patient Payment,9767.67,RCM / Financial Ledger,System-Observed
+CEV-000034,CLM-000017,2026-07-27,Patient Payment,8991.01,RCM / Financial Ledger,System-Observed
+CEV-000035,CLM-000018,2026-06-16,Insurance Payment,1702.85,RCM / Financial Ledger,System-Observed
+CEV-000036,CLM-000019,2026-07-06,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000037,CLM-000019,2026-07-24,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000038,CLM-000019,2026-08-06,Write-Off,2243.74,RCM / Financial Ledger,System-Observed
+CEV-000039,CLM-000020,2026-07-10,Insurance Payment,3908.03,RCM / Financial Ledger,System-Observed
+CEV-000040,CLM-000021,2026-07-02,Insurance Payment,4627.68,RCM / Financial Ledger,System-Observed
+CEV-000041,CLM-000021,2026-07-29,Patient Payment,864.56,RCM / Financial Ledger,System-Observed
+CEV-000042,CLM-000022,2026-06-12,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000043,CLM-000022,2026-07-09,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000044,CLM-000023,2026-07-16,Insurance Payment,11250.54,RCM / Financial Ledger,System-Observed
+CEV-000045,CLM-000024,2026-06-05,Patient Payment,1601.14,RCM / Financial Ledger,System-Observed
+CEV-000046,CLM-000024,2026-07-01,Patient Payment,1590.21,RCM / Financial Ledger,System-Observed
+CEV-000047,CLM-000025,2026-06-24,Patient Payment,9933.25,RCM / Financial Ledger,System-Observed
+CEV-000048,CLM-000026,2026-07-03,Insurance Payment,5328.72,RCM / Financial Ledger,System-Observed
+CEV-000049,CLM-000026,2026-07-12,Patient Payment,1235.72,RCM / Financial Ledger,System-Observed
+CEV-000050,CLM-000027,2026-07-16,Insurance Payment,5625.18,RCM / Financial Ledger,System-Observed
+CEV-000051,CLM-000027,2026-08-02,Patient Payment,1225.06,RCM / Financial Ledger,System-Observed
+CEV-000052,CLM-000027,2026-07-22,Adjustment,171.33,RCM / Financial Ledger,System-Observed
+CEV-000053,CLM-000028,2026-06-08,Patient Payment,2128.58,RCM / Financial Ledger,System-Observed
+CEV-000054,CLM-000028,2026-06-23,Patient Payment,1730.12,RCM / Financial Ledger,System-Observed
+CEV-000055,CLM-000029,2026-07-19,Insurance Payment,8311.45,RCM / Financial Ledger,System-Observed
+CEV-000056,CLM-000029,2026-08-11,Patient Payment,1357.68,RCM / Financial Ledger,System-Observed
+CEV-000057,CLM-000030,2026-07-19,Insurance Payment,8089.51,RCM / Financial Ledger,System-Observed
+CEV-000058,CLM-000030,2026-08-11,Patient Payment,2294.68,RCM / Financial Ledger,System-Observed
+CEV-000059,CLM-000030,2026-07-24,Adjustment,655.69,RCM / Financial Ledger,System-Observed
+CEV-000060,CLM-000031,2026-07-03,Insurance Payment,10684.39,RCM / Financial Ledger,System-Observed
+CEV-000061,CLM-000031,2026-07-23,Patient Payment,484.64,RCM / Financial Ledger,System-Observed
+CEV-000062,CLM-000032,2026-06-06,Insurance Payment,4653.25,RCM / Financial Ledger,System-Observed
+CEV-000063,CLM-000032,2026-06-20,Patient Payment,218.57,RCM / Financial Ledger,System-Observed
+CEV-000064,CLM-000033,2026-06-22,Insurance Payment,4658.83,RCM / Financial Ledger,System-Observed
+CEV-000065,CLM-000033,2026-06-30,Patient Payment,375.9,RCM / Financial Ledger,System-Observed
+CEV-000066,CLM-000034,2026-07-04,Insurance Payment,9579.55,RCM / Financial Ledger,System-Observed
+CEV-000067,CLM-000034,2026-07-23,Patient Payment,279.31,RCM / Financial Ledger,System-Observed
+CEV-000068,CLM-000034,2026-07-10,Adjustment,149.7,RCM / Financial Ledger,System-Observed
+CEV-000069,CLM-000035,2026-06-16,Insurance Payment,9749.11,RCM / Financial Ledger,System-Observed
+CEV-000070,CLM-000036,2026-06-20,Insurance Payment,4609.39,RCM / Financial Ledger,System-Observed
+CEV-000071,CLM-000036,2026-07-07,Patient Payment,404.69,RCM / Financial Ledger,System-Observed
+CEV-000072,CLM-000037,2026-06-26,Insurance Payment,5112.22,RCM / Financial Ledger,System-Observed
+CEV-000073,CLM-000037,2026-07-08,Patient Payment,364.6,RCM / Financial Ledger,System-Observed
+CEV-000074,CLM-000038,2026-07-15,Insurance Payment,11267.9,RCM / Financial Ledger,System-Observed
+CEV-000075,CLM-000038,2026-07-30,Patient Payment,3889.45,RCM / Financial Ledger,System-Observed
+CEV-000076,CLM-000039,2026-06-23,Insurance Payment,1809.29,RCM / Financial Ledger,System-Observed
+CEV-000077,CLM-000039,2026-07-07,Patient Payment,412.49,RCM / Financial Ledger,System-Observed
+CEV-000078,CLM-000040,2026-07-07,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000079,CLM-000040,2026-08-03,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000080,CLM-000041,2026-06-03,Insurance Payment,2163.65,RCM / Financial Ledger,System-Observed
+CEV-000081,CLM-000041,2026-06-14,Patient Payment,159.63,RCM / Financial Ledger,System-Observed
+CEV-000082,CLM-000042,2026-06-18,Insurance Payment,3281.17,RCM / Financial Ledger,System-Observed
+CEV-000083,CLM-000042,2026-06-28,Patient Payment,116.93,RCM / Financial Ledger,System-Observed
+CEV-000084,CLM-000042,2026-06-21,Adjustment,54.76,RCM / Financial Ledger,System-Observed
+CEV-000085,CLM-000043,2026-07-08,Insurance Payment,10832.98,RCM / Financial Ledger,System-Observed
+CEV-000086,CLM-000043,2026-08-04,Patient Payment,1011.07,RCM / Financial Ledger,System-Observed
+CEV-000087,CLM-000044,2026-07-03,Insurance Payment,12575.8,RCM / Financial Ledger,System-Observed
+CEV-000088,CLM-000044,2026-07-28,Patient Payment,900.94,RCM / Financial Ledger,System-Observed
+CEV-000089,CLM-000045,2026-06-09,Insurance Payment,4666.0,RCM / Financial Ledger,System-Observed
+CEV-000090,CLM-000045,2026-06-25,Patient Payment,429.11,RCM / Financial Ledger,System-Observed
+CEV-000091,CLM-000046,2026-06-03,Insurance Payment,7625.62,RCM / Financial Ledger,System-Observed
+CEV-000092,CLM-000046,2026-06-12,Patient Payment,331.52,RCM / Financial Ledger,System-Observed
+CEV-000093,CLM-000047,2026-07-01,Insurance Payment,12724.79,RCM / Financial Ledger,System-Observed
+CEV-000094,CLM-000047,2026-07-23,Patient Payment,874.02,RCM / Financial Ledger,System-Observed
+CEV-000095,CLM-000048,2026-07-09,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000096,CLM-000048,2026-08-02,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000097,CLM-000048,2026-08-14,Insurance Payment,8360.87,RCM / Financial Ledger,System-Observed
+CEV-000098,CLM-000049,2026-07-03,Insurance Payment,18075.55,RCM / Financial Ledger,System-Observed
+CEV-000099,CLM-000049,2026-07-19,Patient Payment,541.01,RCM / Financial Ledger,System-Observed
+CEV-000100,CLM-000050,2026-07-12,Insurance Payment,2548.27,RCM / Financial Ledger,System-Observed
+CEV-000101,CLM-000050,2026-08-10,Patient Payment,370.61,RCM / Financial Ledger,System-Observed
+CEV-000102,CLM-000050,2026-07-22,Adjustment,161.47,RCM / Financial Ledger,System-Observed
+CEV-000103,CLM-000051,2026-07-24,Insurance Payment,7271.56,RCM / Financial Ledger,System-Observed
+CEV-000104,CLM-000051,2026-08-05,Patient Payment,898.39,RCM / Financial Ledger,System-Observed
+CEV-000105,CLM-000051,2026-08-03,Adjustment,384.92,RCM / Financial Ledger,System-Observed
+CEV-000106,CLM-000052,2026-06-01,Insurance Payment,3920.58,RCM / Financial Ledger,System-Observed
+CEV-000107,CLM-000052,2026-06-15,Patient Payment,372.43,RCM / Financial Ledger,System-Observed
+CEV-000108,CLM-000053,2026-06-05,Insurance Payment,3386.74,RCM / Financial Ledger,System-Observed
+CEV-000109,CLM-000053,2026-06-17,Patient Payment,92.95,RCM / Financial Ledger,System-Observed
+CEV-000110,CLM-000054,2026-06-24,Insurance Payment,11912.9,RCM / Financial Ledger,System-Observed
+CEV-000111,CLM-000054,2026-07-04,Adjustment,619.19,RCM / Financial Ledger,System-Observed
+CEV-000112,CLM-000055,2026-06-12,Insurance Payment,1772.51,RCM / Financial Ledger,System-Observed
+CEV-000113,CLM-000056,2026-06-13,Insurance Payment,1981.22,RCM / Financial Ledger,System-Observed
+CEV-000114,CLM-000056,2026-07-13,Patient Payment,197.35,RCM / Financial Ledger,System-Observed
+CEV-000115,CLM-000057,2026-07-08,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000116,CLM-000057,2026-07-21,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000117,CLM-000058,2026-06-25,Insurance Payment,2882.11,RCM / Financial Ledger,System-Observed
+CEV-000118,CLM-000058,2026-06-30,Patient Payment,140.94,RCM / Financial Ledger,System-Observed
+CEV-000119,CLM-000058,2026-06-29,Adjustment,67.72,RCM / Financial Ledger,System-Observed
+CEV-000120,CLM-000059,2026-07-23,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000121,CLM-000059,2026-08-18,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000122,CLM-000060,2026-07-16,Insurance Payment,1970.69,RCM / Financial Ledger,System-Observed
+CEV-000123,CLM-000060,2026-08-12,Patient Payment,103.52,RCM / Financial Ledger,System-Observed
+CEV-000124,CLM-000060,2026-07-22,Adjustment,99.71,RCM / Financial Ledger,System-Observed
+CEV-000125,CLM-000061,2026-07-20,Insurance Payment,2040.61,RCM / Financial Ledger,System-Observed
+CEV-000126,CLM-000061,2026-08-09,Patient Payment,166.08,RCM / Financial Ledger,System-Observed
+CEV-000127,CLM-000061,2026-07-23,Adjustment,66.59,RCM / Financial Ledger,System-Observed
+CEV-000128,CLM-000062,2026-08-16,Insurance Payment,14642.96,RCM / Financial Ledger,System-Observed
+CEV-000129,CLM-000062,2026-08-25,Patient Payment,843.49,RCM / Financial Ledger,System-Observed
+CEV-000130,CLM-000062,2026-08-20,Adjustment,835.49,RCM / Financial Ledger,System-Observed
+CEV-000131,CLM-000063,2026-07-12,Insurance Payment,3703.52,RCM / Financial Ledger,System-Observed
+CEV-000132,CLM-000063,2026-07-30,Patient Payment,299.96,RCM / Financial Ledger,System-Observed
+CEV-000133,CLM-000064,2026-08-19,Insurance Payment,7319.54,RCM / Financial Ledger,System-Observed
+CEV-000134,CLM-000065,2026-07-16,Insurance Payment,5508.01,RCM / Financial Ledger,System-Observed
+CEV-000135,CLM-000065,2026-07-28,Patient Payment,426.47,RCM / Financial Ledger,System-Observed
+CEV-000136,CLM-000066,2026-07-31,Insurance Payment,7173.44,RCM / Financial Ledger,System-Observed
+CEV-000137,CLM-000066,2026-08-10,Patient Payment,239.95,RCM / Financial Ledger,System-Observed
+CEV-000138,CLM-000067,2026-08-13,Insurance Payment,3419.97,RCM / Financial Ledger,System-Observed
+CEV-000139,CLM-000068,2026-08-20,Insurance Payment,4126.41,RCM / Financial Ledger,System-Observed
+CEV-000140,CLM-000068,2026-08-25,Adjustment,191.8,RCM / Financial Ledger,System-Observed
+CEV-000141,CLM-000069,2026-07-23,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000142,CLM-000069,2026-08-04,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000143,CLM-000069,2026-08-26,Insurance Payment,4566.92,RCM / Financial Ledger,System-Observed
+CEV-000144,CLM-000070,2026-08-25,Insurance Payment,11565.82,RCM / Financial Ledger,System-Observed
+CEV-000145,CLM-000071,2026-07-17,Insurance Payment,8948.97,RCM / Financial Ledger,System-Observed
+CEV-000146,CLM-000071,2026-07-20,Adjustment,572.17,RCM / Financial Ledger,System-Observed
+CEV-000147,CLM-000072,2026-08-21,Insurance Payment,9182.9,RCM / Financial Ledger,System-Observed
+CEV-000148,CLM-000073,2026-08-11,Insurance Payment,9090.63,RCM / Financial Ledger,System-Observed
+CEV-000149,CLM-000074,2026-07-29,Insurance Payment,19210.32,RCM / Financial Ledger,System-Observed
+CEV-000150,CLM-000075,2026-08-20,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000151,CLM-000076,2026-07-23,Insurance Payment,2740.16,RCM / Financial Ledger,System-Observed
+CEV-000152,CLM-000077,2026-08-13,Insurance Payment,10955.41,RCM / Financial Ledger,System-Observed
+CEV-000153,CLM-000077,2026-08-21,Patient Payment,870.19,RCM / Financial Ledger,System-Observed
+CEV-000154,CLM-000078,2026-08-10,Insurance Payment,12339.37,RCM / Financial Ledger,System-Observed
+CEV-000155,CLM-000079,2026-07-31,Insurance Payment,19818.32,RCM / Financial Ledger,System-Observed
+CEV-000156,CLM-000080,2026-08-27,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000157,CLM-000081,2026-07-10,Patient Payment,10346.97,RCM / Financial Ledger,System-Observed
+CEV-000158,CLM-000082,2026-06-30,Patient Payment,4865.21,RCM / Financial Ledger,System-Observed
+CEV-000159,CLM-000083,2026-08-05,Patient Payment,20343.07,RCM / Financial Ledger,System-Observed
+CEV-000160,CLM-000084,2026-07-11,Patient Payment,3919.07,RCM / Financial Ledger,System-Observed
+CEV-000161,CLM-000084,2026-07-25,Patient Payment,4498.6,RCM / Financial Ledger,System-Observed
+CEV-000162,CLM-000085,2026-08-01,Patient Payment,5577.5,RCM / Financial Ledger,System-Observed
+CEV-000163,CLM-000085,2026-08-27,Patient Payment,4359.77,RCM / Financial Ledger,System-Observed
+CEV-000164,CLM-000086,2026-07-21,Insurance Payment,3847.55,RCM / Financial Ledger,System-Observed
+CEV-000165,CLM-000087,2026-08-15,Insurance Payment,8966.97,RCM / Financial Ledger,System-Observed
+CEV-000166,CLM-000087,2026-08-24,Adjustment,466.98,RCM / Financial Ledger,System-Observed
+CEV-000167,CLM-000088,2026-07-05,Patient Payment,7427.38,RCM / Financial Ledger,System-Observed
+CEV-000168,CLM-000089,2026-08-02,Insurance Payment,1249.06,RCM / Financial Ledger,System-Observed
+CEV-000169,CLM-000090,2026-08-06,Insurance Payment,1627.24,RCM / Financial Ledger,System-Observed
+CEV-000170,CLM-000090,2026-08-17,Patient Payment,285.16,RCM / Financial Ledger,System-Observed
+CEV-000171,CLM-000091,2026-06-27,Patient Payment,3871.2,RCM / Financial Ledger,System-Observed
+CEV-000172,CLM-000092,2026-07-16,Patient Payment,5121.47,RCM / Financial Ledger,System-Observed
+CEV-000173,CLM-000092,2026-08-08,Patient Payment,5528.52,RCM / Financial Ledger,System-Observed
+CEV-000174,CLM-000093,2026-08-06,Insurance Payment,15383.05,RCM / Financial Ledger,System-Observed
+CEV-000175,CLM-000093,2026-08-26,Patient Payment,1479.29,RCM / Financial Ledger,System-Observed
+CEV-000176,CLM-000094,2026-07-11,Insurance Payment,2929.54,RCM / Financial Ledger,System-Observed
+CEV-000177,CLM-000094,2026-08-01,Patient Payment,308.53,RCM / Financial Ledger,System-Observed
+CEV-000178,CLM-000095,2026-07-06,Patient Payment,7490.51,RCM / Financial Ledger,System-Observed
+CEV-000179,CLM-000096,2026-07-20,Insurance Payment,12474.51,RCM / Financial Ledger,System-Observed
+CEV-000180,CLM-000097,2026-07-20,Insurance Payment,7022.54,RCM / Financial Ledger,System-Observed
+CEV-000181,CLM-000097,2026-08-10,Patient Payment,258.59,RCM / Financial Ledger,System-Observed
+CEV-000182,CLM-000098,2026-07-30,Insurance Payment,11094.97,RCM / Financial Ledger,System-Observed
+CEV-000183,CLM-000098,2026-08-10,Patient Payment,855.81,RCM / Financial Ledger,System-Observed
+CEV-000184,CLM-000098,2026-08-02,Adjustment,705.51,RCM / Financial Ledger,System-Observed
+CEV-000185,CLM-000099,2026-07-27,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000186,CLM-000099,2026-08-08,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000187,CLM-000099,2026-08-21,Insurance Payment,3351.08,RCM / Financial Ledger,System-Observed
+CEV-000188,CLM-000100,2026-08-21,Insurance Payment,11160.19,RCM / Financial Ledger,System-Observed
+CEV-000189,CLM-000101,2026-07-11,Insurance Payment,14383.82,RCM / Financial Ledger,System-Observed
+CEV-000190,CLM-000101,2026-08-02,Patient Payment,1077.23,RCM / Financial Ledger,System-Observed
+CEV-000191,CLM-000102,2026-07-22,Insurance Payment,8104.04,RCM / Financial Ledger,System-Observed
+CEV-000192,CLM-000102,2026-08-16,Patient Payment,451.77,RCM / Financial Ledger,System-Observed
+CEV-000193,CLM-000103,2026-08-09,Insurance Payment,9974.08,RCM / Financial Ledger,System-Observed
+CEV-000194,CLM-000103,2026-08-27,Patient Payment,683.68,RCM / Financial Ledger,System-Observed
+CEV-000195,CLM-000103,2026-08-13,Adjustment,419.9,RCM / Financial Ledger,System-Observed
+CEV-000196,CLM-000104,2026-07-21,Insurance Payment,8742.97,RCM / Financial Ledger,System-Observed
+CEV-000197,CLM-000105,2026-08-13,Insurance Payment,11889.72,RCM / Financial Ledger,System-Observed
+CEV-000198,CLM-000106,2026-07-24,Insurance Payment,5416.68,RCM / Financial Ledger,System-Observed
+CEV-000199,CLM-000106,2026-07-29,Patient Payment,192.73,RCM / Financial Ledger,System-Observed
+CEV-000200,CLM-000107,2026-08-04,Insurance Payment,5616.74,RCM / Financial Ledger,System-Observed
+CEV-000201,CLM-000108,2026-07-21,Insurance Payment,6443.66,RCM / Financial Ledger,System-Observed
+CEV-000202,CLM-000108,2026-08-09,Patient Payment,279.08,RCM / Financial Ledger,System-Observed
+CEV-000203,CLM-000109,2026-08-07,Insurance Payment,1718.49,RCM / Financial Ledger,System-Observed
+CEV-000204,CLM-000110,2026-07-29,Insurance Payment,1491.32,RCM / Financial Ledger,System-Observed
+CEV-000205,CLM-000110,2026-08-23,Patient Payment,426.39,RCM / Financial Ledger,System-Observed
+CEV-000206,CLM-000111,2026-08-17,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000207,CLM-000111,2026-08-27,Appeal,,RCM / Financial Ledger,System-Observed
+CEV-000208,CLM-000112,2026-07-19,Insurance Payment,6689.39,RCM / Financial Ledger,System-Observed
+CEV-000209,CLM-000112,2026-07-26,Patient Payment,512.71,RCM / Financial Ledger,System-Observed
+CEV-000210,CLM-000113,2026-08-11,Insurance Payment,13771.7,RCM / Financial Ledger,System-Observed
+CEV-000211,CLM-000113,2026-08-20,Patient Payment,870.72,RCM / Financial Ledger,System-Observed
+CEV-000212,CLM-000114,2026-07-03,Patient Payment,5504.71,RCM / Financial Ledger,System-Observed
+CEV-000213,CLM-000115,2026-08-28,Insurance Payment,11540.44,RCM / Financial Ledger,System-Observed
+CEV-000214,CLM-000116,2026-08-25,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000215,CLM-000117,2026-08-28,Insurance Payment,6249.09,RCM / Financial Ledger,System-Observed
+CEV-000216,CLM-000120,2026-08-25,Insurance Payment,12243.21,RCM / Financial Ledger,System-Observed
+CEV-000217,CLM-000121,2026-08-28,Insurance Payment,10153.93,RCM / Financial Ledger,System-Observed
+CEV-000218,CLM-000122,2026-08-18,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000219,CLM-000123,2026-08-31,Insurance Payment,7529.31,RCM / Financial Ledger,System-Observed
+CEV-000220,CLM-000124,2026-08-29,Insurance Payment,15812.46,RCM / Financial Ledger,System-Observed
+CEV-000221,CLM-000125,2026-08-27,Insurance Payment,6440.29,RCM / Financial Ledger,System-Observed
+CEV-000222,CLM-000128,2026-08-30,Insurance Payment,5449.01,RCM / Financial Ledger,System-Observed
+CEV-000223,CLM-000130,2026-08-29,Insurance Payment,8751.97,RCM / Financial Ledger,System-Observed
+CEV-000224,CLM-000131,2026-08-12,Insurance Payment,2922.96,RCM / Financial Ledger,System-Observed
+CEV-000225,CLM-000131,2026-08-31,Patient Payment,105.9,RCM / Financial Ledger,System-Observed
+CEV-000226,CLM-000132,2026-08-28,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000227,CLM-000133,2026-08-30,Insurance Payment,4688.3,RCM / Financial Ledger,System-Observed
+CEV-000228,CLM-000134,2026-08-20,Insurance Payment,11487.2,RCM / Financial Ledger,System-Observed
+CEV-000229,CLM-000134,2026-08-26,Patient Payment,799.6,RCM / Financial Ledger,System-Observed
+CEV-000230,CLM-000135,2026-08-31,Insurance Payment,15841.64,RCM / Financial Ledger,System-Observed
+CEV-000231,CLM-000136,2026-08-27,Insurance Payment,15136.74,RCM / Financial Ledger,System-Observed
+CEV-000232,CLM-000137,2026-08-12,Insurance Payment,11502.94,RCM / Financial Ledger,System-Observed
+CEV-000233,CLM-000137,2026-08-20,Adjustment,656.97,RCM / Financial Ledger,System-Observed
+CEV-000234,CLM-000138,2026-08-09,Insurance Payment,4100.76,RCM / Financial Ledger,System-Observed
+CEV-000235,CLM-000140,2026-08-07,Insurance Payment,4306.21,RCM / Financial Ledger,System-Observed
+CEV-000236,CLM-000140,2026-08-12,Patient Payment,261.58,RCM / Financial Ledger,System-Observed
+CEV-000237,CLM-000143,2026-08-04,Patient Payment,3273.4,RCM / Financial Ledger,System-Observed
+CEV-000238,CLM-000144,2026-08-29,Insurance Payment,2062.43,RCM / Financial Ledger,System-Observed
+CEV-000239,CLM-000145,2026-08-31,Insurance Payment,1976.12,RCM / Financial Ledger,System-Observed
+CEV-000240,CLM-000147,2026-08-10,Patient Payment,11057.3,RCM / Financial Ledger,System-Observed
+CEV-000241,CLM-000152,2026-08-25,Patient Payment,10577.33,RCM / Financial Ledger,System-Observed
+CEV-000242,CLM-000153,2026-08-15,Insurance Payment,11166.58,RCM / Financial Ledger,System-Observed
+CEV-000243,CLM-000155,2026-08-13,Insurance Payment,7731.2,RCM / Financial Ledger,System-Observed
+CEV-000244,CLM-000155,2026-08-21,Patient Payment,651.74,RCM / Financial Ledger,System-Observed
+CEV-000245,CLM-000156,2026-08-11,Insurance Payment,2888.99,RCM / Financial Ledger,System-Observed
+CEV-000246,CLM-000159,2026-08-29,Insurance Payment,17072.06,RCM / Financial Ledger,System-Observed
+CEV-000247,CLM-000160,2026-08-03,Patient Payment,2840.98,RCM / Financial Ledger,System-Observed
+CEV-000248,CLM-000160,2026-08-20,Patient Payment,3781.26,RCM / Financial Ledger,System-Observed
+CEV-000249,CLM-000162,2026-08-21,Denial,,RCM / Financial Ledger,System-Observed
+CEV-000250,CLM-000164,2026-08-17,Insurance Payment,6485.37,RCM / Financial Ledger,System-Observed
+CEV-000251,CLM-000167,2026-08-01,Patient Payment,7874.44,RCM / Financial Ledger,System-Observed
+CEV-000252,CLM-000168,2026-08-24,Patient Payment,4608.21,RCM / Financial Ledger,System-Observed
+CEV-000253,CLM-000169,2026-08-14,Insurance Payment,3176.38,RCM / Financial Ledger,System-Observed
+CEV-000254,CLM-000170,2026-08-12,Insurance Payment,6239.27,RCM / Financial Ledger,System-Observed
+CEV-000255,CLM-000171,2026-06-27,Insurance Payment,1873.2,RCM / Financial Ledger,System-Observed
+CEV-000256,CLM-000172,2026-06-15,Insurance Payment,15406.65,RCM / Financial Ledger,System-Observed
+CEV-000257,CLM-000172,2026-07-14,Patient Payment,1285.67,RCM / Financial Ledger,System-Observed
+CEV-000258,CLM-000173,2026-07-21,Insurance Payment,6400.28,RCM / Financial Ledger,System-Observed
+CEV-000259,CLM-000173,2026-08-12,Patient Payment,1207.29,RCM / Financial Ledger,System-Observed
+CEV-000260,CLM-000174,2026-06-08,Patient Payment,8733.55,RCM / Financial Ledger,System-Observed
+CEV-000261,CLM-000175,2026-08-15,Insurance Payment,9317.4,RCM / Financial Ledger,System-Observed
+CEV-000262,CLM-000175,2026-08-25,Patient Payment,1558.84,RCM / Financial Ledger,System-Observed
+CEV-000263,CLM-000176,2026-07-19,Insurance Payment,9857.1,RCM / Financial Ledger,System-Observed
+CEV-000264,CLM-000176,2026-08-08,Patient Payment,425.93,RCM / Financial Ledger,System-Observed
+CEV-000265,CLM-000177,2026-08-09,Insurance Payment,9559.12,RCM / Financial Ledger,System-Observed
+CEV-000266,CLM-000177,2026-08-23,Patient Payment,763.83,RCM / Financial Ledger,System-Observed
+CEV-000267,CLM-000177,2026-08-16,Adjustment,141.51,RCM / Financial Ledger,System-Observed
+CEV-000268,CLM-000178,2026-08-14,Insurance Payment,5178.32,RCM / Financial Ledger,System-Observed

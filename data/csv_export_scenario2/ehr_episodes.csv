@@ -1,0 +1,160 @@
+episode_id,opportunity_id,prior_episode_id,episode_relationship,admission_datetime,discharge_datetime,level_of_care,payer,authorization_start,authorization_end,discharge_disposition,source_system,evidence_class
+KIPU-000001,HRO-000008,,Initial,2026-05-18T00:07:30,2026-05-21T00:07:30,Detox,Keystone Wellness Plan,2026-05-18,,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000002,HRO-000008,KIPU-000001,LOC Transition,2026-05-21T01:59:53,2026-06-11T01:59:53,Residential,Keystone Wellness Plan,2026-05-21,2026-06-11,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000003,HRO-000010,,Initial,2026-05-20T17:38:57,2026-05-23T17:38:57,Detox,Meridian Health Partners,2026-05-20,2026-05-23,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000004,HRO-000010,KIPU-000003,LOC Transition,2026-05-23T19:13:08,2026-06-21T19:13:08,Residential,Meridian Health Partners,2026-05-23,2026-06-21,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000005,HRO-000015,,Initial,2026-05-06T21:51:28,2026-05-13T21:51:28,Detox,Summit Behavioral Network,2026-05-06,2026-05-13,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000006,HRO-000017,,Initial,2026-05-13T16:58:50,2026-05-20T16:58:50,Detox,Summit Behavioral Network,2026-05-13,2026-05-20,Administrative Discharge,EHR,System-Observed
+KIPU-000007,HRO-000018,,Initial,2026-05-17T13:54:57,2026-06-11T13:54:57,Residential,Pinecrest Health Plan,2026-05-17,,Administrative Discharge,EHR,System-Observed
+KIPU-000008,HRO-000023,,Initial,2026-05-14T18:43:21,2026-05-19T18:43:21,Detox,National Trust Health Plan,,2026-05-19,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000009,HRO-000024,,Initial,2026-05-30T14:17:27,2026-06-18T14:17:27,Residential,BlueHarbor Insurance,2026-05-30,2026-06-18,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000010,HRO-000028,,Initial,2026-05-17T22:48:31,2026-06-03T22:48:31,Residential,Summit Behavioral Network,2026-05-17,2026-06-03,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000011,HRO-000038,,Initial,2026-05-13T14:21:29,2026-05-28T14:21:29,Residential,Vantage Point Insurance,2026-05-13,2026-05-28,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000012,HRO-000047,,Initial,2026-05-16T19:52:58,2026-06-04T19:52:58,Residential,Harborline Assurance,2026-05-16,,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000013,HRO-000048,,Initial,2026-05-28T17:30:35,2026-06-02T17:30:35,Detox,BlueHarbor Insurance,2026-05-28,2026-06-02,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000014,HRO-000048,KIPU-000013,LOC Transition,2026-06-03T06:45:04,2026-06-28T06:45:04,Residential,BlueHarbor Insurance,2026-06-03,2026-06-28,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000015,HRO-000052,,Initial,2026-05-20T05:46:33,2026-05-27T05:46:33,Detox,Private Pay,2026-05-20,2026-05-27,Administrative Discharge,EHR,System-Observed
+KIPU-000016,HRO-000052,KIPU-000015,LOC Transition,2026-05-27T08:14:09,2026-06-24T08:14:09,Residential,Private Pay,2026-05-27,2026-06-24,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000017,HRO-000062,,Initial,2026-05-17T23:20:10,2026-05-24T23:20:10,Detox,Liberty Crest Health,2026-05-17,2026-05-24,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000018,HRO-000066,,Initial,2026-05-11T09:41:43,2026-06-06T09:41:43,Residential,Harborline Assurance,2026-05-11,2026-06-06,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000019,HRO-000070,,Initial,2026-05-27T21:34:00,2026-05-30T21:34:00,Detox,Summit Behavioral Network,2026-05-27,2026-05-30,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000020,HRO-000070,KIPU-000019,LOC Transition,2026-05-31T03:24:12,2026-06-20T03:24:12,Residential,Summit Behavioral Network,2026-05-31,2026-06-20,Left Against Medical Advice,EHR,System-Observed
+KIPU-000021,HRO-000072,,Initial,2026-05-25T21:10:25,2026-05-28T21:10:25,Detox,Private Pay,,2026-05-28,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000022,HRO-000072,KIPU-000021,LOC Transition,2026-05-29T09:53:54,2026-06-14T09:53:54,Residential,Private Pay,2026-05-29,2026-06-14,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000023,HRO-000075,,Initial,2026-05-23T05:53:28,2026-05-30T05:53:28,Detox,Vantage Point Insurance,2026-05-23,2026-05-30,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000024,HRO-000075,KIPU-000023,LOC Transition,2026-05-30T08:08:45,2026-06-14T08:08:45,Residential,Vantage Point Insurance,2026-05-30,2026-06-14,Administrative Discharge,EHR,System-Observed
+KIPU-000025,HRO-000076,,Initial,2026-05-22T18:44:44,2026-05-25T18:44:44,Detox,Private Pay,2026-05-22,2026-05-25,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000026,HRO-000084,,Initial,2026-05-13T22:24:49,2026-05-31T22:24:49,Residential,Redwood Mutual,2026-05-13,2026-05-31,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000027,HRO-000090,,Initial,2026-05-22T20:06:35,2026-06-15T20:06:35,Residential,National Trust Health Plan,2026-05-22,2026-06-15,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000028,HRO-000093,,Initial,2026-05-20T13:43:05,2026-06-05T13:43:05,Residential,BlueHarbor Insurance,2026-05-20,2026-06-05,Administrative Discharge,EHR,System-Observed
+KIPU-000029,HRO-000094,,Initial,2026-05-04T15:17:39,2026-05-09T15:17:39,Detox,Meridian Health Partners,,2026-05-09,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000030,HRO-000100,,Initial,2026-05-24T01:25:02,2026-05-28T01:25:02,Detox,Meridian Health Partners,2026-05-24,2026-05-28,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000031,HRO-000100,KIPU-000030,LOC Transition,2026-05-30T18:51:31,2026-06-15T18:51:31,Residential,Meridian Health Partners,2026-05-30,2026-06-15,Administrative Discharge,EHR,System-Observed
+KIPU-000032,HRO-000101,,Initial,2026-05-17T19:38:15,2026-06-03T19:38:15,Residential,Summit Behavioral Network,2026-05-17,2026-06-03,Administrative Discharge,EHR,System-Observed
+KIPU-000033,HRO-000105,,Initial,2026-05-19T23:31:48,2026-06-05T23:31:48,Residential,Cornerstone Assurance,2026-05-19,,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000034,HRO-000107,,Initial,2026-05-08T23:29:50,2026-06-02T23:29:50,Residential,Liberty Crest Health,2026-05-08,2026-06-02,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000035,HRO-000112,,Initial,2026-05-19T19:28:20,2026-05-22T19:28:20,Detox,Redwood Mutual,2026-05-19,,Left Against Medical Advice,EHR,System-Observed
+KIPU-000036,HRO-000112,KIPU-000035,LOC Transition,2026-05-22T23:01:49,2026-06-09T23:01:49,Residential,Redwood Mutual,2026-05-22,2026-06-09,Administrative Discharge,EHR,System-Observed
+KIPU-000037,HRO-000123,,Initial,2026-05-16T22:20:22,2026-05-21T22:20:22,Detox,Pinecrest Health Plan,,2026-05-21,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000038,HRO-000123,KIPU-000037,LOC Transition,2026-05-22T20:00:32,2026-06-09T20:00:32,Residential,Pinecrest Health Plan,,,Left Against Medical Advice,EHR,System-Observed
+KIPU-000039,HRO-000125,,Initial,2026-05-15T01:30:41,2026-06-03T01:30:41,Residential,Cornerstone Assurance,2026-05-15,2026-06-03,Left Against Medical Advice,EHR,System-Observed
+KIPU-000040,HRO-000127,,Initial,2026-05-16T02:09:58,2026-05-20T02:09:58,Detox,Cornerstone Assurance,2026-05-16,2026-05-20,Left Against Medical Advice,EHR,System-Observed
+KIPU-000041,HRO-000128,,Initial,2026-05-08T16:13:57,2026-05-15T16:13:57,Detox,Pinecrest Health Plan,2026-05-08,2026-05-15,Left Against Medical Advice,EHR,System-Observed
+KIPU-000042,HRO-000128,KIPU-000041,LOC Transition,2026-05-16T02:16:05,2026-06-05T02:16:05,Residential,Pinecrest Health Plan,2026-05-16,2026-06-05,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000043,HRO-000139,,Initial,2026-05-17T15:54:13,2026-06-05T15:54:13,Residential,Liberty Crest Health,2026-05-17,,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000044,HRO-000144,,Initial,2026-05-10T14:27:44,2026-06-04T14:27:44,Residential,BlueHarbor Insurance,2026-05-10,2026-06-04,Left Against Medical Advice,EHR,System-Observed
+KIPU-000045,HRO-000159,,Initial,2026-05-18T17:16:00,2026-05-22T17:16:00,Detox,Liberty Crest Health,2026-05-18,,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000046,HRO-000159,KIPU-000045,LOC Transition,2026-05-23T07:08:16,2026-06-17T07:08:16,Residential,Liberty Crest Health,2026-05-23,2026-06-17,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000047,HRO-000168,,Initial,2026-05-08T14:18:15,2026-05-14T14:18:15,Detox,BlueHarbor Insurance,2026-05-08,2026-05-14,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000048,HRO-000168,KIPU-000047,LOC Transition,2026-05-14T16:29:03,2026-06-04T16:29:03,Residential,BlueHarbor Insurance,2026-05-14,2026-06-04,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000049,HRO-000169,,Initial,2026-05-19T14:49:21,2026-05-23T14:49:21,Detox,BlueHarbor Insurance,2026-05-19,2026-05-23,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000050,HRO-000169,KIPU-000049,LOC Transition,2026-05-24T11:35:05,2026-06-22T11:35:05,Residential,BlueHarbor Insurance,2026-05-24,2026-06-22,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000051,HRO-000174,,Initial,2026-05-21T19:04:33,2026-05-24T19:04:33,Detox,Summit Behavioral Network,2026-05-21,2026-05-24,Left Against Medical Advice,EHR,System-Observed
+KIPU-000052,HRO-000176,,Initial,2026-05-20T00:23:14,2026-06-17T00:23:14,Residential,Redwood Mutual,2026-05-20,2026-06-17,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000053,HRO-000182,,Initial,2026-06-29T11:38:41,2026-07-03T11:38:41,Detox,Pinecrest Health Plan,2026-06-29,2026-07-03,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000054,HRO-000182,KIPU-000053,LOC Transition,2026-07-03T13:01:05,2026-08-01T13:01:05,Residential,Pinecrest Health Plan,2026-07-03,2026-08-01,Administrative Discharge,EHR,System-Observed
+KIPU-000055,HRO-000187,,Initial,2026-06-20T08:28:20,2026-06-23T08:28:20,Detox,Pinecrest Health Plan,2026-06-20,2026-06-23,Administrative Discharge,EHR,System-Observed
+KIPU-000056,HRO-000189,,Initial,2026-06-21T17:23:19,2026-07-12T17:23:19,Residential,Vantage Point Insurance,2026-06-21,2026-07-12,Administrative Discharge,EHR,System-Observed
+KIPU-000057,HRO-000199,,Initial,2026-06-17T14:59:38,2026-07-10T14:59:38,Residential,Summit Behavioral Network,2026-06-17,2026-07-10,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000058,HRO-000200,,Initial,2026-06-27T04:59:39,2026-07-16T04:59:39,Residential,National Trust Health Plan,2026-06-27,2026-07-16,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000059,HRO-000202,,Initial,2026-06-12T00:24:03,2026-06-18T00:24:03,Detox,Vantage Point Insurance,2026-06-12,2026-06-18,Left Against Medical Advice,EHR,System-Observed
+KIPU-000060,HRO-000202,KIPU-000059,LOC Transition,2026-06-18T14:01:37,2026-07-16T14:01:37,Residential,Vantage Point Insurance,2026-06-18,,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000061,HRO-000209,,Initial,2026-06-14T22:48:01,2026-06-30T22:48:01,Residential,Meridian Health Partners,2026-06-14,2026-06-30,Left Against Medical Advice,EHR,System-Observed
+KIPU-000062,HRO-000214,,Initial,2026-06-10T03:27:06,2026-07-07T03:27:06,Residential,National Trust Health Plan,2026-06-10,2026-07-07,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000063,HRO-000217,,Initial,2026-06-14T19:25:54,2026-07-13T19:25:54,Residential,Vantage Point Insurance,2026-06-14,2026-07-13,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000064,HRO-000219,,Initial,2026-06-17T02:30:33,2026-07-15T02:30:33,Residential,BlueHarbor Insurance,2026-06-17,2026-07-15,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000065,HRO-000220,,Initial,2026-06-18T20:35:49,2026-07-04T20:35:49,Residential,Liberty Crest Health,2026-06-18,2026-07-04,Left Against Medical Advice,EHR,System-Observed
+KIPU-000066,HRO-000222,,Initial,2026-06-25T13:58:33,2026-06-28T13:58:33,Detox,Cornerstone Assurance,2026-06-25,,Left Against Medical Advice,EHR,System-Observed
+KIPU-000067,HRO-000222,KIPU-000066,LOC Transition,2026-06-28T19:50:10,2026-07-20T19:50:10,Residential,Cornerstone Assurance,2026-06-28,2026-07-20,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000068,HRO-000223,,Initial,2026-06-29T03:01:11,2026-07-19T03:01:11,Residential,Continental Care Alliance,,2026-07-19,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000069,HRO-000224,,Initial,2026-06-16T12:55:14,2026-07-15T12:55:14,Residential,Continental Care Alliance,2026-06-16,2026-07-15,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000070,HRO-000226,,Initial,2026-06-23T18:52:10,2026-07-11T18:52:10,Residential,Liberty Crest Health,2026-06-23,2026-07-11,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000071,HRO-000227,,Initial,2026-06-15T16:42:03,2026-06-22T16:42:03,Detox,Private Pay,2026-06-15,2026-06-22,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000072,HRO-000239,,Initial,2026-06-20T08:48:08,2026-06-24T08:48:08,Detox,Private Pay,2026-06-20,2026-06-24,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000073,HRO-000239,KIPU-000072,LOC Transition,2026-06-24T09:48:13,2026-07-19T09:48:13,Residential,Private Pay,2026-06-24,2026-07-19,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000074,HRO-000240,,Initial,2026-06-24T15:18:21,2026-07-01T15:18:21,Detox,Private Pay,,2026-07-01,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000075,HRO-000240,KIPU-000074,LOC Transition,2026-07-02T14:04:07,2026-07-18T14:04:07,Residential,Private Pay,2026-07-02,2026-07-18,Administrative Discharge,EHR,System-Observed
+KIPU-000076,HRO-000241,,Initial,2026-06-19T03:14:57,2026-06-22T03:14:57,Detox,Continental Care Alliance,2026-06-19,2026-06-22,Left Against Medical Advice,EHR,System-Observed
+KIPU-000077,HRO-000253,,Initial,2026-06-26T23:19:06,2026-07-14T23:19:06,Residential,Summit Behavioral Network,2026-06-26,2026-07-14,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000078,HRO-000258,,Initial,2026-06-14T01:39:41,2026-06-20T01:39:41,Detox,Private Pay,2026-06-14,2026-06-20,Administrative Discharge,EHR,System-Observed
+KIPU-000079,HRO-000260,,Initial,2026-06-23T10:51:55,2026-06-27T10:51:55,Detox,Liberty Crest Health,2026-06-23,2026-06-27,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000080,HRO-000264,,Initial,2026-06-19T20:55:43,2026-06-22T20:55:43,Detox,Private Pay,2026-06-19,2026-06-22,Administrative Discharge,EHR,System-Observed
+KIPU-000081,HRO-000264,KIPU-000080,LOC Transition,2026-06-23T02:51:34,2026-07-09T02:51:34,Residential,Private Pay,,2026-07-09,Administrative Discharge,EHR,System-Observed
+KIPU-000082,HRO-000265,,Initial,2026-06-17T23:14:44,2026-07-11T23:14:44,Residential,Cornerstone Assurance,2026-06-17,2026-07-11,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000083,HRO-000266,,Initial,2026-06-21T16:02:04,2026-06-24T16:02:04,Detox,Pinecrest Health Plan,2026-06-21,2026-06-24,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000084,HRO-000272,,Initial,2026-06-12T18:48:39,2026-06-18T18:48:39,Detox,Private Pay,,2026-06-18,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000085,HRO-000276,,Initial,2026-06-19T15:18:18,2026-07-05T15:18:18,Residential,Pinecrest Health Plan,2026-06-19,,Administrative Discharge,EHR,System-Observed
+KIPU-000086,HRO-000279,,Initial,2026-06-20T21:48:31,2026-06-26T21:48:31,Detox,Summit Behavioral Network,,2026-06-26,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000087,HRO-000279,KIPU-000086,LOC Transition,2026-06-27T03:03:11,2026-07-15T03:03:11,Residential,Summit Behavioral Network,2026-06-27,2026-07-15,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000088,HRO-000280,,Initial,2026-06-23T04:59:48,2026-06-28T04:59:48,Detox,Redwood Mutual,2026-06-23,2026-06-28,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000089,HRO-000280,KIPU-000088,LOC Transition,2026-06-28T08:53:27,2026-07-23T08:53:27,Residential,Redwood Mutual,2026-06-28,,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000090,HRO-000288,,Initial,2026-06-04T21:09:53,2026-06-24T21:09:53,Residential,Summit Behavioral Network,2026-06-04,2026-06-24,Left Against Medical Advice,EHR,System-Observed
+KIPU-000091,HRO-000290,,Initial,2026-06-16T11:58:33,2026-07-13T11:58:33,Residential,Continental Care Alliance,2026-06-16,2026-07-13,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000092,HRO-000292,,Initial,2026-06-13T22:54:05,2026-06-30T22:54:05,Residential,BlueHarbor Insurance,,2026-06-30,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000093,HRO-000309,,Initial,2026-06-18T09:03:44,2026-07-12T09:03:44,Residential,Continental Care Alliance,2026-06-18,2026-07-12,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000094,HRO-000311,,Initial,2026-06-27T14:45:33,2026-07-15T14:45:33,Residential,BlueHarbor Insurance,,2026-07-15,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000095,HRO-000333,,Initial,2026-06-20T17:11:47,2026-06-27T17:11:47,Detox,BlueHarbor Insurance,2026-06-20,2026-06-27,Administrative Discharge,EHR,System-Observed
+KIPU-000096,HRO-000338,,Initial,2026-06-25T21:05:25,2026-07-01T21:05:25,Detox,Vantage Point Insurance,,2026-07-01,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000097,HRO-000338,KIPU-000096,LOC Transition,2026-07-02T09:50:36,2026-07-23T09:50:36,Residential,Vantage Point Insurance,2026-07-02,2026-07-23,Administrative Discharge,EHR,System-Observed
+KIPU-000098,HRO-000339,,Initial,2026-06-21T14:15:08,2026-06-27T14:15:08,Detox,Meridian Health Partners,2026-06-21,2026-06-27,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000099,HRO-000339,KIPU-000098,LOC Transition,2026-06-27T15:38:42,2026-07-17T15:38:42,Residential,Meridian Health Partners,2026-06-27,2026-07-17,Administrative Discharge,EHR,System-Observed
+KIPU-000100,HRO-000350,,Initial,2026-06-22T21:03:03,2026-06-26T21:03:03,Detox,Private Pay,2026-06-22,2026-06-26,Left Against Medical Advice,EHR,System-Observed
+KIPU-000101,HRO-000355,,Initial,2026-07-18T23:08:00,2026-08-06T23:08:00,Residential,Meridian Health Partners,2026-07-18,,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000102,HRO-000360,,Initial,2026-07-09T02:15:28,2026-07-29T02:15:28,Residential,Meridian Health Partners,2026-07-09,2026-07-29,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000103,HRO-000361,,Initial,2026-07-23T19:28:31,2026-07-30T19:28:31,Detox,Keystone Wellness Plan,2026-07-23,2026-07-30,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000104,HRO-000361,KIPU-000103,LOC Transition,2026-08-02T22:26:10,2026-08-25T22:26:10,Residential,Keystone Wellness Plan,2026-08-02,2026-08-25,Left Against Medical Advice,EHR,System-Observed
+KIPU-000105,HRO-000363,,Initial,2026-07-21T15:35:24,2026-08-14T15:35:24,Residential,Redwood Mutual,2026-07-21,2026-08-14,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000106,HRO-000383,,Initial,2026-07-15T20:51:17,2026-08-02T20:51:17,Residential,Continental Care Alliance,2026-07-15,2026-08-02,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000107,HRO-000384,,Initial,2026-07-14T14:14:53,2026-08-05T14:14:53,Residential,Meridian Health Partners,2026-07-14,2026-08-05,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000108,HRO-000386,,Initial,2026-07-10T03:09:57,2026-07-14T03:09:57,Detox,National Trust Health Plan,2026-07-10,2026-07-14,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000109,HRO-000386,KIPU-000108,LOC Transition,2026-07-14T20:34:07,2026-07-29T20:34:07,Residential,National Trust Health Plan,2026-07-14,2026-07-29,Administrative Discharge,EHR,System-Observed
+KIPU-000110,HRO-000387,,Initial,2026-07-12T13:51:15,2026-08-08T13:51:15,Residential,Summit Behavioral Network,2026-07-12,2026-08-08,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000111,HRO-000392,,Initial,2026-07-22T16:50:02,2026-08-16T16:50:02,Residential,Continental Care Alliance,2026-07-22,2026-08-16,Left Against Medical Advice,EHR,System-Observed
+KIPU-000112,HRO-000399,,Initial,2026-07-20T02:14:45,2026-08-04T02:14:45,Residential,Redwood Mutual,2026-07-20,2026-08-04,Left Against Medical Advice,EHR,System-Observed
+KIPU-000113,HRO-000402,,Initial,2026-07-28T20:09:19,2026-08-03T20:09:19,Detox,Cornerstone Assurance,2026-07-28,2026-08-03,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000114,HRO-000402,KIPU-000113,LOC Transition,2026-08-05T01:30:59,2026-08-22T01:30:59,Residential,Cornerstone Assurance,2026-08-05,2026-08-22,Left Against Medical Advice,EHR,System-Observed
+KIPU-000115,HRO-000407,,Initial,2026-07-13T17:09:11,2026-07-31T17:09:11,Residential,Continental Care Alliance,,2026-07-31,Administrative Discharge,EHR,System-Observed
+KIPU-000116,HRO-000414,,Initial,2026-07-15T23:25:17,2026-07-18T23:25:17,Detox,Summit Behavioral Network,2026-07-15,2026-07-18,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000117,HRO-000415,,Initial,2026-07-08T20:26:57,2026-08-01T20:26:57,Residential,National Trust Health Plan,2026-07-08,2026-08-01,Left Against Medical Advice,EHR,System-Observed
+KIPU-000118,HRO-000416,,Initial,2026-07-12T22:25:05,2026-07-29T22:25:05,Residential,Pinecrest Health Plan,2026-07-12,2026-07-29,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000119,HRO-000418,,Initial,2026-07-06T13:04:14,2026-08-03T13:04:14,Residential,BlueHarbor Insurance,,,Left Against Medical Advice,EHR,System-Observed
+KIPU-000120,HRO-000426,,Initial,2026-07-19T17:23:42,2026-08-14T17:23:42,Residential,Cornerstone Assurance,2026-07-19,2026-08-14,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000121,HRO-000430,,Initial,2026-07-14T23:12:08,2026-07-31T23:12:08,Residential,BlueHarbor Insurance,,2026-07-31,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000122,HRO-000435,,Initial,2026-07-19T20:53:46,2026-07-23T20:53:46,Detox,Continental Care Alliance,2026-07-19,2026-07-23,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000123,HRO-000435,KIPU-000122,LOC Transition,2026-07-23T21:23:55,2026-08-17T21:23:55,Residential,Continental Care Alliance,2026-07-23,2026-08-17,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000124,HRO-000452,,Initial,2026-07-10T12:22:25,2026-07-14T12:22:25,Detox,BlueHarbor Insurance,2026-07-10,2026-07-14,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000125,HRO-000454,,Initial,2026-07-17T20:28:22,2026-07-21T20:28:22,Detox,Harborline Assurance,2026-07-17,2026-07-21,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000126,HRO-000454,KIPU-000125,LOC Transition,2026-07-22T08:04:18,2026-08-17T08:04:18,Residential,Harborline Assurance,2026-07-22,2026-08-17,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000127,HRO-000456,,Initial,2026-07-21T20:29:54,2026-07-24T20:29:54,Detox,Private Pay,2026-07-21,2026-07-24,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000128,HRO-000462,,Initial,2026-07-27T14:48:13,2026-08-02T14:48:13,Detox,Keystone Wellness Plan,2026-07-27,2026-08-02,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000129,HRO-000462,KIPU-000128,LOC Transition,2026-08-02T21:38:52,2026-08-31T21:38:52,Residential,Keystone Wellness Plan,2026-08-02,2026-08-31,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000130,HRO-000463,,Initial,2026-07-17T02:17:44,2026-08-02T02:17:44,Residential,Private Pay,2026-07-17,2026-08-02,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000131,HRO-000467,,Initial,2026-07-19T16:19:23,2026-07-24T16:19:23,Detox,Liberty Crest Health,2026-07-19,2026-07-24,Left Against Medical Advice,EHR,System-Observed
+KIPU-000132,HRO-000467,KIPU-000131,LOC Transition,2026-07-24T20:06:20,2026-08-08T20:06:20,Residential,Liberty Crest Health,,2026-08-08,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000133,HRO-000476,,Initial,2026-07-23T01:55:22,2026-08-17T01:55:22,Residential,Redwood Mutual,2026-07-23,2026-08-17,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000134,HRO-000480,,Initial,2026-07-30T14:36:06,2026-08-22T14:36:06,Residential,Harborline Assurance,2026-07-30,2026-08-22,Left Against Medical Advice,EHR,System-Observed
+KIPU-000135,HRO-000481,,Initial,2026-07-21T02:54:42,2026-08-07T02:54:42,Residential,Private Pay,2026-07-21,2026-08-07,Left Against Medical Advice,EHR,System-Observed
+KIPU-000136,HRO-000483,,Initial,2026-07-16T12:14:40,2026-07-30T12:14:40,Residential,Cornerstone Assurance,,2026-07-30,Administrative Discharge,EHR,System-Observed
+KIPU-000137,HRO-000484,,Initial,2026-07-22T10:01:31,2026-08-13T10:01:31,Residential,Pinecrest Health Plan,2026-07-22,2026-08-13,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000138,HRO-000487,,Initial,2026-07-10T16:37:59,2026-07-17T16:37:59,Detox,BlueHarbor Insurance,2026-07-10,2026-07-17,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000139,HRO-000493,,Initial,2026-07-14T17:42:41,2026-07-17T17:42:41,Detox,Cornerstone Assurance,2026-07-14,2026-07-17,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000140,HRO-000497,,Initial,2026-07-18T17:29:45,2026-07-25T17:29:45,Detox,Vantage Point Insurance,2026-07-18,2026-07-25,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000141,HRO-000497,KIPU-000140,LOC Transition,2026-07-26T04:12:49,2026-08-24T04:12:49,Residential,Vantage Point Insurance,,2026-08-24,Administrative Discharge,EHR,System-Observed
+KIPU-000142,HRO-000499,,Initial,2026-07-14T15:13:53,2026-08-10T15:13:53,Residential,BlueHarbor Insurance,2026-07-14,2026-08-10,Left Against Medical Advice,EHR,System-Observed
+KIPU-000143,HRO-000507,,Initial,2026-07-19T18:13:21,2026-07-24T18:13:21,Detox,Private Pay,2026-07-19,2026-07-24,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000144,HRO-000507,KIPU-000143,LOC Transition,2026-07-28T05:28:59,2026-08-22T05:28:59,Residential,Private Pay,2026-07-28,2026-08-22,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000145,HRO-000510,,Initial,2026-07-20T11:31:23,2026-08-16T11:31:23,Residential,Continental Care Alliance,2026-07-20,2026-08-16,Administrative Discharge,EHR,System-Observed
+KIPU-000146,HRO-000515,,Initial,2026-07-13T10:45:33,2026-07-20T10:45:33,Detox,Cornerstone Assurance,2026-07-13,2026-07-20,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000147,HRO-000515,KIPU-000146,LOC Transition,2026-07-20T15:36:23,2026-08-05T15:36:23,Residential,Cornerstone Assurance,2026-07-20,2026-08-05,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000148,HRO-000532,,Initial,2026-07-15T11:47:10,2026-08-14T11:47:10,Residential,Redwood Mutual,2026-07-15,2026-08-14,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000149,HRO-000534,,Initial,2026-07-14T00:15:53,2026-07-20T00:15:53,Detox,Private Pay,2026-07-14,2026-07-20,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000150,HRO-000534,KIPU-000149,LOC Transition,2026-07-20T10:42:33,2026-08-04T10:42:33,Residential,Private Pay,2026-07-20,2026-08-04,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000151,HRO-000537,,Initial,2026-07-18T21:10:03,2026-07-21T21:10:03,Detox,Continental Care Alliance,2026-07-18,2026-07-21,Successful Completion - Stepped Down to Outpatient,EHR,System-Observed
+KIPU-000152,HRO-000543,,Initial,2026-07-08T20:32:32,2026-07-15T20:32:32,Detox,Continental Care Alliance,2026-07-08,2026-07-15,Left Against Medical Advice,EHR,System-Observed
+KIPU-000153,HRO-000548,,Initial,2026-05-13T20:54:46,2026-05-17T20:54:46,Detox,Keystone Wellness Plan,2026-05-13,2026-05-17,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000154,HRO-000550,,Initial,2026-05-07T17:07:44,2026-05-29T17:07:44,Residential,Pinecrest Health Plan,2026-05-07,2026-05-29,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000155,HRO-000555,,Initial,2026-05-26T23:31:06,2026-06-12T23:31:06,Residential,National Trust Health Plan,2026-05-26,2026-06-12,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000156,HRO-000556,,Initial,2026-05-13T19:34:37,2026-05-20T19:34:37,Detox,Private Pay,2026-05-13,2026-05-20,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000157,HRO-000559,,Initial,2026-06-20T22:39:53,2026-07-13T22:39:53,Residential,Harborline Assurance,2026-06-20,2026-07-13,Completed Detox - Declined Residential,EHR,System-Observed
+KIPU-000158,HRO-000561,,Initial,2026-06-15T19:31:34,2026-07-13T19:31:34,Residential,Pinecrest Health Plan,2026-06-15,2026-07-13,Completed Treatment - Discharged Home,EHR,System-Observed
+KIPU-000159,HRO-000582,,Initial,2026-07-20T16:21:09,2026-07-25T16:21:09,Detox,Meridian Health Partners,2026-07-20,2026-07-25,Completed Detox - Declined Residential,EHR,System-Observed

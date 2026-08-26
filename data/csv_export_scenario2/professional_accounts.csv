@@ -1,0 +1,41 @@
+professional_account_id,professional_name,organization_name,professional_type,owner_rep_id,created_at
+PRO-000001,Paul Flores,Sunrise Valley Behavioral Health Group,Psychiatrist,REP-000004,2026-01-17T14:02:00
+PRO-000002,Elizabeth Thomas,Silver Birch Wellness Clinic,Psychiatrist,REP-000001,2026-02-02T17:02:00
+PRO-000003,Cynthia Hall,Blue Ridge Medical Center,Psychologist,REP-000004,2026-04-02T12:40:00
+PRO-000004,William Smith,Blue Ridge Wellness Clinic,Social Worker,REP-000003,2026-02-14T17:36:00
+PRO-000005,Edward Thompson,Crestline Behavioral Health Group,Psychologist,REP-000001,2026-04-13T11:47:00
+PRO-000006,Patricia Young,Golden Oak Interventions,Interventionist,REP-000002,2026-04-13T15:26:00
+PRO-000007,Daniel Thomas,New Horizons Psychiatry,Psychologist,REP-000003,2026-04-22T12:36:00
+PRO-000008,Brian Anderson,Silver Birch Health System,Interventionist,REP-000001,2026-04-28T16:35:00
+PRO-000009,Sandra Wright,Evergreen Interventions,Psychiatrist,REP-000003,2026-01-15T16:30:00
+PRO-000010,Robert Williams,Sunrise Valley Interventions,Therapist,REP-000003,2026-02-25T10:55:00
+PRO-000011,Brian Moore,Lakeside Behavioral Health Group,Psychologist,REP-000004,2026-02-25T15:47:00
+PRO-000012,Timothy Hill,Northgate Primary Care,Hospital,REP-000001,2026-01-28T13:06:00
+PRO-000013,Ronald Baker,Evergreen Health System,Psychiatrist,REP-000001,2026-04-25T09:45:00
+PRO-000014,Sharon Garcia,Harborview Interventions,Hospital,REP-000003,2026-03-08T10:59:00
+PRO-000015,Brian Anderson,New Horizons Primary Care,Hospital,REP-000002,2026-03-04T15:45:00
+PRO-000016,Joshua Rivera,Silver Birch Family Therapy,Social Worker,REP-000003,2026-01-28T15:54:00
+PRO-000017,Melissa Hill,Willow Creek Primary Care,Primary Care Physician,REP-000004,2026-04-25T09:54:00
+PRO-000018,Stephanie Smith,Sunrise Valley Behavioral Health Group,Psychiatrist,REP-000001,2026-03-26T10:56:00
+PRO-000019,Robert Nelson,Harborview Psychiatry,Primary Care Physician,REP-000003,2026-02-17T15:40:00
+PRO-000020,William Scott,Willow Creek Primary Care,Hospital,REP-000003,2026-02-05T14:50:00
+PRO-000021,Cynthia Martinez,Bright Path Medical Center,Psychologist,REP-000004,2026-04-03T17:18:00
+PRO-000022,Mark Garcia,Golden Oak Health System,Psychologist,REP-000001,2026-04-22T09:22:00
+PRO-000023,Paul Nelson,Silver Birch Medical Center,Social Worker,REP-000001,2026-03-21T12:55:00
+PRO-000024,Jeffrey Hernandez,Riverside Regional Interventions,Psychologist,REP-000001,2026-02-10T15:30:00
+PRO-000025,Joshua Baker,Blue Ridge Behavioral Health Group,Primary Care Physician,REP-000003,2026-01-25T14:01:00
+PRO-000026,Elizabeth Anderson,Lakeside Primary Care,Primary Care Physician,REP-000002,2026-01-26T09:56:00
+PRO-000027,Ryan Torres,Silver Birch Interventions,Hospital,REP-000002,2026-02-26T08:18:00
+PRO-000028,Jessica Green,Lakeside Medical Center,Interventionist,REP-000002,2026-02-27T12:37:00
+PRO-000029,Jason Wright,Willow Creek Recovery Partners,Hospital,REP-000003,2026-01-10T08:31:00
+PRO-000030,Margaret Hernandez,Sunrise Valley Counseling Associates,Social Worker,REP-000002,2026-02-17T08:56:00
+PRO-000031,Karen Wilson,Harborview Counseling Associates,Hospital,REP-000002,2026-01-02T11:11:00
+PRO-000032,Dorothy Campbell,Silver Birch Counseling Associates,Primary Care Physician,REP-000001,2026-01-22T16:07:00
+PRO-000033,George Walker,Harborview Recovery Partners,Interventionist,REP-000002,2026-02-26T15:51:00
+PRO-000034,Joseph Adams,Golden Oak Family Therapy,Psychologist,REP-000004,2026-04-07T08:16:00
+PRO-000035,Stephanie Thomas,Cedar Grove Recovery Partners,Primary Care Physician,REP-000002,2026-04-26T08:22:00
+PRO-000036,Jeffrey Ramirez,Crestline Behavioral Health Group,Social Worker,REP-000002,2026-03-16T15:10:00
+PRO-000037,Kevin Allen,Bright Path Medical Center,Interventionist,REP-000001,2026-04-16T14:19:00
+PRO-000038,Stephanie Ramirez,Northgate Psychiatry,Hospital,REP-000004,2026-01-05T15:48:00
+PRO-000039,Timothy Taylor,Golden Oak Interventions,Therapist,REP-000004,2026-03-04T17:20:00
+PRO-000040,Stephanie Nguyen,Golden Oak Wellness Clinic,Therapist,REP-000004,2026-02-16T17:02:00
