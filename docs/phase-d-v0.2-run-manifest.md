@@ -182,46 +182,42 @@ Interpretation Protocol begins until all three raw outputs are frozen.
 
 ## 11. Pre-Launch Folder Check
 
--   [ ] Scenario 1 folder contains only `harbor_ridge_scenario1.db`, the
+-   [x] Scenario 1 folder contains only `harbor_ridge_scenario1.db`, the
     frozen Neutral Analyst Brief, and the frozen V0.2 discovery
     procedure.
--   [ ] Scenario 2 folder contains only `harbor_ridge_scenario2.db`, the
+-   [x] Scenario 2 folder contains only `harbor_ridge_scenario2.db`, the
     frozen Neutral Analyst Brief, and the frozen V0.2 discovery
     procedure.
--   [ ] Healthy-baseline folder contains only `harbor_ridge.db`, the
+-   [x] Healthy-baseline folder contains only `harbor_ridge.db`, the
     frozen Neutral Analyst Brief, and the frozen V0.2 discovery
     procedure.
--   [ ] The Neutral Analyst Brief is identical across all three folders.
--   [ ] The V0.2 discovery procedure is identical across all three
+-   [x] The Neutral Analyst Brief is identical across all three folders.
+-   [x] The V0.2 discovery procedure is identical across all three
     folders.
--   [ ] The Interpretation Protocol is absent from all three execution
+-   [x] The Interpretation Protocol is absent from all three execution
     folders.
--   [ ] Ground Truth, specifications, generators, validators, prior
+-   [x] Ground Truth, specifications, generators, validators, prior
     analyses, Git history, and sibling databases are absent.
--   [ ] The exact frozen executive launch prompt above is ready for
+-   [x] The exact frozen executive launch prompt above is ready for
     verbatim reuse.
--   [ ] Direct SQLite query access is available without prebuilt
+-   [x] Direct SQLite query access is available without prebuilt
     analytical views.
 
 ------------------------------------------------------------------------
 
 ## 12. Intervention Log
 
-Record only interventions that actually occur during execution. If none
-occur, record **None** after all three sessions are complete.
+Record only interventions that actually occur during execution.
 
-  --------------------------------------------------------------------------
-  Session        Date/Time      Technical      Intervention   Analytical
-                                Issue          Performed      Content
-                                                              Exposed or
-                                                              Changed?
-  -------------- -------------- -------------- -------------- --------------
-                                                              
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Session            Date/Time         Technical Issue                                                        Intervention Performed                                                                          Analytical Content Exposed or Changed?
+  ------------------ ----------------- ----------------------------------------------------------------------- ----------------------------------------------------------------------------------------------- --------------------------------------------------------------
+  Scenario 1          August 29, 2026   None                                                                    None                                                                                             No
 
-                                                              
+  Scenario 2          August 29, 2026   Initial terminal output displayed with corrupted/garbled formatting.    The same session was asked to export its own already-completed response verbatim to a file.    No. No analytical content was requested, changed, or added.
 
-                                                              
-  --------------------------------------------------------------------------
+  Healthy Baseline    August 29, 2026   None                                                                    None                                                                                             No
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
