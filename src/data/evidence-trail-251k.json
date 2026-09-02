@@ -1,0 +1,1615 @@
+{
+  "generated_from": "harbor_ridge_scenario1.db",
+  "summary": {
+    "inn_billed_total": 1216954.73,
+    "inn_collected_total": 812530.95,
+    "inn_collection_realization_rate": 0.6676755757381377,
+    "oon_billed_total": 688137.27,
+    "oon_collected_total": 209054.85,
+    "oon_collection_realization_rate": 0.30379817968586414,
+    "expected_oon_collections_at_inn_rate": 459452.44793412037,
+    "estimated_gap": 250397.59793412036
+  },
+  "claims": [
+    {
+      "opportunity_id": "HRO-000002",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000001",
+      "claim_id": "CLM-000001",
+      "billed_amount": 9148.49,
+      "allowed_amount": 6777.89,
+      "collected_amount": 7188.97,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000002",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000001",
+      "claim_id": "CLM-000002",
+      "billed_amount": 8700.16,
+      "allowed_amount": 6999.61,
+      "collected_amount": 6926.85,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000004",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000002",
+      "claim_id": "CLM-000003",
+      "billed_amount": 14474.24,
+      "allowed_amount": 11019.19,
+      "collected_amount": 11671.4,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000009",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000004",
+      "claim_id": "CLM-000005",
+      "billed_amount": 12713.28,
+      "allowed_amount": 10702.42,
+      "collected_amount": 11544.900000000001,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000026",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000006",
+      "claim_id": "CLM-000007",
+      "billed_amount": 24414.73,
+      "allowed_amount": 20214.76,
+      "collected_amount": 18653.2,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000028",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000007",
+      "claim_id": "CLM-000008",
+      "billed_amount": 9880.02,
+      "allowed_amount": 7724.83,
+      "collected_amount": 8041.8,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000044",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000009",
+      "claim_id": "CLM-000010",
+      "billed_amount": 14109.15,
+      "allowed_amount": 10947.46,
+      "collected_amount": 11475.740000000002,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000046",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000010",
+      "claim_id": "CLM-000011",
+      "billed_amount": 7425.08,
+      "allowed_amount": 5677.06,
+      "collected_amount": 5441.48,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000046",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000011",
+      "claim_id": "CLM-000012",
+      "billed_amount": 21388.5,
+      "allowed_amount": 15611.4,
+      "collected_amount": 15809.6,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000059",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000014",
+      "claim_id": "CLM-000016",
+      "billed_amount": 9824.17,
+      "allowed_amount": 8138.48,
+      "collected_amount": 7948.86,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000059",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000015",
+      "claim_id": "CLM-000017",
+      "billed_amount": 10090.1,
+      "allowed_amount": 8567.38,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000073",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000019",
+      "claim_id": "CLM-000021",
+      "billed_amount": 8537.71,
+      "allowed_amount": 6223.75,
+      "collected_amount": 5632.02,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000073",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000020",
+      "claim_id": "CLM-000022",
+      "billed_amount": 15511.73,
+      "allowed_amount": 12582.22,
+      "collected_amount": 12644.03,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000095",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000021",
+      "claim_id": "CLM-000023",
+      "billed_amount": 23341.63,
+      "allowed_amount": 18066.9,
+      "collected_amount": 16709.67,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000098",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000022",
+      "claim_id": "CLM-000024",
+      "billed_amount": 7649.5,
+      "allowed_amount": 5543.81,
+      "collected_amount": 5967.599999999999,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000104",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000023",
+      "claim_id": "CLM-000025",
+      "billed_amount": 9386.11,
+      "allowed_amount": 6842.59,
+      "collected_amount": 6840.93,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000105",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000024",
+      "claim_id": "CLM-000026",
+      "billed_amount": 14301.55,
+      "allowed_amount": 12028.99,
+      "collected_amount": 12474.61,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000106",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000025",
+      "claim_id": "CLM-000027",
+      "billed_amount": 4611.69,
+      "allowed_amount": 3694.96,
+      "collected_amount": 3748.08,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000106",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000026",
+      "claim_id": "CLM-000028",
+      "billed_amount": 9672.18,
+      "allowed_amount": 7877.61,
+      "collected_amount": 8213.18,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000129",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000028",
+      "claim_id": "CLM-000030",
+      "billed_amount": 11756.26,
+      "allowed_amount": 9204.84,
+      "collected_amount": 8834.91,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000140",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000031",
+      "claim_id": "CLM-000033",
+      "billed_amount": 5727.27,
+      "allowed_amount": 4772.04,
+      "collected_amount": 4877.75,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000152",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000033",
+      "claim_id": "CLM-000035",
+      "billed_amount": 9357.77,
+      "allowed_amount": 7190.32,
+      "collected_amount": 7070.02,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000152",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000034",
+      "claim_id": "CLM-000036",
+      "billed_amount": 15146.86,
+      "allowed_amount": 11069.15,
+      "collected_amount": 11268.68,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000159",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000035",
+      "claim_id": "CLM-000037",
+      "billed_amount": 17344.91,
+      "allowed_amount": 14428.91,
+      "collected_amount": 13820.08,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000166",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000037",
+      "claim_id": "CLM-000040",
+      "billed_amount": 6407.32,
+      "allowed_amount": 5260.99,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000166",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000038",
+      "claim_id": "CLM-000041",
+      "billed_amount": 21138.73,
+      "allowed_amount": 16714.49,
+      "collected_amount": 18217.52,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000167",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000039",
+      "claim_id": "CLM-000042",
+      "billed_amount": 7894.94,
+      "allowed_amount": 6536.53,
+      "collected_amount": 6526.32,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000167",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000040",
+      "claim_id": "CLM-000043",
+      "billed_amount": 8200.29,
+      "allowed_amount": 5999.06,
+      "collected_amount": 5844.08,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000167",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000040",
+      "claim_id": "CLM-000044",
+      "billed_amount": 9291.65,
+      "allowed_amount": 7683.53,
+      "collected_amount": 8050.57,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000168",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000041",
+      "claim_id": "CLM-000045",
+      "billed_amount": 10820.96,
+      "allowed_amount": 8358.51,
+      "collected_amount": 8709.27,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000168",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000041",
+      "claim_id": "CLM-000046",
+      "billed_amount": 10429.44,
+      "allowed_amount": 8493.91,
+      "collected_amount": 8301.0,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000178",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000045",
+      "claim_id": "CLM-000052",
+      "billed_amount": 8181.54,
+      "allowed_amount": 6562.7,
+      "collected_amount": 6655.17,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000187",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000046",
+      "claim_id": "CLM-000053",
+      "billed_amount": 13865.67,
+      "allowed_amount": 10774.38,
+      "collected_amount": 10579.46,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000200",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000048",
+      "claim_id": "CLM-000056",
+      "billed_amount": 13906.34,
+      "allowed_amount": 10070.8,
+      "collected_amount": 9497.06,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000203",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000050",
+      "claim_id": "CLM-000058",
+      "billed_amount": 9701.22,
+      "allowed_amount": 8062.23,
+      "collected_amount": 8203.99,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000203",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000051",
+      "claim_id": "CLM-000059",
+      "billed_amount": 17948.48,
+      "allowed_amount": 14243.88,
+      "collected_amount": 13256.63,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000204",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000052",
+      "claim_id": "CLM-000060",
+      "billed_amount": 10386.12,
+      "allowed_amount": 8047.04,
+      "collected_amount": 8252.57,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000204",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000052",
+      "claim_id": "CLM-000061",
+      "billed_amount": 10382.62,
+      "allowed_amount": 8723.58,
+      "collected_amount": 9100.27,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000206",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000053",
+      "claim_id": "CLM-000062",
+      "billed_amount": 12576.24,
+      "allowed_amount": 10230.53,
+      "collected_amount": 10383.17,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000221",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000055",
+      "claim_id": "CLM-000064",
+      "billed_amount": 6193.12,
+      "allowed_amount": 5216.64,
+      "collected_amount": 4969.52,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000221",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000056",
+      "claim_id": "CLM-000065",
+      "billed_amount": 20246.28,
+      "allowed_amount": 15674.45,
+      "collected_amount": 14647.02,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000226",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000058",
+      "claim_id": "CLM-000068",
+      "billed_amount": 10696.58,
+      "allowed_amount": 8888.56,
+      "collected_amount": 8805.01,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000248",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000062",
+      "claim_id": "CLM-000072",
+      "billed_amount": 13547.49,
+      "allowed_amount": 10231.53,
+      "collected_amount": 9745.33,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000249",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000063",
+      "claim_id": "CLM-000073",
+      "billed_amount": 4454.09,
+      "allowed_amount": 3355.34,
+      "collected_amount": 3413.44,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000264",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000066",
+      "claim_id": "CLM-000076",
+      "billed_amount": 4671.63,
+      "allowed_amount": 3859.71,
+      "collected_amount": 4031.6400000000003,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000264",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000066",
+      "claim_id": "CLM-000077",
+      "billed_amount": 4160.93,
+      "allowed_amount": 3214.95,
+      "collected_amount": 3161.38,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000267",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000068",
+      "claim_id": "CLM-000079",
+      "billed_amount": 14583.84,
+      "allowed_amount": 10754.32,
+      "collected_amount": 10493.5,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000270",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000069",
+      "claim_id": "CLM-000080",
+      "billed_amount": 7932.08,
+      "allowed_amount": 6370.79,
+      "collected_amount": 6406.719999999999,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000270",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000070",
+      "claim_id": "CLM-000081",
+      "billed_amount": 22278.05,
+      "allowed_amount": 16173.8,
+      "collected_amount": 16166.62,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000283",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000074",
+      "claim_id": "CLM-000086",
+      "billed_amount": 18049.72,
+      "allowed_amount": 13232.48,
+      "collected_amount": 12810.44,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000296",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000076",
+      "claim_id": "CLM-000088",
+      "billed_amount": 5351.19,
+      "allowed_amount": 4429.57,
+      "collected_amount": 4411.2,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000296",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000077",
+      "claim_id": "CLM-000089",
+      "billed_amount": 24939.2,
+      "allowed_amount": 20071.13,
+      "collected_amount": 19996.19,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000301",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000078",
+      "claim_id": "CLM-000090",
+      "billed_amount": 3629.45,
+      "allowed_amount": 2886.47,
+      "collected_amount": 3177.18,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000302",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000079",
+      "claim_id": "CLM-000091",
+      "billed_amount": 3757.75,
+      "allowed_amount": 3144.76,
+      "collected_amount": 3161.47,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000302",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000079",
+      "claim_id": "CLM-000092",
+      "billed_amount": 4615.48,
+      "allowed_amount": 3570.53,
+      "collected_amount": 3608.54,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000302",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000080",
+      "claim_id": "CLM-000093",
+      "billed_amount": 22458.71,
+      "allowed_amount": 19011.73,
+      "collected_amount": 17915.06,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000303",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000081",
+      "claim_id": "CLM-000094",
+      "billed_amount": 8805.61,
+      "allowed_amount": 6832.47,
+      "collected_amount": 7287.68,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000303",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000082",
+      "claim_id": "CLM-000095",
+      "billed_amount": 14500.37,
+      "allowed_amount": 11563.36,
+      "collected_amount": 11831.55,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000307",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000083",
+      "claim_id": "CLM-000096",
+      "billed_amount": 7664.66,
+      "allowed_amount": 5807.38,
+      "collected_amount": 6249.45,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000314",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000086",
+      "claim_id": "CLM-000099",
+      "billed_amount": 5182.34,
+      "allowed_amount": 4041.57,
+      "collected_amount": 4082.79,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000315",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000087",
+      "claim_id": "CLM-000100",
+      "billed_amount": 26505.7,
+      "allowed_amount": 20908.33,
+      "collected_amount": 20715.28,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000317",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000089",
+      "claim_id": "CLM-000103",
+      "billed_amount": 4288.29,
+      "allowed_amount": 3481.92,
+      "collected_amount": 3514.6,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000317",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000090",
+      "claim_id": "CLM-000104",
+      "billed_amount": 19789.91,
+      "allowed_amount": 16647.89,
+      "collected_amount": 16639.97,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000324",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000092",
+      "claim_id": "CLM-000106",
+      "billed_amount": 6037.31,
+      "allowed_amount": 4417.84,
+      "collected_amount": 4272.9400000000005,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000324",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000093",
+      "claim_id": "CLM-000107",
+      "billed_amount": 16582.36,
+      "allowed_amount": 12539.1,
+      "collected_amount": 12181.22,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000326",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000094",
+      "claim_id": "CLM-000108",
+      "billed_amount": 21179.5,
+      "allowed_amount": 17094.1,
+      "collected_amount": 16556.78,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000331",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000095",
+      "claim_id": "CLM-000109",
+      "billed_amount": 21579.41,
+      "allowed_amount": 17438.93,
+      "collected_amount": 17030.31,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000337",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000099",
+      "claim_id": "CLM-000113",
+      "billed_amount": 19204.94,
+      "allowed_amount": 15309.56,
+      "collected_amount": 15861.419999999998,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000338",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000100",
+      "claim_id": "CLM-000114",
+      "billed_amount": 6524.01,
+      "allowed_amount": 4993.05,
+      "collected_amount": 4888.87,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000338",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000101",
+      "claim_id": "CLM-000115",
+      "billed_amount": 25120.17,
+      "allowed_amount": 19049.08,
+      "collected_amount": 19900.629999999997,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000345",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000105",
+      "claim_id": "CLM-000119",
+      "billed_amount": 6406.32,
+      "allowed_amount": 5068.42,
+      "collected_amount": 5100.29,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000345",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000106",
+      "claim_id": "CLM-000120",
+      "billed_amount": 14953.65,
+      "allowed_amount": 11338.02,
+      "collected_amount": 10520.78,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000356",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000109",
+      "claim_id": "CLM-000124",
+      "billed_amount": 17351.98,
+      "allowed_amount": 13623.18,
+      "collected_amount": 13661.710000000001,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000364",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000110",
+      "claim_id": "CLM-000125",
+      "billed_amount": 20652.5,
+      "allowed_amount": 15924.95,
+      "collected_amount": 0,
+      "claim_status": "Denied"
+    },
+    {
+      "opportunity_id": "HRO-000377",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000113",
+      "claim_id": "CLM-000128",
+      "billed_amount": 21257.39,
+      "allowed_amount": 17874.32,
+      "collected_amount": 0,
+      "claim_status": "Denied"
+    },
+    {
+      "opportunity_id": "HRO-000389",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000115",
+      "claim_id": "CLM-000130",
+      "billed_amount": 3735.41,
+      "allowed_amount": 3169.92,
+      "collected_amount": 2930.77,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000389",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000116",
+      "claim_id": "CLM-000131",
+      "billed_amount": 15018.67,
+      "allowed_amount": 12671.53,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000397",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000118",
+      "claim_id": "CLM-000133",
+      "billed_amount": 24214.61,
+      "allowed_amount": 17552.51,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000407",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000121",
+      "claim_id": "CLM-000137",
+      "billed_amount": 5220.83,
+      "allowed_amount": 4289.81,
+      "collected_amount": 4014.05,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000407",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000122",
+      "claim_id": "CLM-000138",
+      "billed_amount": 12528.52,
+      "allowed_amount": 9868.08,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000413",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000125",
+      "claim_id": "CLM-000141",
+      "billed_amount": 4140.01,
+      "allowed_amount": 3088.71,
+      "collected_amount": 2903.95,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000413",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000125",
+      "claim_id": "CLM-000142",
+      "billed_amount": 3580.78,
+      "allowed_amount": 2600.92,
+      "collected_amount": 2471.66,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000413",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000126",
+      "claim_id": "CLM-000143",
+      "billed_amount": 16757.99,
+      "allowed_amount": 12707.13,
+      "collected_amount": 12109.0,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000418",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000127",
+      "claim_id": "CLM-000144",
+      "billed_amount": 9622.03,
+      "allowed_amount": 7401.27,
+      "collected_amount": 7043.79,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000418",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000128",
+      "claim_id": "CLM-000145",
+      "billed_amount": 10210.22,
+      "allowed_amount": 8225.64,
+      "collected_amount": 7615.92,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000426",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000129",
+      "claim_id": "CLM-000146",
+      "billed_amount": 9758.92,
+      "allowed_amount": 7170.46,
+      "collected_amount": 6934.43,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000429",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000130",
+      "claim_id": "CLM-000147",
+      "billed_amount": 16928.49,
+      "allowed_amount": 13425.69,
+      "collected_amount": 12953.7,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000430",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000131",
+      "claim_id": "CLM-000148",
+      "billed_amount": 5230.72,
+      "allowed_amount": 4339.49,
+      "collected_amount": 4416.5,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000437",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000133",
+      "claim_id": "CLM-000150",
+      "billed_amount": 6190.78,
+      "allowed_amount": 4756.97,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000447",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000134",
+      "claim_id": "CLM-000151",
+      "billed_amount": 16049.14,
+      "allowed_amount": 13056.85,
+      "collected_amount": 12438.17,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000455",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000137",
+      "claim_id": "CLM-000154",
+      "billed_amount": 4569.26,
+      "allowed_amount": 3788.58,
+      "collected_amount": 3851.2200000000003,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000460",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000138",
+      "claim_id": "CLM-000155",
+      "billed_amount": 7089.93,
+      "allowed_amount": 5957.91,
+      "collected_amount": 6330.16,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000460",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000138",
+      "claim_id": "CLM-000156",
+      "billed_amount": 6709.42,
+      "allowed_amount": 5343.95,
+      "collected_amount": 5765.12,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000486",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000143",
+      "claim_id": "CLM-000162",
+      "billed_amount": 6791.8,
+      "allowed_amount": 5377.94,
+      "collected_amount": 5277.9,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000486",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000143",
+      "claim_id": "CLM-000163",
+      "billed_amount": 7151.79,
+      "allowed_amount": 5271.97,
+      "collected_amount": 5525.139999999999,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000498",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000144",
+      "claim_id": "CLM-000164",
+      "billed_amount": 15895.03,
+      "allowed_amount": 12499.9,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000508",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000145",
+      "claim_id": "CLM-000165",
+      "billed_amount": 7432.41,
+      "allowed_amount": 5870.58,
+      "collected_amount": 5570.95,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000508",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000146",
+      "claim_id": "CLM-000166",
+      "billed_amount": 26640.17,
+      "allowed_amount": 21441.98,
+      "collected_amount": 0,
+      "claim_status": "Submitted"
+    },
+    {
+      "opportunity_id": "HRO-000517",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000150",
+      "claim_id": "CLM-000171",
+      "billed_amount": 8201.38,
+      "allowed_amount": 6430.27,
+      "collected_amount": 6283.38,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000517",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000151",
+      "claim_id": "CLM-000172",
+      "billed_amount": 18880.11,
+      "allowed_amount": 15106.48,
+      "collected_amount": 0,
+      "claim_status": "Submitted"
+    },
+    {
+      "opportunity_id": "HRO-000520",
+      "payer_relationship": "INN",
+      "episode_id": "KIPU-000152",
+      "claim_id": "CLM-000173",
+      "billed_amount": 7609.65,
+      "allowed_amount": 6405.25,
+      "collected_amount": 6497.17,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000008",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000003",
+      "claim_id": "CLM-000004",
+      "billed_amount": 7695.29,
+      "allowed_amount": 3654.22,
+      "collected_amount": 4531.1,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000017",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000005",
+      "claim_id": "CLM-000006",
+      "billed_amount": 23827.05,
+      "allowed_amount": 9926.41,
+      "collected_amount": 9590.22,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000034",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000008",
+      "claim_id": "CLM-000009",
+      "billed_amount": 29074.28,
+      "allowed_amount": 14605.49,
+      "collected_amount": 16529.17,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000048",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000012",
+      "claim_id": "CLM-000013",
+      "billed_amount": 2852.73,
+      "allowed_amount": 1271.32,
+      "collected_amount": 1524.67,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000048",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000012",
+      "claim_id": "CLM-000014",
+      "billed_amount": 2854.85,
+      "allowed_amount": 1488.02,
+      "collected_amount": 1341.14,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000048",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000013",
+      "claim_id": "CLM-000015",
+      "billed_amount": 21571.38,
+      "allowed_amount": 10452.31,
+      "collected_amount": 12642.269999999999,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000062",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000016",
+      "claim_id": "CLM-000018",
+      "billed_amount": 14915.23,
+      "allowed_amount": 7850.46,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000067",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000017",
+      "claim_id": "CLM-000019",
+      "billed_amount": 7804.98,
+      "allowed_amount": 4721.59,
+      "collected_amount": 5869.23,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000069",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000018",
+      "claim_id": "CLM-000020",
+      "billed_amount": 23818.23,
+      "allowed_amount": 13467.09,
+      "collected_amount": 15532.83,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000118",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000027",
+      "claim_id": "CLM-000029",
+      "billed_amount": 18947.65,
+      "allowed_amount": 10831.01,
+      "collected_amount": 13240.55,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000137",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000029",
+      "claim_id": "CLM-000031",
+      "billed_amount": 20066.19,
+      "allowed_amount": 10998.06,
+      "collected_amount": 13519.94,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000139",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000030",
+      "claim_id": "CLM-000032",
+      "billed_amount": 10511.66,
+      "allowed_amount": 4904.2,
+      "collected_amount": 4748.94,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000147",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000032",
+      "claim_id": "CLM-000034",
+      "billed_amount": 3613.14,
+      "allowed_amount": 2109.26,
+      "collected_amount": 2073.12,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000170",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000042",
+      "claim_id": "CLM-000047",
+      "billed_amount": 2672.88,
+      "allowed_amount": 1191.96,
+      "collected_amount": 1111.81,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000170",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000042",
+      "claim_id": "CLM-000048",
+      "billed_amount": 2488.4,
+      "allowed_amount": 1108.5,
+      "collected_amount": 1029.07,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000170",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000043",
+      "claim_id": "CLM-000049",
+      "billed_amount": 14340.02,
+      "allowed_amount": 6183.29,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000175",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000044",
+      "claim_id": "CLM-000050",
+      "billed_amount": 8887.94,
+      "allowed_amount": 5480.26,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000175",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000044",
+      "claim_id": "CLM-000051",
+      "billed_amount": 8540.1,
+      "allowed_amount": 4851.31,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000198",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000047",
+      "claim_id": "CLM-000054",
+      "billed_amount": 11556.58,
+      "allowed_amount": 4954.91,
+      "collected_amount": 4651.45,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000198",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000047",
+      "claim_id": "CLM-000055",
+      "billed_amount": 12373.98,
+      "allowed_amount": 5876.01,
+      "collected_amount": 7271.08,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000202",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000049",
+      "claim_id": "CLM-000057",
+      "billed_amount": 9425.76,
+      "allowed_amount": 4418.65,
+      "collected_amount": 4363.85,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000207",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000054",
+      "claim_id": "CLM-000063",
+      "billed_amount": 21824.6,
+      "allowed_amount": 13230.42,
+      "collected_amount": 13051.81,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000229",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000059",
+      "claim_id": "CLM-000069",
+      "billed_amount": 11907.97,
+      "allowed_amount": 5563.94,
+      "collected_amount": 5207.29,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000229",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000060",
+      "claim_id": "CLM-000070",
+      "billed_amount": 17705.72,
+      "allowed_amount": 7316.23,
+      "collected_amount": 7307.88,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000234",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000061",
+      "claim_id": "CLM-000071",
+      "billed_amount": 15136.82,
+      "allowed_amount": 7584.89,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000255",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000064",
+      "claim_id": "CLM-000074",
+      "billed_amount": 9753.18,
+      "allowed_amount": 5454.45,
+      "collected_amount": 6124.64,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000255",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000065",
+      "claim_id": "CLM-000075",
+      "billed_amount": 15815.94,
+      "allowed_amount": 7566.43,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000275",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000072",
+      "claim_id": "CLM-000083",
+      "billed_amount": 5548.98,
+      "allowed_amount": 2990.13,
+      "collected_amount": 3284.48,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000275",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000073",
+      "claim_id": "CLM-000084",
+      "billed_amount": 10682.37,
+      "allowed_amount": 5228.34,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000275",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000073",
+      "claim_id": "CLM-000085",
+      "billed_amount": 10227.73,
+      "allowed_amount": 6244.35,
+      "collected_amount": 0,
+      "claim_status": "Denied"
+    },
+    {
+      "opportunity_id": "HRO-000309",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000084",
+      "claim_id": "CLM-000097",
+      "billed_amount": 7323.22,
+      "allowed_amount": 3460.42,
+      "collected_amount": 3352.12,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000309",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000085",
+      "claim_id": "CLM-000098",
+      "billed_amount": 12981.91,
+      "allowed_amount": 5950.1,
+      "collected_amount": 5493.31,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000316",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000088",
+      "claim_id": "CLM-000101",
+      "billed_amount": 9419.86,
+      "allowed_amount": 4991.88,
+      "collected_amount": 4737.94,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000316",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000088",
+      "claim_id": "CLM-000102",
+      "billed_amount": 9351.27,
+      "allowed_amount": 5184.96,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000318",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000091",
+      "claim_id": "CLM-000105",
+      "billed_amount": 4321.23,
+      "allowed_amount": 2145.74,
+      "collected_amount": 0,
+      "claim_status": "Appealed"
+    },
+    {
+      "opportunity_id": "HRO-000334",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000096",
+      "claim_id": "CLM-000110",
+      "billed_amount": 8556.11,
+      "allowed_amount": 4476.17,
+      "collected_amount": 4292.81,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000334",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000097",
+      "claim_id": "CLM-000111",
+      "billed_amount": 19262.6,
+      "allowed_amount": 12080.31,
+      "collected_amount": 0,
+      "claim_status": "Denied"
+    },
+    {
+      "opportunity_id": "HRO-000336",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000098",
+      "claim_id": "CLM-000112",
+      "billed_amount": 11841.42,
+      "allowed_amount": 6315.13,
+      "collected_amount": 7012.15,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000343",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000103",
+      "claim_id": "CLM-000117",
+      "billed_amount": 22431.35,
+      "allowed_amount": 10810.47,
+      "collected_amount": 0,
+      "claim_status": "Denied"
+    },
+    {
+      "opportunity_id": "HRO-000344",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000104",
+      "claim_id": "CLM-000118",
+      "billed_amount": 11524.82,
+      "allowed_amount": 5257.86,
+      "collected_amount": 4930.48,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000353",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000107",
+      "claim_id": "CLM-000121",
+      "billed_amount": 3102.8,
+      "allowed_amount": 1553.67,
+      "collected_amount": 1512.81,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000353",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000107",
+      "claim_id": "CLM-000122",
+      "billed_amount": 5044.43,
+      "allowed_amount": 2637.59,
+      "collected_amount": 2574.09,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000353",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000108",
+      "claim_id": "CLM-000123",
+      "billed_amount": 23675.72,
+      "allowed_amount": 13322.93,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000374",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000111",
+      "claim_id": "CLM-000126",
+      "billed_amount": 4891.16,
+      "allowed_amount": 2446.78,
+      "collected_amount": 2896.17,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000374",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000112",
+      "claim_id": "CLM-000127",
+      "billed_amount": 26416.02,
+      "allowed_amount": 12767.58,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000378",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000114",
+      "claim_id": "CLM-000129",
+      "billed_amount": 5753.48,
+      "allowed_amount": 2608.95,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000393",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000117",
+      "claim_id": "CLM-000132",
+      "billed_amount": 8847.53,
+      "allowed_amount": 3999.92,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000408",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000123",
+      "claim_id": "CLM-000139",
+      "billed_amount": 6659.12,
+      "allowed_amount": 4306.23,
+      "collected_amount": 4802.46,
+      "claim_status": "Closed"
+    },
+    {
+      "opportunity_id": "HRO-000408",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000124",
+      "claim_id": "CLM-000140",
+      "billed_amount": 17695.25,
+      "allowed_amount": 7370.45,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000436",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000132",
+      "claim_id": "CLM-000149",
+      "billed_amount": 8059.44,
+      "allowed_amount": 4363.44,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000450",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000135",
+      "claim_id": "CLM-000152",
+      "billed_amount": 6545.01,
+      "allowed_amount": 3497.47,
+      "collected_amount": 0,
+      "claim_status": "Denied"
+    },
+    {
+      "opportunity_id": "HRO-000450",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000136",
+      "claim_id": "CLM-000153",
+      "billed_amount": 17494.31,
+      "allowed_amount": 7133.93,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000463",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000139",
+      "claim_id": "CLM-000157",
+      "billed_amount": 14029.62,
+      "allowed_amount": 8201.41,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000470",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000140",
+      "claim_id": "CLM-000158",
+      "billed_amount": 2988.16,
+      "allowed_amount": 1715.44,
+      "collected_amount": 1714.1,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000470",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000140",
+      "claim_id": "CLM-000159",
+      "billed_amount": 4673.35,
+      "allowed_amount": 2245.04,
+      "collected_amount": 2229.29,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000474",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000141",
+      "claim_id": "CLM-000160",
+      "billed_amount": 14169.76,
+      "allowed_amount": 6488.92,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000510",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000147",
+      "claim_id": "CLM-000167",
+      "billed_amount": 12923.08,
+      "allowed_amount": 5970.81,
+      "collected_amount": 5886.94,
+      "claim_status": "Paid"
+    },
+    {
+      "opportunity_id": "HRO-000515",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000148",
+      "claim_id": "CLM-000168",
+      "billed_amount": 5631.76,
+      "allowed_amount": 2489.37,
+      "collected_amount": 0,
+      "claim_status": "Pending"
+    },
+    {
+      "opportunity_id": "HRO-000515",
+      "payer_relationship": "OON",
+      "episode_id": "KIPU-000148",
+      "claim_id": "CLM-000169",
+      "billed_amount": 6081.85,
+      "allowed_amount": 3200.94,
+      "collected_amount": 3073.64,
+      "claim_status": "Paid"
+    }
+  ]
+}

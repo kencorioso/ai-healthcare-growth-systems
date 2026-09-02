@@ -2,3 +2,6 @@
 harbor_ridge.db
 harbor_ridge_scenario1.db
 harbor_ridge_scenario2.db
+node_modules/
+dist/
+.astro/

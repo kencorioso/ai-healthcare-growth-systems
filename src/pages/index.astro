@@ -1,0 +1,229 @@
+---
+import data from '../data/evidence-trail-251k.json';
+
+const { summary, claims } = data;
+
+const fmtUsd = (n: number) =>
+  n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+
+const fmtPct = (n: number) => `${(n * 100).toFixed(1)}%`;
+
+const innClaims = claims.filter((c) => c.payer_relationship === 'INN');
+const oonClaims = claims.filter((c) => c.payer_relationship === 'OON');
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$251K Evidence Trail — Harbor Ridge Scenario 1</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+        max-width: 780px;
+        margin: 2.5rem auto;
+        padding: 0 1.25rem;
+        line-height: 1.5;
+        color: #111;
+        background: #fff;
+      }
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.25rem;
+      }
+      .label {
+        display: inline-block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: 1px solid #888;
+        padding: 0.1rem 0.4rem;
+        border-radius: 3px;
+        margin-bottom: 0.5rem;
+      }
+      section {
+        margin: 2rem 0;
+      }
+      .chain-block {
+        border: 1px solid #ccc;
+        padding: 1rem 1.25rem;
+        margin: 1rem 0;
+      }
+      .chain-block h3 {
+        margin-top: 0;
+        font-size: 1rem;
+      }
+      .steps {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+      }
+      .step {
+        border: 1px solid #999;
+        padding: 0.4rem 0.6rem;
+      }
+      .step .k {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: #555;
+      }
+      .arrow {
+        font-size: 1.1rem;
+        color: #555;
+      }
+      .gap-block {
+        border: 2px solid #333;
+        padding: 1rem 1.25rem;
+        margin: 1rem 0;
+      }
+      .gap-block .result {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.85rem;
+        margin-top: 1rem;
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 0.3rem 0.5rem;
+        text-align: left;
+      }
+      th {
+        background: #f4f4f4;
+      }
+      details summary {
+        cursor: pointer;
+        font-weight: bold;
+        padding: 0.5rem 0;
+      }
+      .table-wrap {
+        max-height: 480px;
+        overflow-y: auto;
+      }
+      footer {
+        margin-top: 2.5rem;
+        font-size: 0.85rem;
+        color: #444;
+        border-top: 1px solid #ccc;
+        padding-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <span class="label">Observed Finding</span>
+        <h1>
+          An estimated $251,000 additional collections opportunity if
+          out-of-network claims had realized at the in-network rate.
+        </h1>
+        <p>
+          This is an <strong>Observed Finding</strong> from Harbor Ridge
+          Scenario 1's frozen blind-test output — not a Benchmark Result.
+        </p>
+      </section>
+
+      <section>
+        <h2>How this number is derived</h2>
+
+        <div class="chain-block">
+          <h3>In-network (INN) claims</h3>
+          <div class="steps">
+            <div class="step"><span class="k">Billed</span>{fmtUsd(summary.inn_billed_total)}</div>
+            <span class="arrow">→</span>
+            <div class="step"><span class="k">Collected</span>{fmtUsd(summary.inn_collected_total)}</div>
+            <span class="arrow">→</span>
+            <div class="step"><span class="k">Realization rate</span>{fmtPct(summary.inn_collection_realization_rate)}</div>
+          </div>
+        </div>
+
+        <div class="chain-block">
+          <h3>Out-of-network (OON) claims</h3>
+          <div class="steps">
+            <div class="step"><span class="k">Billed</span>{fmtUsd(summary.oon_billed_total)}</div>
+            <span class="arrow">→</span>
+            <div class="step"><span class="k">Collected</span>{fmtUsd(summary.oon_collected_total)}</div>
+            <span class="arrow">→</span>
+            <div class="step"><span class="k">Realization rate</span>{fmtPct(summary.oon_collection_realization_rate)}</div>
+          </div>
+        </div>
+
+        <div class="gap-block">
+          <h3>The counterfactual</h3>
+          <p>
+            If OON claims had collected at the INN realization rate instead
+            of their own:
+          </p>
+          <div class="steps">
+            <div class="step"><span class="k">OON billed</span>{fmtUsd(summary.oon_billed_total)}</div>
+            <span class="arrow">×</span>
+            <div class="step"><span class="k">INN rate</span>{fmtPct(summary.inn_collection_realization_rate)}</div>
+            <span class="arrow">=</span>
+            <div class="step"><span class="k">Expected OON collections</span>{fmtUsd(summary.expected_oon_collections_at_inn_rate)}</div>
+          </div>
+          <p style="margin-top:0.75rem;">
+            Minus what OON claims actually collected:
+          </p>
+          <div class="steps">
+            <div class="step"><span class="k">Expected OON collections</span>{fmtUsd(summary.expected_oon_collections_at_inn_rate)}</div>
+            <span class="arrow">−</span>
+            <div class="step"><span class="k">Actual OON collected</span>{fmtUsd(summary.oon_collected_total)}</div>
+            <span class="arrow">=</span>
+            <div class="step result"><span class="k">Estimated gap</span>{fmtUsd(summary.estimated_gap)}</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <details>
+          <summary>Inspect the underlying claim-level records ({claims.length} claims)</summary>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Opportunity</th>
+                  <th>Payer</th>
+                  <th>Episode</th>
+                  <th>Claim</th>
+                  <th>Billed</th>
+                  <th>Allowed</th>
+                  <th>Collected</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {claims.map((c) => (
+                  <tr>
+                    <td>{c.opportunity_id}</td>
+                    <td>{c.payer_relationship}</td>
+                    <td>{c.episode_id}</td>
+                    <td>{c.claim_id}</td>
+                    <td>{fmtUsd(c.billed_amount)}</td>
+                    <td>{fmtUsd(c.allowed_amount)}</td>
+                    <td>{fmtUsd(c.collected_amount)}</td>
+                    <td>{c.claim_status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <p style="font-size:0.85rem; color:#555;">
+          {innClaims.length} INN claims, {oonClaims.length} OON claims shown above.
+        </p>
+      </section>
+
+      <footer>
+        Derived from Harbor Ridge Scenario 1's frozen claims and payment
+        data (<code>harbor_ridge_scenario1.db</code>), via the deterministic
+        export at <code>src/data/evidence-trail-251k.json</code>.
+      </footer>
+    </main>
+  </body>
+</html>
