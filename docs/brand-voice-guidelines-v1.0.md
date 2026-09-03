@@ -1,6 +1,6 @@
 # Brand & Voice Guidelines — v1.0
 
-**Status:** DRAFT — first complete draft for review, not yet frozen
+**Status:** FROZEN — v1.0
 **Scope:** Cross-project shared infrastructure — HEOS / Harbor Ridge, CompliantVoice, Ken Corioso personal portfolio
 **Phase:** Phase 1 (working reference document). No Phase 2 showcase/portfolio work is included here.
 **Constraint carried forward:** No named trademarked commercial products, brands, or designers anywhere in this document. All style references are generic (e.g. "instrument-face clarity," "geometric sans") and are not tied to any specific named product, brand, or designer.
@@ -162,7 +162,7 @@ The palette, typography, wordmark rules, and all nine voice rules above are **co
 
 | Version | Date | Change | Affected projects |
 |---|---|---|---|
-| v1.0 | *(pending freeze)* | Initial draft: palette, typography, wordmark, spacing/accessibility, voice principles, cross-project modulation, governance, Definition of Done | Harbor Ridge (gating), CompliantVoice, personal portfolio |
+| v1.0 | 2026-08-30 | Initial draft: palette, typography, wordmark, spacing/accessibility, voice principles, cross-project modulation, governance, Definition of Done | Harbor Ridge (gating), CompliantVoice, personal portfolio |
 
 ---
 
