@@ -1,0 +1,145 @@
+---
+// Token proof sheet — Harbor Ridge V1, Workstream F Step 1 (§7 acceptance check).
+// Renders every token and approved semantic treatment for visual verification.
+// Not a designed page, and not Step 2 (site information architecture).
+import Wordmark from '../components/Wordmark.astro';
+import '../styles/tokens.css';
+import '../styles/treatments.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design System Token Proof Sheet — Harbor Ridge V1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Serif+4:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        background: var(--color-cream-canvas);
+        color: var(--color-ink-primary);
+        font-family: var(--font-body);
+        font-size: var(--text-body);
+        line-height: var(--line-height-body);
+      }
+
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: var(--space-6) var(--space-4);
+      }
+
+      .proof-intro {
+        font-size: var(--text-small);
+        color: var(--color-ink-secondary);
+      }
+
+      section {
+        margin-top: var(--space-7);
+      }
+
+      section > h2:not([class]) {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: var(--text-small);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-ink-secondary);
+        border-bottom: 1px solid var(--color-ink-border);
+        padding-bottom: var(--space-2);
+        margin: 0 0 var(--space-3) 0;
+      }
+
+      .proof-h1 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: var(--text-h1);
+        line-height: var(--line-height-heading);
+        margin: 0;
+      }
+
+      .proof-h2 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: var(--text-h2);
+        line-height: var(--line-height-heading);
+        margin: 0;
+      }
+
+      .proof-h3 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: var(--text-h3);
+        line-height: var(--line-height-heading);
+        margin: 0;
+      }
+
+      .proof-measure {
+        max-width: 70ch;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="proof-h1">Design System Token Proof Sheet</h1>
+      <p class="proof-intro">
+        Workstream F, Step 1 — every token and approved semantic treatment,
+        for visual verification only.
+      </p>
+
+      <section>
+        <h2>Heading</h2>
+        <h1 class="proof-h1">The quick brown fox (H1)</h1>
+        <h2 class="proof-h2">The quick brown fox (H2)</h2>
+        <h3 class="proof-h3">The quick brown fox (H3)</h3>
+      </section>
+
+      <section>
+        <h2>Body copy</h2>
+        <p>
+          Source Serif 4 at the body size, set in the primary ink color on
+          the cream canvas.
+        </p>
+      </section>
+
+      <section>
+        <h2>CTA</h2>
+        <a class="cta" href="#">Request a Briefing</a>
+      </section>
+
+      <section>
+        <h2>Highlighted statistic</h2>
+        <p><span class="stat-highlight">$251,000</span> estimated collections opportunity.</p>
+      </section>
+
+      <section>
+        <h2>Wordmark</h2>
+        <p><Wordmark name="HEOS" /></p>
+        <p><Wordmark name="HEOS" isolated /></p>
+        <p><Wordmark name="HEOS Evidence Engine" /></p>
+      </section>
+
+      <section>
+        <h2>Focus state</h2>
+        <p><a href="#">Tab to this link to verify the focus outline.</a></p>
+      </section>
+
+      <section>
+        <h2>Long-form text measure</h2>
+        <p class="proof-measure">
+          Body measure constrained to roughly 60–80 characters per line for
+          long-form content such as case study or methodology excerpts, so
+          the line length stays comfortable to read regardless of how wide
+          the viewport is, rather than stretching to the edge of a wide
+          container.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

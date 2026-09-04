@@ -1,0 +1,43 @@
+/* Approved semantic treatments — Harbor Ridge V1, Workstream F Step 1 (§5).
+   Only the treatments named in the implementation spec exist here.
+   No general-purpose utility classes (.bg-muted, .text-accent, .space-6, etc.)
+   are added — CSS custom properties in tokens.css are the reusable layer. */
+
+/* CTA treatment. Per v1.1 §1's resolved "scale and purpose" test, a small,
+   bounded interactive element is authorized to carry a crimson fill — the
+   fill is sized to its own content only and must never extend into
+   surrounding layout or become a section/panel background. White-text
+   contrast on crimson-accent verified at ~7.4:1 (clears AAA). */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-body);
+  color: #FFFFFF;
+  background: var(--color-crimson-accent);
+  text-decoration: none;
+}
+
+.cta:hover,
+.cta:active {
+  background: var(--color-crimson-deep);
+}
+
+/* Highlighted-statistic treatment. */
+.stat-highlight {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-crimson-accent);
+}
+
+/* Focus-state treatment — visible border/outline, non-color-only, per §4. */
+:focus-visible {
+  outline: 3px solid var(--color-ink-primary);
+  outline-offset: 2px;
+}

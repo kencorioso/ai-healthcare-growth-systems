@@ -1,0 +1,47 @@
+/* Design tokens — Harbor Ridge V1, Workstream F Step 1.
+   Verified against docs/brand-voice-guidelines-v1.0.md (v1.0, frozen).
+   See docs/harbor-ridge-workstream-f-step1-design-system.md for the implementation spec.
+   Do not add colors, fonts, or spacing values not present in that frozen source. */
+
+:root {
+  /* Cream family */
+  --color-cream-canvas: #F6F1E7;   /* primary page background */
+  --color-cream-surface: #FCFAF5;  /* card/panel surface */
+  --color-cream-muted: #EDE6D6;    /* subtle section backgrounds, table stripes */
+
+  /* Ink family */
+  --color-ink-primary: #171614;    /* primary text, structural elements, headings */
+  --color-ink-secondary: #4A473F;  /* secondary text, captions, metadata */
+  --color-ink-border: #D9D2C0;     /* dividers, borders, input outlines */
+
+  /* Crimson family — single accent, used sparingly per §1's 60/30/10 ratio guidance */
+  --color-crimson-accent: #A81C1C; /* CTAs, key numbers, highlighted data points */
+  --color-crimson-deep: #7A1414;   /* hover/pressed states, small-size accent text */
+  --color-crimson-tint: #F3DEDE;   /* light accent background, e.g. callout box */
+
+  /* Typography */
+  --font-heading: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+
+  /* Type scale, rem, 16px base — exact values from §2 */
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-lead: 1.25rem;
+  --text-h3: 1.5rem;
+  --text-h2: 2rem;
+  --text-h1: 2.75rem;
+  --text-hero: 3.5rem; /* use sparingly, per source */
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+
+  --line-height-body: 1.5;
+  --line-height-heading: 1.25; /* implementation choice: midpoint of frozen 1.2–1.3 range */
+}

@@ -1,0 +1,46 @@
+---
+// Wordmark treatments — Harbor Ridge V1, Workstream F Step 1 (§4).
+// Covers the two named treatments built as components: "HEOS" and
+// "HEOS Evidence Engine". The Ken Corioso wordmark is implemented
+// directly at its point of use, per the spec, and has no component here.
+
+export interface Props {
+  name: 'HEOS' | 'HEOS Evidence Engine';
+  /** HEOS only: permits crimson-accent when used as a standalone corner mark. Never combine with body copy. */
+  isolated?: boolean;
+}
+
+const { name, isolated = false } = Astro.props;
+---
+
+{name === 'HEOS' ? (
+  <span class:list={['wordmark-heos', { 'wordmark-heos--isolated': isolated }]}>HEOS</span>
+) : (
+  <span class="wordmark-compound">
+    <span class="wordmark-heos">HEOS</span><span class="wordmark-evidence-engine"> Evidence Engine</span>
+  </span>
+)}
+
+<style>
+  .wordmark-heos {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em; /* implementation choice: midpoint of frozen 0.06–0.08em range */
+    color: var(--color-ink-primary);
+  }
+
+  .wordmark-heos--isolated {
+    color: var(--color-crimson-accent);
+  }
+
+  .wordmark-compound {
+    white-space: nowrap;
+  }
+
+  .wordmark-evidence-engine {
+    font-family: var(--font-heading);
+    font-weight: 600; /* implementation choice: upper bound of frozen 500–600 range, staying within the two Archivo weights (700/600) actually loaded */
+    color: var(--color-ink-primary);
+  }
+</style>
