@@ -171,7 +171,7 @@ The palette, typography, wordmark rules, and all nine voice rules above are **co
 
 | Version | Date | Change | Affected projects |
 |---|---|---|---|
-| v1.0 | *(pending freeze)* | Initial draft: palette, typography, wordmark, spacing/accessibility, voice principles, cross-project modulation, governance, Definition of Done | Harbor Ridge (gating), CompliantVoice, personal portfolio |
+| v1.0 | 2026-08-30 | Initial draft: palette, typography, wordmark, spacing/accessibility, voice principles, cross-project modulation, governance, Definition of Done | Harbor Ridge (gating), CompliantVoice, personal portfolio |
 | v1.1 | 2026-09-04 | Amended §1 (Color Palette) only: resolved a real ambiguity surfaced during Harbor Ridge Workstream F implementation over whether a small, bounded button counts as a prohibited "background color/decorative fill." Added an explicit, narrower exception permitting `crimson-accent` (#A81C1C) fill on small, bounded interactive elements (e.g. buttons) sized to their own content — never on section/panel/page-level backgrounds — with white (`#FFFFFF`) specified as the verified button text color (≈7.4:1 contrast, checked against `crimson-accent`). No other section changed. | Harbor Ridge (originating implementation), CompliantVoice, personal portfolio (any future CTA across all three) |
 
 ---
