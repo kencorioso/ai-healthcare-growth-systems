@@ -1,6 +1,6 @@
-# Brand & Voice Guidelines — v1.0
+# Brand & Voice Guidelines — v1.1
 
-**Status:** FROZEN — v1.0
+**Status:** v1.0 FROZEN, v1.1 amendment added (see §7 changelog) — one narrow, additive clarification to §1; no other v1.0 content altered
 **Scope:** Cross-project shared infrastructure — HEOS / Harbor Ridge, CompliantVoice, Ken Corioso personal portfolio
 **Phase:** Phase 1 (working reference document). No Phase 2 showcase/portfolio work is included here.
 **Constraint carried forward:** No named trademarked commercial products, brands, or designers anywhere in this document. All style references are generic (e.g. "instrument-face clarity," "geometric sans") and are not tied to any specific named product, brand, or designer.
@@ -33,6 +33,15 @@ Base direction: cream / black / crimson, inspired generically by high-contrast, 
 - `ink-secondary` (#4A473F) on `cream-canvas`: comfortably passes AA for normal text; use for secondary text, not for anything that must pass AAA.
 
 Any future palette addition (a success/warning/info color, for example) should be checked against `cream-canvas` and documented with its ratio the same way, before it's adopted — not added on visual instinct alone.
+
+> **[Added in v1.1] Crimson fill — bounded interactive elements.**
+> The frozen v1.0 sentence above ("It should never become a background color or a decorative fill") was genuinely ambiguous on one real question surfaced during Workstream F implementation: does a small, bounded button count as "a background color," or does the rule only govern section/panel/page-level backgrounds? This amendment resolves it on the record:
+>
+> Crimson fill is permitted for **small, bounded interactive elements sized to their own content** — for example, a button — but never for section, panel, or page-level backgrounds. This is a **narrower exception** to the no-decorative-fill rule, not a reversal of it. The test is scale and purpose: if the crimson region is exactly as large as the interactive control it belongs to (a button, a tag, a small status pill) and exists to be clicked or read as a single unit, it's an element, not a background. If it extends beyond the control to shape the surrounding layout, it's a background and remains prohibited.
+>
+> **Text color on a crimson-fill button: white (`#FFFFFF`).** Checked, not assumed, per the same discipline applied to every other pairing in this section: white text on `crimson-accent` (#A81C1C) measures **≈7.4:1**, which clears AA (4.5:1) for normal text and also clears AAA (7:1) — safe even for smaller button labels, not just large text. Do not substitute `ink-primary` or any other dark color as button text on a crimson fill; white is the only text color verified against this background.
+>
+> This exception does not extend to `crimson-deep` or `crimson-tint` as fill colors for bounded elements without their own verification — it applies specifically to `crimson-accent` (#A81C1C) with white text, as checked above.
 
 ---
 
@@ -162,7 +171,8 @@ The palette, typography, wordmark rules, and all nine voice rules above are **co
 
 | Version | Date | Change | Affected projects |
 |---|---|---|---|
-| v1.0 | 2026-08-30 | Initial draft: palette, typography, wordmark, spacing/accessibility, voice principles, cross-project modulation, governance, Definition of Done | Harbor Ridge (gating), CompliantVoice, personal portfolio |
+| v1.0 | *(pending freeze)* | Initial draft: palette, typography, wordmark, spacing/accessibility, voice principles, cross-project modulation, governance, Definition of Done | Harbor Ridge (gating), CompliantVoice, personal portfolio |
+| v1.1 | 2026-09-04 | Amended §1 (Color Palette) only: resolved a real ambiguity surfaced during Harbor Ridge Workstream F implementation over whether a small, bounded button counts as a prohibited "background color/decorative fill." Added an explicit, narrower exception permitting `crimson-accent` (#A81C1C) fill on small, bounded interactive elements (e.g. buttons) sized to their own content — never on section/panel/page-level backgrounds — with white (`#FFFFFF`) specified as the verified button text color (≈7.4:1 contrast, checked against `crimson-accent`). No other section changed. | Harbor Ridge (originating implementation), CompliantVoice, personal portfolio (any future CTA across all three) |
 
 ---
 
