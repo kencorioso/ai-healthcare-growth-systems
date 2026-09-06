@@ -1,0 +1,183 @@
+---
+// Shared site shell — Harbor Ridge V1, Workstream F Step 3.
+// Persistent five-page navigation per docs/harbor-ridge-workstream-f-step2-information-architecture.md §6.
+// Consumes Step 1's frozen tokens/treatments/Wordmark only — no new palette, type scale, or component library.
+import Wordmark from './Wordmark.astro';
+import '../styles/tokens.css';
+import '../styles/treatments.css';
+import '../styles/fonts.css';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Evidence', href: '/evidence' },
+  { label: 'Methodology & Evaluation', href: '/methodology-evaluation' },
+  { label: 'Portability & Lessons', href: '/portability-lessons' },
+  { label: 'About / Contact', href: '/about-contact' },
+];
+
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--color-steel-gray-canvas);
+        color: var(--color-sovereign-navy);
+        font-family: var(--font-body);
+        font-size: var(--text-body);
+        line-height: var(--line-height-body);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header {
+        background: var(--color-sovereign-navy);
+        border-bottom: 1px solid var(--color-slate-border);
+      }
+
+      .site-header__inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: var(--space-3) var(--space-4);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-4);
+        flex-wrap: wrap;
+      }
+
+      .site-header__brand {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        text-decoration: none;
+      }
+
+      .site-header__inner nav {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2) var(--space-4);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        min-width: 0;
+      }
+
+      .site-nav li {
+        display: flex;
+        min-width: 0;
+      }
+
+      .site-nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: var(--text-small);
+        text-decoration: none;
+        color: var(--color-navy-muted-on-dark);
+        border-bottom: 2px solid transparent;
+        padding: 0 var(--space-1);
+      }
+
+      .site-nav a:hover {
+        color: var(--color-white);
+      }
+
+      /* Active-nav-item indicator: white on sovereign-navy (17.65:1). */
+      .site-nav a[aria-current='page'] {
+        color: var(--color-white);
+        border-bottom-color: var(--color-white);
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--color-slate-border);
+        margin-top: var(--space-8);
+      }
+
+      .site-footer__inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: var(--space-5) var(--space-4);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        font-size: var(--text-small);
+        color: var(--color-slate-text-secondary);
+      }
+
+      .site-footer__name {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        color: var(--color-sovereign-navy);
+      }
+
+      @media (max-width: 640px) {
+        .site-header__inner {
+          justify-content: center;
+          text-align: center;
+        }
+
+        .site-nav {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-header__brand" href="/" aria-label="HEOS — Home">
+          <Wordmark name="HEOS" isolated />
+        </a>
+        <nav aria-label="Primary">
+          <ul class="site-nav">
+            {navItems.map((item) => (
+              <li>
+                <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span class="site-footer__name">Ken Corioso</span>
+        <span>Harbor Ridge V1 — a synthetic case study, no real patient data.</span>
+      </div>
+    </footer>
+  </body>
+</html>

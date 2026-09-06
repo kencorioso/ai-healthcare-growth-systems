@@ -3,11 +3,12 @@
    No general-purpose utility classes (.bg-muted, .text-accent, .space-6, etc.)
    are added — CSS custom properties in tokens.css are the reusable layer. */
 
-/* CTA treatment. Per v1.1 §1's resolved "scale and purpose" test, a small,
-   bounded interactive element is authorized to carry a crimson fill — the
-   fill is sized to its own content only and must never extend into
-   surrounding layout or become a section/panel background. White-text
-   contrast on crimson-accent verified at ~7.4:1 (clears AAA). */
+/* CTA treatment — v2.0 §1 (fill/text colors) + §2 (buttons classified under
+   Inter/body-UI, weight 600 — not Jost/heading). Sovereign-navy fill, white
+   text (17.65:1). Hover: navy-hover fill, white text (13.00:1) — a governed
+   token, not an implementation-time choice. Quantum-electric-blue is never
+   used as a CTA fill with white text: verified at ~1.80:1, fails the
+   contrast requirement. */
 .cta {
   display: inline-flex;
   align-items: center;
@@ -16,28 +17,42 @@
   min-width: 44px;
   min-height: 44px;
   padding: var(--space-2) var(--space-4);
-  font-family: var(--font-heading);
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-weight: 600;
   font-size: var(--text-body);
-  color: #FFFFFF;
-  background: var(--color-crimson-accent);
+  color: var(--color-white);
+  background: var(--color-sovereign-navy);
   text-decoration: none;
 }
 
 .cta:hover,
 .cta:active {
-  background: var(--color-crimson-deep);
+  background: var(--color-navy-hover);
+  color: var(--color-white);
 }
 
-/* Highlighted-statistic treatment. */
+/* Highlighted-statistic treatment. Sovereign-navy text — Electric Blue
+   cannot be used as text on the light canvas under any v2.0-authorized
+   circumstance; Navy is already the palette's verified primary-text color
+   (16.87:1 on canvas), so emphasis here relies on weight/size rather than a
+   distinct accent hue. */
 .stat-highlight {
   font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--color-crimson-accent);
+  color: var(--color-sovereign-navy);
 }
 
-/* Focus-state treatment — visible border/outline, non-color-only, per §4. */
+/* Focus-state treatment — v2.0 §1. Light-surface contexts: 2px solid
+   sovereign-navy. The site header is now a dark sovereign-navy surface
+   (Layout.astro), so its focusable elements (nav links, the brand link)
+   need the dark-surface variant instead — sovereign-navy-on-sovereign-navy
+   would be an invisible focus ring. Scoped to .site-header, the only actual
+   dark-surface context in the current site. */
 :focus-visible {
-  outline: 3px solid var(--color-ink-primary);
+  outline: 2px solid var(--color-sovereign-navy);
   outline-offset: 2px;
+}
+
+.site-header :focus-visible {
+  outline-color: var(--color-quantum-electric-blue);
 }

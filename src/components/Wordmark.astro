@@ -6,7 +6,7 @@
 
 export interface Props {
   name: 'HEOS' | 'HEOS Evidence Engine';
-  /** HEOS only: permits crimson-accent when used as a standalone corner mark. Never combine with body copy. */
+  /** HEOS only: permits quantum-electric-blue when used as a standalone corner mark against a dark navy surface. Never combine with body copy. */
   isolated?: boolean;
 }
 
@@ -27,11 +27,15 @@ const { name, isolated = false } = Astro.props;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.07em; /* implementation choice: midpoint of frozen 0.06–0.08em range */
-    color: var(--color-ink-primary);
+    color: var(--color-sovereign-navy);
   }
 
+  /* v2.0 §3: quantum-electric-blue is permitted on the isolated HEOS mark
+     only against a dark navy surface. Valid here because the site header
+     (Layout.astro, the only place this is used) is now a sovereign-navy
+     surface (9.80:1). */
   .wordmark-heos--isolated {
-    color: var(--color-crimson-accent);
+    color: var(--color-quantum-electric-blue);
   }
 
   .wordmark-compound {
@@ -40,7 +44,7 @@ const { name, isolated = false } = Astro.props;
 
   .wordmark-evidence-engine {
     font-family: var(--font-heading);
-    font-weight: 600; /* implementation choice: upper bound of frozen 500–600 range, staying within the two Archivo weights (700/600) actually loaded */
-    color: var(--color-ink-primary);
+    font-weight: 600; /* implementation choice: upper bound of frozen 500–600 range, staying within the two Jost weights (500/600) actually loaded */
+    color: var(--color-sovereign-navy);
   }
 </style>

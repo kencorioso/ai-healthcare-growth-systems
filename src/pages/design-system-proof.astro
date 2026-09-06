@@ -5,6 +5,7 @@
 import Wordmark from '../components/Wordmark.astro';
 import '../styles/tokens.css';
 import '../styles/treatments.css';
+import '../styles/fonts.css';
 ---
 
 <html lang="en">
@@ -12,17 +13,11 @@ import '../styles/treatments.css';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Design System Token Proof Sheet — Harbor Ridge V1</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Serif+4:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
     <style>
       body {
         margin: 0;
-        background: var(--color-cream-canvas);
-        color: var(--color-ink-primary);
+        background: var(--color-steel-gray-canvas);
+        color: var(--color-sovereign-navy);
         font-family: var(--font-body);
         font-size: var(--text-body);
         line-height: var(--line-height-body);
@@ -36,7 +31,7 @@ import '../styles/treatments.css';
 
       .proof-intro {
         font-size: var(--text-small);
-        color: var(--color-ink-secondary);
+        color: var(--color-slate-text-secondary);
       }
 
       section {
@@ -49,8 +44,8 @@ import '../styles/treatments.css';
         font-size: var(--text-small);
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: var(--color-ink-secondary);
-        border-bottom: 1px solid var(--color-ink-border);
+        color: var(--color-slate-text-secondary);
+        border-bottom: 1px solid var(--color-slate-border);
         padding-bottom: var(--space-2);
         margin: 0 0 var(--space-3) 0;
       }
@@ -67,7 +62,7 @@ import '../styles/treatments.css';
         font-family: var(--font-heading);
         font-weight: 700;
         font-size: var(--text-h2);
-        line-height: var(--line-height-heading);
+        line-height: var(--line-height-heading-sub);
         margin: 0;
       }
 
@@ -75,7 +70,7 @@ import '../styles/treatments.css';
         font-family: var(--font-heading);
         font-weight: 700;
         font-size: var(--text-h3);
-        line-height: var(--line-height-heading);
+        line-height: var(--line-height-heading-sub);
         margin: 0;
       }
 
@@ -103,8 +98,8 @@ import '../styles/treatments.css';
       <section>
         <h2>Body copy</h2>
         <p>
-          Source Serif 4 at the body size, set in the primary ink color on
-          the cream canvas.
+          Inter at the body size, set in the sovereign-navy primary text
+          color on the steel-gray-canvas.
         </p>
       </section>
 
@@ -121,7 +116,7 @@ import '../styles/treatments.css';
       <section>
         <h2>Wordmark</h2>
         <p><Wordmark name="HEOS" /></p>
-        <p><Wordmark name="HEOS" isolated /></p>
+        <p style="background: var(--color-sovereign-navy); display: inline-block; padding: var(--space-2) var(--space-3);"><Wordmark name="HEOS" isolated /></p>
         <p><Wordmark name="HEOS Evidence Engine" /></p>
       </section>
 

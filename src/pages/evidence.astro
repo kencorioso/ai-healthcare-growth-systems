@@ -1,0 +1,46 @@
+---
+// Evidence — minimal placeholder route.
+// Full population (live $251K evidence trail embed + restatement) is out of
+// scope for this pass; see docs/harbor-ridge-workstream-f-step2-information-architecture.md §3.
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Evidence — Ken Corioso | Harbor Ridge V1">
+  <main class="placeholder">
+    <div class="placeholder__inner">
+      <h1>Evidence</h1>
+      <p>
+        This page will hold the live, interactive $251K evidence trail — the
+        full billed → collected → realization rate → counterfactual → gap
+        chain, with the underlying claim-level records open to inspection —
+        plus a concise restatement of what the evidence does and does not
+        prove.
+      </p>
+      <p><a href="/">&larr; Back to Home</a></p>
+    </div>
+  </main>
+
+  <style>
+    .placeholder {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .placeholder__inner {
+      max-width: 70ch;
+    }
+
+    .placeholder h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-h1);
+      line-height: var(--line-height-heading);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .placeholder a {
+      color: var(--color-sovereign-navy);
+    }
+  </style>
+</Layout>

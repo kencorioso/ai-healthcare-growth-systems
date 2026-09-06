@@ -1,229 +1,457 @@
 ---
-import data from '../data/evidence-trail-251k.json';
-
-const { summary, claims } = data;
-
-const fmtUsd = (n: number) =>
-  n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
-
-const fmtPct = (n: number) => `${(n * 100).toFixed(1)}%`;
-
-const innClaims = claims.filter((c) => c.payer_relationship === 'INN');
-const oonClaims = claims.filter((c) => c.payer_relationship === 'OON');
+// Home — Harbor Ridge V1, Workstream F Step 3.
+// Content status: PROVISIONAL IMPLEMENTATION COPY — NOT FROZEN.
+// Text is verbatim from docs/harbor-ridge-workstream-f-step3-home-page-copy.md;
+// only structural/presentational markup (headings, lists, Wordmark treatment,
+// video-placeholder regions, link styling) has been added. Do not reword.
+import Layout from '../components/Layout.astro';
+import Wordmark from '../components/Wordmark.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>$251K Evidence Trail — Harbor Ridge Scenario 1</title>
-    <style>
-      body {
-        font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-        max-width: 780px;
-        margin: 2.5rem auto;
-        padding: 0 1.25rem;
-        line-height: 1.5;
-        color: #111;
-        background: #fff;
-      }
-      h1 {
-        font-size: 1.4rem;
-        margin-bottom: 0.25rem;
-      }
-      .label {
-        display: inline-block;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border: 1px solid #888;
-        padding: 0.1rem 0.4rem;
-        border-radius: 3px;
-        margin-bottom: 0.5rem;
-      }
-      section {
-        margin: 2rem 0;
-      }
-      .chain-block {
-        border: 1px solid #ccc;
-        padding: 1rem 1.25rem;
-        margin: 1rem 0;
-      }
-      .chain-block h3 {
-        margin-top: 0;
-        font-size: 1rem;
-      }
-      .steps {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.95rem;
-      }
-      .step {
-        border: 1px solid #999;
-        padding: 0.4rem 0.6rem;
-      }
-      .step .k {
-        display: block;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        color: #555;
-      }
-      .arrow {
-        font-size: 1.1rem;
-        color: #555;
-      }
-      .gap-block {
-        border: 2px solid #333;
-        padding: 1rem 1.25rem;
-        margin: 1rem 0;
-      }
-      .gap-block .result {
-        font-size: 1.3rem;
-        font-weight: bold;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        font-size: 0.85rem;
-        margin-top: 1rem;
-      }
-      th, td {
-        border: 1px solid #ccc;
-        padding: 0.3rem 0.5rem;
-        text-align: left;
-      }
-      th {
-        background: #f4f4f4;
-      }
-      details summary {
-        cursor: pointer;
-        font-weight: bold;
-        padding: 0.5rem 0;
-      }
-      .table-wrap {
-        max-height: 480px;
-        overflow-y: auto;
-      }
-      footer {
-        margin-top: 2.5rem;
-        font-size: 0.85rem;
-        color: #444;
-        border-top: 1px solid #ccc;
-        padding-top: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <section>
-        <span class="label">Observed Finding</span>
-        <h1>
-          An estimated $251,000 additional collections opportunity if
-          out-of-network claims had realized at the in-network rate.
+<Layout title="Ken Corioso — HEOS Evidence Engine | Harbor Ridge V1">
+  <main class="home">
+    <!-- Block A — Hero -->
+    <section class="block block--hero">
+      <div class="measure-display">
+        <h1 class="hero-headline">
+          Healthcare Growth Problems Rarely Live in One Department. I Built an
+          AI System to See Across Them.
         </h1>
+        <p class="lead">
+          I built the <Wordmark name="HEOS Evidence Engine" /> to connect marketing,
+          admissions, treatment, and revenue into one evidence chain, helping
+          executives investigate performance across organizational silos and
+          inspect the evidence behind each conclusion. Then I subjected its AI
+          reasoning to a controlled blind evaluation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Block B — The Problem -->
+    <section class="block">
+      <div class="measure">
+        <h2 class="section-heading">The Problem</h2>
         <p>
-          This is an <strong>Observed Finding</strong> from Harbor Ridge
-          Scenario 1's frozen blind-test output — not a Benchmark Result.
+          Harbor Ridge Behavioral Health started with a disagreement
+          healthcare executives know well: completed admissions and census
+          were declining even as marketing spend and inquiry volume were
+          going up. Marketing believed admissions wasn't converting the
+          demand being generated. Admissions believed marketing was sending
+          lower-quality leads. Neither side had the evidence to settle it.
         </p>
-      </section>
-
-      <section>
-        <h2>How this number is derived</h2>
-
-        <div class="chain-block">
-          <h3>In-network (INN) claims</h3>
-          <div class="steps">
-            <div class="step"><span class="k">Billed</span>{fmtUsd(summary.inn_billed_total)}</div>
-            <span class="arrow">→</span>
-            <div class="step"><span class="k">Collected</span>{fmtUsd(summary.inn_collected_total)}</div>
-            <span class="arrow">→</span>
-            <div class="step"><span class="k">Realization rate</span>{fmtPct(summary.inn_collection_realization_rate)}</div>
-          </div>
-        </div>
-
-        <div class="chain-block">
-          <h3>Out-of-network (OON) claims</h3>
-          <div class="steps">
-            <div class="step"><span class="k">Billed</span>{fmtUsd(summary.oon_billed_total)}</div>
-            <span class="arrow">→</span>
-            <div class="step"><span class="k">Collected</span>{fmtUsd(summary.oon_collected_total)}</div>
-            <span class="arrow">→</span>
-            <div class="step"><span class="k">Realization rate</span>{fmtPct(summary.oon_collection_realization_rate)}</div>
-          </div>
-        </div>
-
-        <div class="gap-block">
-          <h3>The counterfactual</h3>
-          <p>
-            If OON claims had collected at the INN realization rate instead
-            of their own:
-          </p>
-          <div class="steps">
-            <div class="step"><span class="k">OON billed</span>{fmtUsd(summary.oon_billed_total)}</div>
-            <span class="arrow">×</span>
-            <div class="step"><span class="k">INN rate</span>{fmtPct(summary.inn_collection_realization_rate)}</div>
-            <span class="arrow">=</span>
-            <div class="step"><span class="k">Expected OON collections</span>{fmtUsd(summary.expected_oon_collections_at_inn_rate)}</div>
-          </div>
-          <p style="margin-top:0.75rem;">
-            Minus what OON claims actually collected:
-          </p>
-          <div class="steps">
-            <div class="step"><span class="k">Expected OON collections</span>{fmtUsd(summary.expected_oon_collections_at_inn_rate)}</div>
-            <span class="arrow">−</span>
-            <div class="step"><span class="k">Actual OON collected</span>{fmtUsd(summary.oon_collected_total)}</div>
-            <span class="arrow">=</span>
-            <div class="step result"><span class="k">Estimated gap</span>{fmtUsd(summary.estimated_gap)}</div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <details>
-          <summary>Inspect the underlying claim-level records ({claims.length} claims)</summary>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Opportunity</th>
-                  <th>Payer</th>
-                  <th>Episode</th>
-                  <th>Claim</th>
-                  <th>Billed</th>
-                  <th>Allowed</th>
-                  <th>Collected</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {claims.map((c) => (
-                  <tr>
-                    <td>{c.opportunity_id}</td>
-                    <td>{c.payer_relationship}</td>
-                    <td>{c.episode_id}</td>
-                    <td>{c.claim_id}</td>
-                    <td>{fmtUsd(c.billed_amount)}</td>
-                    <td>{fmtUsd(c.allowed_amount)}</td>
-                    <td>{fmtUsd(c.collected_amount)}</td>
-                    <td>{c.claim_status}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </details>
-        <p style="font-size:0.85rem; color:#555;">
-          {innClaims.length} INN claims, {oonClaims.length} OON claims shown above.
+        <p>
+          I didn't want to optimize one department's version of the story. I
+          wanted to investigate the whole chain.
         </p>
-      </section>
+      </div>
+    </section>
 
-      <footer>
-        Derived from Harbor Ridge Scenario 1's frozen claims and payment
-        data (<code>harbor_ridge_scenario1.db</code>), via the deterministic
-        export at <code>src/data/evidence-trail-251k.json</code>.
-      </footer>
-    </main>
-  </body>
-</html>
+    <!-- Block C — What I Built -->
+    <section class="block">
+      <div class="measure">
+        <h2 class="section-heading">What I Built</h2>
+        <p>
+          That AI system — the <Wordmark name="HEOS Evidence Engine" /> — needed
+          a real test, not just a demo. So I built Harbor Ridge, a fictional,
+          entirely synthetic 32-bed behavioral health facility, and connected
+          its full operating chain: <strong>acquisition → inquiry → financial
+          qualification → admission → treatment → revenue.</strong> I call
+          that the Golden Thread, and it's the backbone of everything the
+          system reasons across.
+        </p>
+        <p>
+          The larger vision behind the Evidence Engine is <Wordmark name="HEOS" />,
+          an AI-enabled executive intelligence layer for healthcare
+          organizations. Harbor Ridge itself isn't the product; it's the
+          testbed I built to put the Evidence Engine through a real,
+          controlled test.
+        </p>
+        <p>
+          Before I asked the AI anything, I mapped the organization and
+          froze the answers I already knew were hidden inside it. The model
+          came first. The evidence came next. The AI came last.
+        </p>
+      </div>
+    </section>
+
+    <!-- Block D — Video 1 (CEO / Executive Premise) — primary visual weight -->
+    <section class="block block--video-primary">
+      <div class="measure-display">
+        <div class="video-frame video-frame--primary" role="img" aria-label="Video placeholder: Video 1, CEO — Executive Premise">
+          <span class="video-frame__play" aria-hidden="true"></span>
+          <span class="video-frame__caption">Video 1 — CEO · Executive Premise</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block E — What It Found -->
+    <section class="block">
+      <div class="measure">
+        <h2 class="section-heading">What It Found</h2>
+        <p>
+          One result mattered immediately, and it's exactly the kind of
+          thing that's easy to miss when marketing and revenue cycle never
+          compare notes: <span class="finding-tag">Observed Finding</span> an
+          estimated <span class="stat-highlight">$251,000</span> in additional
+          collections if out-of-network claims had realized at the same rate
+          as in-network ones.
+        </p>
+        <p>
+          That finding was real. But it wasn't the answer to the test I'd
+          actually built the system to pass — it was something the AI
+          noticed along the way, not one of the specific hidden problems I
+          was checking whether it could find.
+        </p>
+        <p class="inline-link">
+          <a href="/evidence-trail">See the full arithmetic behind this number → Evidence</a>
+        </p>
+        <p>
+          When I later tested the Evidence Engine against those specific
+          hidden problems, it missed both.
+        </p>
+        <p>
+          I kept both results. The goal was never to manufacture an AI
+          success story — it was to build something whose conclusions could
+          actually be inspected, tested, and challenged.
+        </p>
+      </div>
+    </section>
+
+    <!-- Block F — The Real Test -->
+    <section class="block">
+      <div class="measure">
+        <h2 class="section-heading">The Real Test</h2>
+        <p>
+          A convincing AI demonstration can become misleading when the
+          person building it already knows the answer. I ran into that risk
+          directly, before the real test even began.
+        </p>
+        <p>
+          While building one of the two hidden test scenarios, a genuine
+          validation problem turned up. I had a command ready to search
+          across different random seeds until I got a cleaner-looking
+          result.
+        </p>
+        <p class="callout-line">I stopped it before it ran, and fixed the actual problem instead.</p>
+      </div>
+    </section>
+
+    <!-- Block G — Video 4 (Hiring Manager) — secondary visual weight -->
+    <section class="block block--video-secondary">
+      <div class="measure">
+        <div class="video-frame video-frame--secondary" role="img" aria-label="Video placeholder: Video 4, Hiring Manager — Judgment Under Failure">
+          <span class="video-frame__play" aria-hidden="true"></span>
+          <span class="video-frame__caption">Video 4 — Hiring Manager · Judgment Under Failure</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block H — What Happened -->
+    <section class="block">
+      <div class="measure">
+        <h2 class="section-heading">What Happened</h2>
+        <p>That same discipline governed the real evaluation. Here's the result:</p>
+
+        <dl class="result-list">
+          <div class="result-list__item">
+            <dt>Scenario 1</dt>
+            <dd>MISS</dd>
+          </div>
+          <div class="result-list__item">
+            <dt>Scenario 2</dt>
+            <dd>MISS</dd>
+          </div>
+          <div class="result-list__item">
+            <dt>Healthy Baseline</dt>
+            <dd>CLEAN</dd>
+          </div>
+        </dl>
+
+        <p>
+          The Evidence Engine didn't recover either of the two problems I'd
+          deliberately hidden for it to find. It also didn't invent a
+          problem where none existed — the clean control case stayed clean.
+          That's a real, useful signal about restraint, but it doesn't prove
+          the system is generally reliable.
+        </p>
+        <p>
+          I could have kept building new versions until one of them passed.
+          Instead, I froze the results exactly as they came out, misses
+          included, and documented what the evidence actually showed.
+        </p>
+        <p class="inline-link">
+          <a href="/methodology-evaluation">See how the test itself was designed to prevent me from moving the goalposts → Methodology &amp; Evaluation</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Block I — What This Demonstrates -->
+    <section class="block">
+      <div class="measure">
+        <h2 class="section-heading">What This Demonstrates</h2>
+        <p>
+          For me, the important result wasn't that the system succeeded or
+          failed. It was learning exactly where its reasoning was useful,
+          where it wasn't, and what the evidence could actually support.
+        </p>
+        <p>
+          That's the kind of analytical judgment I want to bring to
+          healthcare growth work: build the system, test it against
+          reality, inspect the evidence, and don't claim more than the
+          results can support.
+        </p>
+        <p>
+          I also know precisely what would and wouldn't transfer if I built
+          something like this for a different organization. That's worth
+          exploring on its own.
+        </p>
+        <p class="inline-link">
+          <a href="/portability-lessons">What transfers, and what doesn't → Portability &amp; Lessons</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Block J — Go Deeper -->
+    <section class="block block--deeper">
+      <div class="measure">
+        <h2 class="section-heading">Go Deeper</h2>
+        <p>
+          If you want to see the reasoning behind any of this rather than
+          take my word for it, here's where each piece lives:
+        </p>
+
+        <ul class="deeper-links">
+          <li><a class="cta" href="/evidence-trail">Evidence — inspect the $251K finding's full arithmetic, live</a></li>
+          <li><a class="cta" href="/methodology-evaluation">Methodology &amp; Evaluation — the full technical build and test design</a></li>
+          <li><a class="cta" href="/portability-lessons">Portability &amp; Lessons — what would and wouldn't transfer elsewhere</a></li>
+          <li><a class="cta" href="/about-contact">About / Contact — who I am, and how to reach me</a></li>
+        </ul>
+
+        <p class="deeper-note">
+          (Case study, full whitepaper, and GitHub repository are also
+          reachable from About/Contact, per Step 2's spec.)
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .home {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--space-4);
+    }
+
+    .block {
+      padding: var(--space-7) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    .block:last-of-type {
+      border-bottom: none;
+    }
+
+    .measure {
+      max-width: 70ch;
+      margin: 0 auto;
+    }
+
+    /* Display container for hero copy and the primary video — wider than
+       the 70ch reading measure since these aren't paragraph body text. */
+    .measure-display {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .block--hero {
+      padding-top: var(--space-8);
+    }
+
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-hero);
+      line-height: var(--line-height-heading);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .lead {
+      font-size: var(--text-lead);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .block p {
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      font-size: var(--text-small);
+    }
+
+    .inline-link a {
+      color: var(--color-sovereign-navy);
+      text-decoration: underline;
+    }
+
+    .inline-link a:hover {
+      color: var(--color-sovereign-navy);
+    }
+
+    .callout-line {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      line-height: var(--line-height-heading);
+    }
+
+    .finding-tag {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-slate-text-secondary);
+      border: 1px solid var(--color-slate-border);
+      padding: var(--space-1) var(--space-2);
+      margin-right: var(--space-2);
+      white-space: nowrap;
+    }
+
+    /* Video placeholders — occupied space at the approved aspect ratio,
+       not a fabricated thumbnail image. Primary (Block D) spans the full
+       measure; secondary (Block G) is deliberately narrower and lower in
+       the page, per Step 2's "unequal visual weight" requirement. */
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--color-sovereign-navy);
+      color: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+
+    .video-frame__play {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      border-left: 22px solid var(--color-white);
+      margin-left: 6px;
+    }
+
+    .video-frame--primary .video-frame__play {
+      border-top-width: 20px;
+      border-bottom-width: 20px;
+      border-left-width: 32px;
+    }
+
+    .video-frame__caption {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      letter-spacing: 0.03em;
+    }
+
+    .block--video-secondary .measure {
+      max-width: 46ch;
+    }
+
+    .result-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin: 0 0 var(--space-4) 0;
+      padding: 0;
+    }
+
+    .result-list__item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-4);
+      background: var(--color-steel-gray-surface);
+      border: 1px solid var(--color-slate-border);
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .result-list__item dt {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+    }
+
+    .result-list__item dd {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-h3);
+      letter-spacing: 0.03em;
+    }
+
+    .deeper-links {
+      list-style: none;
+      margin: 0 0 var(--space-4) 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+
+    .deeper-links .cta {
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      justify-content: flex-start;
+      white-space: normal;
+      line-height: var(--line-height-body);
+    }
+
+    .deeper-note {
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+      font-style: italic;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .hero-headline {
+        font-size: var(--text-h1);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .block {
+        padding: var(--space-6) 0;
+      }
+
+      .deeper-links {
+        grid-template-columns: 1fr;
+      }
+
+      .result-list__item {
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+    }
+  </style>
+</Layout>

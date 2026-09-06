@@ -1,0 +1,45 @@
+/* Self-hosted fonts — Brand & Voice v2.0 §2.
+   Jost (heading/display) weights 500/600; Inter (body/UI/data) weights 400/500/600.
+   Assets: public/fonts/{jost,inter}/ — see public/fonts/PROVENANCE.md for
+   source, license (SIL OFL 1.1), and how each WOFF2 was produced.
+   No Google Fonts CDN or other runtime external font dependency. */
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost/Jost-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost/Jost-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

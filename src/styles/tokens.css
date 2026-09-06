@@ -1,38 +1,38 @@
-/* Design tokens — Harbor Ridge V1, Workstream F Step 1.
-   Verified against docs/brand-voice-guidelines-v1.0.md (v1.0, frozen).
-   See docs/harbor-ridge-workstream-f-step1-design-system.md for the implementation spec.
-   Do not add colors, fonts, or spacing values not present in that frozen source. */
+/* Design tokens — Harbor Ridge V1, Workstream F.
+   Verified against docs/brand-voice-guidelines-v2.0.md (v2.0, APPROVED)
+   at commit a43a29f. v2.0 supersedes v1.0/v1.1's §1 (Color Palette) and
+   §2 (Typography) in full. Do not add colors, fonts, or spacing values not
+   present in that source. */
 
 :root {
-  /* Cream family */
-  --color-cream-canvas: #F6F1E7;   /* primary page background */
-  --color-cream-surface: #FCFAF5;  /* card/panel surface */
-  --color-cream-muted: #EDE6D6;    /* subtle section backgrounds, table stripes */
+  /* Sovereign Intelligence palette — v2.0 §1 */
+  --color-sovereign-navy: #0B192C;        /* primary dark surface; primary text on light surfaces */
+  --color-quantum-electric-blue: #00D2FF; /* accent — constrained use, see treatments.css */
+  --color-steel-gray-canvas: #F8FAFC;     /* primary light canvas (page background) */
+  --color-steel-gray-surface: #E2E8F0;    /* secondary surface (card/panel background) */
+  --color-white: #FFFFFF;                 /* text on dark navy surfaces */
+  --color-slate-text-secondary: #475569;  /* secondary/muted text on light surfaces */
+  --color-slate-border: #64748B;          /* dividers, borders, input outlines */
+  --color-navy-muted-on-dark: #94A3B8;    /* secondary text on the navy dark surface */
+  --color-navy-hover: #1B324F;            /* hover state for navy-fill primary CTAs */
 
-  /* Ink family */
-  --color-ink-primary: #171614;    /* primary text, structural elements, headings */
-  --color-ink-secondary: #4A473F;  /* secondary text, captions, metadata */
-  --color-ink-border: #D9D2C0;     /* dividers, borders, input outlines */
+  /* Typography — v2.0 §2 */
+  --font-heading: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  /* Crimson family — single accent, used sparingly per §1's 60/30/10 ratio guidance */
-  --color-crimson-accent: #A81C1C; /* CTAs, key numbers, highlighted data points */
-  --color-crimson-deep: #7A1414;   /* hover/pressed states, small-size accent text */
-  --color-crimson-tint: #F3DEDE;   /* light accent background, e.g. callout box */
-
-  /* Typography */
-  --font-heading: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-
-  /* Type scale, rem, 16px base — exact values from §2 */
+  /* Type scale, rem, 16px base — names and values unchanged from v1.x. */
   --text-small: 0.875rem;
   --text-body: 1rem;
   --text-lead: 1.25rem;
   --text-h3: 1.5rem;
   --text-h2: 2rem;
+  /* --text-h1 and --text-hero: PROVISIONAL PENDING BRAND PROOF SHEET
+     VALIDATION per v2.0 §2. Left at their current v1.x numeric values —
+     not a v2.0 value, not invented here. */
   --text-h1: 2.75rem;
   --text-hero: 3.5rem; /* use sparingly, per source */
 
-  /* Spacing */
+  /* Spacing — names and values unchanged from v1.x. */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 16px;
@@ -43,5 +43,11 @@
   --space-8: 96px;
 
   --line-height-body: 1.5;
-  --line-height-heading: 1.25; /* implementation choice: midpoint of frozen 1.2–1.3 range */
+  /* --line-height-heading now serves H1/hero only (PROVISIONAL, frozen at
+     its current numeric value pending Brand Proof Sheet validation). */
+  --line-height-heading: 1.25;
+  /* H2/H3 only. v2.0 §2's suggested 1.15-1.2 tightened-heading-line-height
+     range for Jost, midpoint value — provisional judgment call, not a
+     measured requirement. */
+  --line-height-heading-sub: 1.175;
 }
