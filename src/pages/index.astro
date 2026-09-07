@@ -1,277 +1,525 @@
 ---
-// Home — Harbor Ridge V1, Workstream F Step 3.
-// Content status: PROVISIONAL IMPLEMENTATION COPY — NOT FROZEN.
-// Text is verbatim from docs/harbor-ridge-workstream-f-step3-home-page-copy.md;
-// only structural/presentational markup (headings, lists, Wordmark treatment,
-// video-placeholder regions, link styling) has been added. Do not reword.
+// Home — Harbor Ridge V1. Visual system rebuilt from first principles (see
+// project conversation log); this pass is a surgical refinement of that
+// redesign based on human browser inspection — not another creative reset.
+// Narrative order, approved copy
+// (docs/harbor-ridge-workstream-f-step3-home-page-copy.md), analytical
+// claims, and Brand & Voice v2.0 tokens are unchanged and govern this file.
 import Layout from '../components/Layout.astro';
 import Wordmark from '../components/Wordmark.astro';
 ---
 
 <Layout title="Ken Corioso — HEOS Evidence Engine | Harbor Ridge V1">
-  <main class="home">
-    <!-- Block A — Hero -->
-    <section class="block block--hero">
-      <div class="measure-display">
-        <h1 class="hero-headline">
-          Healthcare Growth Problems Rarely Live in One Department. I Built an
-          AI System to See Across Them.
+  <main>
+
+    <!-- Hero -->
+    <section class="section section--hero">
+      <div class="shell">
+        <p class="eyebrow">HEOS Evidence Engine &middot; Harbor Ridge V1</p>
+        <h1 class="hero-h1">
+          <span class="hero-h1__lead">Healthcare Growth Problems Rarely Live in One Department.</span>
+          <span class="hero-h1__continuation">I Built an AI System to See Across Them.</span>
         </h1>
-        <p class="lead">
-          I built the <Wordmark name="HEOS Evidence Engine" /> to connect marketing,
-          admissions, treatment, and revenue into one evidence chain, helping
-          executives investigate performance across organizational silos and
-          inspect the evidence behind each conclusion. Then I subjected its AI
-          reasoning to a controlled blind evaluation.
-        </p>
-      </div>
-    </section>
-
-    <!-- Block B — The Problem -->
-    <section class="block">
-      <div class="measure">
-        <h2 class="section-heading">The Problem</h2>
-        <p>
-          Harbor Ridge Behavioral Health started with a disagreement
-          healthcare executives know well: completed admissions and census
-          were declining even as marketing spend and inquiry volume were
-          going up. Marketing believed admissions wasn't converting the
-          demand being generated. Admissions believed marketing was sending
-          lower-quality leads. Neither side had the evidence to settle it.
-        </p>
-        <p>
-          I didn't want to optimize one department's version of the story. I
-          wanted to investigate the whole chain.
-        </p>
-      </div>
-    </section>
-
-    <!-- Block C — What I Built -->
-    <section class="block">
-      <div class="measure">
-        <h2 class="section-heading">What I Built</h2>
-        <p>
-          That AI system — the <Wordmark name="HEOS Evidence Engine" /> — needed
-          a real test, not just a demo. So I built Harbor Ridge, a fictional,
-          entirely synthetic 32-bed behavioral health facility, and connected
-          its full operating chain: <strong>acquisition → inquiry → financial
-          qualification → admission → treatment → revenue.</strong> I call
-          that the Golden Thread, and it's the backbone of everything the
-          system reasons across.
-        </p>
-        <p>
-          The larger vision behind the Evidence Engine is <Wordmark name="HEOS" />,
-          an AI-enabled executive intelligence layer for healthcare
-          organizations. Harbor Ridge itself isn't the product; it's the
-          testbed I built to put the Evidence Engine through a real,
-          controlled test.
-        </p>
-        <p>
-          Before I asked the AI anything, I mapped the organization and
-          froze the answers I already knew were hidden inside it. The model
-          came first. The evidence came next. The AI came last.
-        </p>
-      </div>
-    </section>
-
-    <!-- Block D — Video 1 (CEO / Executive Premise) — primary visual weight -->
-    <section class="block block--video-primary">
-      <div class="measure-display">
-        <div class="video-frame video-frame--primary" role="img" aria-label="Video placeholder: Video 1, CEO — Executive Premise">
-          <span class="video-frame__play" aria-hidden="true"></span>
-          <span class="video-frame__caption">Video 1 — CEO · Executive Premise</span>
+        <div class="hero-row">
+          <p class="lead hero-row__copy">
+            I built the <Wordmark name="HEOS Evidence Engine" /> to connect marketing,
+            admissions, treatment, and revenue into one evidence chain, helping
+            executives investigate performance across organizational silos and
+            inspect the evidence behind each conclusion. Then I subjected its AI
+            reasoning to a controlled blind evaluation.
+          </p>
+          <div class="hero-row__media">
+            <div class="video-frame video-frame--primary" role="img" aria-label="Video placeholder: Video 1, CEO — Executive Premise">
+              <span class="video-frame__play" aria-hidden="true"></span>
+              <span class="video-frame__caption">Video 1 — CEO &middot; Executive Premise</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Block E — What It Found -->
-    <section class="block">
-      <div class="measure">
-        <h2 class="section-heading">What It Found</h2>
-        <p>
-          One result mattered immediately, and it's exactly the kind of
-          thing that's easy to miss when marketing and revenue cycle never
-          compare notes: <span class="finding-tag">Observed Finding</span> an
-          estimated <span class="stat-highlight">$251,000</span> in additional
-          collections if out-of-network claims had realized at the same rate
-          as in-network ones.
-        </p>
-        <p>
-          That finding was real. But it wasn't the answer to the test I'd
-          actually built the system to pass — it was something the AI
-          noticed along the way, not one of the specific hidden problems I
-          was checking whether it could find.
-        </p>
-        <p class="inline-link">
-          <a href="/evidence-trail">See the full arithmetic behind this number → Evidence</a>
-        </p>
-        <p>
-          When I later tested the Evidence Engine against those specific
-          hidden problems, it missed both.
-        </p>
-        <p>
-          I kept both results. The goal was never to manufacture an AI
-          success story — it was to build something whose conclusions could
-          actually be inspected, tested, and challenged.
-        </p>
-      </div>
-    </section>
+    <!-- The Problem -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">The Problem</h2>
+          </div>
+          <div class="editorial__body">
+            <div
+              class="fault-line"
+              role="img"
+              aria-label="Marketing, Admissions, Clinical, and Revenue Cycle sit along one organizational journey, but the evidence connection between each pair is broken"
+            >
+              <span class="fault-line__node">
+                <span class="fault-line__node-label">Marketing</span>
+                <span class="fault-line__dot"></span>
+              </span>
+              <span class="fault-line__break"><span class="fault-line__tick"></span><span class="fault-line__tick"></span></span>
+              <span class="fault-line__node">
+                <span class="fault-line__node-label">Admissions</span>
+                <span class="fault-line__dot"></span>
+              </span>
+              <span class="fault-line__break"><span class="fault-line__tick"></span><span class="fault-line__tick"></span></span>
+              <span class="fault-line__node">
+                <span class="fault-line__node-label">Clinical</span>
+                <span class="fault-line__dot"></span>
+              </span>
+              <span class="fault-line__break"><span class="fault-line__tick"></span><span class="fault-line__tick"></span></span>
+              <span class="fault-line__node">
+                <span class="fault-line__node-label">Revenue Cycle</span>
+                <span class="fault-line__dot"></span>
+              </span>
+            </div>
 
-    <!-- Block F — The Real Test -->
-    <section class="block">
-      <div class="measure">
-        <h2 class="section-heading">The Real Test</h2>
-        <p>
-          A convincing AI demonstration can become misleading when the
-          person building it already knows the answer. I ran into that risk
-          directly, before the real test even began.
-        </p>
-        <p>
-          While building one of the two hidden test scenarios, a genuine
-          validation problem turned up. I had a command ready to search
-          across different random seeds until I got a cleaner-looking
-          result.
-        </p>
-        <p class="callout-line">I stopped it before it ran, and fixed the actual problem instead.</p>
-      </div>
-    </section>
-
-    <!-- Block G — Video 4 (Hiring Manager) — secondary visual weight -->
-    <section class="block block--video-secondary">
-      <div class="measure">
-        <div class="video-frame video-frame--secondary" role="img" aria-label="Video placeholder: Video 4, Hiring Manager — Judgment Under Failure">
-          <span class="video-frame__play" aria-hidden="true"></span>
-          <span class="video-frame__caption">Video 4 — Hiring Manager · Judgment Under Failure</span>
+            <div class="measure">
+              <p class="lead-sentence">Harbor Ridge Behavioral Health started with a disagreement
+              healthcare executives know well: completed admissions and census
+              were declining even as marketing spend and inquiry volume were
+              going up.</p>
+              <p class="on-dark-body">
+                Marketing believed admissions wasn't converting the demand being
+                generated. Admissions believed marketing was sending
+                lower-quality leads. Neither side had the evidence to settle it.
+                I didn't want to optimize one department's version of the story.
+                I wanted to investigate the whole chain.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Block H — What Happened -->
-    <section class="block">
-      <div class="measure">
-        <h2 class="section-heading">What Happened</h2>
-        <p>That same discipline governed the real evaluation. Here's the result:</p>
+    <!-- What I Built / Golden Thread -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">What I Built</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>
+              That AI system — the <Wordmark name="HEOS Evidence Engine" /> — needed
+              a real test, not just a demo. So I built Harbor Ridge, a fictional,
+              entirely synthetic 32-bed behavioral health facility, and connected
+              its full operating chain: <strong>acquisition → inquiry → financial
+              qualification → admission → treatment → revenue.</strong> I call
+              that the Golden Thread, and it's the backbone of everything the
+              system reasons across.
+            </p>
+          </div>
+        </div>
+      </div>
 
-        <dl class="result-list">
-          <div class="result-list__item">
+      <div class="shell">
+        <div class="thread" role="group" aria-label="The Golden Thread: Acquisition through Revenue, across Marketing, Admissions, Clinical, and Revenue Cycle">
+          <div class="thread__rail" aria-hidden="true">
+            <span class="thread__rail-fill"></span>
+            <span class="thread__tick"></span>
+            <span class="thread__tick"></span>
+            <span class="thread__tick"></span>
+            <span class="thread__tick"></span>
+          </div>
+          <div class="thread__grid">
+            <div class="thread__panel">
+              <span class="thread__domain">Marketing</span>
+              <ol class="thread__stages">
+                <li>Acquisition</li>
+                <li>Inquiry</li>
+              </ol>
+            </div>
+            <div class="thread__panel">
+              <span class="thread__domain">Admissions</span>
+              <ol class="thread__stages">
+                <li>Financial Qualification</li>
+                <li>Admission</li>
+              </ol>
+            </div>
+            <div class="thread__panel">
+              <span class="thread__domain">Clinical</span>
+              <ol class="thread__stages">
+                <li>Treatment</li>
+              </ol>
+            </div>
+            <div class="thread__panel">
+              <span class="thread__domain">Revenue Cycle</span>
+              <ol class="thread__stages">
+                <li>Revenue</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p>
+              The larger vision behind the Evidence Engine is <Wordmark name="HEOS" />,
+              an AI-enabled executive intelligence layer for healthcare
+              organizations. Harbor Ridge itself isn't the product; it's the
+              testbed I built to put the Evidence Engine through a real,
+              controlled test.
+            </p>
+            <p>
+              Before I asked the AI anything, I mapped the organization and
+              froze the answers I already knew were hidden inside it. The model
+              came first. The evidence came next. The AI came last.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What It Found / $251K -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="measure">
+          <h2 class="section-heading section-heading--on-dark">What It Found</h2>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="finding-card">
+          <div class="finding-card__figure">
+            <p class="chip">Observed Finding</p>
+            <p class="finding-card__number">$251,000</p>
+            <p class="finding-card__statement">
+              One result mattered immediately, and it's exactly the kind of
+              thing that's easy to miss when marketing and revenue cycle never
+              compare notes: an <strong>Observed Finding</strong> — an
+              estimated <span class="stat-highlight">$251,000</span> in additional
+              collections if out-of-network claims had realized at the same rate
+              as in-network ones.
+            </p>
+          </div>
+          <div class="finding-card__chart">
+            <div class="bar-row">
+              <span class="bar-row__label">INN realization</span>
+              <span class="bar-row__track" aria-hidden="true"><span class="bar-row__fill" style="width: 66.77%"></span></span>
+              <span class="bar-row__value">66.77%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row__label">OON realization</span>
+              <span class="bar-row__track" aria-hidden="true"><span class="bar-row__fill" style="width: 30.38%"></span></span>
+              <span class="bar-row__value">30.38%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              That finding was real. But it wasn't the answer to the test I'd
+              actually built the system to pass — it was something the AI
+              noticed along the way, not one of the specific hidden problems I
+              was checking whether it could find.
+            </p>
+            <p class="on-dark-body">See the full arithmetic behind this number.</p>
+            <p class="cta-row">
+              <a class="cta-secondary cta-secondary--on-dark" href="/evidence-trail">
+                <span>Evidence</span>
+                <span class="cta-secondary__arrow" aria-hidden="true">→</span>
+              </a>
+            </p>
+            <p class="on-dark-body">
+              When I later tested the Evidence Engine against those specific
+              hidden problems, it missed both.
+            </p>
+            <p class="on-dark-body">
+              I kept both results. The goal was never to manufacture an AI
+              success story — it was to build something whose conclusions could
+              actually be inspected, tested, and challenged.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Real Test -->
+    <section class="section">
+      <div class="shell">
+        <div class="real-test-row">
+          <div class="real-test-row__copy measure">
+            <h2 class="section-heading">The Real Test</h2>
+            <p>
+              A convincing AI demonstration can become misleading when the
+              person building it already knows the answer. I ran into that risk
+              directly, before the real test even began.
+            </p>
+            <p>
+              While building one of the two hidden test scenarios, a genuine
+              validation problem turned up. I had a command ready to search
+              across different random seeds until I got a cleaner-looking
+              result.
+            </p>
+          </div>
+          <div class="real-test-row__media">
+            <div class="video-frame video-frame--secondary" role="img" aria-label="Video placeholder: Video 4, Hiring Manager — Judgment Under Failure">
+              <span class="video-frame__play" aria-hidden="true"></span>
+              <span class="video-frame__caption">Video 4 — Hiring Manager &middot; Judgment Under Failure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shell">
+        <p class="callout">I stopped it before it ran, and fixed the actual problem instead.</p>
+      </div>
+    </section>
+
+    <!-- What Happened (Sovereign Navy reckoning) -->
+    <section class="section section--navy">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">What Happened</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-lead">That same discipline governed the real evaluation. Here's the result:</p>
+          </div>
+        </div>
+
+        <dl class="reckoning">
+          <div class="reckoning__item">
             <dt>Scenario 1</dt>
             <dd>MISS</dd>
           </div>
-          <div class="result-list__item">
+          <div class="reckoning__item">
             <dt>Scenario 2</dt>
             <dd>MISS</dd>
           </div>
-          <div class="result-list__item">
+          <div class="reckoning__item">
             <dt>Healthy Baseline</dt>
             <dd>CLEAN</dd>
           </div>
         </dl>
 
-        <p>
-          The Evidence Engine didn't recover either of the two problems I'd
-          deliberately hidden for it to find. It also didn't invent a
-          problem where none existed — the clean control case stayed clean.
-          That's a real, useful signal about restraint, but it doesn't prove
-          the system is generally reliable.
-        </p>
-        <p>
-          I could have kept building new versions until one of them passed.
-          Instead, I froze the results exactly as they came out, misses
-          included, and documented what the evidence actually showed.
-        </p>
-        <p class="inline-link">
-          <a href="/methodology-evaluation">See how the test itself was designed to prevent me from moving the goalposts → Methodology &amp; Evaluation</a>
-        </p>
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p class="on-dark-lead">
+              The Evidence Engine didn't recover either of the two problems I'd
+              deliberately hidden for it to find. It also didn't invent a
+              problem where none existed — the clean control case stayed clean.
+              That's a real, useful signal about restraint, but it doesn't prove
+              the system is generally reliable.
+            </p>
+            <p class="on-dark-lead">
+              I could have kept building new versions until one of them passed.
+              Instead, I froze the results exactly as they came out, misses
+              included, and documented what the evidence actually showed.
+            </p>
+            <p class="on-dark-lead">See how the test itself was designed to prevent me from moving the goalposts.</p>
+            <p class="cta-row">
+              <a class="cta-secondary cta-secondary--on-dark" href="/methodology-evaluation">
+                <span>Methodology &amp; Evaluation</span>
+                <span class="cta-secondary__arrow" aria-hidden="true">→</span>
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Block I — What This Demonstrates -->
-    <section class="block">
-      <div class="measure">
-        <h2 class="section-heading">What This Demonstrates</h2>
-        <p>
-          For me, the important result wasn't that the system succeeded or
-          failed. It was learning exactly where its reasoning was useful,
-          where it wasn't, and what the evidence could actually support.
-        </p>
-        <p>
-          That's the kind of analytical judgment I want to bring to
-          healthcare growth work: build the system, test it against
-          reality, inspect the evidence, and don't claim more than the
-          results can support.
-        </p>
-        <p>
-          I also know precisely what would and wouldn't transfer if I built
-          something like this for a different organization. That's worth
-          exploring on its own.
-        </p>
-        <p class="inline-link">
-          <a href="/portability-lessons">What transfers, and what doesn't → Portability &amp; Lessons</a>
-        </p>
+    <!-- What This Demonstrates -->
+    <section class="section section--quiet">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">What This Demonstrates</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>
+              For me, the important result wasn't that the system succeeded or
+              failed. It was learning exactly where its reasoning was useful,
+              where it wasn't, and what the evidence could actually support.
+            </p>
+            <p>
+              That's the kind of analytical judgment I want to bring to
+              healthcare growth work: build the system, test it against
+              reality, inspect the evidence, and don't claim more than the
+              results can support.
+            </p>
+            <p>
+              I also know precisely what would and wouldn't transfer if I built
+              something like this for a different organization. That's worth
+              exploring on its own.
+            </p>
+            <p>What transfers, and what doesn't.</p>
+            <p class="cta-row">
+              <a class="cta-secondary" href="/portability-lessons">
+                <span>Portability &amp; Lessons</span>
+                <span class="cta-secondary__arrow" aria-hidden="true">→</span>
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Block J — Go Deeper -->
-    <section class="block block--deeper">
-      <div class="measure">
-        <h2 class="section-heading">Go Deeper</h2>
-        <p>
-          If you want to see the reasoning behind any of this rather than
-          take my word for it, here's where each piece lives:
-        </p>
+    <!-- Go Deeper -->
+    <section class="section section--deeper section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">Go Deeper</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              If you want to see the reasoning behind any of this rather than
+              take my word for it, here's where each piece lives:
+            </p>
+          </div>
+        </div>
 
-        <ul class="deeper-links">
-          <li><a class="cta" href="/evidence-trail">Evidence — inspect the $251K finding's full arithmetic, live</a></li>
-          <li><a class="cta" href="/methodology-evaluation">Methodology &amp; Evaluation — the full technical build and test design</a></li>
-          <li><a class="cta" href="/portability-lessons">Portability &amp; Lessons — what would and wouldn't transfer elsewhere</a></li>
-          <li><a class="cta" href="/about-contact">About / Contact — who I am, and how to reach me</a></li>
-        </ul>
-
-        <p class="deeper-note">
-          (Case study, full whitepaper, and GitHub repository are also
-          reachable from About/Contact, per Step 2's spec.)
-        </p>
+        <ol class="index-list">
+          <li class="index-list__item">
+            <a href="/evidence-trail">
+              <span class="index-list__num" aria-hidden="true">01</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Evidence</span>
+                <span class="index-list__desc">inspect the $251K finding's full arithmetic, live</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="/methodology-evaluation">
+              <span class="index-list__num" aria-hidden="true">02</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Methodology &amp; Evaluation</span>
+                <span class="index-list__desc">the full technical build and test design</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="/portability-lessons">
+              <span class="index-list__num" aria-hidden="true">03</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Portability &amp; Lessons</span>
+                <span class="index-list__desc">what would and wouldn't transfer elsewhere</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="/about-contact">
+              <span class="index-list__num" aria-hidden="true">04</span>
+              <span class="index-list__content">
+                <span class="index-list__title">About / Contact</span>
+                <span class="index-list__desc">who I am, and how to reach me</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
       </div>
     </section>
   </main>
 
+  <script>
+    // Progressive enhancement only: the connecting thread renders fully
+    // drawn by default (see .thread__rail-fill below). This adds a
+    // one-time draw-in when the object scrolls into view, to make the
+    // cross-silo connection legible as something that *forms*, not just
+    // a static bar. No-JS and reduced-motion users see the same finished
+    // state, just without the transition.
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      const thread = document.querySelector('.thread');
+      if (thread) {
+        thread.classList.add('js-anim');
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        io.observe(thread);
+      }
+    }
+  </script>
+
   <style>
-    .home {
-      max-width: 1100px;
+    /* ---------------------------------------------------------------
+       Architectural canvas — one shared boundary across every section,
+       per Brand & Voice v2.0's section-canvas-vs-prose-measure principle.
+       --------------------------------------------------------------- */
+    .shell {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 var(--space-4);
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
     }
 
-    .block {
-      padding: var(--space-7) 0;
-      border-bottom: 1px solid var(--color-slate-border);
-    }
-
-    .block:last-of-type {
-      border-bottom: none;
+    .shell + .shell {
+      margin-top: var(--space-5);
     }
 
     .measure {
-      max-width: 70ch;
-      margin: 0 auto;
+      max-width: 68ch;
     }
 
-    /* Display container for hero copy and the primary video — wider than
-       the 70ch reading measure since these aren't paragraph body text. */
-    .measure-display {
-      max-width: 900px;
-      margin: 0 auto;
+    .section {
+      padding: clamp(var(--space-7), 9vw, var(--space-8)) 0;
+      border-bottom: 1px solid var(--color-slate-border);
     }
 
-    .block--hero {
-      padding-top: var(--space-8);
+    main > .section:last-of-type {
+      border-bottom: none;
     }
 
-    .hero-headline {
+    .section-heading {
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: var(--text-hero);
-      line-height: var(--line-height-heading);
+      font-weight: 600;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section p {
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ---------------------------------------------------------------
+       Dark section canvas — Sovereign Navy, standard section padding.
+       Distinct from .section--navy (What Happened's own, deliberately
+       larger-scale reckoning treatment, left untouched): this is the
+       shared canvas for The Problem, What It Found, and Go Deeper, the
+       three sections adopting the same dark-surface hierarchy What
+       Happened established, at the page's normal section rhythm.
+       --------------------------------------------------------------- */
+    .section--dark {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+    }
+
+    .section--dark :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .on-dark-body {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-slate-text-secondary);
       margin: 0 0 var(--space-4) 0;
     }
 
@@ -281,60 +529,460 @@ import Wordmark from '../components/Wordmark.astro';
       margin: 0;
     }
 
-    .section-heading {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: var(--text-h2);
-      line-height: var(--line-height-heading-sub);
-      margin: 0 0 var(--space-4) 0;
+    /* ---------------------------------------------------------------
+       Secondary CTA — one shared, Home-scoped treatment for the three
+       "go deeper on this claim" links (Evidence, Methodology &
+       Evaluation, Portability & Lessons). Architectural square corners
+       to match the site-wide .cta primary treatment's shape logic
+       (treatments.css) without competing with it: outlined rather than
+       filled, so it stays secondary against the surrounding narrative.
+       --------------------------------------------------------------- */
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      box-sizing: border-box;
+      min-height: 44px;
+      padding: var(--space-2) var(--space-4);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--text-small);
+      color: var(--color-sovereign-navy);
+      background: transparent;
+      border: 1.5px solid var(--color-sovereign-navy);
+      text-decoration: none;
+      transition: background 150ms ease, color 150ms ease;
     }
 
-    .block p {
-      margin: 0 0 var(--space-4) 0;
+    .cta-secondary:hover,
+    .cta-secondary:focus-visible {
+      background: var(--color-sovereign-navy);
+      color: var(--color-white);
     }
 
-    .block p:last-child {
+    .cta-secondary__arrow {
+      transition: transform 150ms ease;
+    }
+
+    .cta-secondary:hover .cta-secondary__arrow,
+    .cta-secondary:focus-visible .cta-secondary__arrow {
+      transform: translateX(3px);
+    }
+
+    .cta-secondary--on-dark {
+      color: var(--color-white);
+      border-color: var(--color-navy-muted-on-dark);
+    }
+
+    .cta-secondary--on-dark:hover,
+    .cta-secondary--on-dark:focus-visible {
+      background: var(--color-white);
+      color: var(--color-sovereign-navy);
+      border-color: var(--color-white);
+    }
+
+    .cta-row {
+      margin: var(--space-4) 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cta-secondary,
+      .cta-secondary__arrow {
+        transition: none !important;
+      }
+    }
+
+    /* Chip — reserved for genuine categorical labels (Brand & Voice v2.0 §11). */
+    .chip {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-sovereign-navy);
+      background: var(--color-white);
+      border: 1px solid var(--color-slate-border);
+      border-radius: 999px;
+      padding: 0.2em var(--space-3);
+      margin: 0 0 var(--space-3) 0;
+      white-space: nowrap;
+    }
+
+    /* ---------------------------------------------------------------
+       Editorial row — the site-wide device for prose-heavy sections: a
+       slim label rail (usually the H2) plus a wider content column, so
+       the section still reads as occupying the full architectural
+       canvas even though the prose inside keeps a controlled measure.
+       Desktop only; below 900px it's a single stacked column in
+       natural reading order (label, then body).
+       --------------------------------------------------------------- */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--space-4);
+    }
+
+    .editorial__label .section-heading {
       margin-bottom: 0;
     }
 
-    .inline-link {
+    @media (min-width: 900px) {
+      .editorial {
+        grid-template-columns: minmax(160px, 20%) minmax(0, 1fr);
+        column-gap: var(--space-6);
+        align-items: start;
+      }
+
+      .editorial--continuation .editorial__body {
+        grid-column: 2;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Hero — full-width headline using the entire architectural canvas
+       (Row 1), then an asymmetric copy/media row (Row 2) unified by one
+       connective vertical rule. Desktop and mobile are structurally
+       different: mobile stacks headline → copy → video in that order.
+       --------------------------------------------------------------- */
+    .section--hero {
+      padding-top: clamp(var(--space-6), 8vw, var(--space-8));
+      padding-bottom: clamp(var(--space-7), 8vw, var(--space-8));
+    }
+
+    .hero-h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2.25rem, 1.55rem + 3vw, 4.25rem);
+      line-height: 1.12;
+      margin: 0 0 var(--space-6) 0;
+      text-align: left;
+    }
+
+    .hero-h1__lead,
+    .hero-h1__continuation {
+      display: block;
+    }
+
+    .hero-h1__lead {
+      color: var(--color-sovereign-navy);
+    }
+
+    /* Solution line — Quantum Electric Blue directly on the light Hero
+       canvas, by explicit direction: this intentionally does not meet
+       ordinary body-text contrast (1.72:1, per Brand & Voice v2.0 §1).
+       Same full-width block treatment as .hero-h1__lead above it, at a
+       slightly reduced scale so it reads as the response to the Navy
+       thesis rather than a second, equal-weight headline. */
+    .hero-h1__continuation {
+      color: var(--color-quantum-electric-blue);
+      font-weight: 500;
+      font-size: 0.88em;
+      margin-top: 0.2em;
+    }
+
+    .hero-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .hero-row__copy {
+      max-width: 60ch;
+    }
+
+    /* ---------------------------------------------------------------
+       The Problem — a disciplined horizontal sequence: four domains on
+       one shared axis, the connecting rail visibly interrupted between
+       each pair by paired diagonal break marks. This is the direct
+       "before" of the Golden Thread's continuous rail below — same
+       dot-and-rail visual language, deliberately broken here.
+       --------------------------------------------------------------- */
+    .fault-line {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      row-gap: var(--space-5);
+      margin: var(--space-2) 0 var(--space-6) 0;
+    }
+
+    .fault-line__node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      flex: 0 0 auto;
+    }
+
+    .fault-line__node-label {
+      font-family: var(--font-body);
+      font-weight: 500;
       font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-white);
+      white-space: nowrap;
     }
 
-    .inline-link a {
-      color: var(--color-sovereign-navy);
-      text-decoration: underline;
+    .fault-line__dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--color-quantum-electric-blue);
     }
 
-    .inline-link a:hover {
-      color: var(--color-sovereign-navy);
+    .fault-line__break {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 44px;
+      height: 9px;
     }
 
-    .callout-line {
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: var(--text-lead);
-      line-height: var(--line-height-heading);
+    .fault-line__break::before,
+    .fault-line__break::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 42%;
+      height: 2px;
+      background: var(--color-navy-muted-on-dark);
+      transform: translateY(-50%);
     }
 
-    .finding-tag {
-      display: inline-block;
-      font-family: var(--font-heading);
-      font-weight: 600;
+    .fault-line__break::before { left: 0; }
+    .fault-line__break::after { right: 0; }
+
+    .fault-line__tick {
+      position: absolute;
+      top: 50%;
+      width: 2px;
+      height: 16px;
+      background: var(--color-quantum-electric-blue);
+      transform: translateY(-50%) rotate(24deg);
+    }
+
+    .fault-line__tick:nth-child(1) { left: 46%; }
+    .fault-line__tick:nth-child(2) { left: 54%; }
+
+    .lead-sentence {
+      font-weight: 700;
+      color: var(--color-white);
+    }
+
+    /* ---------------------------------------------------------------
+       Golden Thread — unchanged bounded, elevated evidence object: four
+       equal architectural panels, one domain each, unified by a single
+       continuous connecting rail with a tick over every panel — the
+       direct "after" of The Problem's broken fault line above. The rail
+       is fully drawn by default; .js-anim / .is-visible (added by the
+       script above) layer in a one-time draw-in for capable,
+       motion-permitting browsers.
+       --------------------------------------------------------------- */
+    .thread {
+      position: relative;
+      background: var(--color-steel-gray-surface);
+      border-radius: 16px;
+      padding: var(--space-6) var(--space-5) var(--space-5);
+    }
+
+    .thread__rail {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 20px;
+      margin-bottom: var(--space-4);
+    }
+
+    .thread__rail-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: var(--color-sovereign-navy);
+      transform: translateY(-50%) scaleX(1);
+      transform-origin: left center;
+    }
+
+    .thread.js-anim .thread__rail-fill {
+      transform: translateY(-50%) scaleX(0);
+      transition: transform 900ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .thread.js-anim.is-visible .thread__rail-fill {
+      transform: translateY(-50%) scaleX(1);
+    }
+
+    .thread__tick {
+      justify-self: center;
+      align-self: center;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--color-sovereign-navy);
+      z-index: 1;
+    }
+
+    .thread__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .thread__panel {
+      padding: 0 var(--space-4);
+      border-left: 1px solid var(--color-slate-border);
+    }
+
+    .thread__panel:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .thread__domain {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 500;
       font-size: var(--text-small);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--color-slate-text-secondary);
-      border: 1px solid var(--color-slate-border);
-      padding: var(--space-1) var(--space-2);
-      margin-right: var(--space-2);
-      white-space: nowrap;
+      margin-bottom: var(--space-3);
     }
 
-    /* Video placeholders — occupied space at the approved aspect ratio,
-       not a fabricated thumbnail image. Primary (Block D) spans the full
-       measure; secondary (Block G) is deliberately narrower and lower in
-       the page, per Step 2's "unequal visual weight" requirement. */
+    .thread__stages {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .thread__stages li {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      line-height: 1.2;
+      color: var(--color-sovereign-navy);
+    }
+
+    /* ---------------------------------------------------------------
+       $251K — unchanged: the single dominant object on the page.
+       --------------------------------------------------------------- */
+    .finding-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      background: var(--color-white);
+      border: 1px solid var(--color-slate-border);
+      border-radius: 16px;
+      padding: clamp(var(--space-5), 5vw, var(--space-7));
+      box-shadow: 0 1px 2px rgba(11, 25, 44, 0.04), 0 16px 40px rgba(11, 25, 44, 0.06);
+    }
+
+    .finding-card__number {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(3.25rem, 2.2rem + 4.5vw, 6.5rem);
+      line-height: 1;
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-4) 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .finding-card__statement {
+      max-width: 52ch;
+      font-size: var(--text-body);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    .finding-card__statement strong {
+      color: var(--color-sovereign-navy);
+      font-weight: 600;
+    }
+
+    .finding-card__chart {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-5);
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--color-slate-border);
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(7.5rem, auto) 1fr auto;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .bar-row__label {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-slate-text-secondary);
+    }
+
+    .bar-row__track {
+      display: block;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--color-steel-gray-surface);
+      overflow: hidden;
+    }
+
+    .bar-row__fill {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--color-sovereign-navy);
+    }
+
+    .bar-row__value {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      color: var(--color-sovereign-navy);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---------------------------------------------------------------
+       The Real Test — unchanged integration language (asymmetric
+       copy/media row), followed by the confession line as a standalone
+       display statement, foreshadowing the Navy reckoning.
+       --------------------------------------------------------------- */
+    .real-test-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      align-items: start;
+      margin-bottom: var(--space-6);
+    }
+
+    .callout {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.25rem);
+      line-height: 1.25;
+      color: var(--color-sovereign-navy);
+      max-width: none;
+      margin: 0;
+      padding-left: var(--space-4);
+      border-left: 3px solid var(--color-sovereign-navy);
+    }
+
+    /* ---------------------------------------------------------------
+       Video frames — shared across Hero and The Real Test. Landscape
+       16:9 at every breakpoint: the previous tall/narrow (4:5) desktop
+       treatment read as vertically-oriented rather than a natural
+       desktop video, so both video moments now share one landscape
+       presentation.
+       --------------------------------------------------------------- */
     .video-frame {
       position: relative;
       width: 100%;
@@ -346,22 +994,17 @@ import Wordmark from '../components/Wordmark.astro';
       align-items: center;
       justify-content: center;
       gap: var(--space-3);
+      border-radius: 16px;
     }
 
     .video-frame__play {
       display: inline-block;
       width: 0;
       height: 0;
-      border-top: 14px solid transparent;
-      border-bottom: 14px solid transparent;
-      border-left: 22px solid var(--color-white);
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-left: 26px solid var(--color-white);
       margin-left: 6px;
-    }
-
-    .video-frame--primary .video-frame__play {
-      border-top-width: 20px;
-      border-bottom-width: 20px;
-      border-left-width: 32px;
     }
 
     .video-frame__caption {
@@ -369,88 +1012,320 @@ import Wordmark from '../components/Wordmark.astro';
       font-weight: 600;
       font-size: var(--text-small);
       letter-spacing: 0.03em;
+      text-align: center;
+      padding: 0 var(--space-4);
     }
 
-    .block--video-secondary .measure {
-      max-width: 46ch;
+    /* ---------------------------------------------------------------
+       What Happened — unchanged: the page's one Sovereign Navy
+       reckoning, given radically more space and scale than every
+       other section.
+       --------------------------------------------------------------- */
+    .section--navy {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+      padding-top: clamp(var(--space-7), 10vw, var(--space-8));
+      padding-bottom: clamp(var(--space-7), 10vw, var(--space-8));
     }
 
-    .result-list {
+    .section-heading--on-dark {
+      color: var(--color-white);
+    }
+
+    .on-dark-lead {
+      font-size: var(--text-lead);
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .section--navy :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .reckoning {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: clamp(var(--space-7), 8vw, var(--space-8)) 0;
+      padding: 0;
+      border-top: 1px solid var(--color-navy-muted-on-dark);
+      border-bottom: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .reckoning__item {
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
-      margin: 0 0 var(--space-4) 0;
-      padding: 0;
+      padding: var(--space-5) 0;
+      border-top: 1px solid var(--color-navy-muted-on-dark);
     }
 
-    .result-list__item {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: var(--space-4);
-      background: var(--color-steel-gray-surface);
-      border: 1px solid var(--color-slate-border);
-      padding: var(--space-3) var(--space-4);
+    .reckoning__item:first-child {
+      border-top: none;
     }
 
-    .result-list__item dt {
+    .reckoning__item dt {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-navy-muted-on-dark);
+      margin: 0;
+    }
+
+    .reckoning__item dd {
+      margin: 0;
       font-family: var(--font-heading);
       font-weight: 600;
-      font-size: var(--text-small);
-      color: var(--color-slate-text-secondary);
+      font-size: clamp(3.5rem, 2.4rem + 6vw, 8rem);
+      line-height: 1;
+      color: var(--color-white);
+      letter-spacing: 0.01em;
     }
 
-    .result-list__item dd {
-      margin: 0;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: var(--text-h3);
-      letter-spacing: 0.03em;
+    /* ---------------------------------------------------------------
+       What This Demonstrates — deliberately the quietest section,
+       unchanged in spirit: calm, editorial, human, after the reckoning.
+       --------------------------------------------------------------- */
+    .section--quiet {
+      padding-top: clamp(var(--space-7), 9vw, var(--space-8));
     }
 
-    .deeper-links {
+    /* ---------------------------------------------------------------
+       Go Deeper — indexed archive, thin rules between entries; now the
+       page's closing dark section (.section--dark, applied in markup),
+       so index-list's own colors are the dark-surface variants
+       directly (single-use in this file, no light-context fallback
+       needed).
+       --------------------------------------------------------------- */
+    .section--deeper {
+      padding-bottom: clamp(var(--space-8), 10vw, calc(var(--space-8) * 1.2));
+    }
+
+    .index-list {
       list-style: none;
-      margin: 0 0 var(--space-4) 0;
+      margin: var(--space-5) 0 var(--space-4) 0;
       padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-3);
     }
 
-    .deeper-links .cta {
-      width: 100%;
-      height: 100%;
-      text-align: left;
-      justify-content: flex-start;
-      white-space: normal;
-      line-height: var(--line-height-body);
+    .index-list__item {
+      border-top: 1px solid var(--color-navy-muted-on-dark);
     }
 
-    .deeper-note {
+    .index-list__item:last-child {
+      border-bottom: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .index-list__item a {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      text-decoration: none;
+      color: var(--color-white);
+      min-height: 44px;
+    }
+
+    .index-list__num {
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h3);
+      color: var(--color-navy-muted-on-dark);
+      font-variant-numeric: tabular-nums;
+      min-width: 2ch;
+    }
+
+    .index-list__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .index-list__item a:hover .index-list__title,
+    .index-list__item a:focus-visible .index-list__title {
+      text-decoration: underline;
+    }
+
+    .index-list__title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-body);
+    }
+
+    .index-list__desc {
+      font-family: var(--font-body);
       font-size: var(--text-small);
-      color: var(--color-slate-text-secondary);
-      font-style: italic;
-      margin: 0;
+      color: var(--color-navy-muted-on-dark);
     }
 
-    @media (max-width: 900px) {
-      .hero-headline {
-        font-size: var(--text-h1);
-      }
+    .index-list__arrow {
+      flex-shrink: 0;
+      color: var(--color-navy-muted-on-dark);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 200ms ease, transform 200ms ease;
     }
 
-    @media (max-width: 640px) {
-      .block {
+    .index-list__item a:hover .index-list__arrow,
+    .index-list__item a:focus-visible .index-list__arrow {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--color-white);
+    }
+
+    /* ---------------------------------------------------------------
+       Responsive — desktop, tablet, and mobile treated as related but
+       distinct compositions rather than one breakpoint where columns
+       stack.
+       --------------------------------------------------------------- */
+    @media (min-width: 640px) {
+      .reckoning {
+        grid-template-columns: repeat(3, 1fr);
         padding: var(--space-6) 0;
+        container-type: inline-size;
       }
 
-      .deeper-links {
+      .reckoning__item {
+        border-top: none;
+        padding: 0 var(--space-5);
+        border-left: 1px solid var(--color-navy-muted-on-dark);
+      }
+
+      .reckoning__item:first-child {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      /* Bug fix: at this 3-up layout, the dd font-size below was
+         previously the base rule's vw-based clamp() — sized against
+         viewport width, not against the (much narrower, 1/3-share)
+         actual available column width, so it overflowed its own
+         .reckoning__item at intermediate widths (confirmed at 958px).
+         This override sizes against .reckoning's own measured width
+         via a container query unit (cqi) instead of vw, so it tracks
+         the real available space through the full 3-up range. Both
+         constants are solved so the formula (a) still reaches exactly
+         8rem — matching the unchanged full-desktop-width appearance —
+         once .reckoning's width plateaus at the shell's max-width, and
+         (b) stays safely inside each item's available width at the
+         narrow end of this range (640px), using the same worst-case
+         numbers implied by the confirmed 958px overflow. Referencing
+         .reckoning (shared by all three <dd>s), not each item
+         individually, is required, not incidental: the three items'
+         own padding isn't symmetric (the first has no left
+         padding/border), so sizing from each item's own width would
+         make that item's word compute a different size — this keeps
+         all three results identically sized, as required. */
+      .reckoning__item dd {
+        font-size: clamp(2.5rem, -2.36rem + 14cqi, 8rem);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .finding-card {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      }
+
+      .finding-card__chart {
+        padding-top: 0;
+        padding-left: var(--space-6);
+        border-top: none;
+        border-left: 1px solid var(--color-slate-border);
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .hero-row {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        align-items: center;
+      }
+
+      .hero-row__media {
+        padding-left: var(--space-6);
+        border-left: 1px solid var(--color-slate-border);
+      }
+
+      .real-test-row {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      }
+
+      .real-test-row__media {
+        padding-left: var(--space-6);
+        border-left: 1px solid var(--color-slate-border);
+      }
+    }
+
+    @media (max-width: 899px) {
+      .thread {
+        padding: var(--space-5) var(--space-4);
+      }
+
+      .thread__rail {
+        display: none;
+      }
+
+      .thread__grid {
         grid-template-columns: 1fr;
+        gap: var(--space-5);
+        border-left: 2px solid var(--color-sovereign-navy);
       }
 
-      .result-list__item {
+      .thread__panel {
+        position: relative;
+        padding: 0 0 0 var(--space-4);
+        border-left: none;
+      }
+
+      .thread__panel:first-child {
+        padding-left: var(--space-4);
+      }
+
+      .thread__panel::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 0.3em;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--color-sovereign-navy);
+      }
+    }
+
+    @media (max-width: 639px) {
+      .fault-line {
         flex-direction: column;
-        gap: var(--space-1);
+        align-items: flex-start;
+        row-gap: 0;
+        border-left: 2px dashed var(--color-navy-muted-on-dark);
+        padding-left: var(--space-4);
+      }
+
+      .fault-line__node {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: var(--space-3);
+        padding: var(--space-2) 0;
+      }
+
+      .fault-line__dot,
+      .fault-line__break {
+        display: none;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Motion discipline — every transition/animation above is purely
+       functional (draw-in for the thread, hover/focus affordance for
+       Go Deeper). Disable all of it for reduced-motion users; the
+       finished, legible state is unaffected either way.
+       --------------------------------------------------------------- */
+    @media (prefers-reduced-motion: reduce) {
+      .thread__rail-fill,
+      .index-list__arrow {
+        transition: none !important;
       }
     }
   </style>

@@ -68,7 +68,11 @@ const isActive = (href: string) =>
       .site-header__brand {
         display: inline-flex;
         align-items: center;
+        box-sizing: border-box;
         min-height: 44px;
+        padding: var(--space-1) var(--space-3);
+        border: 1px solid var(--color-quantum-electric-blue);
+        border-radius: 4px;
         text-decoration: none;
       }
 
@@ -176,7 +180,7 @@ const isActive = (href: string) =>
     <footer class="site-footer">
       <div class="site-footer__inner">
         <span class="site-footer__name">Ken Corioso</span>
-        <span>Harbor Ridge V1 — a synthetic case study, no real patient data.</span>
+        <span>Harbor Ridge V1 — a synthetic case study, no real patient data used in this version.</span>
       </div>
     </footer>
   </body>
