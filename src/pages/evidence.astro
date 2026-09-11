@@ -1,45 +1,375 @@
 ---
-// Evidence — minimal placeholder route.
-// Full population (live $251K evidence trail embed + restatement) is out of
-// scope for this pass; see docs/harbor-ridge-workstream-f-step2-information-architecture.md §3.
+// Evidence — the contextual depth page (Workstream F, per the approved
+// Evidence Page Implementation Brief). Explains the Result-Category
+// Vocabulary in full, presents the $251K finding as the taxonomy's
+// principal example, and closes with a link into /evidence-trail for the
+// complete arithmetic. Deliberately does not reproduce the transformation
+// chain or claim-level table — that content lives at /evidence-trail only
+// (Content Allocation Matrix row 4: narrative text here stays qualitative,
+// the embed at /evidence-trail carries the literal figures).
+// Copy adapted from docs/harbor-ridge-v1-site-copy.md §4 (Interactive
+// Evidence), docs/harbor-ridge-v1-case-study.md, and the Result-Category
+// Vocabulary frozen in docs/harbor-ridge-workstream-d-source-of-truth-briefing.md §9.
 import Layout from '../components/Layout.astro';
+import Wordmark from '../components/Wordmark.astro';
 ---
 
 <Layout title="Evidence — Ken Corioso | Harbor Ridge V1">
-  <main class="placeholder">
-    <div class="placeholder__inner">
-      <h1>Evidence</h1>
-      <p>
-        This page will hold the live, interactive $251K evidence trail — the
-        full billed → collected → realization rate → counterfactual → gap
-        chain, with the underlying claim-level records open to inspection —
-        plus a concise restatement of what the evidence does and does not
-        prove.
-      </p>
-      <p><a href="/">&larr; Back to Home</a></p>
-    </div>
+  <main>
+    <section class="section section--intro">
+      <div class="shell">
+        <p class="eyebrow">Evidence</p>
+        <h1 class="page-h1">Not every result here means the same thing.</h1>
+        <p class="lead intro-lead">
+          The <Wordmark name="HEOS Evidence Engine" /> produced results in
+          more than one category, and I don't want that distinction
+          blurred just because one of the numbers is dramatic. Here's what
+          each category means — and where the $251,000 finding actually
+          sits.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">Three Kinds of Results</h2>
+          </div>
+          <div class="editorial__body measure">
+            <dl class="taxonomy">
+              <div class="taxonomy__item">
+                <dt>Observed Finding</dt>
+                <dd>
+                  A real pattern the analysis surfaced — not necessarily a
+                  planted failure.
+                </dd>
+              </div>
+              <div class="taxonomy__item">
+                <dt>Benchmark Result</dt>
+                <dd>
+                  The formal outcome of testing whether a planted, hidden
+                  problem was recovered.
+                </dd>
+              </div>
+              <div class="taxonomy__item">
+                <dt>Control Result</dt>
+                <dd>
+                  The formal outcome of the Healthy Baseline negative-control
+                  test — whether the system stayed quiet when nothing was
+                  wrong.
+                </dd>
+              </div>
+            </dl>
+            <p>
+              An Observed Finding does not equal a Benchmark success. A
+              Benchmark miss doesn't mean there were no useful findings. A
+              clean Control Result doesn't prove general reliability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <p class="chip">Observed Finding</p>
+            <h2 class="section-heading section-heading--on-dark">
+              The $251,000 Observed Finding
+            </h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-lead">
+              One result mattered immediately: an estimated
+              <span class="stat-highlight stat-highlight--on-dark">$251,000</span>
+              additional collections opportunity if out-of-network claims had
+              realized at the in-network rate.
+            </p>
+            <p class="on-dark-body">
+              That finding was real within the synthetic data. It was not a
+              Benchmark Result, and it wasn't one of the two problems I'd
+              deliberately hidden for the system to find. When I later tested
+              the Evidence Engine against those specific hidden problems, both
+              came back <strong>MISS</strong>. The Healthy Baseline came back
+              <strong>CLEAN</strong>. The $251K finding sits in a separate
+              category from all three.
+            </p>
+            <p class="on-dark-body">
+              The goal isn't to make the $251,000 number impressive. It's to
+              make it inspectable.
+            </p>
+            <p class="cta-row">
+              <a class="cta-outlined-dark" href="/evidence-trail">
+                <span>Explore the Evidence Trail</span>
+                <span class="cta-outlined-dark__arrow" aria-hidden="true">→</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--quiet">
+      <div class="shell">
+        <p class="source-note">
+          Sourced from Harbor Ridge Scenario 1's frozen blind-test output and
+          its evidence-trail reconstruction. Full arithmetic and underlying
+          claim-level records are at
+          <a href="/evidence-trail">Evidence Trail</a>.
+        </p>
+      </div>
+    </section>
   </main>
 
   <style>
-    .placeholder {
-      max-width: 1100px;
+    /* ---------------------------------------------------------------
+       Canvas/measure/rhythm transferred from the frozen Home visual
+       system (Brand & Voice v2.0's shared architectural boundary), not
+       copied by reference since Astro scopes each page's own styles —
+       redeclared here at the same values. No new palette, spacing, or
+       type-scale values are introduced.
+       --------------------------------------------------------------- */
+    .shell {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: var(--space-8) var(--space-4);
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
     }
 
-    .placeholder__inner {
-      max-width: 70ch;
+    .measure {
+      max-width: 68ch;
     }
 
-    .placeholder h1 {
+    .section {
+      padding: clamp(var(--space-7), 9vw, var(--space-8)) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    main > .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section--intro {
+      padding-bottom: clamp(var(--space-6), 7vw, var(--space-7));
+    }
+
+    .section--quiet {
+      padding-top: clamp(var(--space-6), 7vw, var(--space-7));
+      padding-bottom: clamp(var(--space-6), 7vw, var(--space-7));
+      /* The shared site footer (Layout.astro) adds its own space-8
+         margin-top after this, the page's last section. Left alone, that
+         stacks with this section's own bottom padding, making the gap
+         below the source note ~2-2.5x the gap above it. Canceling the
+         footer's margin here (page-scoped, Layout.astro untouched)
+         restores this section's already-symmetric top/bottom padding as
+         the sole determinant of visible space on both sides. */
+      margin-bottom: calc(-1 * var(--space-8));
+    }
+
+    .section--dark {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+    }
+
+    .section--dark :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .section-heading {
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: var(--text-h1);
-      line-height: var(--line-height-heading);
+      font-weight: 600;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
       margin: 0 0 var(--space-4) 0;
     }
 
-    .placeholder a {
+    .section-heading--on-dark {
+      color: var(--color-white);
+    }
+
+    .section p {
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-slate-text-secondary);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .page-h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
+      line-height: var(--line-height-heading);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .lead {
+      font-size: var(--text-lead);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    /* Third correction pass: the 60ch cap below still read as
+       constrained to roughly two-thirds of the canvas. Per explicit
+       instruction, this paragraph now uses the full .shell width — no
+       ch-based measure — while the H1 and eyebrow above are untouched. */
+    .intro-lead {
+      max-width: none;
+    }
+
+    .on-dark-lead {
+      font-size: var(--text-lead);
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .on-dark-body {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    /* Categorical label — same treatment as Home's .chip (Brand & Voice
+       v2.0 §11: reserved for genuine categorical labels), redeclared here
+       since Home's is Astro-scoped to index.astro only. */
+    .chip {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-white);
+      background: transparent;
+      border: 1px solid var(--color-navy-muted-on-dark);
+      border-radius: 999px;
+      padding: 0.2em var(--space-3);
+      margin: 0 0 var(--space-3) 0;
+      white-space: nowrap;
+    }
+
+    .stat-highlight--on-dark {
+      color: var(--color-white);
+    }
+
+    /* ---------------------------------------------------------------
+       Editorial row — the site-wide label-rail-plus-body device
+       (Brand & Voice v2.0), redeclared at the same breakpoint/values as
+       Home's for visual consistency.
+       --------------------------------------------------------------- */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--space-4);
+    }
+
+    .editorial__label .section-heading {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 900px) {
+      .editorial {
+        grid-template-columns: minmax(160px, 20%) minmax(0, 1fr);
+        column-gap: var(--space-6);
+        align-items: start;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Taxonomy definitions — a plain, quiet definition list. Not a new
+       narrative device: three labeled facts, no manufactured "story"
+       composition (per brief §6, this page has no narrative arc to
+       compress).
+       --------------------------------------------------------------- */
+    .taxonomy {
+      margin: 0 0 var(--space-5) 0;
+      padding: 0;
+      border-top: 1px solid var(--color-slate-border);
+    }
+
+    .taxonomy__item {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    .taxonomy__item dt {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-2) 0;
+    }
+
+    .taxonomy__item dd {
+      margin: 0;
+      color: var(--color-slate-text-secondary);
+    }
+
+    .cta-row {
+      margin: var(--space-5) 0 0 0;
+    }
+
+    /* Outlined-on-dark CTA — the sovereign-navy-fill .cta (treatments.css)
+       would be invisible against this section's own sovereign-navy
+       background, so this section uses the same outlined-on-dark
+       convention Home already established for its own dark-section links
+       into /evidence-trail and /methodology-evaluation. */
+    .cta-outlined-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      box-sizing: border-box;
+      min-height: 44px;
+      padding: var(--space-2) var(--space-4);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--text-small);
+      color: var(--color-white);
+      background: transparent;
+      border: 1.5px solid var(--color-navy-muted-on-dark);
+      text-decoration: none;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .cta-outlined-dark:hover,
+    .cta-outlined-dark:focus-visible {
+      background: var(--color-white);
+      color: var(--color-sovereign-navy);
+      border-color: var(--color-white);
+    }
+
+    .cta-outlined-dark__arrow {
+      transition: transform 150ms ease;
+    }
+
+    .cta-outlined-dark:hover .cta-outlined-dark__arrow,
+    .cta-outlined-dark:focus-visible .cta-outlined-dark__arrow {
+      transform: translateX(3px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cta-outlined-dark,
+      .cta-outlined-dark__arrow {
+        transition: none !important;
+      }
+    }
+
+    .source-note {
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+    }
+
+    .source-note a {
       color: var(--color-sovereign-navy);
     }
   </style>

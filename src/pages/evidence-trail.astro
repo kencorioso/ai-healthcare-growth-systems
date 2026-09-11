@@ -1,0 +1,509 @@
+---
+// Evidence Trail — Workstream B's $251K forensic drilldown.
+// Presentation-layer restyle only, per the approved Evidence Page
+// Implementation Brief (§4): analytical logic, transformation chain, and
+// claim-level data are unchanged from the provenance-verified untracked
+// version (byte-identical to commit a5cf235's original index.astro
+// content, itself governed by docs/harbor-ridge-workstream-b-implementation-spec.md).
+// Only markup structure needed to adopt Layout/tokens changed; every
+// computed figure, field, and row below is read unmodified from
+// ../data/evidence-trail-251k.json.
+import Layout from '../components/Layout.astro';
+import data from '../data/evidence-trail-251k.json';
+
+const { summary, claims } = data;
+
+const fmtUsd = (n: number) =>
+  n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+
+const fmtPct = (n: number) => `${(n * 100).toFixed(2)}%`;
+
+const innClaims = claims.filter((c) => c.payer_relationship === 'INN');
+const oonClaims = claims.filter((c) => c.payer_relationship === 'OON');
+---
+
+<Layout title="Evidence Trail — $251K — Ken Corioso | Harbor Ridge V1">
+  <main>
+    <section class="section section--intro">
+      <div class="shell">
+        <p class="chip">Observed Finding</p>
+        <h1 class="page-h1">
+          An estimated $251,000 additional collections opportunity if
+          out-of-network claims had realized at the in-network rate.
+        </h1>
+        <p class="lead intro-lead">
+          This is an <strong>Observed Finding</strong> from Harbor Ridge
+          Scenario 1's frozen blind-test output — not a Benchmark Result.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">How this Number is Derived</h2>
+          </div>
+          <div class="editorial__body">
+            <div class="chain-block">
+              <h3>In-network (INN) claims</h3>
+              <div class="steps">
+                <div class="step"><span class="k">Billed</span>{fmtUsd(summary.inn_billed_total)}</div>
+                <span class="arrow" aria-hidden="true">→</span>
+                <div class="step"><span class="k">Collected</span>{fmtUsd(summary.inn_collected_total)}</div>
+                <span class="arrow" aria-hidden="true">→</span>
+                <div class="step step--result"><span class="k">Realization rate</span>{fmtPct(summary.inn_collection_realization_rate)}</div>
+              </div>
+            </div>
+
+            <div class="chain-block">
+              <h3>Out-of-network (OON) claims</h3>
+              <div class="steps">
+                <div class="step"><span class="k">Billed</span>{fmtUsd(summary.oon_billed_total)}</div>
+                <span class="arrow" aria-hidden="true">→</span>
+                <div class="step"><span class="k">Collected</span>{fmtUsd(summary.oon_collected_total)}</div>
+                <span class="arrow" aria-hidden="true">→</span>
+                <div class="step step--result"><span class="k">Realization rate</span>{fmtPct(summary.oon_collection_realization_rate)}</div>
+              </div>
+            </div>
+
+            <div class="gap-block">
+              <h3>The counterfactual</h3>
+              <p>
+                If OON claims had collected at the INN realization rate
+                instead of their own:
+              </p>
+              <div class="steps">
+                <div class="step"><span class="k">OON billed</span>{fmtUsd(summary.oon_billed_total)}</div>
+                <span class="arrow" aria-hidden="true">×</span>
+                <div class="step"><span class="k">INN rate</span>{fmtPct(summary.inn_collection_realization_rate)}</div>
+                <span class="arrow" aria-hidden="true">=</span>
+                <div class="step"><span class="k">Expected OON collections</span>{fmtUsd(summary.expected_oon_collections_at_inn_rate)}</div>
+              </div>
+              <p class="gap-block__minus">Minus what OON claims actually collected:</p>
+              <div class="steps">
+                <div class="step"><span class="k">Expected OON collections</span>{fmtUsd(summary.expected_oon_collections_at_inn_rate)}</div>
+                <span class="arrow" aria-hidden="true">−</span>
+                <div class="step"><span class="k">Actual OON collected</span>{fmtUsd(summary.oon_collected_total)}</div>
+                <span class="arrow" aria-hidden="true">=</span>
+                <div class="step step--gap"><span class="k">Estimated gap</span>{fmtUsd(summary.estimated_gap)}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="measure measure--wide">
+          <details class="records" open>
+            <summary>Inspect the Underlying Claim-Level Records ({claims.length} claims)</summary>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Opportunity</th>
+                    <th>Payer</th>
+                    <th>Episode</th>
+                    <th>Claim</th>
+                    <th>Billed</th>
+                    <th>Allowed</th>
+                    <th>Collected</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {claims.map((c) => (
+                    <tr>
+                      <td>{c.opportunity_id}</td>
+                      <td>{c.payer_relationship}</td>
+                      <td>{c.episode_id}</td>
+                      <td>{c.claim_id}</td>
+                      <td>{fmtUsd(c.billed_amount)}</td>
+                      <td>{fmtUsd(c.allowed_amount)}</td>
+                      <td>{fmtUsd(c.collected_amount)}</td>
+                      <td>{c.claim_status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+          <p class="records__note">
+            {innClaims.length} INN claims, {oonClaims.length} OON claims shown
+            above.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--quiet section--dark">
+      <div class="shell">
+        <p class="source-note source-note--on-dark">
+          Derived from Harbor Ridge Scenario 1's frozen claims and payment
+          data (<code>harbor_ridge_scenario1.db</code>), via the
+          deterministic export at
+          <code>src/data/evidence-trail-251k.json</code>. See also
+          <a href="/evidence">Evidence</a> for what this category of result
+          does and does not prove.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    /* ---------------------------------------------------------------
+       Canvas/measure/rhythm transferred from the frozen Home visual
+       system, redeclared here at the same values (Astro scopes each
+       page's own styles independently).
+       --------------------------------------------------------------- */
+    .shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .measure {
+      max-width: 68ch;
+    }
+
+    .measure--wide {
+      max-width: 100%;
+    }
+
+    .section {
+      padding: clamp(var(--space-7), 9vw, var(--space-8)) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    main > .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section--intro {
+      padding-bottom: clamp(var(--space-6), 7vw, var(--space-7));
+    }
+
+    .section--quiet {
+      padding-top: clamp(var(--space-6), 7vw, var(--space-7));
+      padding-bottom: clamp(var(--space-6), 7vw, var(--space-7));
+      /* The shared site footer (Layout.astro) adds its own space-8
+         margin-top after this, the page's last section. Left alone, that
+         stacks with this section's own bottom padding, making the gap
+         below the provenance note ~2-2.5x the gap above it. Canceling the
+         footer's margin here (page-scoped, Layout.astro untouched)
+         restores this section's already-symmetric top/bottom padding as
+         the sole determinant of visible space on both sides. */
+      margin-bottom: calc(-1 * var(--space-8));
+    }
+
+    .section--dark {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+    }
+
+    .section--dark :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section-heading--on-dark {
+      color: var(--color-white);
+    }
+
+    .section p {
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .chip {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-sovereign-navy);
+      background: var(--color-white);
+      border: 1px solid var(--color-slate-border);
+      border-radius: 999px;
+      padding: 0.2em var(--space-3);
+      margin: 0 0 var(--space-3) 0;
+      white-space: nowrap;
+    }
+
+    .page-h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
+      line-height: var(--line-height-heading);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-4) 0;
+      /* This H1 is a full-sentence claim, not a short headline (unlike
+         Evidence's page-h1) — widened well beyond the old half-canvas
+         measure, but still capped so lines stay comfortably readable
+         rather than stretching edge-to-edge. Set in ch so it scales with
+         the heading's own (large, responsive) font size. */
+      max-width: 40ch;
+    }
+
+    .lead {
+      font-size: var(--text-lead);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    .lead strong {
+      color: var(--color-sovereign-navy);
+    }
+
+    /* Third correction pass: the 60ch cap below still read as narrower
+       than desired. Per explicit instruction, this paragraph now uses
+       the full .shell width — no ch-based measure — while the H1 and
+       chip above are untouched. */
+    .intro-lead {
+      max-width: none;
+    }
+
+    /* ---------------------------------------------------------------
+       Editorial row — the site-wide label-rail-plus-body device,
+       redeclared at the same breakpoint/values as Home's.
+       --------------------------------------------------------------- */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--space-4);
+    }
+
+    .editorial__label .section-heading {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 900px) {
+      .editorial {
+        grid-template-columns: minmax(160px, 20%) minmax(0, 1fr);
+        column-gap: var(--space-6);
+        align-items: start;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Transformation chain — same analytical structure as the
+       provenance-verified original (chain-block / steps / step / arrow /
+       gap-block), restyled onto tokens instead of the original's
+       hardcoded pre-token CSS. No structural change.
+       --------------------------------------------------------------- */
+    .chain-block {
+      background: var(--color-white);
+      border: 1px solid var(--color-slate-border);
+      border-radius: 12px;
+      padding: var(--space-5);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .chain-block h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .step {
+      background: var(--color-steel-gray-canvas);
+      border: 1px solid var(--color-slate-border);
+      border-radius: 8px;
+      padding: var(--space-2) var(--space-3);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      color: var(--color-sovereign-navy);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step .k {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-slate-text-secondary);
+      margin-bottom: var(--space-1);
+    }
+
+    .step--result {
+      border-color: var(--color-sovereign-navy);
+    }
+
+    .step--result .k {
+      color: var(--color-sovereign-navy);
+    }
+
+    .arrow {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--color-slate-text-secondary);
+    }
+
+    .gap-block {
+      background: var(--color-sovereign-navy);
+      /* Now that the section itself is also Sovereign Navy, this border
+         is what keeps the counterfactual the strongest focal point in
+         the section — the same constrained-use Electric Blue border
+         Layout.astro already uses to bound the brand mark against the
+         same navy surface, not a new device. */
+      border: 1.5px solid var(--color-quantum-electric-blue);
+      border-radius: 12px;
+      padding: var(--space-5);
+    }
+
+    .gap-block h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      color: var(--color-white);
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    .gap-block p {
+      color: var(--color-navy-muted-on-dark);
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    .gap-block__minus {
+      margin-top: var(--space-4) !important;
+    }
+
+    .gap-block .step {
+      background: var(--color-navy-hover);
+      border-color: var(--color-navy-muted-on-dark);
+      color: var(--color-white);
+    }
+
+    .gap-block .step .k {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .gap-block .arrow {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .step--gap {
+      background: var(--color-white) !important;
+      border-color: var(--color-white) !important;
+      color: var(--color-sovereign-navy) !important;
+    }
+
+    .step--gap .k {
+      color: var(--color-slate-text-secondary) !important;
+    }
+
+    /* ---------------------------------------------------------------
+       Claim-level records — same structure as the provenance-verified
+       original (details/summary disclosure + scrollable table), restyled
+       onto tokens. overflow-x is added so the table scrolls within its
+       own bounded container at narrow widths rather than forcing
+       page-level horizontal scroll (smoke-check requirement).
+       --------------------------------------------------------------- */
+    .records summary {
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      color: var(--color-sovereign-navy);
+      padding: var(--space-3) 0;
+    }
+
+    .table-wrap {
+      max-height: 480px;
+      overflow-y: auto;
+      overflow-x: auto;
+      margin-top: var(--space-3);
+      border: 1px solid var(--color-slate-border);
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 640px;
+      font-size: var(--text-small);
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--color-slate-border);
+      padding: var(--space-2) var(--space-3);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      background: var(--color-steel-gray-surface);
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--color-sovereign-navy);
+      position: sticky;
+      top: 0;
+    }
+
+    td {
+      color: var(--color-slate-text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .records__note {
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+      margin: var(--space-3) 0 0 0;
+    }
+
+    .source-note {
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+    }
+
+    .source-note a {
+      color: var(--color-sovereign-navy);
+    }
+
+    .source-note code {
+      font-size: 0.9em;
+      background: var(--color-steel-gray-surface);
+      border-radius: 4px;
+      padding: 0.1em 0.35em;
+    }
+
+    /* Dark-surface variant: this section is now Sovereign Navy (item 7/10
+       of the browser-informed pass). Text/link swap to the existing
+       dark-surface tokens; code's background stays the same light chip
+       (unchanged token) so its own text needs an explicit dark color
+       rather than inheriting the section's light-on-dark color. */
+    .source-note--on-dark {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .source-note--on-dark a {
+      color: var(--color-white);
+    }
+
+    .source-note--on-dark code {
+      color: var(--color-sovereign-navy);
+    }
+  </style>
+</Layout>

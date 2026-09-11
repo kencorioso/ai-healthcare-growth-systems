@@ -16,7 +16,11 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Evidence', href: '/evidence' },
+  {
+    label: 'Evidence',
+    href: '/evidence',
+    children: [{ label: 'Evidence Trail', href: '/evidence-trail' }],
+  },
   { label: 'Methodology & Evaluation', href: '/methodology-evaluation' },
   { label: 'Portability & Lessons', href: '/portability-lessons' },
   { label: 'About / Contact', href: '/about-contact' },
@@ -119,6 +123,102 @@ const isActive = (href: string) =>
         border-bottom-color: var(--color-white);
       }
 
+      /* ---------------------------------------------------------------
+         Evidence -> Evidence Trail child nav item. Default (base) state
+         covers touch/no-precise-hover: the child link is always visible,
+         stacked under Evidence in normal flow — this sidesteps the
+         mobile "hover trap" failure mode entirely rather than solving it
+         with a JS toggle. Only under the hover-capable, wide-enough media
+         query below does it become a hover/focus-revealed dropdown.
+         --------------------------------------------------------------- */
+      .site-nav__item--has-children {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-subnav {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0 0 0 var(--space-3);
+        list-style: none;
+      }
+
+      .site-subnav li {
+        display: flex;
+        min-width: 0;
+      }
+
+      .site-subnav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: var(--text-small);
+        text-decoration: none;
+        color: var(--color-navy-muted-on-dark);
+        border-bottom: 2px solid transparent;
+        padding: 0 var(--space-1);
+      }
+
+      .site-subnav a:hover {
+        color: var(--color-white);
+      }
+
+      .site-subnav a[aria-current='page'] {
+        color: var(--color-white);
+        border-bottom-color: var(--color-white);
+      }
+
+      /* Dropdown behavior only where a precise pointer can hover AND the
+         viewport is wide enough that the nav isn't using the centered
+         mobile layout below (matches that layout's own 640px breakpoint,
+         not a new value) — this keeps the floating dropdown out of the
+         narrow-viewport cases where it could risk overflowing. */
+      @media (hover: hover) and (pointer: fine) and (min-width: 641px) {
+        .site-nav__item--has-children {
+          position: relative;
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .site-nav__item--has-children .site-subnav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          flex-direction: column;
+          min-width: 180px;
+          margin: 0;
+          padding: var(--space-2) var(--space-3);
+          background: var(--color-sovereign-navy);
+          border: 1px solid var(--color-slate-border);
+          border-radius: 4px;
+          visibility: hidden;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 150ms ease;
+          z-index: 20;
+        }
+
+        .site-nav__item--has-children:hover .site-subnav,
+        .site-nav__item--has-children:focus-within .site-subnav {
+          visibility: visible;
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .site-subnav a {
+          padding: var(--space-1) 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .site-nav__item--has-children .site-subnav {
+          transition: none !important;
+        }
+      }
+
       .site-footer {
         border-top: 1px solid var(--color-slate-border);
         margin-top: var(--space-8);
@@ -164,10 +264,21 @@ const isActive = (href: string) =>
         <nav aria-label="Primary">
           <ul class="site-nav">
             {navItems.map((item) => (
-              <li>
+              <li class:list={['site-nav__item', { 'site-nav__item--has-children': item.children }]}>
                 <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
                   {item.label}
                 </a>
+                {item.children && (
+                  <ul class="site-subnav">
+                    {item.children.map((child) => (
+                      <li>
+                        <a href={child.href} aria-current={isActive(child.href) ? 'page' : undefined}>
+                          {child.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
