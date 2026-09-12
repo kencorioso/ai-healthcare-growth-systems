@@ -1,0 +1,60 @@
+---
+// Full Methodology — reserved route (Workstream F). Nested child of
+// Methodology & Evaluation, mirroring the Evidence -> Evidence Trail
+// parent/child relationship. This is a placeholder only; see the repo's
+// established minimal-placeholder convention (compare the pre-population
+// history of methodology-evaluation.astro / portability-lessons.astro).
+//
+// Durable future-publication dependency (do not remove until acted on):
+// 1. docs/harbor-ridge-v1-methodology.md is the frozen, authoritative
+//    source for the eventual Full Methodology web presentation. It is
+//    NOT to be summarized, rewritten, condensed, or reinterpreted here —
+//    its transformation into a published page is its own bounded,
+//    provenance-controlled implementation task.
+// 2. This reserved page must eventually be replaced by a
+//    provenance-faithful presentation of that frozen artifact.
+// 3. Once that real page is published, the parent Methodology &
+//    Evaluation page's Go Deeper supporting text for this item must
+//    change from "the complete technical account — reserved, not yet
+//    published" to "the complete technical account"
+//    (src/pages/methodology-evaluation.astro, Go Deeper section).
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Full Methodology — Ken Corioso | Harbor Ridge V1">
+  <main class="placeholder">
+    <div class="placeholder__inner">
+      <h1>Full Methodology</h1>
+      <p>
+        The complete technical account behind Methodology &amp; Evaluation
+        isn't published as a page yet. Check back, or explore what's live
+        today.
+      </p>
+      <p><a href="/methodology-evaluation">&larr; Back to Methodology &amp; Evaluation</a></p>
+    </div>
+  </main>
+
+  <style>
+    .placeholder {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .placeholder__inner {
+      max-width: 70ch;
+    }
+
+    .placeholder h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-h1);
+      line-height: var(--line-height-heading);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .placeholder a {
+      color: var(--color-sovereign-navy);
+    }
+  </style>
+</Layout>

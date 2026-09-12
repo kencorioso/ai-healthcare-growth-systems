@@ -1,46 +1,771 @@
 ---
-// Methodology & Evaluation — minimal placeholder route.
-// Full population is out of scope for this pass; see
-// docs/harbor-ridge-workstream-f-step2-information-architecture.md §3.
+// Methodology & Evaluation — the contextual depth page (Workstream F, per
+// docs/harbor-ridge-methodology-evaluation-implementation-brief.md, final
+// revised, approved by Ken and ChatGPT), corrected per Ken and Claude
+// Chat's browser-informed review pass. Answers the cold hiring-manager
+// question: how did Ken test whether the reasoning could actually find
+// problems whose answers were already known? Deliberately excludes the
+// $251K/Evidence Trail material, the 11-table/22-test schema and
+// constraint-suite detail, the closing diagnostic's full reasoning, and any
+// V0.3 discussion — those live elsewhere per the brief's Decision 2/3 and
+// §8. Video 2 (Technical Practitioner) is a reserved placeholder, now
+// living in the Hero's two-zone read-or-watch layout; production is
+// Workstream G. Major sections now alternate light/navy per the
+// browser-review correction (Home's established rhythm), applied to this
+// page only — see the frontmatter note on other Workstream F pages before
+// assuming this rule applies there without its own sign-off.
 import Layout from '../components/Layout.astro';
+
+const sequenceSteps = [
+  'Ground Truth frozen',
+  'Evaluation criteria frozen',
+  'Blind procedure designed/audited',
+  'Fresh isolated sessions',
+  'Outputs frozen',
+  'Scoring',
+  'MISS / MISS / CLEAN',
+];
 ---
 
-<Layout title="Methodology & Evaluation — Ken Corioso | Harbor Ridge V1">
-  <main class="placeholder">
-    <div class="placeholder__inner">
-      <h1>Methodology &amp; Evaluation</h1>
-      <p>
-        This page will hold the Golden Thread and 11-table schema, the
-        synthetic-data and scenario design, the frozen Ground Truth, the
-        blind-test architecture, the V0.1/V0.2 story, MISS/MISS/CLEAN in
-        full technical detail, the closing diagnostic, and a link to the
-        complete methodology document.
-      </p>
-      <p><a href="/">&larr; Back to Home</a></p>
-    </div>
+<Layout title="Methodology &amp; Evaluation — Ken Corioso | Harbor Ridge V1">
+  <main>
+    <!-- Hero (LIGHT) -->
+    <section class="section section--hero">
+      <div class="shell">
+        <p class="eyebrow">Methodology &amp; Evaluation</p>
+        <h1 class="page-h1">
+          I already knew the answers. The question was whether the reasoning
+          could find them anyway.
+        </h1>
+        <div class="hero-row">
+          <p class="lead hero-row__copy">
+            The executive problem wasn't confined to marketing, admissions,
+            finance, or operations. So I designed the analytical environment
+            around the relationships between them. The Evidence Engine had
+            access to a relational representation of Harbor Ridge spanning
+            acquisition, inquiry, financial qualification, admission,
+            treatment and revenue. I wanted the analysis to distinguish
+            different kinds of performance problems rather than assume that
+            declining admissions automatically meant an admissions problem.
+          </p>
+          <div class="hero-row__media">
+            <div class="video-frame" role="img" aria-label="Video placeholder: Video 2, Technical Practitioner — reserved, not yet produced">
+              <span class="video-frame__play" aria-hidden="true"></span>
+              <span class="video-frame__caption">Video 2 — Technical Practitioner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Freezing the Rules (NAVY) -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">Freezing the Rules</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              For the blind evaluation, I went further. I froze Ground Truth
+              before AI analysis began. The answer key was based on the
+              actual generated scenarios, and the rule was explicit: what
+              counted as the correct answer could not change based on what
+              the AI later found or missed.
+            </p>
+            <p class="on-dark-body">
+              That created a clean separation between two questions:
+              <strong>did the analysis surface something useful?</strong> and
+              <strong>did it recover the deliberately hidden problem it was
+              being tested to find?</strong> Those questions eventually
+              produced different answers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Designing the Blind Evaluation (LIGHT) -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">Designing the Blind Evaluation</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>
+              After the first blind-analysis attempt produced mixed results, I
+              redesigned the evaluation. For V0.2, I froze an Evaluation
+              Interpretation Protocol defining Pass/Partial/Miss for known
+              scenarios and Clean/Borderline/False Positive for a Healthy
+              Baseline negative control.
+            </p>
+            <p>
+              The discovery procedure was designed without Harbor Ridge
+              context. I subjected it to two independent genericity audits.
+              Both returned 10/10 PASS. Only then did I freeze the procedure
+              and run three fresh, isolated blind sessions: Scenario 1,
+              Scenario 2, and the Healthy Baseline. The outputs were frozen
+              before scoring.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="process" role="group" aria-label="The methodology sequence, in order: Ground Truth frozen, evaluation criteria frozen, blind procedure designed and audited, fresh isolated sessions, outputs frozen, scoring, MISS MISS CLEAN">
+          <div class="process__rail" aria-hidden="true">
+            <span class="process__rail-fill"></span>
+            {sequenceSteps.map(() => (
+              <span class="process__tick"></span>
+            ))}
+          </div>
+          <div class="process__grid">
+            {sequenceSteps.map((step, i) => (
+              <div class:list={['process__node', { 'process__node--result': i === sequenceSteps.length - 1 }]}>
+                <span class="process__label">{step}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Result (NAVY — frozen, visually unchanged) -->
+    <section class="section section--navy">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">The Result</h2>
+          </div>
+        </div>
+
+        <dl class="reckoning">
+          <div class="reckoning__item">
+            <dt>Scenario 1</dt>
+            <dd>MISS</dd>
+          </div>
+          <div class="reckoning__item">
+            <dt>Scenario 2</dt>
+            <dd>MISS</dd>
+          </div>
+          <div class="reckoning__item">
+            <dt>Healthy Baseline</dt>
+            <dd>CLEAN</dd>
+          </div>
+        </dl>
+
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p class="on-dark-lead">
+              The misses were not cases where the system simply found
+              nothing. In both scenarios, it found and prioritized other
+              patterns that substantially contradicted the frozen Ground
+              Truth. The Healthy Baseline remained clean, which is useful
+              evidence about that control test.
+              <strong>It does not prove general reliability.</strong>
+            </p>
+            <p class="on-dark-lead">
+              I designed the evaluation so the Evidence Engine could fail
+              without letting me redefine failure afterward. Then it did.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What It Means and What It Doesn't (LIGHT) -->
+    <section class="section section--quiet">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">What It Means and What It Doesn't</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>
+              The specific V0.2 discovery procedure was insufficient to
+              reliably recover the previously demonstrated localized failures
+              under the existing Harbor Ridge experimental conditions.
+            </p>
+            <p>
+              That conclusion is intentionally narrow. The evaluation showed
+              that this procedure did not reliably recover the planted
+              failures under these conditions. It did not erase the useful
+              findings the analysis surfaced elsewhere, and the Healthy
+              Baseline's CLEAN result did not establish general reliability.
+            </p>
+            <p>
+              A subsequent diagnostic examined why the misses may have
+              occurred and found evidence consistent with signal-to-noise
+              structure in the experimental environment. That analysis was
+              informative, but not decisive. I therefore preserved the
+              benchmark result rather than changing the evaluation after
+              seeing it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Go Deeper (NAVY) -->
+    <section class="section section--deeper section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">Go Deeper</h2>
+          </div>
+        </div>
+
+        <ol class="index-list">
+          <li class="index-list__item">
+            <a href="/full-methodology">
+              <span class="index-list__num" aria-hidden="true">01</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Full Methodology</span>
+                <span class="index-list__desc">
+                  the complete technical account — reserved, not yet published
+                </span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="/portability-lessons">
+              <span class="index-list__num" aria-hidden="true">02</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Portability &amp; Lessons</span>
+                <span class="index-list__desc">the closing diagnostic's full reasoning</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
   </main>
 
   <style>
-    .placeholder {
-      max-width: 1100px;
+    /* ---------------------------------------------------------------
+       Canvas/measure/rhythm transferred from the frozen Home/Evidence
+       visual system, redeclared here since Astro scopes each page's own
+       styles. No new palette, spacing, or type-scale values introduced.
+       --------------------------------------------------------------- */
+    .shell {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: var(--space-8) var(--space-4);
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
     }
 
-    .placeholder__inner {
-      max-width: 70ch;
+    .shell + .shell {
+      margin-top: var(--space-5);
     }
 
-    .placeholder h1 {
+    .measure {
+      max-width: 68ch;
+    }
+
+    .section {
+      padding: clamp(var(--space-7), 9vw, var(--space-8)) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    main > .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-heading {
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: var(--text-h1);
-      line-height: var(--line-height-heading);
+      font-weight: 600;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
       margin: 0 0 var(--space-4) 0;
     }
 
-    .placeholder a {
+    .section-heading--on-dark {
+      color: var(--color-white);
+    }
+
+    .section p {
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-slate-text-secondary);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .page-h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
+      line-height: var(--line-height-heading);
       color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-6) 0;
+    }
+
+    .lead {
+      font-size: var(--text-lead);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    /* ---------------------------------------------------------------
+       Dark-section canvas — Sovereign Navy. Was previously referenced
+       in markup (Go Deeper) without ever being declared in this page's
+       own scoped styles, so Go Deeper rendered with white heading text
+       on the page's default light canvas. Declared here (matching
+       Home's/Evidence's own per-page redeclaration, since Astro scopes
+       CSS per file) and now also used by Freezing the Rules.
+       --------------------------------------------------------------- */
+    .section--dark {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+    }
+
+    .section--dark :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .on-dark-body {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .on-dark-lead {
+      font-size: var(--text-lead);
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .on-dark-body strong,
+    .on-dark-lead strong {
+      color: var(--color-white);
+      font-weight: 700;
+    }
+
+    /* ---------------------------------------------------------------
+       Editorial row — the site-wide label-rail-plus-body device,
+       redeclared at the same breakpoint/values as Home's and Evidence's.
+       --------------------------------------------------------------- */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--space-4);
+    }
+
+    .editorial__label .section-heading {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 900px) {
+      .editorial {
+        grid-template-columns: minmax(160px, 20%) minmax(0, 1fr);
+        column-gap: var(--space-6);
+        align-items: start;
+      }
+
+      .editorial--continuation .editorial__body {
+        grid-column: 2;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Hero — full-width H1, then the same asymmetric copy/media row
+       Home's Hero uses (read-or-watch: the supporting explanation on
+       the left, Video 2's reserved placeholder on the right, joined by
+       one connective vertical rule at the desktop breakpoint). Values
+       transferred from Home's .hero-row rather than reinvented.
+       --------------------------------------------------------------- */
+    .section--hero {
+      padding-top: clamp(var(--space-6), 8vw, var(--space-8));
+      padding-bottom: clamp(var(--space-7), 8vw, var(--space-8));
+    }
+
+    .hero-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .hero-row__copy {
+      max-width: 60ch;
+    }
+
+    @media (min-width: 1100px) {
+      .hero-row {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        align-items: center;
+      }
+
+      .hero-row__media {
+        padding-left: var(--space-6);
+        border-left: 1px solid var(--color-slate-border);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Video frame — Video 2 (Technical Practitioner), transferred
+       unchanged from Home's video-object pattern. Non-interactive
+       role="img" with an honest placeholder label; no controls implying
+       playable media exists.
+       --------------------------------------------------------------- */
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--color-sovereign-navy);
+      color: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      border-radius: 16px;
+    }
+
+    .video-frame__play {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-left: 26px solid var(--color-white);
+      margin-left: 6px;
+    }
+
+    .video-frame__caption {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      letter-spacing: 0.03em;
+      text-align: center;
+      padding: 0 var(--space-4);
+    }
+
+    /* ---------------------------------------------------------------
+       Designing the Blind Evaluation — process graphic. Same visual
+       grammar as Home's frozen "What I Built" Golden Thread (bounded,
+       elevated container; a continuous connecting rail with one tick
+       per stage; connected nodes reading as a resolved, orderly
+       progression) — deliberately not Home's "The Problem" broken-chain
+       treatment, which communicates disconnection and would be the
+       wrong meaning here. Seven stages instead of Golden Thread's four;
+       the final stage (the benchmark outcome) gets a filled navy tag so
+       the MISS/MISS/CLEAN endpoint reads as the graphic's destination,
+       without color-coding it as good or bad.
+       --------------------------------------------------------------- */
+    .process {
+      position: relative;
+      background: var(--color-steel-gray-surface);
+      border-radius: 16px;
+      padding: var(--space-6) var(--space-5) var(--space-5);
+    }
+
+    .process__rail {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      height: 20px;
+      margin-bottom: var(--space-4);
+    }
+
+    .process__rail-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: var(--color-sovereign-navy);
+      transform: translateY(-50%);
+    }
+
+    .process__tick {
+      justify-self: center;
+      align-self: center;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--color-sovereign-navy);
+      z-index: 1;
+    }
+
+    .process__grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      column-gap: var(--space-3);
+    }
+
+    .process__node {
+      padding: 0 var(--space-3) 0 0;
+      border-left: 1px solid var(--color-slate-border);
+      padding-left: var(--space-3);
+    }
+
+    .process__node:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .process__label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      line-height: 1.3;
+      color: var(--color-sovereign-navy);
+    }
+
+    .process__node--result .process__label {
+      display: inline-block;
+      font-size: var(--text-small);
+      letter-spacing: 0.02em;
+      color: var(--color-white);
+      background: var(--color-sovereign-navy);
+      padding: 0.25em var(--space-2);
+      border-radius: 4px;
+    }
+
+    /* Below the Golden Thread's own breakpoint: rail hidden, nodes
+       become a vertical connected-rail list (dot per node, one shared
+       left border), exactly Home's mobile fallback for the same
+       component — chosen over forcing 7 narrow horizontal columns,
+       which would harm readability rather than communicate order. */
+    @media (max-width: 899px) {
+      .process {
+        padding: var(--space-5) var(--space-4);
+      }
+
+      .process__rail {
+        display: none;
+      }
+
+      .process__grid {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-4);
+        border-left: 2px solid var(--color-sovereign-navy);
+      }
+
+      .process__node {
+        position: relative;
+        padding: 0 0 0 var(--space-4);
+        border-left: none;
+      }
+
+      .process__node:first-child {
+        padding-left: var(--space-4);
+      }
+
+      .process__node::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 0.35em;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--color-sovereign-navy);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       The Result — the page's one Sovereign Navy reckoning, same
+       component pattern already proven on Home (dl.reckoning): MISS /
+       MISS / CLEAN with genuinely equal visual weight, no color-coding.
+       Frozen per Ken's approval — unchanged in this pass.
+       --------------------------------------------------------------- */
+    .section--navy {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+      padding-top: clamp(var(--space-7), 10vw, var(--space-8));
+      padding-bottom: clamp(var(--space-7), 10vw, var(--space-8));
+    }
+
+    .section--navy :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .reckoning {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: var(--space-6) 0 clamp(var(--space-7), 8vw, var(--space-8)) 0;
+      padding: 0;
+      border-top: 1px solid var(--color-navy-muted-on-dark);
+      border-bottom: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .reckoning__item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-5) 0;
+      border-top: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .reckoning__item:first-child {
+      border-top: none;
+    }
+
+    .reckoning__item dt {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-navy-muted-on-dark);
+      margin: 0;
+    }
+
+    .reckoning__item dd {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(3.5rem, 2.4rem + 6vw, 8rem);
+      line-height: 1;
+      color: var(--color-white);
+      letter-spacing: 0.01em;
+    }
+
+    @media (min-width: 640px) {
+      .reckoning {
+        grid-template-columns: repeat(3, 1fr);
+        padding: var(--space-6) 0;
+        container-type: inline-size;
+      }
+
+      .reckoning__item {
+        border-top: none;
+        padding: 0 var(--space-5);
+        border-left: 1px solid var(--color-navy-muted-on-dark);
+      }
+
+      .reckoning__item:first-child {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      /* Same 958px-overflow fix Home's reckoning uses: size against the
+         container's own measured width (cqi), not viewport width (vw),
+         so the three equal-weight results don't overflow their column
+         at intermediate widths. */
+      .reckoning__item dd {
+        font-size: clamp(2.5rem, -2.36rem + 14cqi, 8rem);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       What It Means and What It Doesn't — deliberately calm after the
+       dark reckoning, same emotional logic as Home's "What This
+       Demonstrates".
+       --------------------------------------------------------------- */
+    .section--quiet {
+      padding-top: clamp(var(--space-7), 9vw, var(--space-8));
+    }
+
+    /* ---------------------------------------------------------------
+       Go Deeper — same indexed-list family as Home's. Full Methodology
+       now links to its reserved route (/full-methodology); its
+       supporting copy stays "reserved, not yet published" until that
+       route holds a real, provenance-verified page.
+       --------------------------------------------------------------- */
+    .section--deeper {
+      padding-bottom: clamp(var(--space-8), 10vw, calc(var(--space-8) * 1.2));
+      /* The shared site footer (Layout.astro) adds its own space-8
+         margin-top after this, the page's last section. Left alone, that
+         renders as a visible light-canvas band between this dark section
+         and the footer. Canceling the footer's margin here (page-scoped,
+         Layout.astro untouched) — the same technique already used on
+         /evidence and /evidence-trail's own last section — lets the navy
+         background transition directly into the footer. */
+      margin-bottom: calc(-1 * var(--space-8));
+    }
+
+    .index-list {
+      list-style: none;
+      margin: var(--space-5) 0 var(--space-4) 0;
+      padding: 0;
+    }
+
+    .index-list__item {
+      border-top: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .index-list__item:last-child {
+      border-bottom: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .index-list__item a {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      text-decoration: none;
+      color: var(--color-white);
+      min-height: 44px;
+    }
+
+    .index-list__num {
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h3);
+      color: var(--color-navy-muted-on-dark);
+      font-variant-numeric: tabular-nums;
+      min-width: 2ch;
+    }
+
+    .index-list__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .index-list__item a:hover .index-list__title,
+    .index-list__item a:focus-visible .index-list__title {
+      text-decoration: underline;
+    }
+
+    .index-list__title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-body);
+    }
+
+    .index-list__desc {
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .index-list__arrow {
+      flex-shrink: 0;
+      color: var(--color-navy-muted-on-dark);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .index-list__item a:hover .index-list__arrow,
+    .index-list__item a:focus-visible .index-list__arrow {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--color-white);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .index-list__arrow {
+        transition: none !important;
+      }
     }
   </style>
 </Layout>

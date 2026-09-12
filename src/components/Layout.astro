@@ -21,13 +21,26 @@ const navItems = [
     href: '/evidence',
     children: [{ label: 'Evidence Trail', href: '/evidence-trail' }],
   },
-  { label: 'Methodology & Evaluation', href: '/methodology-evaluation' },
+  {
+    label: 'Methodology & Evaluation',
+    href: '/methodology-evaluation',
+    children: [{ label: 'Full Methodology', href: '/full-methodology' }],
+  },
   { label: 'Portability & Lessons', href: '/portability-lessons' },
   { label: 'About / Contact', href: '/about-contact' },
 ];
 
 const isActive = (href: string) =>
   href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+
+// Parent nav items are also active while any of their children are active.
+// Evidence/Evidence Trail already got this "for free" (their paths share a
+// string prefix, so isActive('/evidence') was accidentally also true on
+// /evidence-trail); Methodology & Evaluation/Full Methodology don't share a
+// prefix, so this makes the same active-parent behavior explicit and
+// correct for both relationships without changing isActive itself.
+const isParentActive = (item: { href: string; children?: { href: string }[] }) =>
+  isActive(item.href) || (item.children?.some((child) => isActive(child.href)) ?? false);
 ---
 
 <html lang="en">
@@ -265,7 +278,7 @@ const isActive = (href: string) =>
           <ul class="site-nav">
             {navItems.map((item) => (
               <li class:list={['site-nav__item', { 'site-nav__item--has-children': item.children }]}>
-                <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+                <a href={item.href} aria-current={isParentActive(item) ? 'page' : undefined}>
                   {item.label}
                 </a>
                 {item.children && (
