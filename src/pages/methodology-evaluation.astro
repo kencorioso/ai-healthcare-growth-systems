@@ -34,8 +34,8 @@ const sequenceSteps = [
       <div class="shell">
         <p class="eyebrow">Methodology &amp; Evaluation</p>
         <h1 class="page-h1">
-          I already knew the answers. The question was whether the reasoning
-          could find them anyway.
+          <span class="page-h1__lead">I already knew the answers.</span>
+          <span class="page-h1__continuation">The question was whether AI could find them.</span>
         </h1>
         <div class="hero-row">
           <p class="lead hero-row__copy">
@@ -309,8 +309,15 @@ const sequenceSteps = [
       font-weight: 600;
       font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
       line-height: var(--line-height-heading);
-      color: var(--color-sovereign-navy);
       margin: 0 0 var(--space-6) 0;
+    }
+
+    .page-h1__lead {
+      color: var(--color-sovereign-navy);
+    }
+
+    .page-h1__continuation {
+      color: var(--color-quantum-electric-blue);
     }
 
     .lead {
