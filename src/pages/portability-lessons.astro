@@ -1,45 +1,755 @@
 ---
-// Portability & Lessons — minimal placeholder route.
-// Full population is out of scope for this pass; see
-// docs/harbor-ridge-workstream-f-step2-information-architecture.md §3.
+// Portability & Lessons — the contextual depth page (Workstream F, per
+// docs/harbor-ridge-portability-lessons-implementation-brief.md, Final
+// Revised, approved by Ken and ChatGPT), corrected per Ken's Round 1
+// browser-review revisions. Answers the cold hiring-manager question: what
+// did Ken learn from the misses, and what part of this process can
+// actually transfer beyond Harbor Ridge? Interpretation and judgment, not
+// a restatement of the benchmark result — that's already given full
+// visual weight on Home and Methodology & Evaluation.
+// Deliberately excludes the large MISS/MISS/CLEAN visual object, the $251K/
+// Evidence Trail material, any standalone V0.3 section, and the seed-search
+// near-miss story — per the brief's §9 exclusions. All four "What I
+// Learned" lessons and the Analytical Limitations paragraphs are verbatim
+// from the brief, including "a result I didn't want" and "stayed clean
+// when nothing was wrong" — confirmed final wording, not placeholder text
+// awaiting correction.
+// Round 1 revisions (supersede the brief's corresponding decisions):
+// major-section background sequence is now LIGHT/NAVY/LIGHT/NAVY/LIGHT/
+// NAVY/LIGHT; Video 3 moved from What Does Transfer into the Hero's
+// read-or-watch two-zone layout (Methodology & Evaluation's Hero grammar);
+// the H1's second sentence is rendered in Quantum Electric Blue per Home's
+// established two-tone Hero convention. Video 3 remains a reserved
+// placeholder only; production is Workstream G.
 import Layout from '../components/Layout.astro';
+
+const processSteps = [
+  'Source-system mapping',
+  'Data dictionary',
+  'Schema',
+  'Synthetic data',
+  'Scenario design',
+  'Frozen Ground Truth',
+  'Blind evaluation',
+];
+
+const lessons = [
+  {
+    lead: 'Useful discovery and successful diagnosis are not the same claim.',
+    body: "The Evidence Engine surfaced a genuine OON collections-realization disparity. It did not reliably recover the planted root causes. I built the evaluation to keep those two facts separate rather than let one stand in for the other.",
+  },
+  {
+    lead: "A clean control result is real evidence, but it isn't proof of reliability.",
+    body: "The Healthy Baseline stayed clean when nothing was wrong. That's useful — it means the system didn't invent a problem where none existed. It doesn't mean the system would stay right under different conditions.",
+  },
+  {
+    lead: "When an evaluation produces a result I didn't want, the discipline is to preserve it before investigating why.",
+    body: "I froze Ground Truth and the evaluation protocol before running the blind sessions specifically so I couldn't redefine failure after seeing the outcome. When the misses came in, the diagnostic came after the freeze, not instead of it.",
+  },
+  {
+    lead: "Portability comes from rebuilding around another organization's reality, not transplanting a testbed.",
+    body: "Harbor Ridge's schema and scenarios are specific to this synthetic environment. What transfers is the discipline of mapping a real organization's own systems before asking an AI to reason about them.",
+  },
+];
 ---
 
-<Layout title="Portability & Lessons — Ken Corioso | Harbor Ridge V1">
-  <main class="placeholder">
-    <div class="placeholder__inner">
-      <h1>Portability &amp; Lessons</h1>
-      <p>
-        This page will cover what transfers and what doesn't, the repeatable
-        build process, analytical limitations, why V0.3 was deferred, and
-        how the method would be rebuilt around a different organization
-        rather than transplanted wholesale.
-      </p>
-      <p><a href="/">&larr; Back to Home</a></p>
-    </div>
+<Layout title="Portability &amp; Lessons — Ken Corioso | Harbor Ridge V1">
+  <main>
+    <!-- Hero (LIGHT) — read-or-watch two-zone, Methodology & Evaluation's Hero grammar -->
+    <section class="section section--hero">
+      <div class="shell">
+        <p class="eyebrow">Portability &amp; Lessons</p>
+        <h1 class="page-h1">
+          <span class="page-h1__lead">Harbor Ridge isn't portable.</span>
+          <span class="page-h1__continuation">The process that built it is.</span>
+        </h1>
+        <div class="hero-row">
+          <p class="lead hero-row__copy">
+            The benchmark result is on Methodology &amp; Evaluation in full.
+            This page is about what I took from it — what doesn't transfer
+            out of a synthetic testbed, what does, and what I'd do
+            differently for a real organization.
+          </p>
+          <div class="hero-row__media">
+            <div class="video-frame" role="img" aria-label="Video placeholder: Video 3, Different Healthcare Vertical / Portability — reserved, not yet produced">
+              <span class="video-frame__play" aria-hidden="true"></span>
+              <span class="video-frame__caption">Video 3 — Different Healthcare Vertical / Portability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Doesn't Transfer (NAVY) -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">What Doesn't Transfer</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              Harbor Ridge itself is not portable to another healthcare
+              vertical. Its schema, synthetic facility, and benchmark
+              results belong to this test environment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Does Transfer (LIGHT) — the page's visual centerpiece; Video 3 removed per Round 1, now in the Hero -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">What Does Transfer</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>What is portable is the process I demonstrated by building it:</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="process" role="group" aria-label="The portable process, in order: source-system mapping, data dictionary, schema, synthetic data, scenario design, frozen Ground Truth, blind evaluation">
+          <div class="process__rail" aria-hidden="true">
+            <span class="process__rail-fill"></span>
+            {processSteps.map(() => (
+              <span class="process__tick"></span>
+            ))}
+          </div>
+          <div class="process__grid">
+            {processSteps.map((step) => (
+              <div class="process__node">
+                <span class="process__label">{step}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p>
+              For another organization, I would rebuild that process around
+              its actual operating reality rather than transplant Harbor
+              Ridge and pretend healthcare organizations are interchangeable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Analytical Limitations (NAVY) — deliberately restrained -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">The Analytical Limitations</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              The V0.2 blind evaluation missed both planted failures while
+              the Healthy Baseline remained clean. That clean result is
+              useful evidence about the control test — it does not
+              establish general reliability.
+            </p>
+            <p class="on-dark-body">
+              A later diagnostic suggested experimental signal-to-noise
+              structure may have contributed, particularly because one
+              affected cohort ultimately contained only roughly three to
+              eight admissions per month. That explanation is directional,
+              not proven.
+            </p>
+            <p class="on-dark-body">
+              I deferred another evaluation iteration rather than repeatedly
+              modify the experiment in pursuit of a passing result.
+            </p>
+            <p class="on-dark-body">
+              So I would not present V1 as a production-validated, generally
+              reliable autonomous diagnostic system.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I Learned (LIGHT) — consequential, not a reckoning -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">What I Learned</h2>
+          </div>
+        </div>
+
+        <ol class="lessons">
+          {lessons.map((lesson, i) => (
+            <li class="lessons__item">
+              <span class="lessons__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <div class="lessons__content">
+                <p class="lessons__lead">{lesson.lead}</p>
+                <p class="lessons__body">{lesson.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- What This Adds Up To (NAVY) — calm editorial closing beat -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">What This Adds Up To</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              What I can demonstrate is the complete build-and-evaluate
+              process — including what I did when validation exposed
+              defects, when AI surfaced something I hadn't planted, and when
+              the final benchmark failed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Go Deeper (LIGHT) -->
+    <section class="section section--deeper">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">Go Deeper</h2>
+          </div>
+        </div>
+
+        <ol class="index-list">
+          <li class="index-list__item">
+            <a href="/full-methodology">
+              <span class="index-list__num" aria-hidden="true">01</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Full Methodology</span>
+                <span class="index-list__desc">
+                  the complete technical account — reserved, not yet published
+                </span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="https://github.com/kencorioso/ai-healthcare-growth-systems" target="_blank" rel="noopener noreferrer">
+              <span class="index-list__num" aria-hidden="true">02</span>
+              <span class="index-list__content">
+                <span class="index-list__title">GitHub<span class="sr-only"> (opens in a new tab)</span></span>
+                <span class="index-list__desc">the repository behind this build</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
   </main>
 
   <style>
-    .placeholder {
-      max-width: 1100px;
+    /* ---------------------------------------------------------------
+       Canvas/measure/rhythm transferred from the frozen Home/Evidence/
+       Methodology & Evaluation visual system, redeclared here since Astro
+       scopes each page's own styles. No new palette, spacing, or
+       type-scale values introduced.
+       --------------------------------------------------------------- */
+    .shell {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: var(--space-8) var(--space-4);
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
     }
 
-    .placeholder__inner {
-      max-width: 70ch;
+    .shell + .shell {
+      margin-top: var(--space-5);
     }
 
-    .placeholder h1 {
+    .measure {
+      max-width: 68ch;
+    }
+
+    .section {
+      padding: clamp(var(--space-7), 9vw, var(--space-8)) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    main > .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-heading {
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: var(--text-h1);
-      line-height: var(--line-height-heading);
+      font-weight: 600;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
       margin: 0 0 var(--space-4) 0;
     }
 
-    .placeholder a {
+    .section-heading--on-dark {
+      color: var(--color-white);
+    }
+
+    .section p {
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-slate-text-secondary);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    /* ---------------------------------------------------------------
+       H1 — one continuous depth-page headline (Methodology & Evaluation's
+       page-h1 is the structural/size reference), with the two-tone color
+       split applied via inline spans rather than Home's stacked-line
+       convention: Home's .hero-h1__lead/__continuation are deliberately
+       block-level and reduced-scale because that design means "headline,
+       then a distinct, de-emphasized response line." This page's H1 is a
+       single sentence pair meant to read and wrap as one headline, so the
+       spans stay inline (no display override) with no size/weight
+       difference between them — color is the only distinction, and
+       wrapping (if any) follows normal text flow at the container width.
+       --------------------------------------------------------------- */
+    .page-h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
+      line-height: var(--line-height-heading);
+      margin: 0 0 var(--space-6) 0;
+    }
+
+    .page-h1__lead {
       color: var(--color-sovereign-navy);
+    }
+
+    .page-h1__continuation {
+      color: var(--color-quantum-electric-blue);
+    }
+
+    .lead {
+      font-size: var(--text-lead);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    /* ---------------------------------------------------------------
+       Dark-section canvas — Sovereign Navy, redeclared per-page since
+       Astro scopes CSS per file (matching Evidence's/Methodology &
+       Evaluation's own redeclaration). Applies to What Doesn't Transfer,
+       The Analytical Limitations, and What This Adds Up To.
+       --------------------------------------------------------------- */
+    .section--dark {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+    }
+
+    .section--dark :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .on-dark-body {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    /* ---------------------------------------------------------------
+       Editorial row — the site-wide label-rail-plus-body device,
+       redeclared at the same breakpoint/values as Home's, Evidence's, and
+       Methodology & Evaluation's.
+       --------------------------------------------------------------- */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--space-4);
+    }
+
+    .editorial__label .section-heading {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 900px) {
+      .editorial {
+        grid-template-columns: minmax(160px, 20%) minmax(0, 1fr);
+        column-gap: var(--space-6);
+        align-items: start;
+      }
+
+      .editorial--continuation .editorial__body {
+        grid-column: 2;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Hero — full-width H1, then Methodology & Evaluation's established
+       asymmetric copy/media row (read-or-watch: supporting explanation on
+       the left, Video 3's reserved placeholder on the right, joined by
+       one connective vertical rule at the desktop breakpoint). Values
+       transferred from that page's Hero rather than reinvented.
+       --------------------------------------------------------------- */
+    .section--hero {
+      padding-top: clamp(var(--space-6), 8vw, var(--space-8));
+      padding-bottom: clamp(var(--space-7), 8vw, var(--space-8));
+    }
+
+    .hero-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .hero-row__copy {
+      max-width: 60ch;
+    }
+
+    @media (min-width: 1100px) {
+      .hero-row {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        align-items: center;
+      }
+
+      .hero-row__media {
+        padding-left: var(--space-6);
+        border-left: 1px solid var(--color-slate-border);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Video 3 placeholder — Home's/Methodology & Evaluation's video-frame
+       object, sitting in this page's light Hero (moved here from What
+       Does Transfer per Round 1), so it uses the same sovereign-navy-fill
+       treatment those pages use in their own light Hero/intro contexts.
+       --------------------------------------------------------------- */
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--color-sovereign-navy);
+      color: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      border-radius: 16px;
+    }
+
+    .video-frame__play {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-left: 26px solid var(--color-white);
+      margin-left: 6px;
+    }
+
+    .video-frame__caption {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      letter-spacing: 0.03em;
+      text-align: center;
+      padding: 0 var(--space-4);
+    }
+
+    /* ---------------------------------------------------------------
+       What Does Transfer — process graphic. Same visual grammar as
+       Methodology & Evaluation's process chain (bounded, elevated
+       container; continuous connecting rail with one tick per stage;
+       connected nodes reading as ordered progression), reused without
+       modification — including its foreground tokens, which are
+       unaffected by Round 1's background flip since this light card
+       already matched Home's original light "What I Built" treatment
+       (steel-gray-surface card, navy text, on a light section) even more
+       directly than the previous navy-section placement did. Unlike
+       Methodology & Evaluation's chain, this one doesn't end in a
+       benchmark outcome, so no result-tag treatment on the final node.
+       --------------------------------------------------------------- */
+    .process {
+      position: relative;
+      background: var(--color-steel-gray-surface);
+      border-radius: 16px;
+      padding: var(--space-6) var(--space-5) var(--space-5);
+    }
+
+    .process__rail {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      height: 20px;
+      margin-bottom: var(--space-4);
+    }
+
+    .process__rail-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: var(--color-sovereign-navy);
+      transform: translateY(-50%);
+    }
+
+    .process__tick {
+      justify-self: center;
+      align-self: center;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--color-sovereign-navy);
+      z-index: 1;
+    }
+
+    .process__grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      column-gap: var(--space-3);
+    }
+
+    .process__node {
+      padding: 0 var(--space-3) 0 0;
+      border-left: 1px solid var(--color-slate-border);
+      padding-left: var(--space-3);
+    }
+
+    .process__node:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .process__label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      line-height: 1.3;
+      color: var(--color-sovereign-navy);
+    }
+
+    @media (max-width: 899px) {
+      .process {
+        padding: var(--space-5) var(--space-4);
+      }
+
+      .process__rail {
+        display: none;
+      }
+
+      .process__grid {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-4);
+        border-left: 2px solid var(--color-sovereign-navy);
+      }
+
+      .process__node {
+        position: relative;
+        padding: 0 0 0 var(--space-4);
+        border-left: none;
+      }
+
+      .process__node:first-child {
+        padding-left: var(--space-4);
+      }
+
+      .process__node::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 0.35em;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--color-sovereign-navy);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       What I Learned — four lessons with real editorial hierarchy
+       (numbered blocks, a bolded lead sentence per lesson), deliberately
+       not the dl.reckoning MISS/MISS/CLEAN component: no oversized
+       numerals, no equal-weight three-up grid standing in for an
+       outcome. Light-section foreground tokens per Round 1 (was navy).
+       --------------------------------------------------------------- */
+    .lessons {
+      list-style: none;
+      margin: var(--space-6) 0 0 0;
+      padding: 0;
+      border-top: 1px solid var(--color-slate-border);
+    }
+
+    .lessons__item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-4);
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    .lessons__num {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h3);
+      color: var(--color-slate-text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lessons__content {
+      max-width: 62ch;
+    }
+
+    .lessons__lead {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    .lessons__body {
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    @media (max-width: 639px) {
+      .lessons__item {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Go Deeper — same indexed-list family as Home's and Methodology &
+       Evaluation's, now on a light background per Round 1 (was navy) —
+       foreground tokens switched to the light-section equivalents.
+       GitHub is this page's one external link: standard, minimal
+       accessible-external-link treatment (rel="noopener noreferrer", a
+       screen-reader-only "(opens in a new tab)" cue) — no such convention
+       exists elsewhere in the codebase yet, so this introduces it rather
+       than reusing an established pattern.
+       --------------------------------------------------------------- */
+    .section--deeper {
+      padding-bottom: clamp(var(--space-8), 10vw, calc(var(--space-8) * 1.2));
+      /* The shared site footer (Layout.astro) adds its own space-8
+         margin-top after this, the page's last section. Canceling it
+         here — the same technique used on /evidence's and
+         /evidence-trail's own light last section, and on Methodology &
+         Evaluation's dark one — keeps top/bottom spacing symmetric and
+         lets this section transition cleanly into the footer. */
+      margin-bottom: calc(-1 * var(--space-8));
+    }
+
+    .index-list {
+      list-style: none;
+      margin: var(--space-5) 0 var(--space-4) 0;
+      padding: 0;
+    }
+
+    .index-list__item {
+      border-top: 1px solid var(--color-slate-border);
+    }
+
+    .index-list__item:last-child {
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    .index-list__item a {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      text-decoration: none;
+      color: var(--color-sovereign-navy);
+      min-height: 44px;
+    }
+
+    .index-list__num {
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h3);
+      color: var(--color-slate-text-secondary);
+      font-variant-numeric: tabular-nums;
+      min-width: 2ch;
+    }
+
+    .index-list__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .index-list__item a:hover .index-list__title,
+    .index-list__item a:focus-visible .index-list__title {
+      text-decoration: underline;
+    }
+
+    .index-list__title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-body);
+    }
+
+    .index-list__desc {
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+    }
+
+    .index-list__arrow {
+      flex-shrink: 0;
+      color: var(--color-slate-text-secondary);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .index-list__item a:hover .index-list__arrow,
+    .index-list__item a:focus-visible .index-list__arrow {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--color-sovereign-navy);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .index-list__arrow {
+        transition: none !important;
+      }
+    }
+
+    /* Standard visually-hidden utility — screen-reader-only text (the
+       GitHub link's "(opens in a new tab)" cue). No visual footprint;
+       not a new visual device. */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
 </Layout>
