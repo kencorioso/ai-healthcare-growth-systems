@@ -1,60 +1,1700 @@
 ---
-// Full Methodology — reserved route (Workstream F). Nested child of
-// Methodology & Evaluation, mirroring the Evidence -> Evidence Trail
-// parent/child relationship. This is a placeholder only; see the repo's
-// established minimal-placeholder convention (compare the pre-population
-// history of methodology-evaluation.astro / portability-lessons.astro).
+// Full Methodology — real implementation, per the frozen governing
+// specification docs/full-methodology-web-architecture-spec.md (commit
+// b00143a). Sole content source for substantive prose is the frozen
+// docs/harbor-ridge-v1-methodology.md (19 sections) — reproduced
+// faithfully below, reorganized only at the presentation/navigation
+// layer into the spec's 10 page sections. Do not summarize, condense,
+// rewrite, or reinterpret that source when editing this file; any
+// change to what the page claims must be made to the frozen methodology
+// document first, through its own governed process, not here.
 //
-// Durable future-publication dependency (do not remove until acted on):
-// 1. docs/harbor-ridge-v1-methodology.md is the frozen, authoritative
-//    source for the eventual Full Methodology web presentation. It is
-//    NOT to be summarized, rewritten, condensed, or reinterpreted here —
-//    its transformation into a published page is its own bounded,
-//    provenance-controlled implementation task.
-// 2. This reserved page must eventually be replaced by a
-//    provenance-faithful presentation of that frozen artifact.
-// 3. Once that real page is published, every page's Go Deeper supporting
-//    text for this item must change from "the complete technical account
-//    — reserved, not yet published" to "the complete technical account":
-//    - src/pages/methodology-evaluation.astro, Go Deeper section
-//    - src/pages/portability-lessons.astro, Go Deeper section
+// The $251K figures are pulled from the same evidence-trail-251k.json
+// data source evidence-trail.astro uses (not retyped), so the compact
+// table below can never drift from that canonical export.
+//
+// Patterns reused verbatim from the existing site (see the spec's
+// §7/§8): editorial label/body grid, Result-Taxonomy chip/definition
+// list (light variant, matching Evidence's own already-corrected
+// wording), the flat process-chain component (Methodology &
+// Evaluation's/Portability & Lessons' .process — reused here for the
+// Golden Thread, and NOT rebuilt a second time for the V0.2 six-step
+// procedure, which is referenced in prose and linked back to
+// Methodology & Evaluation's own rendering per §7), the dl.reckoning
+// MISS/MISS/CLEAN component (identical markup/CSS to Methodology &
+// Evaluation's), the dark-variant Go Deeper index-list, and Evidence
+// Trail's bounded-scroll table-wrap pattern (applied defensively to the
+// compact $251K table).
+//
+// Exactly two new, minimal components, per the spec's §9: .toc (a
+// non-sticky anchor list) and .notice (a restrained inline aside,
+// deliberately NOT Home's large pull-quote .callout — that reads as a
+// dramatic centerpiece, which this page's four notices must not
+// become). .notice appears at exactly the four points the spec names:
+// the two caught data/scenario defects, the seed-search near-miss, the
+// Freeze Rule sentence, and the 25-38-vs-3-8 statistical point.
+//
+// Seed-search guardrail (spec, hard constraint): the frozen record is
+// that a seed-search command was PREPARED and STOPPED BEFORE EXECUTION
+// — never that seed-searching occurred. Every reference to that episode
+// on this page uses only prepared/queued/stopped-before-execution
+// framing.
 import Layout from '../components/Layout.astro';
+import evidenceTrailData from '../data/evidence-trail-251k.json';
+
+const { summary } = evidenceTrailData;
+
+const fmtUsd = (n: number) =>
+  n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+
+const fmtPct = (n: number) => `${(n * 100).toFixed(2)}%`;
+
+const goldenThreadStages = ['Acquisition', 'Inquiry', 'Financial Qualification', 'Admission', 'Treatment', 'Revenue'];
+
+const tocItems = [
+  { href: '#the-problem-and-the-architecture', label: 'The Problem and the Architecture' },
+  { href: '#building-and-validating-the-environment', label: 'Building and Validating the Environment' },
+  { href: '#freezing-ground-truth', label: 'Freezing Ground Truth' },
+  { href: '#the-first-blind-evaluation', label: 'The First Blind Evaluation — V0.1' },
+  { href: '#the-governing-evaluation', label: 'The Governing Evaluation — V0.2' },
+  { href: '#investigating-the-result', label: 'Investigating the Result' },
+  { href: '#what-this-demonstrates', label: 'What This Demonstrates, and What Remains Open' },
+];
+
+const decisionChain = [
+  'I had to define the executive problem.',
+  'I had to map the operating system across acquisition, inquiry, financial qualification, admission, treatment and revenue.',
+  'I had to define the data needed to represent that system.',
+  'I had to build and validate a synthetic organization.',
+  'I had to construct hidden deteriorations without making them trivially discoverable.',
+  'I had to freeze the answers before asking the AI the questions.',
+  'I had to isolate the blind-test environments.',
+  'I had to define the scoring rules before seeing the final results.',
+  "And when those results were unfavorable, I had to distinguish between what the AI genuinely found and what the benchmark showed it failed to find.",
+];
 ---
 
 <Layout title="Full Methodology — Ken Corioso | Harbor Ridge V1">
-  <main class="placeholder">
-    <div class="placeholder__inner">
-      <h1>Full Methodology</h1>
-      <p>
-        The complete technical account behind Methodology &amp; Evaluation
-        isn't published as a page yet. Check back, or explore what's live
-        today.
-      </p>
-      <p><a href="/methodology-evaluation">&larr; Back to Methodology &amp; Evaluation</a></p>
-    </div>
+  <main>
+    <!-- 1. Hero (LIGHT) -->
+    <section class="section section--intro" id="top">
+      <div class="shell">
+        <p class="eyebrow">Full Methodology</p>
+        <h1 class="page-h1">
+          <span class="page-h1__lead">An AI Result Is Easy to Produce.</span>
+          <span class="page-h1__continuation">Knowing Whether to Trust It Is Harder.</span>
+        </h1>
+        <h2 class="hero-subheading">How Harbor Ridge V1 Was Built, Tested, and Evaluated.</h2>
+        <p class="lead intro-lead">
+          The complete technical account behind Methodology &amp; Evaluation
+          — including validation failures, judgment calls, and the exact
+          precommitment discipline that makes the governing result real.
+          Harbor Ridge is a synthetic evaluation environment, not a real
+          healthcare organization or production deployment.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Table of Contents (NAVY) -->
+    <section class="section section--toc section--dark">
+      <div class="shell">
+        <nav aria-label="Table of contents">
+          <p class="eyebrow eyebrow--on-dark">On This Page</p>
+          <ol class="toc-list toc-list--on-dark">
+            {tocItems.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 3. The Problem and the Architecture (LIGHT) — §1-2 -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading" id="the-problem-and-the-architecture">The Problem and the Architecture</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>
+              Harbor Ridge Behavioral Health began with an executive problem, not an AI problem:
+            </p>
+            <p>
+              "Why are Harbor Ridge's completed admissions and census declining
+              despite increasing marketing spend and inquiry volume, and where
+              should leadership investigate first?"
+            </p>
+            <p>That distinction shaped the entire project.</p>
+            <p>
+              Harbor Ridge is a fictional 32-bed dual-diagnosis behavioral
+              health facility, with eight detox beds and 24 residential beds.
+              Its data is entirely synthetic and contains no PHI. The
+              organization was designed around a familiar executive tension:
+              marketing investment and inquiry volume were increasing, but
+              completed admissions and census were falling and cost per
+              completed admission was rising. Marketing believed admissions
+              was failing to convert the demand being generated. Admissions
+              believed marketing was delivering lower-quality inquiries.
+              Neither side had sufficient evidence to resolve the
+              disagreement.
+            </p>
+            <p>That is the problem the HEOS Evidence Engine was built to investigate.</p>
+            <p>
+              HEOS is the broader, long-term vision: an AI-enabled executive
+              intelligence layer for healthcare organizations. The HEOS
+              Evidence Engine is the demonstrated V1 capability, an AI
+              reasoning system for evidence-based executive performance
+              analysis. Harbor Ridge Behavioral Health is neither HEOS nor
+              the Evidence Engine. It is the synthetic testbed I built to
+              test and characterize what the Evidence Engine could and
+              could not do under controlled conditions.
+            </p>
+            <p>
+              That language matters. Harbor Ridge did not "prove" that the
+              Evidence Engine works. The final blind evaluation would
+              eventually produce a more complicated and, I believe, more
+              useful result.
+            </p>
+            <p>
+              Before I could test the AI, however, I first needed to
+              construct the organizational reality it would be asked to
+              reason about.
+            </p>
+            <p>
+              The first architectural decision was to model the patient and
+              revenue journey across organizational boundaries rather than
+              begin with a single department or dataset. I defined a Golden
+              Thread:
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div
+          class="process"
+          role="group"
+          aria-label="The Golden Thread, in order: Acquisition, Inquiry, Financial Qualification, Admission, Treatment, Revenue"
+        >
+          <div class="process__rail" aria-hidden="true">
+            <span class="process__rail-fill"></span>
+            {goldenThreadStages.map(() => (
+              <span class="process__tick"></span>
+            ))}
+          </div>
+          <div class="process__grid">
+            {goldenThreadStages.map((stage) => (
+              <div class="process__node">
+                <span class="process__label">{stage}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p>
+              That thread established what the Evidence Engine ultimately
+              needed to reason across. A marketing campaign could produce an
+              inquiry. That inquiry could become an opportunity. Financial
+              qualification could affect whether the opportunity became an
+              admission. The admission could become a treatment episode.
+              Treatment could generate claims and collections. An executive
+              question about declining census could therefore have an
+              upstream marketing cause, a financial-clearance cause, an
+              admissions cause, a downstream revenue implication, or some
+              combination of them.
+            </p>
+            <p>
+              The Source-System Map was also built around four ways that an
+              organization's ability to understand that journey can degrade:
+              Observability, Identity, Attribution, and Outcome-Linkage Loss.
+            </p>
+            <p>
+              The objective was not simply to create enough tables to
+              demonstrate SQL or AI analysis. It was to create a relational
+              environment in which a business question could require
+              evidence from multiple stages of an operating system.
+            </p>
+            <p>
+              From that architecture came a frozen Minimum Viable Data
+              Dictionary and an 11-table relational schema. The schema was
+              subjected to a 22-test constraint suite covering structural
+              integrity, conditional rules, foreign keys, enumerated values,
+              booleans, and a complete eight-step Golden Thread insert.
+            </p>
+            <p>This sequence was deliberate.</p>
+            <p>
+              I did not want to generate a dataset first and invent an
+              organizational explanation for it afterward. The operating
+              model came first. The data model followed it. The analytical
+              test would come later.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Building and Validating the Environment (NAVY) — §3-5 -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark" id="building-and-validating-the-environment">Building and Validating the Environment</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">Once the architecture existed, I built the synthetic Harbor Ridge dataset.</p>
+            <p class="on-dark-body">
+              The baseline dataset was validated in three independent ways:
+              structural integrity, dual reproducibility, and domain
+              realism. I then manually inspected the exported CSV data
+              rather than treating automated validation as sufficient.
+            </p>
+
+            <div class="notice notice--on-dark">
+              <p>
+                That inspection found two genuine defects: a level-of-care
+                transition timing variance and an At-Risk Admission
+                rebalancing bias. Both were corrected before the baseline
+                was accepted.
+              </p>
+            </div>
+
+            <p class="on-dark-body">
+              That experience established an important pattern for the rest
+              of the project: validation had to be capable of changing the
+              work.
+            </p>
+            <p class="on-dark-body">
+              A review step that could never produce a correction would
+              provide little protection against my own assumptions.
+            </p>
+            <p class="on-dark-body">
+              The baseline alone, however, could not tell me whether an AI
+              reasoning system could discover a known operational
+              deterioration. To test that, I needed scenarios in which I
+              knew what was wrong before the AI ever saw the data.
+            </p>
+            <p class="on-dark-body">So I built two.</p>
+
+            <h3 class="subhead subhead--on-dark">Scenario 1: paid-search inquiry-quality deterioration</h3>
+            <p class="on-dark-body">Scenario 1 introduced deterioration through paid-search inquiry quality.</p>
+            <p class="on-dark-body">
+              Before implementing it, I verified the funnel-dilution
+              mathematics by hand. The scenario was then built into the
+              generation process itself rather than imposed afterward as a
+              post-hoc mutation of completed data.
+            </p>
+            <p class="on-dark-body">Review caught two substantive problems.</p>
+            <p class="on-dark-body">The first was a demotion-logic leak.</p>
+            <p class="on-dark-body">
+              The second was more revealing: <strong>May anchoring</strong>.
+              A noisy control month was being used in a way that inflated
+              downstream measurements. That meant a scenario could appear to
+              contain the intended deterioration while some of its apparent
+              strength was actually an artifact of the implementation.
+            </p>
+            <p class="on-dark-body">
+              I corrected the scenario rather than accepting a result simply
+              because it moved in the desired direction.
+            </p>
+            <p class="on-dark-body">
+              This became important later. Harbor Ridge was designed to test
+              whether an AI could find a hidden problem, but that test would
+              mean very little if I were willing to make the hidden problem
+              artificially easy to find.
+            </p>
+
+            <h3 class="subhead subhead--on-dark">Scenario 2: professional-outreach quality deterioration</h3>
+            <p class="on-dark-body">Scenario 2 introduced deterioration through professional outreach.</p>
+            <p class="on-dark-body">
+              Here I added another control: a mandatory
+              500,000-draw-per-month mechanism-verification gate. The
+              stochastic mechanism had to converge within ±0.25 percentage
+              points of its theoretical targets before any real seed could
+              be run.
+            </p>
+            <p class="on-dark-body">
+              This scenario also produced one of the most consequential
+              judgment calls in the project.
+            </p>
+            <p class="on-dark-body">
+              A real validation failure appeared during development. A
+              command was prepared that would have searched across seeds
+              for a different result.
+            </p>
+
+            <div class="notice notice--on-dark">
+              <p><strong>I stopped it before it ran.</strong></p>
+              <p>
+                The problem was not that seed selection is inherently
+                illegitimate. The problem was what seed searching would have
+                meant in this experimental context. Once a real validation
+                failure had appeared, searching for a seed that made the
+                scenario pass risked selecting data based on the result I
+                wanted rather than fixing the mechanism or validation rule
+                responsible for the failure.
+              </p>
+              <p>
+                So the command was not executed. I went back and corrected
+                the validation rule instead.
+              </p>
+            </div>
+
+            <p class="on-dark-body">
+              That moment matters more to the methodology than a generic
+              claim that the project was "rigorous." Rigor is easy to claim
+              after a clean result. It becomes meaningful when following it
+              costs you the result you were hoping to obtain.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Freezing Ground Truth (LIGHT) — §6 -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading" id="freezing-ground-truth">Freezing Ground Truth</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>
+              With the scenarios constructed and validated, I created a
+              Ground-Truth Answer Key.
+            </p>
+            <p>
+              The Ground Truth was sourced from the two frozen scenario
+              specifications and each scenario's actual real-seed validation
+              results, not merely their theoretical targets. Most
+              importantly, it was frozen before any AI analysis began.
+            </p>
+
+            <div class="notice">
+              <p>
+                The Freeze Rule was explicit: the answer key could never be
+                revised based on what later AI analysis found or failed to
+                find.
+              </p>
+            </div>
+
+            <p>That created the boundary the evaluation needed.</p>
+            <p>
+              Once the AI began analyzing Harbor Ridge, I could improve
+              future methods, examine why something failed, or design a
+              later experiment. I could not redefine what counted as the
+              correct answer simply because the system had produced a
+              compelling alternative explanation.
+            </p>
+            <p>That distinction would become central to interpreting what happened next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. The First Blind Evaluation — V0.1 (LIGHT, Steel Gray Surface band
+         for editorial separation from the adjacent light section above) — §7-9 -->
+    <section class="section section--surface">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading" id="the-first-blind-evaluation">The First Blind Evaluation — V0.1</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>The first blind evaluation used two isolated environments, one for each scenario.</p>
+            <p>Each environment existed outside the Git repository and contained only three things:</p>
+            <ul class="plain-list">
+              <li>the relevant scenario database,</li>
+              <li>a Neutral Analyst Brief containing a field glossary but no analytical guidance,</li>
+              <li>and frozen analytical Operating Instructions.</li>
+            </ul>
+            <p>
+              The objective was to create a realistic executive-analysis
+              setting without exposing the AI to scenario specifications,
+              Ground Truth, project history, or other information that
+              would reveal what it was expected to find.
+            </p>
+            <p>The results were mixed.</p>
+            <p>
+              <strong>Scenario 1 produced partial detection</strong>, but the
+              analysis failed to localize the problem correctly at the
+              campaign level.
+            </p>
+            <p>
+              <strong>Scenario 2 was a clear miss.</strong> More seriously,
+              the analysis reached the opposite rep-level conclusion from
+              the frozen Ground Truth.
+            </p>
+            <p>But something else happened.</p>
+            <p>
+              Both blind sessions independently surfaced a substantial
+              difference between out-of-network and in-network claims
+              realization. That pattern was not one of the deliberately
+              planted scenario failures.
+            </p>
+            <p>It was real.</p>
+            <p>
+              The finding was later traced to the shared baseline-generator
+              code, confirming that the analysis had discovered a genuine
+              characteristic of the synthetic organization rather than
+              hallucinating an unsupported relationship.
+            </p>
+            <p>That created a problem of interpretation.</p>
+            <p>
+              If the AI missed the benchmark but found something
+              economically meaningful that I had not planted, had it
+              succeeded?
+            </p>
+            <p>The answer depended on what "success" meant.</p>
+            <p>
+              I eventually formalized that distinction rather than allowing
+              the most favorable interpretation to win.
+            </p>
+
+            <p>
+              The claims-realization disparity became one of Harbor Ridge's
+              strongest Observed Findings. The original blind analysis
+              estimated "an estimated $251,000 additional collections
+              opportunity if out-of-network claims had realized at the
+              in-network rate."
+            </p>
+            <p>
+              During Workstream B, I reconstructed that claim from first
+              principles before building its public evidence trail. That
+              reconstruction caught another real problem: an early
+              implementation specification had conflated
+              <strong>allowed amount</strong> with
+              <strong>collections realization</strong>. Those are not the
+              same metric. The claim was corrected before implementation and
+              verified against the actual Scenario 1 database.
+            </p>
+            <p>The underlying numbers were:</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="table-wrap">
+          <table class="figures-table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Billed</th>
+                <th scope="col">Collected</th>
+                <th scope="col">Realization Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">INN claims</th>
+                <td>{fmtUsd(summary.inn_billed_total)}</td>
+                <td>{fmtUsd(summary.inn_collected_total)}</td>
+                <td>{fmtPct(summary.inn_collection_realization_rate)}</td>
+              </tr>
+              <tr>
+                <th scope="row">OON claims</th>
+                <td>{fmtUsd(summary.oon_billed_total)}</td>
+                <td>{fmtUsd(summary.oon_collected_total)}</td>
+                <td>{fmtPct(summary.oon_collection_realization_rate)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p>
+              Applying the INN realization rate to OON billed claims
+              produces expected OON collections of {fmtUsd(summary.expected_oon_collections_at_inn_rate)}.
+              Subtract actual OON collections of {fmtUsd(summary.oon_collected_total)},
+              and the calculated gap is <strong>{fmtUsd(summary.estimated_gap)}</strong> —
+              independently reproducing the frozen blind analysis's "roughly
+              $251,000" estimate within rounding.
+            </p>
+            <p>
+              I then built a deterministic exporter that reads only from the
+              Scenario 1 database. Repeated executions produced
+              byte-identical JSON with matching SHA-256 hashes. The
+              accompanying Evidence Trail page presents the transformation
+              chain first — billed → collected → realization rate →
+              counterfactual → estimated gap — and only after showing that
+              arithmetic does it expose the underlying claim-level records.
+            </p>
+            <p>
+              <a class="cta" href="/evidence-trail">Explore the Evidence Trail — full forensic chain and claim-level records →</a>
+            </p>
+            <p>
+              This is useful analytical work. It is also
+              <strong>not evidence that the AI passed the Harbor Ridge
+              benchmark</strong>. That distinction is important enough to
+              have its own vocabulary:
+            </p>
+
+            <dl class="taxonomy">
+              <div class="taxonomy__item">
+                <dt>Observed Finding</dt>
+                <dd>A real pattern the analysis surfaced — not necessarily a planted failure.</dd>
+              </div>
+              <div class="taxonomy__item">
+                <dt>Benchmark Result</dt>
+                <dd>The formal outcome of testing whether a planted, hidden problem was recovered.</dd>
+              </div>
+              <div class="taxonomy__item">
+                <dt>Control Result</dt>
+                <dd>The formal outcome of the Healthy Baseline negative-control test — whether the system stayed quiet when no planted failure was present.</dd>
+              </div>
+            </dl>
+
+            <p>
+              The V0.1 results suggested that the AI could reason carefully
+              about the data while still failing to search the problem
+              space effectively enough to recover the hidden deterioration.
+              Scenario 1 was only partially detected. Scenario 2 was missed.
+              Yet both sessions independently found the unplanted OON
+              economic disparity.
+            </p>
+            <p>
+              Rather than treat that ambiguity as a favorable result, I
+              redesigned the evaluation. The question for V0.2 was not
+              simply whether a better prompt could make the AI produce the
+              Ground Truth answer — that would have created another route
+              for tuning the test around known answers. Instead, the next
+              procedure needed to be defined and frozen before the new blind
+              analyses were run.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. The Governing Evaluation — V0.2 (NAVY) — §10-12 -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark" id="the-governing-evaluation">The Governing Evaluation — V0.2</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">V0.2 began with a frozen Evaluation Interpretation Protocol.</p>
+            <p class="on-dark-body">
+              The protocol defined Pass, Partial, and Miss for known
+              scenarios and Clean, Borderline, and False Positive for a
+              Healthy Baseline negative control. It also included a
+              complete preregistered outcome matrix.
+            </p>
+            <p class="on-dark-body">
+              The discovery procedure itself was produced in a blind
+              procedure-designer session conducted in an Incognito chat
+              with zero Harbor Ridge context. I then subjected that generic
+              procedure to two independent audits, one by Claude and one by
+              ChatGPT, without either seeing the other's conclusion first.
+              Both audits returned <strong>10/10 PASS</strong>. Only then
+              was the procedure frozen exactly as generated.
+            </p>
+            <p class="on-dark-body">
+              The design now included three blind tests rather than two —
+              Scenario 1 (known paid-search deterioration), Scenario 2
+              (known professional-outreach deterioration), and the Healthy
+              Baseline (no planted deterioration). Each was analyzed in a
+              fresh isolated session with zero coaching. One technical
+              intervention was required for a display/export problem, but
+              it was logged and did not alter analytical content. All three
+              outputs were frozen before scoring began.
+            </p>
+            <p class="on-dark-body">Now the procedure had to live with whatever happened.</p>
+            <p class="on-dark-body">The final results were:</p>
+          </div>
+        </div>
+
+        <dl class="reckoning">
+          <div class="reckoning__item">
+            <dt>Scenario 1</dt>
+            <dd>MISS</dd>
+          </div>
+          <div class="reckoning__item">
+            <dt>Scenario 2</dt>
+            <dd>MISS</dd>
+          </div>
+          <div class="reckoning__item">
+            <dt>Healthy Baseline</dt>
+            <dd>CLEAN</dd>
+          </div>
+        </dl>
+
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              Those are the governing Harbor Ridge benchmark results. The AI
+              did not recover either deliberately planted failure under the
+              final V0.2 procedure.
+            </p>
+            <p class="on-dark-body">
+              The Healthy Baseline result matters too. The procedure did not
+              manufacture a localized problem where none had deliberately
+              been introduced. But that Clean result does
+              <strong>not</strong> establish general reliability. It is a
+              Control Result, not proof that the system can reliably
+              distinguish healthy from unhealthy organizations in general.
+            </p>
+            <p class="on-dark-body">
+              More interestingly, the two scenario failures were not simple
+              cases in which the AI shrugged and found nothing. They were
+              <strong>affirmative mis-detections</strong>. In Scenario 1,
+              the blind analysis elevated a professional-outreach finding,
+              the same broad business domain in which Scenario 2's actual
+              planted failure existed. In Scenario 2, the blind analysis
+              elevated a paid-search finding, the broad business domain in
+              which Scenario 1's planted failure existed. I refer to this
+              as <strong>crossed localization</strong>.
+            </p>
+            <p class="on-dark-body">
+              That description requires precision. Scenario 1 did
+              <strong>not</strong> discover Scenario 2's specific hidden
+              problem, nor did Scenario 2 discover Scenario 1's specific
+              hidden problem. The entities and details did not match. What
+              crossed was the business domain of the elevated incidental
+              finding.
+            </p>
+            <p class="on-dark-body">
+              This made V0.2 categorically different from a failure to
+              detect anything. The system found patterns, prioritized them,
+              and reached conclusions. In both known scenarios, those
+              conclusions substantially contradicted the actual frozen
+              deterioration. That is a more consequential limitation than
+              simply saying, "the AI missed."
+            </p>
+            <p class="on-dark-body">
+              At this point there was an obvious temptation: change the
+              procedure and try again. There were also plausible reasons to
+              do so. V0.1 had shown partial detection in Scenario 1. V0.2's
+              procedure had passed independent genericity audits. The blind
+              analyses had demonstrated useful analytical behavior elsewhere
+              in the data. A third iteration might have produced better
+              benchmark performance.
+            </p>
+            <p class="on-dark-body">
+              But a project like this becomes less informative if every
+              unfavorable evaluation is followed immediately by another test
+              until the desired result appears. The final V0.2 procedure had
+              been designed before execution, independently audited, frozen,
+              run in isolated environments, and scored against a
+              preregistered interpretation protocol.
+            </p>
+            <p class="on-dark-body">It missed both planted failures.</p>
+            <p class="on-dark-body">So I kept the misses.</p>
+            <p class="on-dark-body">
+              That decision should not be interpreted as evidence that the
+              Evidence Engine is reliable because its evaluation process was
+              honest. Those are different propositions. The honest handling
+              of V0.2 demonstrates the <strong>integrity of the development
+              and evaluation process and my judgment as the builder</strong>.
+              It does not transform MISS/MISS/CLEAN into evidence of
+              analytical reliability. That distinction is part of the
+              methodology, not a disclaimer appended to it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Investigating the Result (LIGHT) — §13-14 -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading" id="investigating-the-result">Investigating the Result</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>Closing the benchmark did not mean refusing to investigate the result.</p>
+            <p>
+              I conducted a post-hoc paper diagnostic comparing Scenario 1's
+              planted evidence chain with the shared OON structural signal
+              that both V0.1 and V0.2 had elevated instead.
+            </p>
+            <p>One quantity changed the interpretation.</p>
+            <p>
+              The affected Scenario 1 cohort contained roughly 25 to 38
+              opportunities per month. On its face, that may sound like
+              enough volume for a systematic analytical procedure to detect
+              deterioration. But opportunity count was not the most relevant
+              statistical quantity.
+            </p>
+
+            <div class="notice">
+              <p>
+                The actual number of admissions inside that cohort was only
+                roughly three to eight per month. That is a much smaller
+                downstream signal and therefore a genuinely harder quantity
+                for a systematic procedure to distinguish from noise than
+                the raw cohort size initially suggests.
+              </p>
+            </div>
+
+            <p>
+              The closing diagnostic therefore leans structural. The
+              available evidence suggests the misses may be better explained
+              by the experimental signal-to-noise structure than by a simple
+              defect in the discovery procedure. But that conclusion is
+              <strong>not decisive proof</strong>. The diagnostic was
+              post-hoc. It provides a directional interpretation, not a new
+              benchmark result.
+            </p>
+            <p>
+              The correct conclusion is therefore not that the procedure was
+              fundamentally incapable, nor that the test was unfair, nor
+              that another prompt would have solved the problem. The
+              unresolved question remains unresolved.
+            </p>
+            <p>The natural next experiment would be V0.3. It has been deferred until after launch.</p>
+            <p>
+              That decision should not be read as a conclusion that the
+              underlying approach is unworkable. It is a project-priority
+              decision. The project had reached a point where another
+              analytical iteration would compete with the work required to
+              turn the existing evidence into a usable public demonstration.
+            </p>
+            <p>So I froze the V1 analytical core.</p>
+            <p>
+              The Source-System architecture, Data Dictionary, schema,
+              generator, three databases, Ground Truth, Neutral Analyst
+              Brief, V0.2 discovery procedure, and Phase D evaluation
+              artifacts are locked. The governing rule is simple: new views
+              of existing data are permitted. New analytical reality is
+              not.
+            </p>
+            <p>
+              That means subsequent work can make the evidence easier to
+              inspect, understand and challenge. It cannot manufacture
+              another scenario, alter the existing data, revise Ground
+              Truth, or quietly redefine what happened in Phase D. V0.3
+              remains future work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. What This Demonstrates, and What Remains Open (NAVY) — §15-19 -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark" id="what-this-demonstrates">What This Demonstrates, and What Remains Open</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              The Harbor Ridge result is more useful when separated into its
+              evidence categories.
+            </p>
+
+            <h3 class="subhead subhead--on-dark">Observed Finding</h3>
+            <p class="on-dark-body">
+              Blind analysis surfaced a genuine OON-vs-INN
+              collections-realization disparity. That finding was
+              independently reconstructed from the frozen database and
+              quantified as an estimated {fmtUsd(summary.estimated_gap)}
+              additional OON collections opportunity under the stated
+              counterfactual that OON claims realized at the INN rate.
+            </p>
+
+            <h3 class="subhead subhead--on-dark">Benchmark Result</h3>
+            <p class="on-dark-body">
+              Under the final governing V0.2 evaluation: Scenario 1 MISS,
+              Scenario 2 MISS. The Evidence Engine did not reliably recover
+              the two deliberately hidden Harbor Ridge failures.
+            </p>
+
+            <h3 class="subhead subhead--on-dark">Control Result</h3>
+            <p class="on-dark-body">
+              Healthy Baseline: CLEAN. The frozen procedure did not produce
+              a localized false problem in that negative-control test.
+            </p>
+
+            <p class="on-dark-body">
+              Those results coexist. The Observed Finding does not convert
+              the benchmark misses into successes. The benchmark misses do
+              not erase the legitimate Observed Finding. The Healthy
+              Baseline does not establish general reliability. That is the
+              characterization Harbor Ridge supports.
+            </p>
+
+            <p class="on-dark-body">
+              The HEOS Evidence Engine V1 is an AI reasoning system for
+              evidence-based executive performance analysis that I built
+              and tested through Harbor Ridge. It should not be presented as
+              a production-validated, generally reliable, autonomous
+              diagnostic system. Harbor Ridge demonstrated specific
+              analytical capabilities and exposed specific limitations under
+              controlled synthetic conditions. Claims about V1 need to
+              remain bounded by that evidence.
+            </p>
+            <p class="on-dark-body">
+              That also defines what I mean by portability. I would not
+              claim that Harbor Ridge itself is portable to another
+              healthcare vertical. It isn't. What is portable is the build
+              process: source-system mapping → data dictionary → schema →
+              synthetic data → scenario design → frozen Ground Truth →
+              blind evaluation. For another organization, that process would
+              have to be rebuilt around its actual operational reality. The
+              Harbor Ridge schema is not the universal model. Its synthetic
+              facility is not a generic healthcare template. Its benchmark
+              results do not automatically transfer to another setting.
+            </p>
+            <p class="on-dark-body">
+              The demonstrated capability is that I have already executed
+              the complete process once, including the uncomfortable parts
+              where validation and evaluation required me to correct my own
+              work or retain results I would have preferred to improve.
+            </p>
+
+            <p class="on-dark-body">
+              It would be easy to reduce Harbor Ridge to a question of
+              whether the AI got the right answer. That would miss much of
+              what the project actually tested. The Evidence Engine's output
+              sits at the end of a longer chain of decisions:
+            </p>
+
+            <ol class="plain-list plain-list--numbered">
+              {decisionChain.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ol>
+
+            <p class="on-dark-body">
+              Several of the project's most important corrections occurred
+              outside the AI analysis itself.
+            </p>
+            <p class="on-dark-body">Manual baseline inspection found data defects.</p>
+            <p class="on-dark-body">Scenario review found demotion logic and May-anchoring problems.</p>
+            <p class="on-dark-body">
+              Scenario 2 development produced a seed-search near-miss that
+              was stopped before execution.
+            </p>
+            <p class="on-dark-body">
+              Workstream B reconstruction caught an allowed-amount versus
+              collections-realization conflation before implementation.
+            </p>
+            <p class="on-dark-body">
+              V0.2 produced MISS/MISS/CLEAN despite a more rigorously
+              controlled discovery procedure.
+            </p>
+            <p class="on-dark-body">
+              Those moments are not blemishes to remove from the project
+              narrative. They are evidence that the controls were capable of
+              doing their job.
+            </p>
+
+            <p class="on-dark-body">Harbor Ridge V1 does not answer every question it raises.</p>
+            <p class="on-dark-body">
+              The closing diagnostic suggests that signal-to-noise structure
+              may have contributed materially to the V0.2 misses,
+              particularly because the relevant downstream admission counts
+              in Scenario 1 were only roughly three to eight per month. But
+              that explanation remains directional rather than decisive.
+            </p>
+            <p class="on-dark-body">
+              V0.3 has not yet tested whether a revised experimental design
+              or discovery approach would improve Ground-Truth recovery.
+            </p>
+            <p class="on-dark-body">
+              The Healthy Baseline produced a Clean control result, but a
+              single negative-control result cannot establish general
+              analytical reliability.
+            </p>
+            <p class="on-dark-body">
+              And the legitimate $251K Observed Finding demonstrates that
+              blind analysis can surface economically meaningful patterns in
+              this synthetic environment, but it does not establish that the
+              Evidence Engine will reliably identify the correct root cause
+              of executive performance deterioration.
+            </p>
+            <p class="on-dark-body">
+              Those boundaries are part of the result. If future work
+              changes them, it should do so through another explicitly
+              designed and frozen evaluation, not through stronger language
+              applied to the evidence already collected.
+            </p>
+
+            <p class="on-dark-body">Harbor Ridge began with an organizational disagreement.</p>
+            <p class="on-dark-body">
+              Marketing had one explanation. Admissions had another. The
+              executive problem existed precisely because surface metrics
+              were insufficient to determine which explanation deserved
+              confidence. Building the Evidence Engine forced the same
+              discipline onto the project itself.
+            </p>
+            <p class="on-dark-body">When the data generator appeared correct, I tested it.</p>
+            <p class="on-dark-body">When a scenario produced the desired deterioration, I inspected how it had produced it.</p>
+            <p class="on-dark-body">When a validation failure appeared, I stopped rather than search for a friendlier seed.</p>
+            <p class="on-dark-body">When blind analysis found a compelling $251K opportunity, I separated that finding from benchmark success.</p>
+            <p class="on-dark-body">When V0.2 missed both planted failures, I kept the misses.</p>
+            <p class="on-dark-body">And when the closing diagnostic offered a plausible explanation, I labeled it directional rather than decisive.</p>
+
+            <p class="on-dark-body">
+              That is the central methodology behind Harbor Ridge V1: define
+              the problem, construct the evidence, freeze the standard, test
+              blindly, inspect what happened, and preserve the distinction
+              between what the evidence demonstrates and what we would like
+              it to demonstrate.
+            </p>
+            <p class="on-dark-body">
+              The result is not a story in which an AI system solved every
+              problem placed in front of it. It is a higher-resolution
+              account of something more useful: an AI reasoning system that
+              produced a genuine, economically meaningful finding; a
+              controlled benchmark that exposed where that same system
+              failed; and a development process designed to preserve both
+              results without collapsing one into the other.
+            </p>
+            <p class="on-dark-body">That is what Harbor Ridge V1 tested and characterized.</p>
+          </div>
+        </div>
+
+        <p class="back-to-top"><a href="#top">Back to Top ↑</a></p>
+      </div>
+    </section>
+
+    <!-- 10. Go Deeper (LIGHT) -->
+    <section class="section section--deeper">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">Go Deeper</h2>
+          </div>
+        </div>
+
+        <ol class="index-list index-list--light">
+          <li class="index-list__item">
+            <a href="/evidence">
+              <span class="index-list__num" aria-hidden="true">01</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Evidence</span>
+                <span class="index-list__desc">what each result category means, and where the $251K finding sits</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="/evidence-trail">
+              <span class="index-list__num" aria-hidden="true">02</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Evidence Trail</span>
+                <span class="index-list__desc">the full forensic arithmetic behind the $251K finding, live</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="/methodology-evaluation">
+              <span class="index-list__num" aria-hidden="true">03</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Methodology &amp; Evaluation</span>
+                <span class="index-list__desc">the executive-level account of this same evaluation</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="/portability-lessons">
+              <span class="index-list__num" aria-hidden="true">04</span>
+              <span class="index-list__content">
+                <span class="index-list__title">Portability &amp; Lessons</span>
+                <span class="index-list__desc">what would and wouldn't transfer elsewhere</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
   </main>
 
   <style>
-    .placeholder {
-      max-width: 1100px;
+    /* ---------------------------------------------------------------
+       Canvas/measure/rhythm — transferred from the frozen site visual
+       system, redeclared here since Astro scopes each page's own
+       styles. No new palette, spacing, or type-scale values introduced.
+       --------------------------------------------------------------- */
+    .shell {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: var(--space-8) var(--space-4);
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
     }
 
-    .placeholder__inner {
-      max-width: 70ch;
+    .shell + .shell {
+      margin-top: var(--space-5);
     }
 
-    .placeholder h1 {
+    .measure {
+      max-width: 68ch;
+    }
+
+    .section {
+      padding: clamp(var(--space-7), 9vw, var(--space-8)) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    main > .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-heading {
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: var(--text-h1);
+      font-weight: 600;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-4) 0;
+      scroll-margin-top: var(--space-5);
+    }
+
+    .section-heading--on-dark {
+      color: var(--color-white);
+    }
+
+    .section p {
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-slate-text-secondary);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .page-h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
       line-height: var(--line-height-heading);
       margin: 0 0 var(--space-4) 0;
     }
 
-    .placeholder a {
+    /* ---------------------------------------------------------------
+       Two-tone H1 — Round 2 revision: brings the Hero into the
+       two-tone convention used elsewhere on the site (Evidence's own
+       page-h1__lead/__continuation, reused verbatim). Two complete
+       sentences, each its own block-level row; both share identical
+       font-size/weight/line-height, color is the only distinction.
+       --------------------------------------------------------------- */
+    .page-h1__lead,
+    .page-h1__continuation {
+      display: block;
+    }
+
+    .page-h1__lead {
       color: var(--color-sovereign-navy);
+    }
+
+    .page-h1__continuation {
+      color: var(--color-quantum-electric-blue);
+    }
+
+    /* ---------------------------------------------------------------
+       Hero H2 — the former single-tone H1 copy, now subordinate to the
+       new two-tone H1 above it. Sovereign Navy (no new color token);
+       var(--text-h2) is the existing section-heading size — larger
+       than body/lead but visibly smaller than the H1 above it; aligned
+       to the same 68ch measure as the supporting paragraph below it.
+       --------------------------------------------------------------- */
+    .hero-subheading {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
+      max-width: 68ch;
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section--intro {
+      padding-bottom: clamp(var(--space-6), 7vw, var(--space-7));
+    }
+
+    .lead {
+      font-size: var(--text-lead);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    .intro-lead {
+      max-width: 68ch;
+    }
+
+    .section--dark {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+    }
+
+    .section--dark :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .on-dark-body {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .on-dark-body strong {
+      color: var(--color-white);
+      font-weight: 700;
+    }
+
+    /* ---------------------------------------------------------------
+       Editorial row — the site-wide label-rail-plus-body device,
+       redeclared at the same breakpoint/values as every other page.
+       --------------------------------------------------------------- */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--space-4);
+    }
+
+    .editorial__label .section-heading {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 900px) {
+      .editorial {
+        grid-template-columns: minmax(160px, 20%) minmax(0, 1fr);
+        column-gap: var(--space-6);
+        align-items: start;
+      }
+
+      .editorial--continuation .editorial__body {
+        grid-column: 2;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Table of Contents — new, minimal (spec §9, item 1). Plain
+       stacked anchor list; deliberately not sticky at any width.
+       Round 2 revision: this section is now NAVY (.section--dark,
+       applied in markup) — foreground swapped to the existing
+       dark-surface tokens already used throughout this page (white
+       link text, navy-muted-on-dark idle underline brightening to
+       white on hover/focus — the same idle/hover pairing as the
+       light-mode version below, just the dark-surface token pair).
+       No new color or component introduced.
+       --------------------------------------------------------------- */
+    .section--toc {
+      padding-top: clamp(var(--space-5), 5vw, var(--space-6));
+      padding-bottom: clamp(var(--space-5), 5vw, var(--space-6));
+    }
+
+    .eyebrow--on-dark {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .toc-list {
+      list-style: decimal;
+      margin: 0;
+      padding-left: 1.25em;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      max-width: 60ch;
+    }
+
+    .toc-list a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-body);
+      color: var(--color-sovereign-navy);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      text-decoration-color: var(--color-slate-border);
+    }
+
+    .toc-list a:hover,
+    .toc-list a:focus-visible {
+      text-decoration-color: var(--color-sovereign-navy);
+    }
+
+    .toc-list--on-dark a {
+      color: var(--color-white);
+      text-decoration-color: var(--color-navy-muted-on-dark);
+    }
+
+    .toc-list--on-dark a:hover,
+    .toc-list--on-dark a:focus-visible {
+      text-decoration-color: var(--color-white);
+    }
+
+    /* ---------------------------------------------------------------
+       Restrained inline notice — new, minimal (spec §9, item 2). A
+       lighter-weight visual cousin of the chip/finding treatment, used
+       at exactly four points (see frontmatter note). Deliberately not
+       Home's large .callout pull-quote — this must read as "notice
+       this," not become a second visual centerpiece.
+       --------------------------------------------------------------- */
+    .notice {
+      background: var(--color-steel-gray-surface);
+      border-left: 3px solid var(--color-sovereign-navy);
+      border-radius: 0 8px 8px 0;
+      padding: var(--space-4) var(--space-5);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .notice p {
+      margin: 0 0 var(--space-3) 0;
+      color: var(--color-sovereign-navy);
+    }
+
+    .notice p:last-child {
+      margin-bottom: 0;
+    }
+
+    .notice--on-dark {
+      background: var(--color-navy-hover);
+      border-left-color: var(--color-quantum-electric-blue);
+    }
+
+    .notice--on-dark p {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .notice--on-dark p strong {
+      color: var(--color-white);
+    }
+
+    /* ---------------------------------------------------------------
+       Golden Thread — the same flat process-chain grammar as
+       Methodology & Evaluation's/Portability & Lessons' .process,
+       reused unmodified (6 stages, no result-tag treatment — this
+       isn't ending in a benchmark outcome).
+       --------------------------------------------------------------- */
+    .process {
+      position: relative;
+      background: var(--color-steel-gray-surface);
+      border-radius: 16px;
+      padding: var(--space-6) var(--space-5) var(--space-5);
+    }
+
+    .process__rail {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      height: 20px;
+      margin-bottom: var(--space-4);
+    }
+
+    .process__rail-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: var(--color-sovereign-navy);
+      transform: translateY(-50%);
+    }
+
+    .process__tick {
+      justify-self: center;
+      align-self: center;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--color-sovereign-navy);
+      z-index: 1;
+    }
+
+    .process__grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: var(--space-3);
+    }
+
+    .process__node {
+      padding-left: var(--space-3);
+      border-left: 1px solid var(--color-slate-border);
+    }
+
+    .process__node:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .process__label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      line-height: 1.3;
+      color: var(--color-sovereign-navy);
+    }
+
+    @media (max-width: 899px) {
+      .process {
+        padding: var(--space-5) var(--space-4);
+      }
+
+      .process__rail {
+        display: none;
+      }
+
+      .process__grid {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-4);
+        border-left: 2px solid var(--color-sovereign-navy);
+      }
+
+      .process__node {
+        position: relative;
+        padding: 0 0 0 var(--space-4);
+        border-left: none;
+      }
+
+      .process__node:first-child {
+        padding-left: var(--space-4);
+      }
+
+      .process__node::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 0.35em;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--color-sovereign-navy);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Subheadings within a section (the three evidence-category
+       subheads in §15, the two scenario subheads in §4/§5) — a small
+       typographic step, not a new component: reuses the same
+       font-family/weight/size relationship .taxonomy__item dt already
+       establishes for a labeled sub-point within body copy.
+       --------------------------------------------------------------- */
+    .subhead {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      color: var(--color-sovereign-navy);
+      margin: var(--space-2) 0 var(--space-2) 0;
+    }
+
+    .subhead--on-dark {
+      color: var(--color-white);
+    }
+
+    /* ---------------------------------------------------------------
+       Plain lists — the "three things" environment list and the
+       nine-item decision chain (§17): ordinary styled lists, not a
+       process chain (these are a narrative recap/enumeration, not
+       sequential stages with a destination).
+       --------------------------------------------------------------- */
+    .plain-list {
+      margin: 0 0 var(--space-4) 0;
+      padding-left: 1.25em;
+      color: var(--color-slate-text-secondary);
+    }
+
+    .plain-list li {
+      margin: 0 0 var(--space-2) 0;
+    }
+
+    .plain-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .on-dark-body + .plain-list--numbered,
+    .plain-list--numbered {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    /* ---------------------------------------------------------------
+       Result-Taxonomy definitions — light-surface variant, identical
+       wording and structure to Evidence's own (already-corrected)
+       taxonomy component, redeclared here since Astro scopes CSS per
+       page.
+       --------------------------------------------------------------- */
+    .taxonomy {
+      margin: 0 0 var(--space-5) 0;
+      padding: 0;
+      border-top: 1px solid var(--color-slate-border);
+    }
+
+    .taxonomy__item {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    .taxonomy__item dt {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-2) 0;
+    }
+
+    .taxonomy__item dd {
+      margin: 0;
+      color: var(--color-slate-text-secondary);
+    }
+
+    /* ---------------------------------------------------------------
+       Compact $251K figures table — bounded-scroll-container discipline
+       transferred from Evidence Trail's claim-level table, applied
+       defensively here even though this table is small.
+       --------------------------------------------------------------- */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--color-slate-border);
+      border-radius: 8px;
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .figures-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 480px;
+      font-size: var(--text-small);
+    }
+
+    .figures-table th,
+    .figures-table td {
+      border-bottom: 1px solid var(--color-slate-border);
+      padding: var(--space-2) var(--space-3);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .figures-table thead th {
+      background: var(--color-steel-gray-surface);
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--color-sovereign-navy);
+    }
+
+    .figures-table tbody th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--color-sovereign-navy);
+      background: var(--color-white);
+    }
+
+    .figures-table td {
+      color: var(--color-slate-text-secondary);
+      font-variant-numeric: tabular-nums;
+      background: var(--color-white);
+    }
+
+    .figures-table tbody tr:last-child th,
+    .figures-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ---------------------------------------------------------------
+       The Governing Evaluation — dl.reckoning MISS/MISS/CLEAN, the
+       exact component already live on Home and Methodology &
+       Evaluation: equal visual weight, no color-coding.
+       --------------------------------------------------------------- */
+    .reckoning {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: var(--space-6) 0 clamp(var(--space-7), 8vw, var(--space-8)) 0;
+      padding: 0;
+      border-top: 1px solid var(--color-navy-muted-on-dark);
+      border-bottom: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .reckoning__item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-5) 0;
+      border-top: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .reckoning__item:first-child {
+      border-top: none;
+    }
+
+    .reckoning__item dt {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-navy-muted-on-dark);
+      margin: 0;
+    }
+
+    .reckoning__item dd {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(3.5rem, 2.4rem + 6vw, 8rem);
+      line-height: 1;
+      color: var(--color-white);
+      letter-spacing: 0.01em;
+    }
+
+    @media (min-width: 640px) {
+      .reckoning {
+        grid-template-columns: repeat(3, 1fr);
+        padding: var(--space-6) 0;
+        container-type: inline-size;
+      }
+
+      .reckoning__item {
+        border-top: none;
+        padding: 0 var(--space-5);
+        border-left: 1px solid var(--color-navy-muted-on-dark);
+      }
+
+      .reckoning__item:first-child {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .reckoning__item dd {
+        font-size: clamp(2.5rem, -2.36rem + 14cqi, 8rem);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Freezing Ground Truth -> The First Blind Evaluation: both LIGHT
+       (spec §4 explicitly approves this adjacency). Editorial
+       separation comes from the preceding section's own border-bottom
+       (unchanged/default — not suppressed) plus this section's Steel
+       Gray Surface tonal band, rather than an arbitrary inserted NAVY
+       section.
+       --------------------------------------------------------------- */
+    .section--surface {
+      background: var(--color-steel-gray-surface);
+    }
+
+    /* ---------------------------------------------------------------
+       Back to Top — simple affordance after the final content section.
+       --------------------------------------------------------------- */
+    .back-to-top {
+      margin: var(--space-6) 0 0 0;
+    }
+
+    .back-to-top a {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--text-small);
+      color: var(--color-white);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+
+    /* ---------------------------------------------------------------
+       Go Deeper — light-surface variant of the site's index-list
+       pattern (this section is LIGHT, per spec §4 row 10), redeclared
+       here since Astro scopes CSS per page.
+       --------------------------------------------------------------- */
+    .section--deeper {
+      padding-bottom: clamp(var(--space-8), 10vw, calc(var(--space-8) * 1.2));
+      margin-bottom: calc(-1 * var(--space-8));
+    }
+
+    .index-list {
+      list-style: none;
+      margin: var(--space-5) 0 var(--space-4) 0;
+      padding: 0;
+    }
+
+    .index-list--light .index-list__item {
+      border-top: 1px solid var(--color-slate-border);
+    }
+
+    .index-list--light .index-list__item:last-child {
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    .index-list--light .index-list__item a {
+      color: var(--color-sovereign-navy);
+    }
+
+    .index-list--light .index-list__num,
+    .index-list--light .index-list__desc,
+    .index-list--light .index-list__arrow {
+      color: var(--color-slate-text-secondary);
+    }
+
+    .index-list--light .index-list__item a:hover .index-list__arrow,
+    .index-list--light .index-list__item a:focus-visible .index-list__arrow {
+      color: var(--color-sovereign-navy);
+    }
+
+    .index-list__item a {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      text-decoration: none;
+      min-height: 44px;
+    }
+
+    .index-list__num {
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h3);
+      font-variant-numeric: tabular-nums;
+      min-width: 2ch;
+    }
+
+    .index-list__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .index-list__item a:hover .index-list__title,
+    .index-list__item a:focus-visible .index-list__title {
+      text-decoration: underline;
+    }
+
+    .index-list__title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-body);
+    }
+
+    .index-list__desc {
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+    }
+
+    .index-list__arrow {
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .index-list__item a:hover .index-list__arrow,
+    .index-list__item a:focus-visible .index-list__arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .index-list__arrow {
+        transition: none !important;
+      }
     }
   </style>
 </Layout>
