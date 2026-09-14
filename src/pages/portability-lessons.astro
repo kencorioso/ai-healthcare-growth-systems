@@ -11,9 +11,12 @@
 // Evidence Trail material, any standalone V0.3 section, and the seed-search
 // near-miss story — per the brief's §9 exclusions. All four "What I
 // Learned" lessons and the Analytical Limitations paragraphs are verbatim
-// from the brief, including "a result I didn't want" and "stayed clean
-// when nothing was wrong" — confirmed final wording, not placeholder text
-// awaiting correction.
+// from the brief, including "a result I didn't want" — confirmed final
+// wording, not placeholder text awaiting correction. The second lesson's
+// "stayed clean when nothing was wrong" was corrected post-launch (Claude
+// Chat reconciliation review) to "stayed clean when no planted failure was
+// present" — the Control Result only establishes the latter, not the
+// former.
 // Round 1 revisions (supersede the brief's corresponding decisions):
 // major-section background sequence is now LIGHT/NAVY/LIGHT/NAVY/LIGHT/
 // NAVY/LIGHT; Video 3 moved from What Does Transfer into the Hero's
@@ -40,7 +43,7 @@ const lessons = [
   },
   {
     lead: "A clean control result is real evidence, but it isn't proof of reliability.",
-    body: "The Healthy Baseline stayed clean when nothing was wrong. That's useful — it means the system didn't invent a problem where none existed. It doesn't mean the system would stay right under different conditions.",
+    body: "The Healthy Baseline stayed clean when no planted failure was present. That's useful — it means the system didn't invent a problem where none existed. It doesn't mean the system would stay right under different conditions.",
   },
   {
     lead: "When an evaluation produces a result I didn't want, the discipline is to preserve it before investigating why.",
@@ -234,7 +237,7 @@ const lessons = [
               <span class="index-list__content">
                 <span class="index-list__title">Full Methodology</span>
                 <span class="index-list__desc">
-                  the complete technical account — reserved, not yet published
+                  the complete technical account
                 </span>
               </span>
               <span class="index-list__arrow" aria-hidden="true">→</span>
