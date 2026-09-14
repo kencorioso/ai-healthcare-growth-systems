@@ -1,0 +1,409 @@
+---
+// Contact — Ken Corioso. Implemented from HEOS_About_Contact_Governing_Specification
+// (PRE-IMPLEMENTATION FROZEN). Conversion and zero-friction-access page;
+// replaces the retired combined /about-contact route. Copy below is
+// verbatim frozen content — do not rewrite it here; content/strategy
+// changes go back through the governing spec, not this file.
+//
+// Deliberately two sections only, per the spec's "one of the shortest pages
+// on the site" / "no third closing section" instructions: Hero (LIGHT),
+// then Contact Paths (NAVY), then the shared site footer. No form, no
+// chatbot, no Calendly, no phone number, no Harbor Ridge/$251K recap, no
+// Evidence Engine pitch — all explicitly excluded by the spec.
+//
+// Contact Hero visual-review amendment: reuses the About Hero's exact
+// final headshot treatment (.hero-photo/.hero-photo__img — same asset,
+// crop, reduced diameter, border/shadow, responsive clamp) verbatim, for
+// human continuity between the two pages. Hierarchy here is deliberately
+// Headshot -> CONTACT eyebrow -> H1 -> supporting copy (About orders
+// eyebrow before the photo; Contact's browser-review direction is the
+// reverse — not an inconsistency, a deliberate per-page instruction). H1
+// uses the same inline two-tone convention as About's (.page-h1__lead/
+// __continuation), with its own max-width tuned for this page's own
+// headline text.
+//
+// Contact Paths carries a deliberate, non-equal behavioral hierarchy (the
+// spec is explicit these are "not four equivalent social cards"): Email is
+// Tier 1 (plain, large, unboxed text directly on the navy canvas — the
+// site's existing "letterhead," not a new SaaS-card component), GitHub/
+// LinkedIn/Résumé are Tier 2/3 and reuse Home's Go Deeper index-list
+// grammar (dark variant), identical in structure to About's Professional
+// Proof list but with Contact's own frozen action-oriented copy (distinct
+// wording from About's verification-oriented descriptions — not a
+// duplication, both are frozen independently).
+import Layout from '../components/Layout.astro';
+
+const paths = [
+  {
+    title: 'GitHub',
+    tier: 'Inspect the work',
+    desc: 'Explore the code, documentation, methodology, and development work behind my healthcare AI projects.',
+    href: 'https://github.com/kencorioso/ai-healthcare-growth-systems',
+    external: true,
+  },
+  {
+    title: 'LinkedIn',
+    tier: 'Inspect the professional',
+    desc: 'View my professional background and connect with me.',
+    href: 'https://www.linkedin.com/in/kenneth-corioso/',
+    external: true,
+  },
+  {
+    title: 'Résumé',
+    tier: 'Formal hiring artifact',
+    desc: 'Review my experience, leadership background, and qualifications.',
+    href: '/resume',
+    external: false,
+  },
+];
+---
+
+<Layout title="Contact — Ken Corioso | Harbor Ridge V1">
+  <main>
+    <!-- 1. Contact Hero (LIGHT) -->
+    <section class="section section--hero">
+      <div class="shell">
+        <div class="hero-photo">
+          <img
+            class="hero-photo__img"
+            src="/images/ken-corioso-headshot.jpg"
+            alt="Ken Corioso"
+            width="176"
+            height="176"
+          />
+        </div>
+
+        <p class="eyebrow">Contact</p>
+
+        <h1 class="page-h1">
+          <span class="page-h1__lead">Bring Me the Problem.</span> <span class="page-h1__continuation">Let’s Find what Matters.</span>
+        </h1>
+
+        <p class="lead measure">
+          The problems that interest me most are the ones that cross
+          organizational boundaries: growth, technology, analytics, AI,
+          operations, and the responsibilities that come with working in
+          highly regulated healthcare environments.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Contact Paths (NAVY) -->
+    <section class="section section--dark section--closing">
+      <div class="shell">
+        <h2 class="sr-only">Contact Paths</h2>
+
+        <div class="email-block">
+          <p class="email-block__tag">Email Ken</p>
+          <a class="email-block__address" href="mailto:kcorioso@gmail.com">kcorioso@gmail.com</a>
+          <p class="email-block__desc on-dark-body">
+            The most direct way to reach me about a role, organizational
+            challenge, or professional conversation.
+          </p>
+        </div>
+
+        <ol class="index-list index-list--on-dark">
+          {paths.map((item, i) => (
+            <li class="index-list__item">
+              <a
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+              >
+                <span class="index-list__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <span class="index-list__content">
+                  <span class="index-list__title">
+                    {item.title}
+                    {item.external && <span class="sr-only"> (opens in a new tab)</span>}
+                  </span>
+                  <span class="index-list__tier">{item.tier}</span>
+                  <span class="index-list__desc">{item.desc}</span>
+                </span>
+                <span class="index-list__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    /* ---------------------------------------------------------------
+       Canvas/measure/rhythm — transferred from the frozen site visual
+       system, redeclared here since Astro scopes each page's own styles.
+       --------------------------------------------------------------- */
+    .shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+
+    /* ---------------------------------------------------------------
+       68ch, not 60ch: matches About's/Solve for X's shared .measure
+       rule exactly, so this page's Hero supporting paragraph terminates
+       at the same right-side measure as About's — a shared prose-width
+       correction, not a page-specific value.
+       --------------------------------------------------------------- */
+    .measure {
+      max-width: 68ch;
+    }
+
+    .section {
+      padding: clamp(var(--space-7), 9vw, var(--space-8)) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    main > .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-slate-text-secondary);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .lead {
+      font-size: var(--text-lead);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    .page-h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
+      line-height: var(--line-height-heading);
+      margin: 0 0 var(--space-4) 0;
+      /* ch, not a fixed px value: scales with the H1's own font-size, so
+         the wrap point after "...Problem." stays put across desktop
+         widths while still wrapping fluidly at narrower ones — no
+         hard-coded <br>. Tuned empirically against the rendered
+         headline (same method as About's H1), not derived from a
+         formula. */
+      max-width: 19ch;
+    }
+
+    /* ---------------------------------------------------------------
+       Two-tone H1 — same inline convention as About's .page-h1__lead/
+       __continuation: both spans share size/weight/line-height, color
+       is the only distinction.
+       --------------------------------------------------------------- */
+    .page-h1__lead {
+      color: var(--color-sovereign-navy);
+    }
+
+    .page-h1__continuation {
+      color: var(--color-quantum-electric-blue);
+    }
+
+    .section--hero {
+      padding-top: clamp(var(--space-6), 8vw, var(--space-8));
+      padding-bottom: clamp(var(--space-7), 8vw, var(--space-8));
+    }
+
+    /* ---------------------------------------------------------------
+       Headshot — reused verbatim from the About Hero's final treatment
+       (same asset, crop, reduced diameter, border/shadow, responsive
+       clamp) for continuity between the two pages. Not a
+       Contact-specific portrait treatment.
+       --------------------------------------------------------------- */
+    .hero-photo {
+      width: clamp(90px, 8.8vw, 141px);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--color-slate-border);
+      box-shadow: 0 1px 2px rgba(11, 25, 44, 0.04), 0 16px 40px rgba(11, 25, 44, 0.06);
+      margin: 0 0 var(--space-5) 0;
+    }
+
+    .hero-photo__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section--dark {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+    }
+
+    .section--dark :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .on-dark-body {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    /* ---------------------------------------------------------------
+       Email — Tier 1. Deliberately plain: large text directly on the
+       navy canvas rather than a boxed card, per the spec's "extremely
+       restrained, almost formal-card/letterhead simple" instruction for
+       this page. Size sits below Home's $251K figure (that scale is
+       reserved for that finding) but well above body/lead text, so it
+       reads as the page's one dominant object without echoing a
+       dashboard metric.
+       --------------------------------------------------------------- */
+    .email-block {
+      max-width: 60ch;
+      margin: 0 0 var(--space-7) 0;
+    }
+
+    .email-block__tag {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-navy-muted-on-dark);
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    .email-block__address {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.5rem);
+      line-height: 1.2;
+      color: var(--color-white);
+      text-decoration-color: var(--color-quantum-electric-blue);
+      text-underline-offset: 0.15em;
+      word-break: break-word;
+    }
+
+    .email-block__address:hover,
+    .email-block__address:focus-visible {
+      color: var(--color-quantum-electric-blue);
+    }
+
+    .email-block__desc {
+      max-width: 52ch;
+      margin: var(--space-3) 0 0 0;
+    }
+
+    /* ---------------------------------------------------------------
+       GitHub / LinkedIn / Résumé — Tier 2/3. Home's Go Deeper index-list
+       grammar (dark variant), identical structure to About's Professional
+       Proof list, with an added tier line naming each path's role in the
+       behavioral hierarchy (Inspect the work / Inspect the professional /
+       Formal hiring artifact) rather than four equal-weight cards.
+       --------------------------------------------------------------- */
+    .index-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .index-list__item {
+      border-bottom: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .index-list__item a {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      text-decoration: none;
+      color: var(--color-white);
+      min-height: 44px;
+    }
+
+    .index-list__num {
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h3);
+      color: var(--color-navy-muted-on-dark);
+      font-variant-numeric: tabular-nums;
+      min-width: 2ch;
+    }
+
+    .index-list__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .index-list__item a:hover .index-list__title,
+    .index-list__item a:focus-visible .index-list__title {
+      text-decoration: underline;
+    }
+
+    .index-list__title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-body);
+    }
+
+    .index-list__tier {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-quantum-electric-blue);
+    }
+
+    .index-list__desc {
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .index-list__arrow {
+      flex-shrink: 0;
+      color: var(--color-navy-muted-on-dark);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .index-list__item a:hover .index-list__arrow,
+    .index-list__item a:focus-visible .index-list__arrow {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--color-white);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .index-list__arrow {
+        transition: none !important;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Closing section — cancels the shared footer's own top margin for
+       clean footer continuity, same technique as other pages' final
+       section (this is Contact's last section; there is no third).
+       --------------------------------------------------------------- */
+    .section--closing {
+      padding-bottom: clamp(var(--space-8), 10vw, calc(var(--space-8) * 1.2));
+      margin-bottom: calc(-1 * var(--space-8));
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</Layout>

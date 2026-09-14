@@ -1,0 +1,52 @@
+---
+// Résumé — reserved route. Linked from About's Professional Proof and
+// Contact's Contact Paths (HEOS_About_Contact_Governing_Specification,
+// PRE-IMPLEMENTATION FROZEN, §11/§16 item 4). Mirrors the repo's
+// established minimal-placeholder convention (full-methodology.astro).
+//
+// Durable dependency (do not remove until acted on): the governing spec is
+// explicit that the existing healthcare-marketing résumé must NOT be
+// published here as an interim public artifact — its facts are the future
+// HEOS-aligned résumé's baseline, not its final positioning. The
+// HEOS-aligned résumé is a launch-blocking asset dependency and must
+// replace this placeholder before deployment. No résumé file of any kind
+// currently exists in this repository.
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Résumé — Ken Corioso | Harbor Ridge V1">
+  <main class="placeholder">
+    <div class="placeholder__inner">
+      <h1>Résumé</h1>
+      <p>
+        The HEOS-aligned résumé isn't published yet. In the meantime, my
+        GitHub and LinkedIn are live and current.
+      </p>
+      <p><a href="/contact">&larr; Back to Contact</a></p>
+    </div>
+  </main>
+
+  <style>
+    .placeholder {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .placeholder__inner {
+      max-width: 70ch;
+    }
+
+    .placeholder h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-h1);
+      line-height: var(--line-height-heading);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .placeholder a {
+      color: var(--color-sovereign-navy);
+    }
+  </style>
+</Layout>

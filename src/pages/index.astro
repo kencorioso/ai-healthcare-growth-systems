@@ -405,11 +405,11 @@ import Wordmark from '../components/Wordmark.astro';
             </a>
           </li>
           <li class="index-list__item">
-            <a href="/about-contact">
+            <a href="/about">
               <span class="index-list__num" aria-hidden="true">04</span>
               <span class="index-list__content">
-                <span class="index-list__title">About / Contact</span>
-                <span class="index-list__desc">who I am, and how to reach me</span>
+                <span class="index-list__title">About</span>
+                <span class="index-list__desc">who I am and how I approach the work</span>
               </span>
               <span class="index-list__arrow" aria-hidden="true">→</span>
             </a>
@@ -532,10 +532,19 @@ import Wordmark from '../components/Wordmark.astro';
     /* ---------------------------------------------------------------
        Secondary CTA — one shared, Home-scoped treatment for the three
        "go deeper on this claim" links (Evidence, Methodology &
-       Evaluation, Portability & Lessons). Architectural square corners
-       to match the site-wide .cta primary treatment's shape logic
-       (treatments.css) without competing with it: outlined rather than
-       filled, so it stays secondary against the surrounding narrative.
+       Evaluation, Portability & Lessons). Cross-page button-style
+       correction: filled Quantum Electric Blue / Sovereign Navy text
+       (bold) on all three, same on light or dark sections — replacing
+       the former outlined navy/white treatment. Border kept at the same
+       width but transparent, so box-sizing: border-box preserves the
+       exact button footprint (dimensions/padding/min-height unchanged).
+       Hover/focus reuses the same invert-to-navy-hover/Electric-Blue
+       pattern already established for the header's and Hero's Electric
+       Blue CTAs elsewhere on the site. The --on-dark modifier no longer
+       needs its own color override — both idle states are now
+       identical — so its previous idle/hover blocks are removed rather
+       than left as dead, contradictory-looking code; the class stays
+       harmless if still present in markup.
        --------------------------------------------------------------- */
     .cta-secondary {
       display: inline-flex;
@@ -548,16 +557,16 @@ import Wordmark from '../components/Wordmark.astro';
       font-weight: 600;
       font-size: var(--text-small);
       color: var(--color-sovereign-navy);
-      background: transparent;
-      border: 1.5px solid var(--color-sovereign-navy);
+      background: var(--color-quantum-electric-blue);
+      border: 1.5px solid transparent;
       text-decoration: none;
       transition: background 150ms ease, color 150ms ease;
     }
 
     .cta-secondary:hover,
     .cta-secondary:focus-visible {
-      background: var(--color-sovereign-navy);
-      color: var(--color-white);
+      background: var(--color-navy-hover);
+      color: var(--color-quantum-electric-blue);
     }
 
     .cta-secondary__arrow {
@@ -567,18 +576,6 @@ import Wordmark from '../components/Wordmark.astro';
     .cta-secondary:hover .cta-secondary__arrow,
     .cta-secondary:focus-visible .cta-secondary__arrow {
       transform: translateX(3px);
-    }
-
-    .cta-secondary--on-dark {
-      color: var(--color-white);
-      border-color: var(--color-navy-muted-on-dark);
-    }
-
-    .cta-secondary--on-dark:hover,
-    .cta-secondary--on-dark:focus-visible {
-      background: var(--color-white);
-      color: var(--color-sovereign-navy);
-      border-color: var(--color-white);
     }
 
     .cta-row {

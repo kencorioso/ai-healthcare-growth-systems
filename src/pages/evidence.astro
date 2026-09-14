@@ -33,11 +33,11 @@ import Wordmark from '../components/Wordmark.astro';
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--dark">
       <div class="shell">
         <div class="editorial">
           <div class="editorial__label">
-            <h2 class="section-heading">Three Kinds of Results</h2>
+            <h2 class="section-heading section-heading--on-dark">Three Kinds of Results</h2>
           </div>
           <div class="editorial__body measure">
             <dl class="taxonomy">
@@ -59,12 +59,12 @@ import Wordmark from '../components/Wordmark.astro';
                 <dt>Control Result</dt>
                 <dd>
                   The formal outcome of the Healthy Baseline negative-control
-                  test — whether the system stayed quiet when nothing was
-                  wrong.
+                  test — whether the system stayed quiet when no planted
+                  failure was present.
                 </dd>
               </div>
             </dl>
-            <p>
+            <p class="on-dark-body">
               An Observed Finding does not equal a Benchmark success. A
               Benchmark miss doesn't mean there were no useful findings. A
               clean Control Result doesn't prove general reliability.
@@ -74,23 +74,23 @@ import Wordmark from '../components/Wordmark.astro';
       </div>
     </section>
 
-    <section class="section section--dark">
+    <section class="section">
       <div class="shell">
         <div class="editorial">
           <div class="editorial__label">
             <p class="chip">Observed Finding</p>
-            <h2 class="section-heading section-heading--on-dark">
+            <h2 class="section-heading">
               The $251,000 Observed Finding
             </h2>
           </div>
           <div class="editorial__body measure">
-            <p class="on-dark-lead">
+            <p class="lead">
               One result mattered immediately: an estimated
-              <span class="stat-highlight stat-highlight--on-dark">$251,000</span>
+              <span class="stat-highlight">$251,000</span>
               additional collections opportunity if out-of-network claims had
               realized at the in-network rate.
             </p>
-            <p class="on-dark-body">
+            <p class="body-muted">
               That finding was real within the synthetic data. It was not a
               Benchmark Result, and it wasn't one of the two problems I'd
               deliberately hidden for the system to find. When I later tested
@@ -99,22 +99,19 @@ import Wordmark from '../components/Wordmark.astro';
               <strong>CLEAN</strong>. The $251K finding sits in a separate
               category from all three.
             </p>
-            <p class="on-dark-body">
+            <p class="body-muted">
               The goal isn't to make the $251,000 number impressive. It's to
               make it inspectable.
             </p>
             <p class="cta-row">
-              <a class="cta-outlined-dark" href="/evidence-trail">
-                <span>Explore the Evidence Trail</span>
-                <span class="cta-outlined-dark__arrow" aria-hidden="true">→</span>
-              </a>
+              <a class="cta" href="/evidence-trail">Explore the Evidence Trail →</a>
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--quiet">
+    <section class="section section--quiet section--dark">
       <div class="shell">
         <p class="source-note">
           Sourced from Harbor Ridge Scenario 1's frozen blind-test output and
@@ -215,8 +212,30 @@ import Wordmark from '../components/Wordmark.astro';
       font-weight: 600;
       font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
       line-height: var(--line-height-heading);
-      color: var(--color-sovereign-navy);
       margin: 0 0 var(--space-4) 0;
+    }
+
+    /* ---------------------------------------------------------------
+       Two-tone H1 — brings Evidence's Hero into the two-tone convention
+       already established on About/Contact/Portability & Lessons/
+       Methodology & Evaluation. Unlike those pages' inline single-
+       sentence convention, this H1 is two complete, separate sentences,
+       so each is its own block-level row (same pattern Home's hero-h1
+       uses for its two-line Hero) — but per explicit instruction here,
+       both rows share identical font-size/weight/line-height; color is
+       the only distinction, no reduced second-line scale.
+       --------------------------------------------------------------- */
+    .page-h1__lead,
+    .page-h1__continuation {
+      display: block;
+    }
+
+    .page-h1__lead {
+      color: var(--color-sovereign-navy);
+    }
+
+    .page-h1__continuation {
+      color: var(--color-quantum-electric-blue);
     }
 
     .lead {
@@ -233,18 +252,24 @@ import Wordmark from '../components/Wordmark.astro';
       max-width: none;
     }
 
-    .on-dark-lead {
-      font-size: var(--text-lead);
-      color: var(--color-navy-muted-on-dark);
-    }
-
     .on-dark-body {
       color: var(--color-navy-muted-on-dark);
     }
 
+    /* Muted supporting body copy on a LIGHT section — the light-surface
+       counterpart to .on-dark-body above, same slate-text-secondary
+       token the eyebrow/lead/taxonomy dd/source-note already use for
+       secondary text on light backgrounds. Used by the $251K section's
+       two explanatory paragraphs now that section is light. */
+    .body-muted {
+      color: var(--color-slate-text-secondary);
+    }
+
     /* Categorical label — same treatment as Home's .chip (Brand & Voice
        v2.0 §11: reserved for genuine categorical labels), redeclared here
-       since Home's is Astro-scoped to index.astro only. */
+       since Home's is Astro-scoped to index.astro only. Light-surface
+       variant (white fill/navy text/slate-border), matching Home's own
+       .chip exactly, now that this section is light rather than dark. */
     .chip {
       display: inline-block;
       font-family: var(--font-body);
@@ -252,17 +277,13 @@ import Wordmark from '../components/Wordmark.astro';
       font-size: var(--text-small);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--color-white);
-      background: transparent;
-      border: 1px solid var(--color-navy-muted-on-dark);
+      color: var(--color-sovereign-navy);
+      background: var(--color-white);
+      border: 1px solid var(--color-slate-border);
       border-radius: 999px;
       padding: 0.2em var(--space-3);
       margin: 0 0 var(--space-3) 0;
       white-space: nowrap;
-    }
-
-    .stat-highlight--on-dark {
-      color: var(--color-white);
     }
 
     /* ---------------------------------------------------------------
@@ -292,88 +313,75 @@ import Wordmark from '../components/Wordmark.astro';
        Taxonomy definitions — a plain, quiet definition list. Not a new
        narrative device: three labeled facts, no manufactured "story"
        composition (per brief §6, this page has no narrative arc to
-       compress).
+       compress). This section is now NAVY (background-rhythm
+       correction); dividers use navy-muted-on-dark rather than
+       slate-border — the same on-dark divider token already used for
+       .index-list--on-dark elsewhere — since slate-border's contrast
+       against Sovereign Navy is too low to read as a clear rule.
        --------------------------------------------------------------- */
     .taxonomy {
       margin: 0 0 var(--space-5) 0;
       padding: 0;
-      border-top: 1px solid var(--color-slate-border);
+      border-top: 1px solid var(--color-navy-muted-on-dark);
     }
 
     .taxonomy__item {
       padding: var(--space-4) 0;
-      border-bottom: 1px solid var(--color-slate-border);
+      border-bottom: 1px solid var(--color-navy-muted-on-dark);
     }
 
     .taxonomy__item dt {
       font-family: var(--font-heading);
       font-weight: 600;
       font-size: var(--text-lead);
-      color: var(--color-sovereign-navy);
+      color: var(--color-white);
       margin: 0 0 var(--space-2) 0;
     }
 
     .taxonomy__item dd {
       margin: 0;
-      color: var(--color-slate-text-secondary);
+      color: var(--color-navy-muted-on-dark);
     }
 
     .cta-row {
       margin: var(--space-5) 0 0 0;
     }
 
-    /* Outlined-on-dark CTA — the sovereign-navy-fill .cta (treatments.css)
-       would be invisible against this section's own sovereign-navy
-       background, so this section uses the same outlined-on-dark
-       convention Home already established for its own dark-section links
-       into /evidence-trail and /methodology-evaluation. */
-    .cta-outlined-dark {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      box-sizing: border-box;
-      min-height: 44px;
-      padding: var(--space-2) var(--space-4);
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: var(--text-small);
-      color: var(--color-white);
-      background: transparent;
-      border: 1.5px solid var(--color-navy-muted-on-dark);
-      text-decoration: none;
-      transition: background 150ms ease, color 150ms ease;
-    }
-
-    .cta-outlined-dark:hover,
-    .cta-outlined-dark:focus-visible {
-      background: var(--color-white);
+    /* Evidence Trail CTA — cross-page button-style correction: filled
+       Quantum Electric Blue / Sovereign Navy text (bold), replacing the
+       sitewide .cta's default Navy-fill/white-text for this one button
+       only. Astro scopes this <style> block to evidence.astro alone, so
+       this override cannot leak into the shared .cta class's other
+       usages (About's closing CTA, design-system-proof.astro, etc.) —
+       the smallest scoped change that produces the requested result.
+       treatments.css's .cta sets no border, so dimensions/padding are
+       unaffected; hover/focus reuses the same invert-to-navy-hover/
+       Electric-Blue pattern already established for the site's other
+       Electric Blue CTAs (header, Hero, About's closing button). */
+    .cta {
+      background: var(--color-quantum-electric-blue);
       color: var(--color-sovereign-navy);
-      border-color: var(--color-white);
     }
 
-    .cta-outlined-dark__arrow {
-      transition: transform 150ms ease;
+    .cta:hover,
+    .cta:active {
+      background: var(--color-navy-hover);
+      color: var(--color-quantum-electric-blue);
     }
 
-    .cta-outlined-dark:hover .cta-outlined-dark__arrow,
-    .cta-outlined-dark:focus-visible .cta-outlined-dark__arrow {
-      transform: translateX(3px);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .cta-outlined-dark,
-      .cta-outlined-dark__arrow {
-        transition: none !important;
-      }
-    }
-
+    /* This section is now NAVY (background-rhythm correction): body/link
+       text uses the same on-dark tokens established elsewhere —
+       navy-muted-on-dark for the sourcing sentence, Quantum Electric Blue
+       for the inline link (the same accessible on-dark link/accent color
+       used for the Hero H1's second line and the header's Contact Ken
+       CTA — ~9.7:1 contrast against Sovereign Navy). */
     .source-note {
       font-size: var(--text-small);
-      color: var(--color-slate-text-secondary);
+      color: var(--color-navy-muted-on-dark);
     }
 
     .source-note a {
-      color: var(--color-sovereign-navy);
+      color: var(--color-quantum-electric-blue);
     }
   </style>
 </Layout>

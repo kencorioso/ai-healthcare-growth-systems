@@ -28,8 +28,8 @@ const oonClaims = claims.filter((c) => c.payer_relationship === 'OON');
       <div class="shell">
         <p class="chip">Observed Finding</p>
         <h1 class="page-h1">
-          An estimated $251,000 additional collections opportunity if
-          out-of-network claims had realized at the in-network rate.
+          <span class="page-h1__lead">The Analysis Found a $251,000 Opportunity.</span>
+          <span class="page-h1__continuation">Now Inspect the Evidence.</span>
         </h1>
         <p class="lead intro-lead">
           This is an <strong>Observed Finding</strong> from Harbor Ridge
@@ -245,7 +245,6 @@ const oonClaims = claims.filter((c) => c.payer_relationship === 'OON');
       font-weight: 600;
       font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
       line-height: var(--line-height-heading);
-      color: var(--color-sovereign-navy);
       margin: 0 0 var(--space-4) 0;
       /* This H1 is a full-sentence claim, not a short headline (unlike
          Evidence's page-h1) — widened well beyond the old half-canvas
@@ -253,6 +252,28 @@ const oonClaims = claims.filter((c) => c.payer_relationship === 'OON');
          rather than stretching edge-to-edge. Set in ch so it scales with
          the heading's own (large, responsive) font size. */
       max-width: 40ch;
+    }
+
+    /* ---------------------------------------------------------------
+       Two-tone H1 — brings Evidence Trail's Hero into the two-tone
+       convention already established on Evidence/About/Contact/
+       Portability & Lessons/Methodology & Evaluation. Two complete,
+       separate sentences, so each is its own block-level row (same
+       pattern as Evidence's own page-h1__lead/__continuation) — both
+       rows share identical font-family/weight/size/line-height/letter-
+       spacing; color is the only distinction.
+       --------------------------------------------------------------- */
+    .page-h1__lead,
+    .page-h1__continuation {
+      display: block;
+    }
+
+    .page-h1__lead {
+      color: var(--color-sovereign-navy);
+    }
+
+    .page-h1__continuation {
+      color: var(--color-quantum-electric-blue);
     }
 
     .lead {

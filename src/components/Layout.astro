@@ -2,6 +2,14 @@
 // Shared site shell — Harbor Ridge V1, Workstream F Step 3.
 // Persistent five-page navigation per docs/harbor-ridge-workstream-f-step2-information-architecture.md §6.
 // Consumes Step 1's frozen tokens/treatments/Wordmark only — no new palette, type scale, or component library.
+//
+// Nav updated per HEOS_About_Contact_Governing_Specification (PRE-IMPLEMENTATION
+// FROZEN): the combined /about-contact route is retired in favor of separate
+// /about and /contact pages. "Contact Ken" is deliberately NOT a sixth
+// navItems entry — it is a persistent, visually differentiated conversion
+// action rendered separately in the header (see .site-header__cta below),
+// consistent with the spec's "not a sixth equal-weight informational nav
+// item" instruction.
 import Wordmark from './Wordmark.astro';
 import '../styles/tokens.css';
 import '../styles/treatments.css';
@@ -27,7 +35,7 @@ const navItems = [
     children: [{ label: 'Full Methodology', href: '/full-methodology' }],
   },
   { label: 'Portability & Lessons', href: '/portability-lessons' },
-  { label: 'About / Contact', href: '/about-contact' },
+  { label: 'About', href: '/about' },
 ];
 
 const isActive = (href: string) =>
@@ -101,6 +109,15 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
       .site-nav {
         display: flex;
         flex-wrap: wrap;
+        /* flex-start, not the stretch default: without it, a short plain
+           item (e.g. Home) sharing a wrapped line with the taller
+           has-children Evidence column (label + in-flow subnav item)
+           would stretch to match that height and vertically center,
+           landing its text between Evidence's own two lines. Narrowing
+           the header to fit the new Contact Ken CTA (below) makes that
+           wrap happen at more widths, so this is now visible where it
+           wasn't before. */
+        align-items: flex-start;
         gap: var(--space-2) var(--space-4);
         margin: 0;
         padding: 0;
@@ -250,10 +267,48 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
         color: var(--color-slate-text-secondary);
       }
 
+      /* ---------------------------------------------------------------
+         Ken Corioso — compact footer identity button, adapted from the
+         header's Contact Ken CTA (.site-header__cta) at a much smaller
+         scale: same Electric Blue fill / Sovereign Navy text idle state,
+         same navy-hover/Electric-Blue hover+focus invert, same 4px
+         corner radius, no transition (the reference component declares
+         none, so this doesn't invent one). Deliberately no min-width/
+         min-height and much smaller padding than the nav CTA — that's
+         what keeps this "substantially more compact and visually
+         subordinate" rather than a second primary CTA. Font-size is
+         unchanged from what this element already rendered at
+         (text-small, inherited before from .site-footer__inner; now set
+         explicitly since a <button> doesn't reliably inherit ambient
+         font-size the way a <span> did).
+         Not yet a real link: KenCorioso.com isn't live, so this is a
+         plain <button type="button"> rather than an <a> with a
+         placeholder/fake href — semantically honest (no dead link),
+         still focusable and keyboard-operable, still reads as a button.
+         Swap the element to <a href="https://kencorioso.com"> once that
+         site ships; this class's styling shouldn't need to change.
+         --------------------------------------------------------------- */
       .site-footer__name {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        appearance: none;
+        border: none;
+        border-radius: 4px;
+        padding: var(--space-1) var(--space-2);
         font-family: var(--font-heading);
         font-weight: 600;
+        font-size: var(--text-small);
         color: var(--color-sovereign-navy);
+        background: var(--color-quantum-electric-blue);
+        cursor: pointer;
+      }
+
+      .site-footer__name:hover,
+      .site-footer__name:active {
+        background: var(--color-navy-hover);
+        color: var(--color-quantum-electric-blue);
       }
 
       @media (max-width: 640px) {
@@ -264,6 +319,60 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
 
         .site-nav {
           justify-content: center;
+        }
+      }
+
+      /* ---------------------------------------------------------------
+         Contact Ken — persistent, visually differentiated conversion CTA,
+         deliberately not a navItems entry (see frontmatter note). Electric
+         Blue fill / Sovereign Navy text: ~9.7:1 contrast (verified via the
+         WCAG relative-luminance formula against the frozen token values),
+         comfortably clears AA for this button's text size — unlike the
+         "Electric Blue fill + white text" combination treatments.css
+         already documents as failing (~1.80:1), navy text on this fill is
+         the accessible pairing. Hover/focus inverts to navy-hover fill /
+         Electric Blue text (the same contrast ratio, reversed), reusing
+         only already-governed tokens — no new color introduced.
+         --------------------------------------------------------------- */
+      .site-header__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        min-height: 44px;
+        padding: var(--space-2) var(--space-4);
+        border-radius: 4px;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: var(--text-small);
+        color: var(--color-sovereign-navy);
+        background: var(--color-quantum-electric-blue);
+        text-decoration: none;
+        white-space: nowrap;
+        /* Auto margin, not reliance on the header's space-between: at
+           widths where the CTA wraps to its own line (nav + CTA no
+           longer fit on one row, but we're still above the 640px
+           centered-mobile layout below), space-between only has one
+           item on that line and renders it flush left. An auto left
+           margin keeps it pinned to the right on its own line too. */
+        margin-left: auto;
+      }
+
+      .site-header__cta:hover,
+      .site-header__cta:active {
+        background: var(--color-navy-hover);
+        color: var(--color-quantum-electric-blue);
+      }
+
+      .site-header__cta[aria-current='page'] {
+        background: var(--color-navy-hover);
+        color: var(--color-quantum-electric-blue);
+      }
+
+      @media (max-width: 640px) {
+        .site-header__cta {
+          margin: 0 auto;
         }
       }
     </style>
@@ -296,6 +405,13 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
             ))}
           </ul>
         </nav>
+        <a
+          class="site-header__cta"
+          href="/contact"
+          aria-current={currentPath.startsWith('/contact') ? 'page' : undefined}
+        >
+          Contact Ken
+        </a>
       </div>
     </header>
 
@@ -303,7 +419,7 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span class="site-footer__name">Ken Corioso</span>
+        <button type="button" class="site-footer__name">Ken Corioso</button>
         <span>Harbor Ridge V1 — a synthetic case study, no real patient data used in this version.</span>
       </div>
     </footer>
