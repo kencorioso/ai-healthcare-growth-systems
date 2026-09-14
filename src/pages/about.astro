@@ -1,0 +1,1005 @@
+---
+// About — Ken Corioso. Implemented from HEOS_About_Contact_Governing_Specification
+// (PRE-IMPLEMENTATION FROZEN). Persuasion and professional-context page;
+// replaces the retired combined /about-contact route. Copy below is
+// verbatim frozen content from that specification — do not rewrite it here;
+// content/strategy changes go back through the governing spec, not this file.
+//
+// Section rhythm (frozen): LIGHT -> NAVY -> LIGHT -> NAVY -> LIGHT -> NAVY ->
+// LIGHT, matching Home's/Portability & Lessons' established alternation.
+//
+// Patterns reused from the existing frozen site rather than invented here:
+// - .shell/.measure/.section/.section-heading/.eyebrow/.lead/.editorial —
+//   the site-wide canvas and label-rail-plus-body device (every Workstream F
+//   page).
+// - .process/.process__rail/.process__grid/.process__node — Methodology &
+//   Evaluation's/Portability & Lessons' sequential connected-chain grammar,
+//   reused unmodified (6 stages instead of 7) for How I Work, which is
+//   genuinely sequential per the spec.
+// - .index-list (dark variant) — Home's Go Deeper grammar, reused for
+//   Professional Proof's three restrained, equal-weight verification paths.
+// - .page-h1__lead/__continuation — Portability & Lessons'/Methodology &
+//   Evaluation's inline two-tone Hero H1 convention (color is the only
+//   difference between the two spans; both flow as one sentence and wrap
+//   naturally), reused for the Round 1 H1.
+//
+// ROUND 1 AMENDMENTS (browser review), About page only:
+// - Hero rebuilt from the split media/text row to a single-column, left-
+//   aligned composition (headshot -> H1 -> supporting copy -> capability
+//   summary -> CTA row), per Ken's Round 1 direction referencing Birehan
+//   Zewdie's About restraint. The headshot asset (Headshot #19,
+//   LIS6zxyzV7A.jpg) has since been supplied and lives at
+//   public/images/ken-corioso-headshot.jpg — the earlier reserved
+//   placeholder is gone.
+// - The Throughline retitled "Solve for X" with fully replaced body copy
+//   (still NAVY, still the section-2 slot).
+// - Experience Across the System's 4th domain retitled "Decision
+//   Intelligence" with replaced body; still one of four parallel domains,
+//   still no connecting rail/arrows.
+// - Closing "Contact Ken ->" CTA is now Electric Blue fill / Navy text, no
+//   arrow, scoped to .section--closing so the shared .cta class in
+//   treatments.css (used elsewhere) is untouched.
+// Sections 4 (How I Work), 5 (Where I'm Focused), and 6 (Professional Proof)
+// are unmodified in this pass.
+import Layout from '../components/Layout.astro';
+
+const domains = [
+  {
+    num: '01',
+    title: 'Healthcare Operations',
+    body: [
+      "I've worked inside behavioral healthcare as both an owner and operator, with responsibility extending across the patient journey from acquisition and intake through treatment, discharge, and aftercare planning. That experience taught me to see growth decisions in the context of clinical operations, financial realities, regulatory requirements, people, and the systems connecting them.",
+    ],
+  },
+  {
+    num: '02',
+    title: 'Growth & Marketing',
+    body: [
+      'My background in growth spans paid acquisition, search marketing, attribution, lifecycle engagement, referral development, CRM, and conversion strategy. That work has taught me to connect marketing performance to the larger operational and financial outcomes the organization is trying to achieve.',
+    ],
+  },
+  {
+    num: '03',
+    title: 'Systems & Technology',
+    body: [
+      "I've implemented and worked across CRM, EMR/EHR, call tracking, marketing technology, automation, and web systems. I became increasingly involved in technology because solving operational and growth problems often required connecting systems that had been designed to serve individual departments rather than the organization as a whole.",
+    ],
+  },
+  {
+    num: '04',
+    title: 'Decision Intelligence',
+    body: [
+      "I'm developing a repeatable approach to healthcare technology: identify consequential problems across organizational boundaries, determine the outcome that matters, build practical solutions with AI and analytics, and evaluate whether they actually work. The HEOS Evidence Engine is the first demonstration of that approach, with additional healthcare applications to follow.",
+    ],
+  },
+];
+
+const operatingModel = ['Problem', 'Organizational Goal', 'Analyze System', 'Develop Plan', 'Execute', 'Evaluate'];
+
+// Resource discovery architecture (Workstream F -> G handoff): Professional
+// Proof is also the governing PRIMARY discovery surface for the future AI
+// System Brief (a one-page executive overview answering "Can AI reason
+// across departments to find what actually matters?") and the SECONDARY
+// discovery surface for the future Whitepaper (primary surface: Methodology
+// & Evaluation's Go Deeper, see that file). Neither document exists yet —
+// both belong to Workstream G, not this pass. No entry, placeholder route,
+// or link is added below for either: an item pointing at a document that
+// doesn't exist yet would be a dead link or a fake download, which the
+// governing resource-discovery-architecture task explicitly forbids. When
+// each is written, add it to the `proof` array below as its own
+// equal-weight item — no new component needed, same pattern as
+// Résumé/LinkedIn/GitHub.
+const proof = [
+  {
+    title: 'Résumé',
+    desc: 'Experience, leadership background, and qualifications.',
+    href: '/resume',
+    external: false,
+  },
+  {
+    title: 'LinkedIn',
+    desc: 'Professional history, experience, and current work.',
+    href: 'https://www.linkedin.com/in/kenneth-corioso/',
+    external: true,
+  },
+  {
+    title: 'GitHub',
+    desc: 'Code, documentation, and methodology behind my healthcare AI projects.',
+    href: 'https://github.com/kencorioso/ai-healthcare-growth-systems',
+    external: true,
+  },
+];
+---
+
+<Layout title="About — Ken Corioso | Harbor Ridge V1">
+  <main>
+    <!-- 1. Hero (LIGHT) — Round 1: single-column, left-aligned composition
+         (headshot -> H1 -> supporting copy -> capability summary -> CTA
+         row), replacing the earlier split media/text row. -->
+    <section class="section section--hero">
+      <div class="shell">
+        <div class="hero-intro">
+          <p class="eyebrow">About</p>
+
+          <div class="hero-photo">
+            <img
+              class="hero-photo__img"
+              src="/images/ken-corioso-headshot.jpg"
+              alt="Ken Corioso"
+              width="176"
+              height="176"
+            />
+          </div>
+
+          <h1 class="page-h1">
+            <span class="page-h1__lead">I Build</span> <span class="page-h1__continuation">AI-Powered Healthcare Systems</span> <span class="page-h1__lead page-h1__lead--row2">That Connect Growth, Data, and Operations.</span>
+          </h1>
+
+          <p class="lead measure">
+            My experience spans healthcare operations, growth and marketing,
+            technology, analytics, and AI development. I've learned to work
+            across those disciplines because the problems I was responsible
+            for solving rarely stayed inside just one of them.
+          </p>
+
+          <p class="hero-capabilities">
+            Healthcare Growth | AI Development | Patient Acquisition &amp; Attribution | CRM &amp; Lifecycle | Marketing Analytics | Healthcare Operations
+          </p>
+
+          <div class="hero-cta-row">
+            <a class="hero-cta hero-cta--primary" href="/contact">Contact Ken</a>
+            <a
+              class="hero-cta hero-cta--secondary"
+              href="https://github.com/kencorioso/ai-healthcare-growth-systems"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub<span class="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a
+              class="hero-cta hero-cta--secondary"
+              href="https://www.linkedin.com/in/kenneth-corioso/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn<span class="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Solve for X (NAVY) — Round 1 retitle + full body replacement of
+         the former "The Throughline" section; same slot/background. -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">Solve for X</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              The hardest part of solving a business problem is often
+              figuring out what to solve for.
+            </p>
+            <p class="on-dark-body">
+              That lesson took me years to learn. My career has crossed
+              marketing, healthcare operations, technology, CRM, analytics,
+              and now AI because the problems I was trying to solve kept
+              crossing those boundaries too. What looked like a marketing
+              problem might actually begin in admissions. What looked like a
+              sales problem might originate in advertising. What appeared to
+              be a technology problem might really be a workflow or
+              measurement problem.
+            </p>
+            <p class="on-dark-body">
+              Behavioral healthcare made this impossible to ignore. Marketing
+              taught me how to generate and measure demand, but as an owner
+              and operator, I couldn't stop when an inquiry became someone
+              else's responsibility. That inquiry still had to move through
+              financial qualification, admission, treatment, discharge, and
+              the economics of running the organization. Optimizing one part
+              of that journey meant very little if another part was
+              constraining the outcome.
+            </p>
+            <p class="on-dark-body">
+              Over time, I learned to look for the variable that mattered
+              most. In one healthcare engagement, deteriorating performance
+              was widely believed to be a downstream sales problem. After
+              working through the data and the business with leadership, the
+              question became much clearer: What should we actually solve
+              for? That investigation ultimately led upstream to acquisition
+              quality and advertising allocation. I identified approximately
+              $100,000 per month in inefficient advertising spend that could
+              be eliminated while maintaining admissions.
+            </p>
+            <p class="on-dark-body">
+              That same instinct is what led me deeper into CRM, healthcare
+              information systems, attribution, workflow design, analytics,
+              and eventually AI. Each gave me another way to connect evidence
+              across parts of the organization that are usually examined
+              separately. Today, I think of the process simply:
+              <strong class="throughline-conclusion"
+                >understand the outcome, follow the evidence, find the
+                variable that matters, and solve for X.</strong
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Experience Across the System (LIGHT) — four parallel domains, not a
+         sequence: reuses the equal-width bordered-panel geometry established
+         by Home's Golden Thread, deliberately without a connecting rail,
+         arrows, or ticks. -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">Experience Across the System</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div
+          class="domain-grid"
+          role="group"
+          aria-label="Four parallel domains of experience: Healthcare Operations, Growth & Marketing, Systems & Technology, and Decision Intelligence"
+        >
+          {domains.map((domain) => (
+            <div class="domain-panel">
+              <span class="domain-panel__num" aria-hidden="true">{domain.num}</span>
+              <h3 class="domain-panel__title">{domain.title}</h3>
+              {domain.body.map((paragraph) => (
+                <p class="domain-panel__body">{paragraph}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="editorial editorial--continuation">
+          <div class="editorial__body measure">
+            <p>
+              I apply AI, analytics, and emerging technology to consequential
+              healthcare problems where better systems can improve how
+              organizations operate, grow, and make decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. How I Work (NAVY) — genuinely sequential; reuses Methodology &
+         Evaluation's/Portability & Lessons' connected process-chain grammar
+         unmodified. -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">I solve for the organization, not the silo.</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p class="on-dark-body">
+              A problem may surface in marketing, admissions, operations,
+              technology, or revenue without originating there. I start by
+              establishing what the organization is actually trying to
+              accomplish, then examine the system surrounding the problem,
+              develop a plan around the evidence, execute it, and evaluate
+              whether it improved the outcome that mattered in the first
+              place.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div
+          class="process"
+          role="group"
+          aria-label="Ken's operating model, in order: Problem, Organizational Goal, Analyze System, Develop Plan, Execute, Evaluate"
+        >
+          <div class="process__rail" aria-hidden="true">
+            <span class="process__rail-fill"></span>
+            {operatingModel.map(() => (
+              <span class="process__tick"></span>
+            ))}
+          </div>
+          <div class="process__grid">
+            {operatingModel.map((step) => (
+              <div class="process__node">
+                <span class="process__label">{step}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Where I'm Focused (LIGHT) -->
+    <section class="section">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">Where I'm Focused</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>
+              I'm focused on healthcare leadership at the intersection of
+              growth, technology, analytics, AI, and responsible innovation.
+            </p>
+            <p>
+              I'm especially interested in helping healthcare organizations
+              grow while protecting what makes that growth sustainable:
+              patient trust, sensitive information, regulatory integrity, and
+              the organization itself. That means improving how
+              organizations acquire and engage patients, connect marketing
+              investment to business outcomes, modernize the systems
+              supporting growth, and apply AI to meaningful operational
+              problems.
+            </p>
+            <p>
+              In highly regulated industries, I believe growth and
+              protection belong in the same strategy. The systems I'm
+              developing reflect that approach, from operational
+              intelligence and guardrailed healthcare communication to
+              privacy-conscious marketing infrastructure and better
+              attribution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Professional Proof (NAVY) — restrained, equal-weight verification
+         paths; reuses Home's Go Deeper index-list grammar (dark variant). -->
+    <section class="section section--dark">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading section-heading--on-dark">Professional Proof</h2>
+          </div>
+        </div>
+
+        <ol class="index-list index-list--on-dark">
+          {proof.map((item, i) => (
+            <li class="index-list__item">
+              <a
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+              >
+                <span class="index-list__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <span class="index-list__content">
+                  <span class="index-list__title">
+                    {item.title}
+                    {item.external && <span class="sr-only"> (opens in a new tab)</span>}
+                  </span>
+                  <span class="index-list__desc">{item.desc}</span>
+                </span>
+                <span class="index-list__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7. Solving Problems That Matter (LIGHT) -->
+    <section class="section section--closing">
+      <div class="shell">
+        <div class="editorial">
+          <div class="editorial__label">
+            <h2 class="section-heading">Solving Problems That Matter</h2>
+          </div>
+          <div class="editorial__body measure">
+            <p>
+              I'm interested in healthcare organizations tackling
+              consequential problems where growth, technology, analytics, AI,
+              and organizational responsibility intersect.
+            </p>
+            <p>
+              In highly regulated environments, the strongest solutions need
+              to do more than improve performance. They should help the
+              organization grow while protecting the patients, information,
+              trust, and regulatory integrity that make that growth
+              sustainable.
+            </p>
+            <p>If your organization is working through problems like these, I'd welcome the conversation.</p>
+            <p><a class="cta" href="/contact">Contact Ken</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    /* ---------------------------------------------------------------
+       Canvas/measure/rhythm — transferred from the frozen Home/Evidence/
+       Methodology & Evaluation/Portability & Lessons visual system,
+       redeclared here since Astro scopes each page's own styles.
+       --------------------------------------------------------------- */
+    .shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .shell + .shell {
+      margin-top: var(--space-5);
+    }
+
+    .measure {
+      max-width: 68ch;
+    }
+
+    .section {
+      padding: clamp(var(--space-7), 9vw, var(--space-8)) 0;
+      border-bottom: 1px solid var(--color-slate-border);
+    }
+
+    main > .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h2);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section-heading--on-dark {
+      color: var(--color-white);
+    }
+
+    .section p {
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-slate-text-secondary);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .lead {
+      font-size: var(--text-lead);
+      color: var(--color-slate-text-secondary);
+      margin: 0;
+    }
+
+    .page-h1 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(2rem, 1.5rem + 2vw, var(--text-h1));
+      line-height: var(--line-height-heading);
+      margin: 0 0 var(--space-5) 0;
+    }
+
+    /* ---------------------------------------------------------------
+       Post-Title-Case correction: after normalizing to Title Case, the
+       trailing clause ("That Connect Growth, Data, and Operations.") is
+       measurably WIDER in this font than "...Healthcare Systems That"
+       combined (886px vs. 867px at 1440px, measured directly) — so no
+       container max-width value can make the line wrap after "Systems"
+       without also pulling "That" onto the same line first; a
+       width-based approach can't produce the desired break at all here.
+       Instead, .page-h1__lead--row2 forces just the trailing clause
+       onto its own block-level row (the same display:block technique
+       already used for Evidence's/Evidence Trail's/Home's two-row H1s),
+       leaving "I Build" + "AI-Powered Healthcare Systems" inline
+       together on row 1. No <br>, no width tuning: each row still wraps
+       its own text naturally if a viewport is too narrow for it.
+       --------------------------------------------------------------- */
+    .page-h1__lead--row2 {
+      display: block;
+    }
+
+    /* ---------------------------------------------------------------
+       Three-fragment two-tone H1 — Portability & Lessons'/Methodology &
+       Evaluation's inline convention extended to a middle fragment: all
+       three spans share size/weight/line-height, color is the only
+       distinction, and the sentence wraps as one continuous flow rather
+       than fixed lines.
+       --------------------------------------------------------------- */
+    .page-h1__lead {
+      color: var(--color-sovereign-navy);
+    }
+
+    .page-h1__continuation {
+      color: var(--color-quantum-electric-blue);
+    }
+
+    .section--dark {
+      background: var(--color-sovereign-navy);
+      border-bottom: none;
+    }
+
+    .section--dark :focus-visible {
+      outline-color: var(--color-quantum-electric-blue);
+    }
+
+    .on-dark-body {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    /* ---------------------------------------------------------------
+       Solve for X's concluding phrase — bold + white against the
+       section's muted on-dark body color, the same "bold white text on
+       navy" device Home already uses (.lead-sentence) for its own
+       section-opening emphasis. Inline only; not a separate card,
+       banner, or pull-quote.
+       --------------------------------------------------------------- */
+    .throughline-conclusion {
+      font-weight: 700;
+      color: var(--color-white);
+    }
+
+    /* ---------------------------------------------------------------
+       Editorial row — site-wide label-rail-plus-body device.
+       --------------------------------------------------------------- */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--space-4);
+    }
+
+    .editorial__label .section-heading {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 900px) {
+      .editorial {
+        grid-template-columns: minmax(160px, 20%) minmax(0, 1fr);
+        column-gap: var(--space-6);
+        align-items: start;
+      }
+
+      .editorial--continuation .editorial__body {
+        grid-column: 2;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Hero — single-column, left-aligned composition (headshot -> H1 ->
+       supporting copy -> capability summary -> CTA row). Round 2: the
+       hero-intro column no longer carries its own max-width — the H1
+       and capability summary use the full standard .shell content width
+       (already bounded at 1280px), not a narrow column left over from
+       the original split media/text Hero. Left alignment comes from
+       normal block flow, not a width cap.
+       Prose-measure correction: the supporting paragraph is the
+       exception — it carries the shared .measure class (68ch, same rule
+       Solve for X's body copy uses below) so it reads as comfortable
+       prose rather than stretching to the H1's full width. Same shared
+       class as Contact's Hero paragraph, for a consistent measure across
+       both pages.
+       --------------------------------------------------------------- */
+    .section--hero {
+      padding-top: clamp(var(--space-6), 8vw, var(--space-8));
+      padding-bottom: clamp(var(--space-7), 8vw, var(--space-8));
+    }
+
+    /* ---------------------------------------------------------------
+       Headshot — restrained circular crop, modest and left-aligned
+       above the H1. Round 2: rendered diameter reduced 20% from Round
+       1's clamp(112px, 11vw, 176px) — same shadow recipe already used
+       sitewide (.finding-card, Go Deeper hover states' underlying
+       surface), no glow/decorative frame, crop/positioning unchanged.
+       --------------------------------------------------------------- */
+    .hero-photo {
+      width: clamp(90px, 8.8vw, 141px);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--color-slate-border);
+      box-shadow: 0 1px 2px rgba(11, 25, 44, 0.04), 0 16px 40px rgba(11, 25, 44, 0.06);
+      margin: 0 0 var(--space-5) 0;
+    }
+
+    .hero-photo__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------------------------------------------------------------
+       Capability summary — small, subordinate, in the frozen copy's own
+       pipe-separated format. Existing type/color tokens only
+       (text-small, slate-text-secondary); not a badge cloud or card
+       set. Round 2: no per-element width cap — uses the same full
+       container width as the H1/supporting paragraph above it.
+       --------------------------------------------------------------- */
+    .hero-capabilities {
+      font-size: var(--text-small);
+      font-weight: 700;
+      color: var(--color-slate-text-secondary);
+      margin: var(--space-4) 0 0 0;
+    }
+
+    /* ---------------------------------------------------------------
+       Hero CTA row — Contact Ken (primary, Electric Blue fill / Navy
+       text — the same accessible pairing already used for the header's
+       Contact Ken CTA) plus two restrained secondary/ghost actions.
+       Page-scoped: does not touch the shared .cta class in
+       treatments.css.
+       --------------------------------------------------------------- */
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      min-height: 44px;
+      padding: var(--space-2) var(--space-4);
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .hero-cta--primary {
+      background: var(--color-quantum-electric-blue);
+      color: var(--color-sovereign-navy);
+    }
+
+    .hero-cta--primary:hover,
+    .hero-cta--primary:active {
+      background: var(--color-navy-hover);
+      color: var(--color-quantum-electric-blue);
+    }
+
+    .hero-cta--secondary {
+      background: transparent;
+      border: 1px solid var(--color-slate-border);
+      color: var(--color-sovereign-navy);
+    }
+
+    .hero-cta--secondary:hover,
+    .hero-cta--secondary:focus-visible {
+      border-color: var(--color-sovereign-navy);
+      background: var(--color-steel-gray-surface);
+    }
+
+    /* ---------------------------------------------------------------
+       Experience Across the System — four parallel domains. Same
+       bounded, elevated, equal-width-panel geometry as Home's Golden
+       Thread (steel-gray-surface card, border-left dividers between
+       columns), deliberately without that component's connecting rail
+       or ticks: these domains do not flow into one another.
+       --------------------------------------------------------------- */
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--color-steel-gray-surface);
+      border-radius: 16px;
+      padding: var(--space-6) var(--space-5);
+      column-gap: var(--space-4);
+    }
+
+    .domain-panel {
+      padding-left: var(--space-4);
+      border-left: 1px solid var(--color-slate-border);
+    }
+
+    .domain-panel:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .domain-panel__num {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: var(--space-2);
+    }
+
+    .domain-panel__title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-lead);
+      line-height: var(--line-height-heading-sub);
+      color: var(--color-sovereign-navy);
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    .domain-panel__body {
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    .domain-panel__body:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 899px) {
+      .domain-grid {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-5);
+        padding: var(--space-5) var(--space-4);
+      }
+
+      /* Stacked mobile fallback intentionally uses a plain top-border
+         divider, not a left rail/tick — a connecting-line treatment
+         here would reintroduce the sequence implication the desktop
+         layout deliberately avoids. */
+      .domain-panel {
+        padding: var(--space-5) 0 0 0;
+        border-left: none;
+        border-top: 1px solid var(--color-slate-border);
+      }
+
+      .domain-panel:first-child {
+        padding-top: 0;
+        border-top: none;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       How I Work — Methodology & Evaluation's/Portability & Lessons'
+       process-chain grammar, reused unmodified (6 stages instead of 7,
+       no result-tag treatment on the final node — EVALUATE here is a
+       step in an operating model, not a benchmark outcome).
+       --------------------------------------------------------------- */
+    .process {
+      position: relative;
+      background: var(--color-steel-gray-surface);
+      border-radius: 16px;
+      padding: var(--space-6) var(--space-5) var(--space-5);
+    }
+
+    .process__rail {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      height: 20px;
+      margin-bottom: var(--space-4);
+    }
+
+    .process__rail-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: var(--color-sovereign-navy);
+      transform: translateY(-50%);
+    }
+
+    .process__tick {
+      justify-self: center;
+      align-self: center;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--color-sovereign-navy);
+      z-index: 1;
+    }
+
+    .process__grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: var(--space-3);
+    }
+
+    .process__node {
+      padding-left: var(--space-3);
+      border-left: 1px solid var(--color-slate-border);
+    }
+
+    .process__node:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .process__label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-small);
+      line-height: 1.3;
+      color: var(--color-sovereign-navy);
+    }
+
+    @media (max-width: 899px) {
+      .process {
+        padding: var(--space-5) var(--space-4);
+      }
+
+      .process__rail {
+        display: none;
+      }
+
+      .process__grid {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-4);
+        border-left: 2px solid var(--color-sovereign-navy);
+      }
+
+      .process__node {
+        position: relative;
+        padding: 0 0 0 var(--space-4);
+        border-left: none;
+      }
+
+      .process__node:first-child {
+        padding-left: var(--space-4);
+      }
+
+      .process__node::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 0.35em;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--color-sovereign-navy);
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Professional Proof — Home's Go Deeper index-list grammar, dark
+       variant (this section sits on a navy background).
+       --------------------------------------------------------------- */
+    .index-list {
+      list-style: none;
+      margin: var(--space-5) 0 var(--space-4) 0;
+      padding: 0;
+    }
+
+    .index-list--on-dark .index-list__item {
+      border-top: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .index-list--on-dark .index-list__item:last-child {
+      border-bottom: 1px solid var(--color-navy-muted-on-dark);
+    }
+
+    .index-list--on-dark .index-list__item a {
+      color: var(--color-white);
+    }
+
+    .index-list--on-dark .index-list__num,
+    .index-list--on-dark .index-list__desc,
+    .index-list--on-dark .index-list__arrow {
+      color: var(--color-navy-muted-on-dark);
+    }
+
+    .index-list--on-dark .index-list__item a:hover .index-list__arrow,
+    .index-list--on-dark .index-list__item a:focus-visible .index-list__arrow {
+      color: var(--color-white);
+    }
+
+    .index-list__item a {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      text-decoration: none;
+      color: var(--color-sovereign-navy);
+      min-height: 44px;
+    }
+
+    .index-list__num {
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-h3);
+      color: var(--color-slate-text-secondary);
+      font-variant-numeric: tabular-nums;
+      min-width: 2ch;
+    }
+
+    .index-list__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .index-list__item a:hover .index-list__title,
+    .index-list__item a:focus-visible .index-list__title {
+      text-decoration: underline;
+    }
+
+    .index-list__title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: var(--text-body);
+    }
+
+    .index-list__desc {
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      color: var(--color-slate-text-secondary);
+    }
+
+    .index-list__arrow {
+      flex-shrink: 0;
+      color: var(--color-slate-text-secondary);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .index-list__item a:hover .index-list__arrow,
+    .index-list__item a:focus-visible .index-list__arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .index-list__arrow {
+        transition: none !important;
+      }
+    }
+
+    /* ---------------------------------------------------------------
+       Solving Problems That Matter — closing section; cancels the
+       shared footer's own top margin for clean footer continuity, same
+       technique as other pages' final light section.
+       --------------------------------------------------------------- */
+    .section--closing {
+      padding-bottom: clamp(var(--space-8), 10vw, calc(var(--space-8) * 1.2));
+      margin-bottom: calc(-1 * var(--space-8));
+    }
+
+    .section--closing .cta {
+      margin-top: var(--space-2);
+      /* Round 1: Electric Blue fill / Navy text (the same accessible
+         pairing as the header's and Hero's Contact Ken CTAs), scoped to
+         this section so the shared .cta class in treatments.css — used
+         elsewhere — keeps its default navy-fill treatment. */
+      background: var(--color-quantum-electric-blue);
+      color: var(--color-sovereign-navy);
+    }
+
+    .section--closing .cta:hover,
+    .section--closing .cta:active {
+      background: var(--color-navy-hover);
+      color: var(--color-quantum-electric-blue);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</Layout>
