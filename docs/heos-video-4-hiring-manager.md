@@ -1,47 +1,34 @@
 # HEOS Evidence Engine — Video 4: Hiring Manager / Judgment Under Failure
 
-**Status:** Workstream E — Final / Freeze-Ready
-**Core question:** What does this person do when he's wrong?
-**Target length:** approximately 105–120 seconds
+**Status:** FINAL — PASS / FROZEN (Workstream G calibration revision)
+**Core question:** What does Ken do when the evidence doesn't give him the answer he wanted?
+**Target length:** approximately 48–56 seconds
 
 ## Full Script
 
-At one point while building the HEOS Evidence Engine, I almost invalidated my own experiment.
+The Evidence Engine gave me two very different results.
 
-I had created a test scenario, and the data didn't behave the way I had designed it to.
+It surfaced an estimated $251,000 collections opportunity. But when I tested it against the two problems I'd deliberately hidden in Harbor Ridge, it missed both. The healthy control stayed clean.
 
-I had a command ready to start searching for a different version of the data that would give me the result I wanted.
+So the finding stayed. And so did the misses.
 
-And then I caught what I was doing.
+By then I knew the hidden answers. I could keep tuning the system and testing it again, but at some point I wouldn't know whether it was actually getting better, or just getting better at this one test.
 
-The data had given me a legitimate failure. Searching until I found a version that passed wouldn't have fixed the problem. It would have hidden it.
+So I closed that round of testing and left the results exactly where they landed.
 
-So I stopped the command before it ran, went back, and fixed the validation rule that was actually wrong.
+The next version gets a fresh test with the answers genuinely hidden again. That way, I'll know if it got better.
 
-That moment ended up representing something much larger about this project.
+## The One Sentence the Viewer Should Remember
 
-I built Harbor Ridge Behavioral Health to test whether the HEOS Evidence Engine could find business problems I had deliberately hidden in connected healthcare data.
+"So the finding stayed. And so did the misses."
 
-The first version didn't find them.
+## Guardrails
 
-I studied why, built a more systematic way for the AI to investigate the business, and tested it again without giving it the answers.
-
-The second version still didn't find the two hidden problems. In the project's formal scoring, both scenarios were classified as MISS, while the Healthy Baseline was CLEAN, meaning the system appropriately avoided inventing a major problem where I hadn't planted one.
-
-But something interesting had happened.
-
-In the first scenario, the real problem was in paid search, but the AI elevated a legitimate problem in professional outreach. In the second, the real problem was in professional outreach, but it elevated a legitimate problem in paid search.
-
-It wasn't making things up. It was finding real problems, but prioritizing the wrong ones.
-
-At that point, I had a decision to make.
-
-I could keep redesigning the experiment until I finally got a passing result. But by then, I knew the hidden answers. Every new attempt risked being shaped, even unintentionally, by what I already knew.
-
-So I closed that phase with the limitation exposed and moved the project forward.
-
-That wasn't giving up on the problem. It was refusing to force an answer from a test that was becoming less fair every time I touched it. The next serious attempt needs a fresh test where the answer is genuinely hidden again.
-
-Because in a real organization, I won't always be right the first time. What I can control is what I do next: recognize the mistake, protect the evidence, fix what I can justify, and know the difference between persistence and forcing the answer I want.
-
-That's the judgment I would bring to your organization.
+- Harbor Ridge Behavioral Health remains the synthetic evaluation testbed, not a real organization.
+- The ~$251,000 result is an estimated additional collections opportunity under the frozen OON/INN realization-rate condition — not guaranteed recovered revenue, and not benchmark success. Video 1 owns the full derivation of this figure; this script references it rather than re-deriving it.
+- The governing V0.2 result is preserved in full factual substance without requiring the formal labels: both deliberately hidden problems were missed, and the healthy control stayed clean. Neither the observed finding nor the benchmark misses erase or rescue the other.
+- Healthy Baseline remaining clean does not establish general reliability.
+- The seed-search episode (a validation problem, a rerun command stopped before execution, the actual validation rule found and corrected) is deliberately absent from this script. It remains true and documented on the surrounding Methodology & Evaluation page, immediately before and after this video's placement — retelling it here was found to duplicate the page and increase cognitive load without adding persuasive value.
+- "Closed that round of testing" specifically describes the end of that evaluation phase, not abandonment of the Evidence Engine's development. V0.3 is deferred, pending a genuinely fresh hidden evaluation — not abandoned.
+- Nothing here claims production deployment, autonomous diagnosis, general reliability, or demonstrated performance in a real healthcare organization.
+- This version compresses Video 4 to a single primary narrative — the coexistence of a real observed finding and real benchmark misses, and what Ken did with both — rather than two sequential episodes (the seed-search incident plus the formal evaluation). The viewer is intended to infer disciplined judgment, intellectual honesty, and comfort with mixed evidence from the decisions shown, without those qualities being stated directly. Supersedes the original Workstream E version.
