@@ -1,0 +1,18 @@
+﻿{
+  "scenario_1": {
+    "planted_problem": "paid-search inquiry quality",
+    "result": "MISS"
+  },
+  "scenario_2": {
+    "planted_problem": "professional-outreach quality",
+    "result": "MISS"
+  },
+  "healthy_baseline": {
+    "result": "CLEAN"
+  },
+  "observed_finding": {
+    "label": "Observed Finding",
+    "value_usd_estimate": 251000,
+    "description": "Estimated additional collection opportunity if out-of-network claims had realized at the in-network rate"
+  }
+}
