@@ -26,6 +26,7 @@
 // <li class="index-list__item"> following the existing Full Methodology /
 // Portability & Lessons pattern.
 import Layout from '../components/Layout.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 
 const sequenceSteps = [
   'Ground Truth frozen',
@@ -60,10 +61,7 @@ const sequenceSteps = [
             declining admissions automatically meant an admissions problem.
           </p>
           <div class="hero-row__media">
-            <div class="video-frame" role="img" aria-label="Video placeholder: Video 2, Technical Practitioner — reserved, not yet produced">
-              <span class="video-frame__play" aria-hidden="true"></span>
-              <span class="video-frame__caption">Video 2 — Technical Practitioner</span>
-            </div>
+            <YouTubeEmbed id="ndh2akmE0T8" title="Rigor Before Results" loading="eager" />
           </div>
         </div>
       </div>
@@ -246,6 +244,16 @@ const sequenceSteps = [
               <span class="index-list__content">
                 <span class="index-list__title">Portability &amp; Lessons</span>
                 <span class="index-list__desc">the closing diagnostic's full reasoning</span>
+              </span>
+              <span class="index-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="index-list__item">
+            <a href="/downloads/HEOS-Evidence-Engine-The-Connection-Problem.pdf" target="_blank" rel="noopener noreferrer">
+              <span class="index-list__num" aria-hidden="true">03</span>
+              <span class="index-list__content">
+                <span class="index-list__title">The Connection Problem</span>
+                <span class="index-list__desc">the executive whitepaper (PDF, opens in a new tab)</span>
               </span>
               <span class="index-list__arrow" aria-hidden="true">→</span>
             </a>

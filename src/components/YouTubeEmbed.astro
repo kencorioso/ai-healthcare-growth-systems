@@ -1,0 +1,42 @@
+---
+// Responsive 16:9 YouTube embed (Workstream C2). Uses the privacy-enhanced
+// youtube-nocookie.com domain. Videos are hosted on YouTube as Unlisted; the
+// `id` is the video ID from the youtu.be link. `title` is the accessible name
+// of the iframe, so keep it equal to the video's canonical title.
+interface Props {
+  id: string;
+  title: string;
+  loading?: 'lazy' | 'eager';
+}
+const { id, title, loading = 'lazy' } = Astro.props;
+---
+
+<div class="yt-embed">
+  <iframe
+    src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
+    title={title}
+    loading={loading}
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<style>
+  .yt-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--color-sovereign-navy);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .yt-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
