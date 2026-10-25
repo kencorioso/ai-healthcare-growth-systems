@@ -281,12 +281,10 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
          (text-small, inherited before from .site-footer__inner; now set
          explicitly since a <button> doesn't reliably inherit ambient
          font-size the way a <span> did).
-         Not yet a real link: KenCorioso.com isn't live, so this is a
-         plain <button type="button"> rather than an <a> with a
-         placeholder/fake href — semantically honest (no dead link),
-         still focusable and keyboard-operable, still reads as a button.
-         Swap the element to <a href="https://kencorioso.com"> once that
-         site ships; this class's styling shouldn't need to change.
+         Links to this site's /contact page while KenCorioso.com isn't
+         live (Revision 18 decision). Swap the href to
+         https://kencorioso.com once that site ships; this class's
+         styling shouldn't need to change.
          --------------------------------------------------------------- */
       .site-footer__name {
         display: inline-flex;
@@ -302,6 +300,7 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
         font-size: var(--text-small);
         color: var(--color-sovereign-navy);
         background: var(--color-quantum-electric-blue);
+        text-decoration: none;
         cursor: pointer;
       }
 
@@ -419,7 +418,7 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <button type="button" class="site-footer__name">Ken Corioso</button>
+        <a href="/contact" class="site-footer__name">Ken Corioso</a>
         <span>Harbor Ridge V1 — a synthetic case study, no real patient data used in this version.</span>
       </div>
     </footer>
