@@ -56,6 +56,7 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <style>
       * {
         box-sizing: border-box;
@@ -310,14 +311,118 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
         color: var(--color-quantum-electric-blue);
       }
 
+      /* ---------------------------------------------------------------
+         Mobile navigation (<= 640px). The menu collapses behind a
+         hamburger toggle when JavaScript is available (the `js` class is
+         set in <head>); without JS the full nav simply stays visible, so
+         navigation never depends on the script. Bar layout: brand left,
+         Contact Ken + toggle right, nav panel full-width underneath.
+         --------------------------------------------------------------- */
+      .nav-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 1px solid var(--color-quantum-electric-blue);
+        border-radius: 4px;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .nav-toggle__bars,
+      .nav-toggle__bars::before,
+      .nav-toggle__bars::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--color-white);
+        border-radius: 1px;
+        transition: transform 150ms ease, background-color 150ms ease;
+      }
+
+      .nav-toggle__bars {
+        position: relative;
+      }
+
+      .nav-toggle__bars::before,
+      .nav-toggle__bars::after {
+        content: '';
+        position: absolute;
+        left: 0;
+      }
+
+      .nav-toggle__bars::before {
+        top: -6px;
+      }
+
+      .nav-toggle__bars::after {
+        top: 6px;
+      }
+
+      .nav-toggle[aria-expanded='true'] .nav-toggle__bars {
+        background: transparent;
+      }
+
+      .nav-toggle[aria-expanded='true'] .nav-toggle__bars::before {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .nav-toggle[aria-expanded='true'] .nav-toggle__bars::after {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nav-toggle__bars,
+        .nav-toggle__bars::before,
+        .nav-toggle__bars::after {
+          transition: none;
+        }
+      }
+
       @media (max-width: 640px) {
         .site-header__inner {
-          justify-content: center;
-          text-align: center;
+          gap: var(--space-2) var(--space-3);
+        }
+
+        .site-header__brand {
+          order: 1;
+        }
+
+        .site-header__cta {
+          order: 2;
+        }
+
+        .js .nav-toggle {
+          display: inline-flex;
+          order: 3;
+        }
+
+        .site-header__inner nav {
+          order: 4;
+          flex: 1 1 100%;
+        }
+
+        .js .site-header:not([data-nav-open]) .site-header__inner nav {
+          display: none;
         }
 
         .site-nav {
-          justify-content: center;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          gap: 0;
+          padding: var(--space-2) 0;
+          border-top: 1px solid var(--color-slate-border);
+        }
+
+        .site-nav li {
+          width: 100%;
+        }
+
+        .site-nav a {
+          width: 100%;
         }
       }
 
@@ -371,7 +476,7 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
 
       @media (max-width: 640px) {
         .site-header__cta {
-          margin: 0 auto;
+          margin: 0 0 0 auto;
         }
       }
     </style>
@@ -382,7 +487,16 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
         <a class="site-header__brand" href="/" aria-label="HEOS — Home">
           <Wordmark name="HEOS" isolated />
         </a>
-        <nav aria-label="Primary">
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Menu"
+        >
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+        </button>
+        <nav aria-label="Primary" id="primary-nav">
           <ul class="site-nav">
             {navItems.map((item) => (
               <li class:list={['site-nav__item', { 'site-nav__item--has-children': item.children }]}>
@@ -412,6 +526,28 @@ const isParentActive = (item: { href: string; children?: { href: string }[] }) =
           Contact Ken
         </a>
       </div>
+      <script is:inline>
+        (function () {
+          var header = document.querySelector('.site-header');
+          var toggle = document.querySelector('.nav-toggle');
+          if (!header || !toggle) return;
+          function setOpen(open) {
+            if (open) header.setAttribute('data-nav-open', '');
+            else header.removeAttribute('data-nav-open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+          }
+          toggle.addEventListener('click', function () {
+            setOpen(!header.hasAttribute('data-nav-open'));
+          });
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && header.hasAttribute('data-nav-open')) {
+              setOpen(false);
+              toggle.focus();
+            }
+          });
+        })();
+      </script>
     </header>
 
     <slot />
