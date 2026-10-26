@@ -1,5 +1,7 @@
 # Screenshots
 
+> **Status: HEOS V1 closed October 25, 2026.** This directory contains only this README. The sections below are the original plan.
+
 This directory contains visual documentation of major milestones in the AI Healthcare Growth Systems project.
 
 Screenshots will be captured throughout development to provide evidence of the build process and support the final case study and portfolio presentation.

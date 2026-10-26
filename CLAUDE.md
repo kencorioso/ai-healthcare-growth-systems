@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Status
 
-This repository is currently in the **planning/architecture phase**, not the build phase. Every subdirectory (`analysis/`, `dashboard/`, `data/`, `docs/`, `prompts/`, `screenshots/`, `workflow/`) presently contains only a `README.md` describing what will eventually go there — there is no application code, no dependency manifest (no `requirements.txt`/`pyproject.toml`/`package.json`), and no test suite yet. `harbor-ridge-test.ipynb` is the only executable artifact, a scratch notebook exercising the Anthropic Python SDK (`anthropic.Anthropic()` + `dotenv`).
+**HEOS V1 is complete and CLOSED (October 25, 2026).** The repository contains the Harbor Ridge data model and generator (`schema.sql`, `generate_synthetic_data.py`, `validate_*.py`, `test_constraints.py`), the frozen evaluation records in `docs/`, and the public Astro site (`src/`, `public/`, `package.json`; `npm run build`) deployed to heosevidenceengine.com. See `README.md` and `docs/` for the governing record. Do not reopen frozen results, scope or claims without a new versioned decision.
 
-Before assuming a build/lint/test command exists, check whether it has actually been added — the "Planned Tools" sections in each README describe intent, not current state.
+Some subdirectory READMEs (`analysis/`, `dashboard/`, `prompts/`, `workflow/`, `screenshots/`) are historical planning notes. A dashboard and an automated/n8n workflow were never built. Check the actual files before assuming a build, lint or test command exists; there is no test runner beyond the Python validation scripts and `npm run build`.
 
 ## What This Project Is
 

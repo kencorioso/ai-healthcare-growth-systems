@@ -1,5 +1,7 @@
 # Prompts
 
+> **Status: HEOS V1 closed October 25, 2026.** The frozen blind discovery procedure is in `docs/phase-d-v0.2-discovery-procedure.md`. This directory holds only the original plan.
+
 This directory documents the AI prompts developed and tested as part of the AI Healthcare Growth Systems project.
 
 The goal is not to create a single "perfect prompt." Instead, this directory will show how prompts evolve as the system is tested against different healthcare marketing scenarios and analytical problems.

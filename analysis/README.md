@@ -1,5 +1,7 @@
 # Analysis
 
+> **Status: HEOS V1 closed October 25, 2026.** The analysis was carried out through the blind evaluation sessions and scored under the frozen protocol; see `docs/phase-d-v0.2-evaluation-summary.md`. The sections below are the original plan.
+
 This directory contains the analytical work used to transform healthcare marketing data into actionable business insights.
 
 The purpose of the analysis layer is to determine what the data actually shows before asking AI to interpret why a change may have occurred or what should be investigated next.

@@ -1,5 +1,7 @@
 # Workflow
 
+> **Status: HEOS V1 closed October 25, 2026.** No automated workflow was built, and n8n automation was removed from scope. The sections below are the original plan.
+
 This directory documents the workflows that connect data, analytics, AI, and executive reporting within the AI Healthcare Growth Systems project.
 
 The goal is to build repeatable processes that transform healthcare marketing data into useful decision support.

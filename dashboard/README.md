@@ -1,5 +1,7 @@
 # Dashboard
 
+> **Status: HEOS V1 closed October 25, 2026.** No standalone dashboard was built; the public site (heosevidenceengine.com) took its place. The sections below are the original plan.
+
 This directory documents the executive dashboard developed for the AI Healthcare Growth Systems project.
 
 The dashboard will translate healthcare marketing and acquisition data into a concise view of business performance and areas requiring investigation.
