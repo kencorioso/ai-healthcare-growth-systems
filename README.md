@@ -60,7 +60,7 @@ What to expect:
 
 ## Not included in this repository
 
-- The original raw AI analysis outputs from the blind sessions (for example `scenario1_claude_analysis_v0.1.md` and the three V0.2 outputs). They are named in the run manifest and evaluation summaries, but were not committed.
+- The original V0.1 raw output (`scenario1_claude_analysis_v0.1.md`), which produced the roughly $251,000 estimate. It is named in the evaluation summaries but was not committed and could not be located. The three V0.2 raw outputs and the Neutral Analyst Brief **are** published, unedited, in [`docs/blind-test-outputs/`](docs/blind-test-outputs/).
 - Model and version identifiers for the blind sessions.
 - A dashboard, an automated workflow or any n8n automation. These appeared in the original plan and were not built. The public site replaced the dashboard; n8n was removed from scope.
 
